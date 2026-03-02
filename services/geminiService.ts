@@ -1,10 +1,16 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 import { ChatMessage } from "../types";
 
-// Initialize Gemini Client
-// In a real scenario, ensure process.env.API_KEY is defined.
-const apiKey = process.env.API_KEY || ''; 
-const ai = new GoogleGenAI({ apiKey });
+// Initialize Gemini Client lazily to prevent crash on load if API key is missing
+let ai: GoogleGenAI | null = null;
+
+const getAIClient = () => {
+  if (!ai) {
+    const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+    ai = new GoogleGenAI({ apiKey });
+  }
+  return ai;
+};
 
 // System instruction to give the AI a persona
 const SYSTEM_INSTRUCTION = `
@@ -23,7 +29,8 @@ let chatSession: Chat | null = null;
 
 export const initializeChat = () => {
   try {
-    chatSession = ai.chats.create({
+    const client = getAIClient();
+    chatSession = client.chats.create({
       model: 'gemini-3-flash-preview',
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,

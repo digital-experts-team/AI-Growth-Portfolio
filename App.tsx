@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Lenis from 'lenis';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Background } from './components/Background';
@@ -14,16 +15,16 @@ function App() {
 
   useEffect(() => {
     // Initialize smooth scrolling
-    // @ts-ignore
-    if (window.Lenis) {
-      // @ts-ignore
-      const lenis = new window.Lenis();
-      function raf(time: number) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+    const lenis = new Lenis();
+    function raf(time: number) {
+      lenis.raf(time);
       requestAnimationFrame(raf);
     }
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
   }, []);
 
   return (
