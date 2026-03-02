@@ -1,11 +1,21 @@
-<div align="center">
+# Lumina Portfolio
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A high-performance, visually stunning UI/UX designer portfolio featuring dynamic animations, interactive elements, and a Gemini-powered AI assistant.
 
-  <h1>Built with AI Studio</h2>
+## Features
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Dynamic Animations**: Smooth scrolling with Lenis and motion effects with Framer Motion.
+- **AI Assistant**: Powered by Gemini 3 Flash for interactive visitor engagement.
+- **Modern Tech Stack**: React, TypeScript, Tailwind CSS, and Vite.
+- **Responsive Design**: Fully optimized for all screen sizes.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Setup
 
-</div>
+1. Clone the repository.
+2. Install dependencies: `npm install`.
+3. Set up your environment variables (see `.env.example`).
+4. Run the development server: `npm run dev`.
+
+## Environment Variables
+
+- `GEMINI_API_KEY`: Your Google Gemini API key.
