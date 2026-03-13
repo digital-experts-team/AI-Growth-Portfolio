@@ -149,120 +149,96 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Sonic Defi",
-    client: "Sonic",
-    category: "DeFi / Web3",
+    title: "Zoople Technologies",
+    client: "Zoople",
+    category: "Sales Automation",
     year: "2024",
-    themeColor: "#b45309", // Bronze
-    image: "https://i.ibb.co/7dpvvmHD/Sonic.png",
-    description: "Transforming a generic DeFi fork into a premium, trusted ICP ecosystem.",
-    tags: ["DeFi", "Web3", "Branding", "UX Strategy"],
+    themeColor: "#10b981", // Emerald
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+    logo: "",
+    description: "Automating college partnerships and long evaluation cycles to scale B2B sales.",
+    tags: ["Sales Automation", "CRM", "n8n", "AI Workflows"],
     story: {
-      challenge: "Generic UI with no brand identity and high barriers for newcomers.",
-      solution: "A trusted, branded, intuitive DeFi platform with modular workflows.",
-      process: "Discovery → UX → UI → Branding → Delivery.",
-      impact: "Launched as a premium suite with significantly reduced transaction errors.",
-      timeline: "4 Months",
-      role: "Head of Design",
-      stats: [] 
+      challenge: "Sales process for institutional partnerships was breaking under volume with fragmented leads and stalled evaluations.",
+      solution: "Unified CRM pipeline with n8n, AI-assisted instant replies, and automated stalled-deal watchers.",
+      process: "Lead Unification → Structured Sequences → Stalled-Deal Watcher → AI Note Summaries.",
+      impact: "Response time dropped to <10 mins, proposals increased by 24%, and 19% of stalled deals were revived.",
+      timeline: "3 Months",
+      role: "AI Automation Consultant",
+      stats: [
+        { label: "Response Time", value: "< 10m" },
+        { label: "Proposals", value: "+24%" }
+      ]
     },
     sections: [
       {
         id: "intro",
-        title: "Senior Product Designer",
+        title: "Client Background",
         layout: 'normal',
-        content: "Role: Full Ownership (Discovery → UX → UI → Branding → Delivery)\n\nBefore onboarding me to their team they had a forked DeFi dashboard — technically functional but:\n• Generic UI with no brand identity\n• Cluttered workflows\n• High barrier for newcomers unfamiliar with DeFi language\n• Lacked visual direction to position Sonic as a 'premium, future-ready ICP ecosystem'\n\n⚠️ Impact: Sonic risked being seen as 'just another fork' rather than a leading DeFi product."
+        content: "Zoople Technologies is a Kochi‑based IT training institute offering classroom and online programs in data analytics, full‑stack development, UI/UX, and digital marketing.\n\nAlongside retail students, Zoople actively builds institutional partnerships with colleges and training centers for custom batches, campus programs, and MoUs."
       },
       {
-        id: "goals",
-        title: "The Goal",
+        id: "problem",
+        title: "The Problem: A Leaky Sales Funnel",
         layout: 'list',
-        content: "They want to move beyond a generic forked DEX into a trusted, branded, intuitive DeFi platform.",
+        content: "Zoople wanted to scale college partnerships across Kerala, but their sales process was breaking under volume:",
         items: [
-          { text: "Reduce friction for first-time users while keeping pro-level flexibility" },
-          { text: "Establish a design foundation for future features (staking, governance, yield farming)" }
+          { text: "Fragmented lead capture: Leads from workshops, cold emails, LinkedIn, and forms were scattered across sheets, inboxes, and WhatsApp." },
+          { text: "Slow, inconsistent follow‑up: Response times varied wildly depending on counsellor availability." },
+          { text: "Long, unstructured evaluations: 4–8 week evaluation cycles lacked standard follow-up sequences, causing deals to fade away." },
+          { text: "No visibility into stalled colleges: Promising conversations died quietly because there was no central way to track inactivity." }
         ]
       },
       {
-        id: "challenge",
-        title: "The Challenge",
+        id: "how-we-built-it-tech",
+        title: "Under the Hood: Technical Architecture",
+        layout: 'list',
+        content: "We built a headless automation engine using n8n to orchestrate data between their lead sources, CRM, and AI models.",
+        items: [
+          { text: "Event-Driven Triggers: Webhooks catch incoming leads from Typeform, Facebook Ads, and website forms in real-time." },
+          { text: "Email Parsing: IMAP nodes monitor shared inboxes, triggering workflows when a college stakeholder replies." },
+          { text: "LLM Data Extraction: OpenAI nodes process unstructured email threads and raw meeting notes, using strict JSON schemas to extract Stakeholders, Objections, and Next Steps." },
+          { text: "CRM Synchronization: REST API calls automatically create/update Organization and Deal records, ensuring the database is always the single source of truth." },
+          { text: "CRON Job Watchers: Scheduled workflows run daily at 8 AM, querying the CRM for deals with `last_activity_date < NOW() - 14 days` to trigger revival sequences." }
+        ]
+      },
+      {
+        id: "how-we-built-it-layman",
+        title: "In Plain English: What This Actually Means",
         layout: 'grid',
         items: [
-          { title: "Simplify", text: "Simplify complex DeFi actions (swap, pools, staking)", icon: "Zap" },
-          { title: "Trust", text: "Build trust + clarity for first-time ICP blockchain user", icon: "Target" },
-          { title: "Differentiate", text: "Differentiate Sonic visually + experientially from its forked roots", icon: "Lightbulb" }
+          { title: "The Digital Receptionist", text: "Instead of a human manually checking 5 different platforms for new leads, the system instantly catches every inquiry and logs it perfectly into the database.", icon: "Zap" },
+          { title: "The AI Ghostwriter", text: "When a lead comes in, the AI instantly drafts a personalized email based on whether the person is a Principal (focusing on fees) or an HOD (focusing on curriculum), leaving it in drafts for the rep to just click 'Send'.", icon: "Lightbulb" },
+          { title: "The Virtual Manager", text: "Every morning, the system checks if any college hasn't been contacted in 14 days. It taps the sales rep on the shoulder with a task and a pre-written follow-up email to revive the deal.", icon: "Users" },
+          { title: "The Admin Assistant", text: "Sales reps just dump messy, bulleted notes after a call. The AI cleans it up, organizes it into categories, and files it in the CRM automatically.", icon: "Layout" }
         ]
       },
       {
-        id: "my-role",
-        title: "My Role – Full Design Ownership",
-        layout: 'list',
-        content: "This was a high-impact role where the founders wanted someone who could take complete ownership from inception → strategy → design → delivery while directly working with them.",
-        items: [
-            { text: "Shape both user experience and visual brand direction from the ground up" },
-            { text: "Act as a bridge between product vision and dev execution" },
-            { text: "Led the entire design lifecycle" },
-            { text: "Defined product design strategy + information architecture" },
-            { text: "Created end-to-end UX flows (onboarding → swap → liquidity → governance)" },
-            { text: "Designed and delivered the brand identity alongside the product" }
-        ]
-      },
-      {
-        id: "process",
-        title: "Steps Taken",
+        id: "how-it-runs",
+        title: "How It Runs Day-to-Day",
         layout: 'process',
         items: [
-            { title: "Research", text: "Benchmarked against Uniswap, PancakeSwap, ICP Swap. Analyzed friction points in onboarding + liquidity pool setup. User Interviews and Collected feedback from ICP community." },
-            { title: "Interview & Focus Groups", text: "User surveys and varied Focus group interviews across our user base,community and even people who have never touched Defi " },
-            { title: "Key Design Metrics", text: "Iterated onboarding → cut clicks by 40%. Simplified swap confirmations → reduced errors significantly." }
+          { title: "1. Instant Capture & Routing", text: "A lead submits a form. Within seconds, n8n routes the data to the CRM, assigns an owner, and drafts an AI-assisted introductory email." },
+          { title: "2. The 4-Touch Evaluation Journey", text: "Once a college engages, they enter a 14–21 day automated sequence: Call confirmation → Success stories PDF → Internal feedback reminder → 'Move forward or park' check-in." },
+          { title: "3. Automated Deal Revival", text: "If a deal sits in 'Evaluation' for 14 days with no activity, the Stalled-Deal Watcher generates a context-aware email referencing past conversations and assigns a 'revive' task to the counsellor." }
         ]
       },
       {
-          id: "placeholder-1",
-          title: "Mobile Defi Experience",
-          layout: 'normal',
-          image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=391,fit=crop/AQED2005wBsGqGR8/screenshot-2024-08-06-at-1.14.33a-pm-YZ9bxaj9e3hG6zBM.png",
+        id: "outcomes",
+        title: "The Outcomes: Predictability & Scale",
+        layout: 'grid',
+        items: [
+          { title: "< 10 Min Response", text: "Median response time dropped from 1+ days to under 10 minutes for web and email leads. Zero lead leakage.", icon: "Zap" },
+          { title: "+24% Proposals", text: "The share of interested colleges receiving a formal proposal increased by 24% due to consistent, automated follow-ups.", icon: "TrendingUp" },
+          { title: "19% Revival Rate", text: "The system flagged 47 at-risk opportunities in Q1. Zoople successfully re-engaged 9 of them (19%) and closed several dormant MoUs.", icon: "CheckCircle2" },
+          { title: "Hours Saved", text: "Counsellors reported saving 10+ hours each week on drafting emails and formatting CRM notes, allowing them to focus on closing.", icon: "Users" }
+        ]
       },
       {
         id: "solution-impact",
-        title: "Solution and Impact",
+        title: "The Bottom Line",
         layout: 'highlight',
-        content: "Problem: Forked v1 lacked clarity, trust, and brand.\nSolution: Full UX + Redesign, with deep focus on usability.\nOutcome: Sonic successfully launched as a premium DeFi suite on ICP."
-      },
-      {
-          id: "impact-stats",
-          title: "Key Metrics",
-          layout: 'grid',
-          items: [
-              { title: "Onboarding", text: "+25% onboarding completion in beta", icon: "Users" },
-              { title: "Errors", text: "–40% swap/pool transaction errors", icon: "CheckCircle2" }
-          ]
-      },
-      {
-          id: "branding",
-          title: "Branding: Sonic’s Identity",
-          layout: 'normal',
-          content: "We defined Sonic’s visual language. Logo, color system, typography aligned with ICP’s futuristic ethos. Design library → scalable across future features.",
-          image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=679,fit=crop,trim=0;3.314754098360656;0;3.314754098360656/AQED2005wBsGqGR8/screenshot-2025-09-03-203808-mk3435RLBPSwj4o5.png",
-          caption: "Sonic Brand Identity & Design System"
-      },
-      {
-        id: "deep-dive",
-        title: "Deep Dive: Liquidity Pool Screen",
-        layout: 'normal',
-        content: "Mapped pain points: tracked where users hesitated (choosing token pairs, previewing pool ratios).\nRestructured layout: introduced a modular card format with clear separation.\nVisual trust cues: Preview charts for pool ratios.",
-        image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=896,fit=crop/AQED2005wBsGqGR8/sonic-lp-1-ALpJ0pxvZqt07vLA.png",
-        caption: "Redesigned Liquidity Pool Interface"
-      },
-      {
-        id: "outcome-final",
-        title: "The Outcome",
-        layout: 'grid',
-        items: [
-            { title: "Reduced Errors", text: "Reduced user errors by 40% (fewer failed pool transactions in beta)", icon: "CheckCircle2" },
-            { title: "Faster Actions", text: "Faster liquidity actions → time to complete pool setup dropped by 30%", icon: "Zap" },
-            { title: "Confidence", text: "Boosted confidence → early adopters reported smoother entry into ICP pools", icon: "Trophy" }
-        ]
+        content: "By bridging the gap between raw data and human action, we transformed Zoople's sales operations from a chaotic, manual effort into a predictable, scalable machine. They now have full visibility into their pipeline, faster response times, and a system that actively prevents deals from dying."
       }
     ]
   },
@@ -517,7 +493,7 @@ export const Projects: React.FC = () => {
   const getProjectHeadline = (id: number) => {
     switch(id) {
       case 1: return "Redesigning the logic of money movement to reduce anxiety and increase trust.";
-      case 2: return "Sonic Defi – Transforming a generic fork into a trusted ICP ecosystem";
+      case 2: return "Zoople Technologies – Automating college partnerships and long evaluation cycles";
       case 3: return "PaddleBoat – Transformed a static AI product into a sales simulation platform";
       case 4: return "Heurist AI – Designing prompt-to-parameter systems and agent configuration architecture";
       default: return "Creating digital experiences that matter";
@@ -527,7 +503,7 @@ export const Projects: React.FC = () => {
   const getProjectMetric = (id: number) => {
     switch(id) {
       case 1: return "High Trust Signal";
-      case 2: return "-40% User Errors";
+      case 2: return "+24% Proposals Sent";
       case 3: return "#1 Product Hunt";
       case 4: return "Automation-first Architecture";
       default: return "High Impact";

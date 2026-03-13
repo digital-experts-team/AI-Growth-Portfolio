@@ -13,15 +13,6 @@ const experiences = [
     color: '#fbbf24',
   },
   {
-    id: 'wednesday-solutions',
-    company: 'Wednesday Solutions',
-    role: 'AI Automation Consultant',
-    date: 'Feb 2025 – Jun 2025',
-    description: 'Audited delivery workflows across design teams, built internal automation systems, and standardized client pipelines to reduce friction.',
-    focus: 'Operational system design',
-    color: '#fbbf24',
-  },
-  {
     id: 'heurist-ai',
     company: 'Heurist AI',
     role: 'Agentic AI Platform Designer',

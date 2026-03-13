@@ -113,7 +113,7 @@ export const Hero: React.FC = () => {
                 <span className="text-gold-base hidden sm:inline">|</span> 
                 {/* 3D Gold Gradient Text */}
                 <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine whitespace-nowrap">
-                  Senior Product Designer
+                  AI Automation Consultant
                 </span>
               </span>
             </motion.div>

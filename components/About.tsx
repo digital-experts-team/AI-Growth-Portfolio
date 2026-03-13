@@ -19,33 +19,31 @@ export const About: React.FC = () => {
           
           <div className="text-xl md:text-2xl lg:text-3xl font-display font-light leading-[2.5] text-white space-y-12">
             <p>
-              I work with startups and founders to turn slow, costly real‑world processes into{' '}
+              I work with startups and founders to build robust{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                automatable systems
+                automations
               </span>{' '}
-              and{' '}
+              and intelligent{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                workflows
-              </span>.
+                agents
+              </span>{' '}
+              that drive real business outcomes.
             </p>
             <p>
-              I focus on cutting manual work and making operations feel seamless across{' '}
+              I focus on cutting manual work and optimizing processes across{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                leads
+                sales operations
               </span>,{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                ops
+                customer journeys
               </span>,{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                HR
-              </span>,{' '}
+                internal workflows
+              </span>, and other{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                product
-              </span>, and the{' '}
-              <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                tools
+                solutions
               </span>{' '}
-              teams already use.
+              to make operations feel seamless.
             </p>
           </div>
         </motion.div>
