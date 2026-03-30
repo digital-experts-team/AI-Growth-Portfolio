@@ -19,31 +19,29 @@ export const About: React.FC = () => {
           
           <div className="text-xl md:text-2xl lg:text-3xl font-display font-light leading-[2.5] text-white space-y-12">
             <p>
-              I work with startups and founders to build robust{' '}
+              I design and deploy{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                automations
+                GTM automation systems
               </span>{' '}
-              and intelligent{' '}
-              <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                agents
-              </span>{' '}
-              that drive real business outcomes.
+              that drive pipeline and revenue.
             </p>
             <p>
-              I focus on cutting manual work and optimizing processes across{' '}
+              I work with B2B SaaS startups to build scalable{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                sales operations
+                outbound pipelines
               </span>,{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                customer journeys
+                CRM workflows
               </span>,{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                internal workflows
-              </span>, and other{' '}
+                lead enrichment engines
+              </span>, and{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine font-bold">
-                solutions
-              </span>{' '}
-              to make operations feel seamless.
+                AI agents
+              </span>.
+            </p>
+            <p>
+              My stack is built around Clay, n8n, HubSpot, Apollo, and Claude — connecting APIs and engineering workflows that cut manual sales ops and accelerate growth.
             </p>
           </div>
         </motion.div>

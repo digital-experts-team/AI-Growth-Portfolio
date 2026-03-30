@@ -57,7 +57,9 @@ export const Contact: React.FC = () => {
           >
             <div>
               <p className="text-gray-400 text-xl leading-relaxed mb-8">
-                Currently available for freelance projects and open to full-time opportunities. If you have an idea that needs some design magic, I'm all ears.
+                I'm currently taking on new projects and consulting roles as a GTM Automation Engineer.
+                <br /><br />
+                If you're a B2B SaaS founder or revenue leader looking to build outbound systems, CRM workflows, lead enrichment engines, or AI agents — let's talk.
               </p>
               
               <div className="space-y-6">

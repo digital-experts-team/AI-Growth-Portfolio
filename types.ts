@@ -59,6 +59,7 @@ export enum SectionId {
   HOME = 'home',
   WORK = 'work',
   ABOUT = 'about',
+  STACK = 'stack',
   EXPERIENCE = 'experience',
   SERVICES = 'services',
   CONTACT = 'contact'

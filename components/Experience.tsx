@@ -5,61 +5,48 @@ import { SectionId } from '../types';
 const experiences = [
   {
     id: 'growth-stacks',
-    company: 'Growth Stacks (Self-Employed)',
-    role: 'Business AI Automation',
-    date: 'Nov 2022 – Present',
-    description: 'Design AI-driven lead gen & reporting systems, building automation aligned to GTM workflows and mapping business constraints to architecture.',
-    focus: 'Business-layer AI execution',
+    company: 'Growth Stacks',
+    role: 'GTM Automation Engineer',
+    date: '2024–Present',
+    description: [
+      'Designed and deployed outbound automation systems for B2B SaaS clients.',
+      '• Engineered signal-based lead enrichment workflows using Clay and Apollo.',
+      '• Built multi-agent qualification systems using Claude API to score and route leads.',
+      '• Orchestrated complex outreach sequences connecting n8n, HubSpot, and LinkedIn.',
+      '• Reduced manual GTM operations by 60% across 5+ client accounts.'
+    ],
     color: '#fbbf24',
   },
   {
     id: 'heurist-ai',
     company: 'Heurist AI',
-    role: 'Agentic AI Platform Designer',
-    date: 'Jun 2024 – Dec 2024',
-    description: 'Designed prompt-to-parameter workflows, mapped UI to structured JSON schemas, and built automation-ready agent architecture.',
-    focus: 'AI infrastructure & agent systems',
-    color: '#fbbf24',
-  },
-  {
-    id: 'sonic',
-    company: 'Sonic',
-    role: 'DeFi Experience Designer',
-    date: 'Oct 2023 – May 2024',
-    description: 'Simplified complex liquidity & trading flows, designing action-driven dashboards and structured alert systems.',
-    focus: 'High-complexity financial UX',
+    role: 'Automation & AI Engineer',
+    date: '2023–2024',
+    description: [
+      "Built outbound marketing agents and multi-account management workflows to grow Heurist's platform ecosystem.",
+      '• Designed prompt-to-parameter workflows with JSON schema mappings, reducing API errors by 45%.',
+      '• Engineered job lifecycle state machines, improving workflow reliability from 72% to 94%.',
+      '• Deployed scalable user acquisition workflows connecting Discord, Twitter, and CRM data.'
+    ],
     color: '#fbbf24',
   },
   {
     id: 'paddleboat',
-    company: 'PaddleBoat',
-    role: 'AI Systems & Product Designer',
-    date: 'Mar 2022 – May 2023',
-    description: 'Evolved AI knowledge tool into a sales simulation engine, building configurable AI buyer personas and structured scoring frameworks.',
-    focus: 'Structured AI behavioral systems',
+    company: 'Paddleboat AI',
+    role: 'Founding Engineer (Automation)',
+    date: '2022–2023',
+    description: [
+      'Built an AI-powered SDR training platform with pipeline trigger simulation and deal-stage coaching.',
+      '• Developed configurable AI buyer personas for realistic sales call simulations.',
+      '• Engineered LLM-based scoring frameworks to evaluate SDR performance against custom rubrics.',
+      '• Integrated STT (Speech-to-Text) and telephony APIs for real-time conversation analysis.',
+      '• Led technical development resulting in a #1 Product Hunt launch and adoption by B2B sales teams.'
+    ],
     color: '#fbbf24',
-  },
-  {
-    id: '2020-2022',
-    company: '2020 – 2022',
-    role: 'Experience Designer / Product',
-    date: '',
-    description: 'Built conversational chat designs and transitioned UX architecture for various product teams.',
-    focus: 'Foundation: Experience → Systems',
-    color: '#fbbf24',
-  },
-  {
-    id: '2018-2020',
-    company: '2018 – 2020',
-    role: 'Web Developer',
-    date: '',
-    description: 'Built full stack web applications and collaborated with multiple clients to deliver robust digital solutions.',
-    focus: 'Foundation: Interface → Deployment',
-    color: '#fbbf24',
-  },
+  }
 ];
 
-const ExperienceNode = ({ exp, index, progress }: { exp: any; index: number; progress: any }) => {
+const ExperienceNode = ({ exp, index, progress }: { exp: any; index: number; progress: any; key?: string }) => {
   const nodeRef = useRef<HTMLDivElement>(null);
   
   // Create a subtle parallax effect for each card
@@ -126,9 +113,15 @@ const ExperienceNode = ({ exp, index, progress }: { exp: any; index: number; pro
               )}
             </div>
 
-            <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 text-left">
-              {exp.description}
-            </p>
+            <div className="text-sm text-gray-400 leading-relaxed text-left space-y-2">
+              {Array.isArray(exp.description) ? (
+                exp.description.map((line: string, i: number) => (
+                  <p key={i} className={line.startsWith('•') ? 'pl-4' : ''}>{line}</p>
+                ))
+              ) : (
+                <p>{exp.description}</p>
+              )}
+            </div>
           </div>
         </div>
       </motion.div>
@@ -155,7 +148,7 @@ export const Experience: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-emerald-500 font-mono tracking-widest text-sm uppercase mb-4 block">
+          <span className="text-amber-500 font-mono tracking-widest text-sm uppercase mb-4 block">
             Relevant Experience
           </span>
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white">

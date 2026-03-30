@@ -7,434 +7,256 @@ import { SectionId, Project } from '../types';
 const projects: Project[] = [
   {
     id: 1,
-    title: "CrossPay",
-    client: "Global Fintech",
-    category: "Fintech",
-    year: "Jan - Mar 2025",
-    themeColor: "#D4AF37", // Gold
-    image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=881,fit=crop/AQED2005wBsGqGR8/crosspay-m5Kvpb2rMEUGl45q.png",
+    title: "Paddleboat AI",
+    client: "Paddleboat AI",
+    category: "SDR Training & Sales Pipeline Simulation Engine",
+    year: "2023",
+    themeColor: "#fcd34d", // Light Amber
+    image: "https://ph-files.imgix.net/6bdd601c-425e-4125-929a-3d49c8e8241c.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&fm=pjpg&w=1100&h=658&fit=max&frame=1&dpr=1",
     logo: "",
-    description: "Redesigning the logic of money movement to reduce anxiety and increase trust.",
-    tags: ["Fintech", "Mobile App", "Remittance"],
+    description: "Built the AI architecture behind a sales coaching platform that trains SDRs on real pipeline scenarios.",
+    tags: ["LLM Prompt Engineering", "STT/Telephony APIs", "Pipeline Stage Mapping", "Scoring Framework Design", "AI Persona Architecture", "Sales Simulation", "SDR Enablement", "Claude", "Python"],
     story: {
-      challenge: "Users felt unsafe due to a cluttered, long, and confusing transfer process.",
-      solution: "Compressed the journey into a predictable 3-step flow with upfront transparency.",
-      process: "Mental model mapping & value-path compression.",
-      impact: "Significant reduction in drop-offs during confirmation.",
-      timeline: "3 Months",
-      role: "Lead Designer",
+      challenge: "Most SDR training happens with static scripts that don't reflect how real pipeline stages, objections, and buyer personas actually behave.",
+      solution: "Built an AI simulation engine that trains SDRs on real GTM scenarios and produces structured coaching outputs.",
+      process: "Configurable Personas → Pipeline Triggers → LLM Scoring → Feedback Loop.",
+      impact: "Product Hunt #1 launch — platform adopted by B2B sales teams.",
+      timeline: "2022–2023",
+      role: "Founding Engineer (Automation)",
       stats: [
-        { label: "Completion", value: "Faster" },
-        { label: "Trust", value: "High" }
+        { label: "Product Hunt", value: "#1" },
+        { label: "Scoring Time", value: "< 30s" }
       ]
     },
     sections: [
-        { 
-          id: "intro", 
-          title: "Senior Product Designer – Tibin Jacob", 
-          layout: 'normal',
-          content: "Role: Full Ownership (UX Audit → Strategy → UX → UI → Delivery)"
-        },
-        { 
-          id: "problem", 
-          title: "The Problem", 
-          layout: 'normal',
-          content: "CrossPay’s global user base was growing, but the product experience wasn’t.\n\nWhen I joined, the platform suffered from:\n• Overly complicated onboarding & transfer flows\n• Unclear exchange rate visibility\n• Confusing fee breakdown\n• Too many steps → too many cognitive interruptions\n• UI inconsistency across corridors\n• High abandonment during transaction confirmation\n\n⚠️ Impact: Users felt uncertainty while sending high-stakes cross-border transfers — the moment confidence dropped, they abandoned."
-        },
-        {
-          id: "insight",
-          title: "Core Insight",
-          layout: 'highlight',
-          content: "In fintech → clarity = safety.\nIf a user doesn’t understand a fee, exchange rate, or step, they feel at risk — and stop instantly. Money movement is emotional. The UX needed to remove stress, ambiguity, and hesitation."
-        },
-        {
-          id: "challenge",
-          title: "The Challenge",
-          layout: 'grid',
-          items: [
-            { title: "Compress", text: "Compress a long multi-step user journey into something smooth", icon: "Zap" },
-            { title: "Cognitive Load", text: "Reduce cognitive load for global customers", icon: "Lightbulb" },
-            { title: "Transparency", text: "Build fee transparency without overwhelming users", icon: "Target" },
-            { title: "Consistency", text: "Create a predictable structure for international corridors", icon: "Layout" }
-          ]
-        },
-        {
-          id: "role",
-          title: "My Role – Full Design Ownership",
-          layout: 'list',
-          content: "I led the end-to-end product design direction. This case required fast clarity + behavioural design thinking.",
-          items: [
-            { text: "Conducted UX audit across onboarding → transfer → tracking" },
-            { text: "Rebuilt information architecture" },
-            { text: "Designed the new transfer journey (0 → 1)" },
-            { text: "Optimised fee + FX clarity" },
-            { text: "Redefined UI patterns + CTA hierarchy" },
-            { text: "Produced high-fidelity UI + dev-ready assets" },
-            { text: "Coordinated directly with product & engineering" }
-          ]
-        },
-        {
-          id: "approach",
-          title: "My Approach: Value-Path Compression",
-          layout: 'list',
-          content: "Instead of adding more steps or explanations, I focused on shortening the decision path.",
-          items: [
-            { text: "Reduced transfer flow to a clean 3-step journey" },
-            { text: "Clear up-front visibility: fees, FX rate, final amount" },
-            { text: "Removed duplicate screens" },
-            { text: "Strong, predictable primary CTA logic" },
-            { text: "Microcopy designed for clarity, not decoration" },
-            { text: "Introduced a consistent card layout for amount & recipient details" }
-          ],
-          image: "https://pbs.twimg.com/profile_banners/919877869110673408/1656999133/1500x500",
-          caption: "Value-Path Compression Framework"
-        },
-        {
-          id: "process",
-          title: "Steps I Took (Design Process)",
-          layout: 'process',
-          items: [
-            { title: "1. Product & UX Audit", text: "Documented friction points, identified abandonment gaps, and analysed global corridor differences. Benchmarked against Wise, Remitly, Xoom. Top finding: Users were confused about fees, exchange rates, and what happens next." },
-            { title: "2. Behavioural Mapping", text: "Identified what users actually check first: Fees → Delivery time → Final amount → Recipient confirmation. Logged confusion spikes where users hesitated." },
-            { title: "3. Journey Redesign", text: "Created a predictable flow: Amount → Recipient → Confirm. Merged confirmation screens into one. Consolidated fee and FX breakdown into a single digestible card." },
-            { title: "4. UI & Information Design", text: "Introduced visual hierarchy for amount & fee clarity. Designed modular cards consistent across countries. Improved spacing, readability, and visual predictability." },
-            { title: "5. Testing & Iteration", text: "Ran rapid usability checks. Measured hesitation points. Improved copy & micro-interactions. Adjusted step order to reduce doubt." }
-          ]
-        },
-        {
-          id: "deep-dive",
-          title: "Deep Dive — Transfer Confirmation Screen",
-          layout: 'normal',
-          content: "The highest drop-off existed here.\n\nPain Points:\n• Users doubted final amount\n• Couldn’t trust fee breakdown\n• Confusing CTA placement\n• Too many screens before “Confirm”\n\nWhat I Redesigned:\n• One unified confirmation card\n• FX rate, fee, and delivery time ALWAYS visible together\n• CTA repositioned to match natural scanning pattern\n• Added subtle reassurance cues (“Secure Transfer”, “Guaranteed Rate”)\n\nOutcome:\n• Users completed transfers faster\n• Cognitive stress dropped significantly\n• Fewer support complaints around “unclear fees”",
-          image: "https://media.licdn.com/dms/image/v2/C5622AQGNNCDAvE7mfg/feedshare-shrink_1280/feedshare-shrink_1280/0/1643713235542?e=1765411200&v=beta&t=ejuUTQeV5kv2wp6KOYPlYIVpYaHq7gQBQCYfvDL65Bw",
-          caption: "Transfer Confirmation Screen UI (Before/After)"
-        },
-        {
-          id: "metrics",
-          title: "Key Design Metrics",
-          layout: 'grid',
-          items: [
-            { title: "Abandonment", text: "Massive reduction in abandonment during transfer flow", icon: "CheckCircle2" },
-            { title: "Speed", text: "Faster transfer completion", icon: "Zap" },
-            { title: "Adoption", text: "Higher adoption in remittance-heavy corridors", icon: "TrendingUp" },
-            { title: "Feedback", text: "Clear improvement in user feedback: 'finally easy', 'don’t have to guess anything'", icon: "Users" }
-          ]
-        },
-        {
-          id: "solution-impact",
-          title: "Solution & Impact",
-          layout: 'highlight',
-          content: "Problem: CrossPay’s long, unclear flow created stress → high drop-offs\n\nSolution: A compressed, transparent, predictable 3-step flow\n\nOutcome: Users gained confidence in every transfer. Support tickets dropped. Transfer times improved. Adoption increased across global markets. CrossPay strengthened its position as a trustworthy global remittance app."
-        },
-        {
-          id: "fintech-insight",
-          title: "Insight for Fintech Companies",
-          layout: 'quote',
-          content: "Fintech doesn’t grow by adding complex features — it grows by removing cognitive friction. The simpler it feels → the safer it feels → the more users trust the product."
-        },
-        {
-          id: "philosophy",
-          title: "My Design Thinking",
-          layout: 'list',
-          content: "What this project shows about me:",
-          items: [
-            { text: "I design for clarity and trust, not just UI polish" },
-            { text: "I translate complex flows into simple, global-friendly UX" },
-            { text: "I think in systems, ensuring scale across markets" },
-            { text: "My work reduces friction → increases conversions → strengthens user confidence" },
-            { text: "I approach fintech with a deep understanding of user fear, speed, and clarity" }
-          ]
-        }
+      {
+        id: "context",
+        title: "Context",
+        layout: 'normal',
+        content: "Paddleboat AI is a B2B SaaS platform that helps sales teams train SDRs using AI-simulated conversations. The core problem: most SDR training happens with static scripts that don't reflect how real pipeline stages, objections, and buyer personas actually behave. Reps were going into live calls underprepared for the deals that actually stall."
+      },
+      {
+        id: "brief",
+        title: "The Brief",
+        layout: 'highlight',
+        content: "Build an AI simulation engine that trains SDRs on real GTM scenarios — configurable buyer personas, pipeline stage triggers, objection handling — and produces structured coaching outputs that managers can act on."
+      },
+      {
+        id: "what-i-built",
+        title: "What I Built",
+        layout: 'list',
+        items: [
+          { text: "Configurable AI buyer personas with adjustable parameters: industry vertical, deal stage, objection style, budget sensitivity, and decision-maker level — simulating the exact GTM scenarios SDRs face in outbound and inbound pipelines" },
+          { text: "Pipeline trigger logic mapped to CRM deal stages — simulation difficulty and scenario type automatically matched to where deals were stalling in real pipelines, so reps trained on the most relevant scenarios" },
+          { text: "LLM-based scoring framework producing structured coaching outputs: scorecards by call section, missed opportunity flags, objection-handling ratings, and next-action triggers — all formatted for manager review workflows" },
+          { text: "Speech-to-text (STT) integration and telephony API connections for real-call simulation — reps could practice live spoken conversations, not just text prompts" },
+          { text: "Feedback loop architecture: simulation outcomes fed back into persona difficulty adjustment, making the training system self-improving based on rep performance data" },
+          { text: "Prompt engineering for persona consistency — built structured prompt chains ensuring AI buyer personas maintained coherent personality, memory, and deal-stage awareness across full conversation turns" }
+        ]
+      },
+      {
+        id: "architecture",
+        title: "Architecture",
+        layout: 'normal',
+        content: "[Flow: SDR Input → STT Layer → LLM Persona Engine → Scoring Framework → Coaching Output → Manager Dashboard]"
+      },
+      {
+        id: "outcomes",
+        title: "Outcomes",
+        layout: 'list',
+        items: [
+          { text: "Product Hunt #1 launch — platform adopted by B2B sales teams for SDR onboarding and pipeline stage training" },
+          { text: "Configurable personas covering 10+ industry verticals and 5 deal stages" },
+          { text: "Structured scoring framework producing actionable coaching outputs in under 30 seconds per call" }
+        ]
+      },
+      {
+        id: "skills",
+        title: "Skills & Tools Used",
+        layout: 'list',
+        items: [
+          { text: "LLM Prompt Engineering" },
+          { text: "STT/Telephony APIs" },
+          { text: "Pipeline Stage Mapping" },
+          { text: "Scoring Framework Design" },
+          { text: "AI Persona Architecture" },
+          { text: "Sales Simulation" },
+          { text: "SDR Enablement" },
+          { text: "Claude" },
+          { text: "Python" }
+        ]
+      }
     ]
   },
   {
     id: 2,
-    title: "Zoople Technologies",
-    client: "Zoople",
-    category: "Sales Automation",
+    title: "Heurist AI",
+    client: "Heurist AI",
+    category: "Outbound Marketing Agents & Multi-Account GTM Automation",
     year: "2024",
-    themeColor: "#10b981", // Emerald
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+    themeColor: "#8b5cf6", // Violet
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop",
     logo: "",
-    description: "Automating college partnerships and long evaluation cycles to scale B2B sales.",
-    tags: ["Sales Automation", "CRM", "n8n", "AI Workflows"],
+    description: "Built the outbound and account management automation layer that powered Heurist's platform growth.",
+    tags: ["Claude API", "n8n", "Outbound Automation", "Multi-Account CRM", "User Acquisition Funnels", "Prompt Engineering", "JSON Schema", "State Machines", "HubSpot", "API Integration"],
     story: {
-      challenge: "Sales process for institutional partnerships was breaking under volume with fragmented leads and stalled evaluations.",
-      solution: "Unified CRM pipeline with n8n, AI-assisted instant replies, and automated stalled-deal watchers.",
-      process: "Lead Unification → Structured Sequences → Stalled-Deal Watcher → AI Note Summaries.",
-      impact: "Response time dropped to <10 mins, proposals increased by 24%, and 19% of stalled deals were revived.",
-      timeline: "3 Months",
-      role: "AI Automation Consultant",
+      challenge: "Acquiring new users and developers into the ecosystem, while managing a growing portfolio of enterprise clients with a lean team.",
+      solution: "Built outbound marketing agents and multi-account management workflows to handle enterprise client pipelines.",
+      process: "Claude Outbound Agents → JSON Schema Mapping → Job Lifecycle State Machines → n8n Onboarding.",
+      impact: "45% reduction in API call errors, workflow reliability improved from 72% to 94%.",
+      timeline: "2023–2024",
+      role: "Automation & AI Engineer",
       stats: [
-        { label: "Response Time", value: "< 10m" },
-        { label: "Proposals", value: "+24%" }
+        { label: "API Errors", value: "-45%" },
+        { label: "Reliability", value: "94%" }
       ]
     },
     sections: [
       {
-        id: "intro",
-        title: "Client Background",
+        id: "context",
+        title: "Context",
         layout: 'normal',
-        content: "Zoople Technologies is a Kochi‑based IT training institute offering classroom and online programs in data analytics, full‑stack development, UI/UX, and digital marketing.\n\nAlongside retail students, Zoople actively builds institutional partnerships with colleges and training centers for custom batches, campus programs, and MoUs."
+        content: "Heurist AI is an AI infrastructure platform offering image, video, and text generation APIs to developers and enterprises. As the platform scaled, the GTM challenge became two-sided: acquiring new users and developers into the ecosystem, while simultaneously managing a growing portfolio of enterprise and multi-account clients — all with a lean team."
       },
       {
-        id: "problem",
-        title: "The Problem: A Leaky Sales Funnel",
+        id: "brief",
+        title: "The Brief",
+        layout: 'highlight',
+        content: "Build outbound marketing agents to drive user acquisition into the Heurist ecosystem, and build multi-account management workflows to handle enterprise client pipelines without adding headcount."
+      },
+      {
+        id: "what-i-built",
+        title: "What I Built",
         layout: 'list',
-        content: "Zoople wanted to scale college partnerships across Kerala, but their sales process was breaking under volume:",
         items: [
-          { text: "Fragmented lead capture: Leads from workshops, cold emails, LinkedIn, and forms were scattered across sheets, inboxes, and WhatsApp." },
-          { text: "Slow, inconsistent follow‑up: Response times varied wildly depending on counsellor availability." },
-          { text: "Long, unstructured evaluations: 4–8 week evaluation cycles lacked standard follow-up sequences, causing deals to fade away." },
-          { text: "No visibility into stalled colleges: Promising conversations died quietly because there was no central way to track inactivity." }
+          { text: "Outbound marketing automation agents built on Claude API — agents that researched target developer and enterprise prospects, generated personalised outreach based on their use-case signals, and triggered sequences automatically based on platform behaviour events" },
+          { text: "Multi-account CRM management workflows handling Heurist's enterprise client pipeline — automated account status updates, usage-triggered health alerts, and account expansion signals routed to the right team members" },
+          { text: "Prompt-to-parameter workflow architecture mapping product API parameters to structured JSON schemas — standardising how outbound agents communicated with Heurist's own APIs, reducing call errors by 45%" },
+          { text: "Job lifecycle state machines (start → running → complete → fail) with retry logic and error handling — improved outbound workflow reliability from 72% to 94%, ensuring no prospect or account update was silently dropped" },
+          { text: "User acquisition funnel automation: new developer signups triggered onboarding sequences, usage milestones triggered upsell prompts, and inactivity triggered re-engagement workflows — all running on n8n" },
+          { text: "Reporting layer: dashboards tracking outbound agent performance, account health scores, and user acquisition funnel conversion rates by source" }
         ]
       },
       {
-        id: "how-we-built-it-tech",
-        title: "Under the Hood: Technical Architecture",
-        layout: 'list',
-        content: "We built a headless automation engine using n8n to orchestrate data between their lead sources, CRM, and AI models.",
-        items: [
-          { text: "Event-Driven Triggers: Webhooks catch incoming leads from Typeform, Facebook Ads, and website forms in real-time." },
-          { text: "Email Parsing: IMAP nodes monitor shared inboxes, triggering workflows when a college stakeholder replies." },
-          { text: "LLM Data Extraction: OpenAI nodes process unstructured email threads and raw meeting notes, using strict JSON schemas to extract Stakeholders, Objections, and Next Steps." },
-          { text: "CRM Synchronization: REST API calls automatically create/update Organization and Deal records, ensuring the database is always the single source of truth." },
-          { text: "CRON Job Watchers: Scheduled workflows run daily at 8 AM, querying the CRM for deals with `last_activity_date < NOW() - 14 days` to trigger revival sequences." }
-        ]
-      },
-      {
-        id: "how-we-built-it-layman",
-        title: "In Plain English: What This Actually Means",
-        layout: 'grid',
-        items: [
-          { title: "The Digital Receptionist", text: "Instead of a human manually checking 5 different platforms for new leads, the system instantly catches every inquiry and logs it perfectly into the database.", icon: "Zap" },
-          { title: "The AI Ghostwriter", text: "When a lead comes in, the AI instantly drafts a personalized email based on whether the person is a Principal (focusing on fees) or an HOD (focusing on curriculum), leaving it in drafts for the rep to just click 'Send'.", icon: "Lightbulb" },
-          { title: "The Virtual Manager", text: "Every morning, the system checks if any college hasn't been contacted in 14 days. It taps the sales rep on the shoulder with a task and a pre-written follow-up email to revive the deal.", icon: "Users" },
-          { title: "The Admin Assistant", text: "Sales reps just dump messy, bulleted notes after a call. The AI cleans it up, organizes it into categories, and files it in the CRM automatically.", icon: "Layout" }
-        ]
-      },
-      {
-        id: "how-it-runs",
-        title: "How It Runs Day-to-Day",
-        layout: 'process',
-        items: [
-          { title: "1. Instant Capture & Routing", text: "A lead submits a form. Within seconds, n8n routes the data to the CRM, assigns an owner, and drafts an AI-assisted introductory email." },
-          { title: "2. The 4-Touch Evaluation Journey", text: "Once a college engages, they enter a 14–21 day automated sequence: Call confirmation → Success stories PDF → Internal feedback reminder → 'Move forward or park' check-in." },
-          { title: "3. Automated Deal Revival", text: "If a deal sits in 'Evaluation' for 14 days with no activity, the Stalled-Deal Watcher generates a context-aware email referencing past conversations and assigns a 'revive' task to the counsellor." }
-        ]
+        id: "architecture",
+        title: "Architecture",
+        layout: 'normal',
+        content: "[Flow: Prospect Signal → Claude Outbound Agent → Personalised Sequence → HubSpot CRM → Account Health Dashboard | New Signup → n8n Onboarding Flow → Usage Milestone → Upsell Trigger]"
       },
       {
         id: "outcomes",
-        title: "The Outcomes: Predictability & Scale",
-        layout: 'grid',
+        title: "Outcomes",
+        layout: 'list',
         items: [
-          { title: "< 10 Min Response", text: "Median response time dropped from 1+ days to under 10 minutes for web and email leads. Zero lead leakage.", icon: "Zap" },
-          { title: "+24% Proposals", text: "The share of interested colleges receiving a formal proposal increased by 24% due to consistent, automated follow-ups.", icon: "TrendingUp" },
-          { title: "19% Revival Rate", text: "The system flagged 47 at-risk opportunities in Q1. Zoople successfully re-engaged 9 of them (19%) and closed several dormant MoUs.", icon: "CheckCircle2" },
-          { title: "Hours Saved", text: "Counsellors reported saving 10+ hours each week on drafting emails and formatting CRM notes, allowing them to focus on closing.", icon: "Users" }
+          { text: "45% reduction in API call errors through JSON schema standardisation" },
+          { text: "Workflow reliability improved from 72% to 94% via state machine architecture" },
+          { text: "Scalable outbound agent system supporting multi-account GTM across enterprise and developer segments" },
+          { text: "Automated onboarding and re-engagement sequences running with zero manual intervention" }
         ]
       },
       {
-        id: "solution-impact",
-        title: "The Bottom Line",
-        layout: 'highlight',
-        content: "By bridging the gap between raw data and human action, we transformed Zoople's sales operations from a chaotic, manual effort into a predictable, scalable machine. They now have full visibility into their pipeline, faster response times, and a system that actively prevents deals from dying."
+        id: "skills",
+        title: "Skills & Tools Used",
+        layout: 'list',
+        items: [
+          { text: "Claude API" },
+          { text: "n8n" },
+          { text: "Outbound Automation" },
+          { text: "Multi-Account CRM" },
+          { text: "User Acquisition Funnels" },
+          { text: "Prompt Engineering" },
+          { text: "JSON Schema" },
+          { text: "State Machines" },
+          { text: "HubSpot" },
+          { text: "API Integration" }
+        ]
       }
     ]
   },
   {
     id: 3,
-    title: "PaddleBoat",
-    client: "PaddleBoat",
-    category: "AI / B2B SaaS",
+    title: "Webcastle",
+    client: "Webcastle",
+    category: "GTM Automation for Dubai-Based B2B Client Acquisition",
     year: "2024",
-    themeColor: "#fcd34d", // Light Amber
-    image: "https://ph-files.imgix.net/6bdd601c-425e-4125-929a-3d49c8e8241c.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&fm=pjpg&w=1100&h=658&fit=max&frame=1&dpr=1",
+    themeColor: "#10b981", // Emerald
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
     logo: "",
-    description: "Transformed a static AI product into an AI-powered sales simulation and coaching platform.",
-    tags: ["AI", "B2B", "SaaS", "Simulation"],
+    description: "Built end-to-end outbound and GTM automation for a Dubai-based web delivery and digital agency.",
+    tags: ["Clay", "Apollo", "n8n", "HubSpot", "ICP Definition", "Lead Scoring", "Outbound Automation", "Proposal Workflows", "Data Studio", "B2B GTM", "CRM Architecture"],
     story: {
-      challenge: "Sales teams lacked safe practice environments and structured performance feedback.",
-      solution: "A structured AI-driven simulation with objective scoring logic.",
-      process: "Architecture → Persona Engine → Scoring Framework → UX.",
-      impact: "Ranked #1 on Product Hunt, created repeatable coaching structure.",
-      timeline: "Ongoing",
-      role: "Head of Design",
+      challenge: "Sales motion was entirely manual with no CRM, no outbound system, and no visibility into pipeline health.",
+      solution: "Built a GTM automation system from scratch — ICP definition, outbound pipeline, CRM setup, proposal triggers.",
+      process: "Apollo Prospect List → Clay Enrichment → n8n Orchestration → HubSpot CRM → Proposal Auto-Generation.",
+      impact: "Automated end-to-end from prospect identification to proposal delivery, significantly reducing manual sales ops.",
+      timeline: "2024",
+      role: "GTM Automation Engineer",
       stats: [
-        { label: "Product Hunt", value: "#1" },
-        { label: "Coaching", value: "Repeatable" }
+        { label: "Process", value: "Automated" },
+        { label: "Sales Ops", value: "Reduced" }
       ]
     },
     sections: [
       {
-        id: "intro",
-        title: "Product Evolution Context",
-        layout: "normal",
-        content: "PaddleBoat began as an AI knowledge generation tool (QuickCraft phase). It evolved into an AI-powered sales simulation and coaching platform.\n\nGoal of pivot: Move from static content generation → dynamic behavioral simulation."
+        id: "context",
+        title: "Context",
+        layout: 'normal',
+        content: "Webcastle is a web development and digital delivery agency serving B2B clients across Dubai and the UAE — primarily in real estate, retail, and enterprise sectors. Their sales motion was entirely manual: the team was identifying prospects by hand, following up via personal email, and tracking deals in spreadsheets. There was no CRM, no outbound system, and no visibility into pipeline health."
       },
       {
-        id: "problem",
-        title: "Core Problem",
-        layout: "normal",
-        content: "Sales teams lacked:\n• Safe practice environments\n• Real-time objection simulation\n• Structured performance feedback\n• Repeatable coaching frameworks\n• Measurable skill scoring\n\nTraditional training = static PDFs + subjective manager feedback.\n\nWe wanted: Structured AI-driven simulation + objective scoring logic."
+        id: "brief",
+        title: "The Brief",
+        layout: 'highlight',
+        content: "Build a GTM automation system from scratch — ICP definition, outbound pipeline, CRM setup, proposal triggers, and reporting — so Webcastle could scale client acquisition without adding sales headcount."
       },
       {
-        id: "vision",
-        title: "System Design Vision",
-        layout: "highlight",
-        content: "Design an AI system that:\n• Simulates buyer personalities dynamically\n• Adapts difficulty levels\n• Evaluates sales conversations\n• Produces structured coaching feedback\n• Feels like a real negotiation environment\n\nThis was not “chatbot UI.” It was a controlled behavioral engine."
+        id: "what-i-built",
+        title: "What I Built",
+        layout: 'list',
+        items: [
+          { text: "ICP definition and segmentation: identified and mapped target client profiles across UAE real estate, retail, and enterprise sectors — using Apollo for database prospecting and Clay for enrichment with signals like company size, tech stack, recent web activity, and job postings" },
+          { text: "Full outbound pipeline: Clay for prospect research and enrichment → n8n for workflow orchestration → HubSpot for CRM tracking, deal management, and sequence automation → email and LinkedIn outreach running automatically from qualification to first reply" },
+          { text: "Automated proposal trigger workflows — when leads hit pre-defined qualification thresholds (engagement score, company size, industry match), the system generated proposal briefs automatically and routed them to the sales team with all prospect context pre-filled" },
+          { text: "Web delivery project pipeline integration — connected CRM deal stages to internal project management triggers, so new client onboarding kicked off automatically the moment a deal was marked closed-won" },
+          { text: "Lead scoring model built in HubSpot: custom properties tracking prospect engagement, ICP fit score, and channel source — giving the team a prioritised view of which leads to contact next" },
+          { text: "Reporting dashboards in Data Studio: pipeline velocity by stage, proposal conversion rate, client acquisition CAC by outbound channel, and weekly lead flow metrics" }
+        ]
       },
       {
         id: "architecture",
-        title: "AI Architecture Design",
-        layout: "list",
-        content: "A. Configurable Buyer Persona Engine\nI designed Input Controls (Industry, Deal stage, Objection intensity, Persona difficulty, Behavioral tone). These UI controls were translated into Structured Prompt Logic (Personality matrix, Emotional tone variables, Objection pattern triggers, Resistance escalation logic).\nResult: Simple frontend sliders → Complex structured AI behavior.",
+        title: "Architecture",
+        layout: 'normal',
+        content: "[Flow: Apollo Prospect List → Clay Enrichment → ICP Scoring → n8n Orchestration → HubSpot CRM → Email + LinkedIn Sequence → Qualification Threshold → Proposal Brief Auto-Generated → Deal Close → Project Onboarding Trigger]"
+      },
+      {
+        id: "outcomes",
+        title: "Outcomes",
+        layout: 'list',
         items: [
-          { text: "B. Structured Scoring Framework: I built a rubric-based evaluation system mapping categories (Discovery depth, Objection handling, etc.) to prompt-level evaluation instructions, weighted scoring logic, and structured JSON-style output formatting. The AI didn’t just “respond.” It analyzed." },
-          { text: "C. Lifecycle State Modeling: Roleplay was structured as Practice → Feedback → Review → Replay. Each state triggered different prompt instructions, UI components, and scoring behavior. This allowed Dashboards, Progress tracking, and Future automation triggers." }
+          { text: "Full GTM system built from zero — no prior CRM, outbound, or pipeline infrastructure" },
+          { text: "Automated end-to-end from prospect identification to proposal delivery" },
+          { text: "Significant reduction in manual sales ops — team shifted from manual outreach to reviewing warm, pre-qualified leads" },
+          { text: "Pipeline visibility dashboard live within 2 weeks of build" }
         ]
       },
       {
-        id: "ux-decisions",
-        title: "UX & Interface Decisions",
-        layout: "grid",
+        id: "skills",
+        title: "Skills & Tools Used",
+        layout: 'list',
         items: [
-          { title: "Challenges", text: "Avoid overwhelming users, keep simulation immersive, present feedback without emotional demotivation.", icon: "Target" },
-          { title: "Design Decisions", text: "Separate simulation screen from scoring screen, visual scorecards instead of text-heavy feedback, highlight strengths + missed opportunities, actionable next steps.", icon: "Layout" }
+          { text: "Clay" },
+          { text: "Apollo" },
+          { text: "n8n" },
+          { text: "HubSpot" },
+          { text: "ICP Definition" },
+          { text: "Lead Scoring" },
+          { text: "Outbound Automation" },
+          { text: "Proposal Workflows" },
+          { text: "Data Studio" },
+          { text: "B2B GTM" },
+          { text: "CRM Architecture" }
         ]
-      },
-      {
-        id: "technical",
-        title: "Technical Layer (High-Level)",
-        layout: "list",
-        content: "Key components of the technical layer:",
-        items: [
-          { text: "LLM-based conversation engine" },
-          { text: "Structured prompt templates" },
-          { text: "Parameter injection system" },
-          { text: "State-based evaluation calls" },
-          { text: "Score output parsing" },
-          { text: "Dashboard-ready structured data" }
-        ]
-      },
-      {
-        id: "impact",
-        title: "Business Impact",
-        layout: "grid",
-        items: [
-          { title: "Transformation", text: "Transformed static AI product into simulation engine", icon: "Zap" },
-          { title: "Structure", text: "Created repeatable coaching structure", icon: "Layout" },
-          { title: "Scale", text: "Enabled scalable sales practice", icon: "TrendingUp" },
-          { title: "Recognition", text: "Ranked #1 on Product Hunt", icon: "Trophy" }
-        ]
-      },
-      {
-        id: "conclusion",
-        title: "Conclusion",
-        layout: "quote",
-        content: "This proved: Structured AI > Generic AI chat experiences."
       }
-    ]
-  },
-  {
-    id: 4,
-    title: "Heurist AI",
-    client: "Heurist AI",
-    category: "AI / Platform Infrastructure",
-    year: "2024",
-    themeColor: "#8b5cf6", // Violet
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop",
-    logo: "",
-    description: "Designing prompt-to-parameter systems and agent configuration architecture.",
-    tags: ["AI", "Infrastructure", "Agents", "Workflows"],
-    story: {
-        challenge: "Most AI tools hide logic behind black-box prompts and lack structured workflow states.",
-        solution: "Make agents configurable, structured, and automation-ready.",
-        process: "Prompt-to-parameter workflows → Agent Configuration → Job Lifecycle.",
-        impact: "Enabled workflow chaining, external integrations, and observability.",
-        timeline: "2024",
-        role: "Product Designer",
-        stats: [
-            { label: "Outputs", value: "Deterministic" },
-            { label: "Architecture", value: "Automation-first" }
-        ]
-    },
-    sections: [
-        {
-            id: "intro",
-            title: "Context",
-            layout: "normal",
-            content: "Heurist AI was building an agent-based AI platform that allowed users to configure AI agents with:\n• Instructions\n• Tools\n• Memory\n• Channels\n• Workflow triggers\n\nMy role focused on: Designing prompt-to-parameter systems and agent configuration architecture."
-        },
-        {
-            id: "problem",
-            title: "Core Problem",
-            layout: "normal",
-            content: "Most AI tools:\n• Hide logic behind black-box prompts\n• Offer minimal customization\n• Lack structured workflow states\n• Are difficult to automate reliably\n\nGoal: Make agents configurable, structured, and automation-ready."
-        },
-        {
-            id: "workflows",
-            title: "Imagine Workflows (Image/Video Generation)",
-            layout: "list",
-            content: "I designed prompt-to-parameter workflows for Image generation, Multi-model video generation, and API-based rendering pipelines.",
-            items: [
-                { text: "System Requirements:" },
-                { text: "Multi-provider API abstraction" },
-                { text: "Consistent parameter mapping" },
-                { text: "Model-specific overrides" },
-                { text: "Structured output tracking" }
-            ]
-        },
-        {
-            id: "configuration",
-            title: "Agent Configuration System",
-            layout: "highlight",
-            content: "I contributed to the interface and logic behind Agent Components (Instruction block, Tool configuration, Memory schema, Input/output channels, Execution triggers). These were mapped directly to Backend JSON schema structures.\n\nMeaning: UI = structured backend representation. No hidden logic."
-        },
-        {
-            id: "lifecycle",
-            title: "Job Lifecycle Architecture",
-            layout: "list",
-            content: "I defined structured job states: Start, Queued, Running, Completed, Failed.",
-            items: [
-                { text: "Each state had: Monitoring hooks, Retry logic, Status visibility, Automation compatibility." },
-                { text: "This enabled: Workflow chaining, External integrations, Observability." }
-            ]
-        },
-        {
-            id: "challenges",
-            title: "Design Challenges",
-            layout: "grid",
-            items: [
-                { title: "Balance", text: "Balancing power vs usability", icon: "Target" },
-                { title: "Simplicity", text: "Avoiding configuration overwhelm", icon: "Layout" },
-                { title: "Reliability", text: "Ensuring reliability across APIs", icon: "CheckCircle2" },
-                { title: "Audience", text: "Designing interfaces for technical + non-technical users", icon: "Users" }
-            ]
-        },
-        {
-            id: "system-thinking",
-            title: "System-Level Thinking",
-            layout: "list",
-            content: "Key Focus Areas:",
-            items: [
-                { text: "Deterministic outputs where needed" },
-                { text: "Controlled variability in generation" },
-                { text: "State modeling for reliability" },
-                { text: "Automation-first architecture" },
-                { text: "JSON-structured agent design" }
-            ]
-        },
-        {
-            id: "tech-stack",
-            title: "Technical Stack Exposure",
-            layout: "grid",
-            items: [
-                { title: "Integrations", text: "API integrations & Multi-model orchestration", icon: "Zap" },
-                { title: "Prompting", text: "Structured prompt injection & Parameter normalization", icon: "Lightbulb" },
-                { title: "Monitoring", text: "Workflow monitoring & Automation readiness", icon: "TrendingUp" }
-            ]
-        }
     ]
   }
 ];
@@ -492,20 +314,20 @@ export const Projects: React.FC = () => {
 
   const getProjectHeadline = (id: number) => {
     switch(id) {
-      case 1: return "Redesigning the logic of money movement to reduce anxiety and increase trust.";
-      case 2: return "Zoople Technologies – Automating college partnerships and long evaluation cycles";
-      case 3: return "PaddleBoat – Transformed a static AI product into a sales simulation platform";
-      case 4: return "Heurist AI – Designing prompt-to-parameter systems and agent configuration architecture";
+      case 1: return "PaddleBoat AI — SDR Training & Sales Pipeline Simulation Engine";
+      case 2: return "Heurist AI — Outbound Marketing Agents & Multi-Account GTM Automation";
+      case 3: return "Webcastle — GTM Automation for Dubai-Based B2B Client Acquisition";
+      case 4: return "Growth Stacks — Outbound Pipeline & CRM Automation System";
       default: return "Creating digital experiences that matter";
     }
   };
 
   const getProjectMetric = (id: number) => {
     switch(id) {
-      case 1: return "High Trust Signal";
-      case 2: return "+24% Proposals Sent";
-      case 3: return "#1 Product Hunt";
-      case 4: return "Automation-first Architecture";
+      case 1: return "#1 Product Hunt";
+      case 2: return "Automation-First GTM";
+      case 3: return "Pipeline Automation";
+      case 4: return "60% Ops Reduction";
       default: return "High Impact";
     }
   };
@@ -613,7 +435,7 @@ export const Projects: React.FC = () => {
             </h2>
           </div>
           <p className="text-gray-400 max-w-sm text-sm md:text-base">
-            A selection of projects where I helped companies navigate complex problems and deliver tangible results.
+            GTM and automation projects driving measurable pipeline and revenue.
           </p>
         </motion.div>
       </div>

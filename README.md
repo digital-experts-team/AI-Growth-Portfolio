@@ -1,6 +1,6 @@
-# Lumina Portfolio
+# Tibin Jacob | GTM Automation Engineer Portfolio
 
-A high-performance, visually stunning UI/UX designer portfolio featuring dynamic animations, interactive elements, and a Gemini-powered AI assistant.
+A high-performance portfolio for a GTM Automation Engineer featuring dynamic animations, interactive elements, and a Gemini-powered AI assistant.
 
 ## Features
 

@@ -12,7 +12,7 @@ interface ChatAssistantProps {
 export const ChatAssistant: React.FC<ChatAssistantProps> = ({ activeQuery, onQueryHandled }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { id: '1', role: 'model', text: "Hi! I'm Lumi, Alex's AI design assistant. Ask me anything about Alex's projects or skills!" }
+    { id: '1', role: 'model', text: "Hi! I'm Lumi, Tibin's AI assistant. Ask me anything about Tibin's projects or skills!" }
   ]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);

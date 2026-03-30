@@ -4,10 +4,10 @@ import { ArrowDown } from 'lucide-react';
 import { SectionId } from '../types';
 
 const PHRASES = [
-  "Revenue Ops",
-  "Customer Journeys",
-  "Internal Operations",
-  "Product Workflows"
+  "Outbound Systems",
+  "CRM Architecture",
+  "Lead Enrichment",
+  "Revenue Ops"
 ];
 
 const IMAGE_URL = "https://i.postimg.cc/856vYmHX/Gemini-Generated-Image-xnbbp3xnbbp3xnbb-removebg-preview.png";
@@ -113,14 +113,14 @@ export const Hero: React.FC = () => {
                 <span className="text-gold-base hidden sm:inline">|</span> 
                 {/* 3D Gold Gradient Text */}
                 <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#D4AF37,#F6E27A,#D4AF37,#8E6216,#D4AF37)] bg-[length:200%_auto] animate-shine whitespace-nowrap">
-                  AI Automation Consultant
+                  GTM Automation Engineer
                 </span>
               </span>
             </motion.div>
 
             <div className="font-display font-bold tracking-tighter leading-[1.1] relative z-10">
               <span className="text-white block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl whitespace-normal sm:whitespace-nowrap pb-2">
-                AI Automation for
+                GTM Automation For
               </span>
               
               <span className="block min-h-[1.2em] sm:h-[1.4em] relative overflow-visible pb-1">
