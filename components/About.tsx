@@ -40,9 +40,6 @@ export const About: React.FC = () => {
                 AI agents
               </span>.
             </p>
-            <p>
-              My stack is built around Clay, n8n, HubSpot, Apollo, and Claude — connecting APIs and engineering workflows that cut manual sales ops and accelerate growth.
-            </p>
           </div>
         </motion.div>
       </div>
