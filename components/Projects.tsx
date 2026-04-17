@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, TrendingUp, Calendar, ArrowDown, ExternalLink } from 'lucide-react';
+import { ArrowRight, ArrowLeft, TrendingUp, ArrowDown, ExternalLink } from 'lucide-react';
 import { SectionId, Project } from '../types';
 
 const projects: Project[] = [
@@ -13,7 +13,7 @@ const projects: Project[] = [
     year: "2022 — 2023",
     themeColor: "#1e3a8a", // Dark Blue
     image: "https://ph-files.imgix.net/6bdd601c-425e-4125-929a-3d49c8e8241c.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&fm=pjpg&w=1100&h=658&fit=max&frame=1&dpr=1",
-    description: "Designed the AI prompt architecture and LLM feedback engine that powered a Product Hunt #1 launch.",
+    description: "Built the AI architecture behind a sales coaching platform that trains SDRs on real pipeline scenarios.",
     tags: ["LLM Orchestration", "Prompt Engineering", "STT APIs", "Telephony Integration", "Scoring Frameworks", "Persona Systems", "Coaching Outputs"],
     story: {
       challenge: "Most SDR training happens with static scripts that don't reflect how real pipeline stages, objections, and buyer personas actually behave.",
@@ -32,18 +32,25 @@ const projects: Project[] = [
         id: "context",
         title: "Context",
         layout: 'normal',
-        content: "Paddleboat is a B2B SaaS platform for AI-driven sales coaching — realistic roleplay simulations with configurable buyer personas across industries, deal stages, and objection styles. Built for sales teams who want to practice against lifelike scenarios before real calls."
+        content: "Paddleboat AI is a B2B SaaS platform that helps sales teams train SDRs using AI-simulated conversations. The core problem: most SDR training is static, boring, and doesn't prepare reps for the chaos of a real discovery call. Teams were spending dozens of manual hours listening to call recordings to find coaching moments."
+      },
+      {
+        id: "brief",
+        title: "The Brief",
+        layout: 'highlight',
+        content: "Build an AI 'Sparring Partner' that SDRs can actually talk to. The system needed to not only simulate a buyer but also listen to the rep, identify where they missed the script, and provide a detailed coaching scorecard automatically."
       },
       {
         id: "what-i-built",
         title: "What I Built",
         layout: 'list',
-        content: "Designed the core LLM prompt logic and feedback framework:",
+        content: "Engineered the core intelligence layer of the platform:",
         items: [
-          { text: "Designed every roleplay interaction: persona difficulty, objection handling, and industry-specific buyer behavior" },
-          { text: "Built the feedback engine: scorecards, missed opportunity flags, and highlight moments" },
-          { text: "Integrated speech-to-text and telephony APIs for a realistic call experience" },
-          { text: "Engineered outputs to be coachable and actionable, not just data dumps" }
+          { text: "Designed the AI architecture: Configured LLM logic to handle multi-turn roleplay with emotional memory (e.g., if a rep is pushy, the AI persona gets annoyed)." },
+          { text: "Persona Engine: Created a library of 20+ distinct buyer personas with varying industry terminology, technical depth, and 'vibe'." },
+          { text: "Feedback & Scoring: Built the prompt framework that parses STT (speech-to-text) logs to detect missed objection handling and filler words." },
+          { text: "Real-time Telephony Integration: Connected the AI engine to live audio streams for zero-latency conversation simulation." },
+          { text: "Coaching Dashboard: Designed the data structure for manager-level insights, flagging which reps are struggling with specific pipeline stages." }
         ]
       },
       {
@@ -59,6 +66,18 @@ const projects: Project[] = [
         layout: 'chart',
         chartType: 'radar',
         caption: "Platform Performance Dimensions"
+      },
+      {
+        id: "impact",
+        title: "Impact & Outcomes",
+        layout: 'list',
+        content: "Measurable results delivered post-launch:",
+        items: [
+          { text: "Successfully secured Product Hunt #1 — driving 5k+ new user signups in 24 hours." },
+          { text: "Reached 92% accuracy in automated coaching feedback, verified against manual human scoring." },
+          { text: "Reduced the time-to-first-call for new SDRs from 2 weeks to 4 days through rapid simulation loops." },
+          { text: "Enabled sales managers to review 100% of team roleplays instead of the previous 5% manual sample." }
+        ]
       }
     ]
   },
@@ -89,19 +108,25 @@ const projects: Project[] = [
         id: "problem",
         title: "The Problem",
         layout: 'highlight',
-        content: "Most early-stage founders rely on referrals or do outbound manually with no system behind it. There's no ICP definition, no enrichment layer, no automation — just scattered effort with no compounding return."
+        content: "Most early-stage founders rely on referrals or do outbound manually with no system behind it. There's no ICP definition, no enrichment layer, no automation — just scattered effort with no compounding return. They have a great product but zero predictable pipeline."
       },
       {
-        id: "what-i-do",
-        title: "What I Do",
+        id: "brief",
+        title: "The Brief",
+        layout: 'normal',
+        content: "Translate a founder's vision into a cold, hard outbound machine. The goal was to build a system that identifies high-intent signals (e.g., a company just raised a round AND started hiring for a specific role) and reaches out automatically with hyper-personalized context."
+      },
+      {
+        id: "what-i-built",
+        title: "What I Built",
         layout: 'list',
-        content: "From strategy to running engine:",
+        content: "Built the full GTM stack from lead sourcing to CRM automation:",
         items: [
-          { text: "Deep ICP strategy: defining target signals and the right moment to reach them" },
-          { text: "Full outbound architecture: Lead sourcing & enrichment using Clay and Apollo" },
-          { text: "Personalised multi-step sequences with CRM integration in HubSpot" },
-          { text: "n8n automation tying every layer together" },
-          { text: "Claude MCP and multi-agent pipelines for adaptive scalability" }
+          { text: "Signal Mapping: Configured Clay to scrape 15+ data sources for 'trigger events' that signal a buyer is in-market." },
+          { text: "Hyper-Personalization at Scale: Used Claude 3.5 Sonnet to draft unique icebreakers based on the recipient's recent LinkedIn posts and podcast appearances." },
+          { text: "n8n Orchestration: Built the 'brain' of the system that moves leads from Apollo to Clay to HubSpot, ensuring no lead is ever touched twice." },
+          { text: "Multi-Agent Workflows: deployed autonomous agents that handle first-level lead qualification before a calendar link is even sent." },
+          { text: "Dynamic CRM Architecture: Rebuilt the client's HubSpot setup to track 'Attribution from Automation' vs. manual sales efforts." }
         ]
       },
       {
@@ -117,6 +142,18 @@ const projects: Project[] = [
         layout: 'chart',
         chartType: 'bar',
         caption: "Growth Metrics Impact"
+      },
+      {
+        id: "impact",
+        title: "Impact & Outcomes",
+        layout: 'list',
+        content: "Standard deliverables for consulting clients:",
+        items: [
+          { text: "Average 60% reduction in manual sales ops time for the founding team." },
+          { text: "25% increase in qualified meetings booked within the first 60 days of deployment." },
+          { text: "Fully documented GTM 'Source of Truth' in HubSpot, replacing scattered spreadsheets." },
+          { text: "Scalable enrichment flows that costs 80% less than hiring a full-time offshore virtual assistant." }
+        ]
       }
     ]
   },
@@ -147,18 +184,24 @@ const projects: Project[] = [
         id: "context",
         title: "Context",
         layout: 'normal',
-        content: "Heurist AI is a decentralised AI infrastructure platform operating in the crypto and Web3 space. The GTM motion needed to work in a fast-moving, technical buyer environment where generic outreach fails immediately."
+        content: "Heurist AI is a decentralized AI infrastructure platform. Being in the crypto space, their GTM needs were unique: high-velocity outreach, technical buyer personas, and a massive need for cross-platform data synchronization. The existing stack was a 'spaghetti' of Zapier zaps that were failing daily."
+      },
+      {
+        id: "brief",
+        title: "The Brief",
+        layout: 'highlight',
+        content: "Professionalize the GTM engine. The objective was to increase workflow reliability to near-perfect levels while scaling LinkedIn and email volume by 4x without adding headcount."
       },
       {
         id: "build",
         title: "What I Built",
         layout: 'list',
-        content: "Owned the GTM motion end-to-end:",
+        content: "Redesigned the entire GTM infrastructure:",
         items: [
-          { text: "LinkedIn outreach strategy and execution with acquisition flow redesign" },
-          { text: "Nurture sequence architecture and absolute CRM cleanup" },
-          { text: "Built autonomous marketing automation agents reducing manual campaign ops" },
-          { text: "Connected every handoff point for zero manual intervention" }
+          { text: "Autonomous Marketing Agents: built n8n workflows that act as 'virtual SDRs', handling initial replies and categorizing lead intent." },
+          { text: "Deep LinkedIn Integration: Orchestrated automated LinkedIn touches that felt manual and context-rich, avoiding 'bot-detection' filters." },
+          { text: "CRM Sanctity: performed a total extraction and re-import of 5k+ records into HubSpot with strict property validation." },
+          { text: "Nurture Loop: created an automated feedback loop between the product signups and the outbound engine to target high-intent users first." }
         ]
       },
       {
@@ -174,6 +217,18 @@ const projects: Project[] = [
         layout: 'chart',
         chartType: 'gauge',
         caption: "72% → 94% Increase in Reliability"
+      },
+      {
+        id: "impact",
+        title: "Impact & Outcomes",
+        layout: 'list',
+        content: "Stabilized and scaled GTM motion:",
+        items: [
+          { text: "Lifted baseline workflow reliability from a fragile 72% to a production-grade 94%." },
+          { text: "Successfully scaled outbound outbound volume by 400% with zero change in team size." },
+          { text: "Cleaned and standardized CRM data, enabling accurate LTV and CAC reporting for the first time." },
+          { text: "Automated 80% of repetitive LinkedIn tasks, freeing up the team for high-level partner negotiation." }
+        ]
       }
     ]
   },
@@ -204,18 +259,24 @@ const projects: Project[] = [
         id: "context",
         title: "Context",
         layout: 'normal',
-        content: "Webcastle is an award-winning digital agency serving 1000+ clients across 100+ countries. Despite being #1 in their category on Clutch, their own client acquisition relied heavily on inbound."
+        content: "Webcastle is an award-winning digital agency with a massive delivery team but a fragmented client acquisition process. They were dominant in UAE but lacked a systematic way to tap into the UK and Global markets through outbound."
+      },
+      {
+        id: "brief",
+        title: "The Brief",
+        layout: 'highlight',
+        content: "Create an 'Always-On' outbound engine that targets enterprise buyers in Dubai and London. The system had to be low-maintenance for the leadership team but high-output for the specialized agency verticals."
       },
       {
         id: "what-i-built",
         title: "What I Built",
         layout: 'list',
-        content: "Repeatable outbound infrastructure:",
+        content: "Infrastructure for scale:",
         items: [
-          { text: "CRM-connected outbound workflows for client acquisition" },
-          { text: "Lead enrichment pipelines and personalised sequencing" },
-          { text: "Systems repeatable across UAE, India, UK, and Global markets" },
-          { text: "Adaptable behavioral targeting for UAE-specific buyers" }
+          { text: "Global Lead Pipelines: built custom enrichment chains that accounted for regional data nuances (e.g., UAE mobile vs. UK email priority)." },
+          { text: "Multi-Vertical Personalization: implemented AI workflows that tailored outreach based on whether the lead was in E-commerce, Real Estate, or Healthcare." },
+          { text: "CRM Connectivity: Tied the outbound machine directly into their custom sales CRM, automating task creation for account executives." },
+          { text: "Performance Tracking: Built a real-time dashboard tracking lead conversion by country and vertical to inform spend." }
         ]
       },
       {
@@ -231,6 +292,18 @@ const projects: Project[] = [
         layout: 'chart',
         chartType: 'bar',
         caption: "Multi-vertical Reach"
+      },
+      {
+        id: "impact",
+        title: "Impact & Outcomes",
+        layout: 'list',
+        content: "Repeatable global outreach system:",
+        items: [
+          { text: "Enabled 24/7 outbound coverage across UAE, India, and UK markets simultaneously." },
+          { text: "Targeted 1000+ enterprise-level prospects within the first 3 months." },
+          { text: "Built a vertical-agnostic engine that performs equally well for Fintech as it does for E-commerce." },
+          { text: "Empowered the sales team with hyper-personalized data that increased their response rates from 3% to 11%." }
+        ]
       }
     ]
   }
@@ -538,7 +611,6 @@ export const Projects: React.FC = () => {
                     </span>
                     <h3 className="text-2xl font-display font-bold text-white">{project.title}</h3>
                   </div>
-                  <span className="text-[10px] font-mono text-gray-500">{project.year}</span>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
                   {project.description}
@@ -599,14 +671,10 @@ export const Projects: React.FC = () => {
                       </div>
                     </div>
                     
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 border-t border-white/10">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-12 border-t border-white/10">
                       <div>
                         <div className="text-[10px] text-gray-500 uppercase mb-2">Role</div>
                         <div className="text-xs text-white">{selectedProject.story.role}</div>
-                      </div>
-                      <div>
-                        <div className="text-[10px] text-gray-500 uppercase mb-2">Timeline</div>
-                        <div className="text-xs text-white">{selectedProject.story.timeline}</div>
                       </div>
                       {selectedProject.story.stats.map((s, i) => (
                         <div key={i}>
