@@ -19,10 +19,12 @@ export interface ProjectSection {
   id: string;
   title: string;
   content?: string;
-  layout?: 'normal' | 'highlight' | 'grid' | 'process' | 'quote' | 'list';
+  layout?: 'normal' | 'highlight' | 'grid' | 'process' | 'quote' | 'list' | 'diagram' | 'chart';
   items?: ProjectSectionItem[];
   image?: string;
   caption?: string;
+  diagramType?: 'pipeline' | 'architecture' | 'comparison';
+  chartType?: 'bar' | 'radar' | 'gauge';
 }
 
 export interface Project {
