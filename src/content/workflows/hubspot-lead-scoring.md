@@ -1,5 +1,5 @@
 ---
-title: "HubSpot Lead Scoring & Routing Workflow (Fit + Engagement)"
+title: "HubSpot Lead Scoring & Routing (Fit + Engagement)"
 description: "Build HubSpot lead scoring that sales trusts: separate fit and engagement scores, agreed thresholds, and automatic MQL stage changes, routing and follow-up."
 metaTitle: "HubSpot Lead Scoring & Routing Workflow | Tibin Jacob"
 slug: "hubspot-lead-scoring"
