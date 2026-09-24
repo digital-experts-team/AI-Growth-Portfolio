@@ -1,0 +1,21 @@
+---
+export interface Props {
+  question?: string;
+  class?: string;
+}
+
+const { question, class: className = '' } = Astro.props;
+---
+
+<div class={`answer-block my-6 p-5 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-elevated)] relative overflow-hidden ${className}`}>
+  <div class="absolute top-0 left-0 bottom-0 w-1 bg-[var(--accent)]"></div>
+  {question && (
+    <div class="text-xs uppercase tracking-wider text-[var(--accent)] font-semibold mb-2 flex items-center gap-1.5">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
+      Direct Answer
+    </div>
+  )}
+  <div class="text-base text-gray-200 leading-relaxed font-normal">
+    <slot />
+  </div>
+</div>

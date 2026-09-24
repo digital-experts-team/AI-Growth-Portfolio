@@ -1,0 +1,37 @@
+:root {
+  /* Canvas & Surfaces */
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-elevated: #141414;
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-border-hover: rgba(212, 175, 55, 0.3);
+
+  /* Typography */
+  --text: #ffffff;
+  --text-muted: #9ca3af;
+  --text-subtle: #71717a;
+  --text-on-accent: #0a0800;
+
+  /* Accent & Gold Palette */
+  --accent: #D4AF37;
+  --accent-light: #F6E27A;
+  --accent-dark: #8E6216;
+  --accent-shadow: #453005;
+  --amber-fallback: #fbbf24;
+
+  /* Signal Flow & Action Gradients */
+  --gradient-signal: linear-gradient(90deg, #8E6216 0%, #D4AF37 50%, #F6E27A 100%);
+  --gradient-cta: linear-gradient(180deg, #F9F295 0%, #E0AA3E 52%, #B88A44 100%);
+  --gradient-shine: linear-gradient(90deg, #D4AF37, #F6E27A, #D4AF37, #8E6216, #D4AF37);
+
+  /* Typography Stacks */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Geometry */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+}

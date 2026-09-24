@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const title = "Demand Generation & Upstream Signal Feed | Tibin Jacob";
+const description = "How upstream demand channels—PPC, technical SEO, AEO, and content distribution—feed into automated B2B GTM engineering pipelines.";
+
+const caseStudies = await getCollection('caseStudies');
+const mavlersCaseStudy = caseStudies.find(c => c.slug === 'mavlers-partner-agency-signals');
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Demand', url: '/demand' },
+  ]}
+>
+  <div class="py-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+        Upstream Inbound Engine
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+        Demand Generation Meets GTM Engineering
+      </h1>
+      <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl">
+        Outbound automations and waterfall engines only work when high-intent buying signals feed them. Here is how paid media, technical SEO, AEO, and content function as the upstream input into revenue pipelines.
+      </p>
+    </div>
+
+    <!-- The 4 Upstream Feeds -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]">
+        <div class="text-xs font-mono text-[var(--accent)] mb-2">FEED 01</div>
+        <h2 class="text-xl font-bold text-white mb-2">High-Intent Paid Acquisition (PPC)</h2>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Rather than optimizing solely for raw lead form fills, paid traffic is targeted at high-intent comparison queries. Unconverted traffic is captured via reverse IP resolution and enriched into account lists.
+        </p>
+        <span class="text-xs font-mono text-gray-400">Signal: Dedicated landing page dwell time</span>
+      </div>
+
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]">
+        <div class="text-xs font-mono text-[var(--accent)] mb-2">FEED 02</div>
+        <h2 class="text-xl font-bold text-white mb-2">Technical SEO & Answer Engine Optimization (AEO)</h2>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Static-first architectures engineered for AI citations (Perplexity, ChatGPT, Gemini) and Google featured snippets. Captures procurement teams researching architectural specifications.
+        </p>
+        <span class="text-xs font-mono text-gray-400">Signal: Documentation depth & term searches</span>
+      </div>
+
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]">
+        <div class="text-xs font-mono text-[var(--accent)] mb-2">FEED 03</div>
+        <h2 class="text-xl font-bold text-white mb-2">Social Ingestion & Signal Mining</h2>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Monitoring hiring surges, funding rounds, and executive role shifts across LinkedIn and public channels to trigger automated outbound at the precise inflection point of organizational change.
+        </p>
+        <span class="text-xs font-mono text-gray-400">Signal: SDR job openings, Series A rounds</span>
+      </div>
+
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]">
+        <div class="text-xs font-mono text-[var(--accent)] mb-2">FEED 04</div>
+        <h2 class="text-xl font-bold text-white mb-2">Human-in-the-Loop Content Syndication</h2>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Automated content creation workflows that run behind Slack approval gates to keep products visible on social feeds without requiring large internal marketing departments.
+        </p>
+        <span class="text-xs font-mono text-gray-400">Signal: Engagement on technical breakdown posts</span>
+      </div>
+    </div>
+
+    <!-- Production Case Study Connection -->
+    <section class="my-12 p-8 rounded-2xl border border-[var(--accent)]/30 bg-[var(--surface-elevated)]" aria-labelledby="mavlers-demand-heading">
+      <div class="text-xs font-mono text-[var(--accent)] mb-1 uppercase">Case Study in Production</div>
+      <h2 id="mavlers-demand-heading" class="text-2xl font-bold text-white mb-3">
+        Mavlers: Bridging White-Label Delivery with Automated Agency Signals
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed mb-6">
+        At Mavlers, we connected inbound agency website traffic with HubSpot lifecycle automation. By filtering out retail brand visitors and focusing strictly on peer agency leaders, our sales team closed high-volume fulfillment retainers.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="/work/mavlers-partner-agency-signals" class="cta-button text-xs px-4 py-2 rounded-lg font-semibold">
+          Read Mavlers Case Study →
+        </a>
+        <a href="/workflows/website-visitors-to-hubspot" class="btn-secondary text-xs px-4 py-2 rounded-lg">
+          View Website Visitor Workflow →
+        </a>
+      </div>
+    </section>
+
+    <!-- Hire CTA -->
+    <div class="text-center pt-8 border-t border-[var(--surface-border)]">
+      <h3 class="text-xl font-bold text-white mb-2">Need an end-to-end demand and GTM pipeline?</h3>
+      <p class="text-xs sm:text-sm text-gray-400 mb-6">Let's audit your inbound channels and connect them to automated routing.</p>
+      <a href="/hire" class="cta-button text-xs px-6 py-2.5 rounded-lg inline-block">
+        Hire me (Full-time / Fractional)
+      </a>
+    </div>
+  </div>
+</BaseLayout>

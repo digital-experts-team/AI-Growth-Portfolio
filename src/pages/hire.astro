@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ContactForm } from '../components/ContactForm';
+import FAQ from '../components/FAQ.astro';
+
+const title = "Hire Tibin Jacob — GTM Engineer | 30-60-90 Day Plan";
+const description = "Hire Tibin Jacob as your GTM Engineer or fractional RevOps automation architect. Review my 30-60-90 day impact roadmap and engagement models.";
+
+const faqItems = [
+  {
+    q: "What is your availability and start date?",
+    a: "I am available to start immediately or within a standard 30-day notice period depending on the engagement structure.",
+  },
+  {
+    q: "How do you handle timezone overlap with US or European teams?",
+    a: "I am based in Bengaluru, India (IST), and regularly maintain 4–5 hours of real-time overlap with US Eastern, Pacific, and European working hours for sprints and standups.",
+  },
+  {
+    q: "What are your salary and rate expectations?",
+    a: "Competitive market rate based on role scope, equity structure, and whether the engagement is full-time or a fixed fractional sprint. Open to direct discussion.",
+  },
+  {
+    q: "Can you audit our existing HubSpot and Clay setup before building?",
+    a: "Yes. In the first 30 days, I run a comprehensive audit across data routing, provider credit burn, and bounce rates before deploying new automations.",
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schemaType="WebPage"
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Hire', url: '/hire' },
+  ]}
+  faq={faqItems}
+>
+  <div class="py-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+        Collaboration & Hiring
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+        Hire Tibin Jacob · GTM Engineer
+      </h1>
+      <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl">
+        I help high-growth B2B companies engineer automated pipeline infrastructure: turning raw intent signals into qualified, routable SQLs for sales reps.
+      </p>
+    </div>
+
+    <!-- 1. For Recruiters (30-Second Fast Scan) -->
+    <section class="my-10 p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]" aria-labelledby="recruiter-heading">
+      <div class="flex items-center justify-between mb-4">
+        <h2 id="recruiter-heading" class="text-lg font-bold text-white uppercase tracking-wider text-xs font-mono text-[var(--accent)]">
+          30-Second Recruiter Fast Scan
+        </h2>
+        <a
+          href="/resume/tibin-jacob-gtm-engineer.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-button text-xs px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Download PDF Resume
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+        <div>
+          <span class="text-gray-400 block font-mono">Target Role:</span>
+          <span class="text-white font-semibold">GTM Engineer / RevOps Lead</span>
+        </div>
+        <div>
+          <span class="text-gray-400 block font-mono">Experience:</span>
+          <span class="text-white font-semibold">4+ Years B2B GTM Systems</span>
+        </div>
+        <div>
+          <span class="text-gray-400 block font-mono">Location:</span>
+          <span class="text-white font-semibold">Bengaluru, IN (Remote Ready)</span>
+        </div>
+        <div>
+          <span class="text-gray-400 block font-mono">Education:</span>
+          <span class="text-white font-semibold">BCA, Amity University (2014–17)</span>
+        </div>
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-white/5 text-xs text-gray-300">
+        <strong class="text-white">Core Tool Stack:</strong> Clay, n8n, HubSpot, Apollo, Zoho Sales IQ, Claude API, Make, Zapier, PostgreSQL, HTML/JS.
+      </div>
+    </section>
+
+    <!-- 2. For Heads of GTM / VP Sales (30 / 60 / 90 Day Impact) -->
+    <section class="my-12" aria-labelledby="roadmap-heading">
+      <h2 id="roadmap-heading" class="text-2xl font-bold mb-6">
+        What I Ship: The 30 / 60 / 90 Day Impact Plan
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-technical p-6 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-[var(--accent)] mb-2">DAYS 01 – 30</div>
+            <h3 class="text-lg font-bold text-white mb-2">Audit & Quick Wins</h3>
+            <ul class="text-xs text-gray-300 space-y-2 list-disc list-inside">
+              <li>Audit HubSpot lifecycle stages and lead flow bottlenecks.</li>
+              <li>Inspect data provider credit burn and deliverability bounce rates.</li>
+              <li>Deploy real-time Slack speed-to-lead alerts for urgent inbounds.</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-[var(--accent)] font-mono">
+            Milestone: Immediate visibility into lead leaks
+          </div>
+        </div>
+
+        <div class="card-technical p-6 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-[var(--accent)] mb-2">DAYS 31 – 60</div>
+            <h3 class="text-lg font-bold text-white mb-2">Signal Engine Build</h3>
+            <ul class="text-xs text-gray-300 space-y-2 list-disc list-inside">
+              <li>Deploy automated waterfall enrichment across Apollo and Prospeo.</li>
+              <li>Set up anonymous website visitor identification and scoring.</li>
+              <li>Align automated lead routing with account executive territory SLAs.</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-[var(--accent)] font-mono">
+            Milestone: Predictable signal-to-meeting flow
+          </div>
+        </div>
+
+        <div class="card-technical p-6 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-[var(--accent)] mb-2">DAYS 61 – 90</div>
+            <h3 class="text-lg font-bold text-white mb-2">AI Agents & Scale</h3>
+            <ul class="text-xs text-gray-300 space-y-2 list-disc list-inside">
+              <li>Deploy human-in-the-loop AI reply classification agents.</li>
+              <li>Automate TOFU content distribution and monitoring state machines.</li>
+              <li>Document complete runbooks for sales and RevOps teams.</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-[var(--accent)] font-mono">
+            Milestone: Scalable, self-healing GTM operations
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. For Heads of RevOps (Clean Architecture Promise) -->
+    <section class="my-12 p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]" aria-labelledby="revops-heading">
+      <h2 id="revops-heading" class="text-xl font-bold mb-4">
+        The Clean Architecture Promise to RevOps
+      </h2>
+      <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+        I believe that undocumented automations are technical debt disguised as speed. Every workflow I engineer adheres to strict operational standards:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-300">
+        <div class="p-3.5 rounded-lg border border-white/5 bg-white/5">
+          <strong class="text-white block mb-1">Zero Orphaned Records</strong>
+          Every automated ingestion creates complete, deduplicated records linked to parent domains and account owners.
+        </div>
+        <div class="p-3.5 rounded-lg border border-white/5 bg-white/5">
+          <strong class="text-white block mb-1">Graceful Failure Handling</strong>
+          Every API call features exponential backoff, circuit-breaker isolation, and dead-letter queues.
+        </div>
+        <div class="p-3.5 rounded-lg border border-white/5 bg-white/5">
+          <strong class="text-white block mb-1">Full Runbook Documentation</strong>
+          Every trigger, state transition, and secret mapping is comprehensively documented for internal handoff.
+        </div>
+        <div class="p-3.5 rounded-lg border border-white/5 bg-white/5">
+          <strong class="text-white block mb-1">Strict Domain Protection</strong>
+          Automated MX validation keeps outbound bounce rates below 2%, shielding core corporate domains.
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Engagement Models -->
+    <section class="my-12" aria-labelledby="models-heading">
+      <h2 id="models-heading" class="text-2xl font-bold mb-6">
+        Engagement Models
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-[var(--accent)] mb-1">MODEL 01</div>
+            <h3 class="text-lg font-bold text-white mb-2">Full-Time GTM Engineer</h3>
+            <p class="text-xs text-gray-300 leading-relaxed mb-4">
+              Embedded full-time engineer owning the entire outbound technical stack, lead routing, and AI agents.
+            </p>
+          </div>
+          <span class="text-xs font-mono text-gray-400">Best for: Scaling Series A–C B2B teams</span>
+        </div>
+
+        <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-[var(--accent)] mb-1">MODEL 02</div>
+            <h3 class="text-lg font-bold text-white mb-2">Fractional GTM Engineer</h3>
+            <p class="text-xs text-gray-300 leading-relaxed mb-4">
+              10–20 hours/week advising RevOps, building core waterfall enrichment pipelines, and auditing workflows.
+            </p>
+          </div>
+          <span class="text-xs font-mono text-gray-400">Best for: Lean teams needing senior architecture</span>
+        </div>
+
+        <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-[var(--accent)] mb-1">MODEL 03</div>
+            <h3 class="text-lg font-bold text-white mb-2">Project Sprint</h3>
+            <p class="text-xs text-gray-300 leading-relaxed mb-4">
+              Fixed 2–4 week build for an explicit workflow (e.g. Website Visitors to HubSpot or Clay Waterfall Engine).
+            </p>
+          </div>
+          <span class="text-xs font-mono text-gray-400">Best for: Rapid unblocking of a specific bottleneck</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <FAQ items={faqItems} />
+
+    <!-- Contact Form CTA -->
+    <section class="my-12 pt-8 border-t border-[var(--surface-border)]" id="contact-hire">
+      <div class="text-center max-w-lg mx-auto mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2">Start a Conversation</h2>
+        <p class="text-xs sm:text-sm text-gray-400">
+          Drop your details below. This form routes straight into HubSpot, triggering an automated email notification to my inbox.
+        </p>
+      </div>
+
+      <ContactForm client:visible />
+    </section>
+  </div>
+</BaseLayout>

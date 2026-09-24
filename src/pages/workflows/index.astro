@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allWorkflows = await getCollection('workflows');
+const liveWorkflows = allWorkflows.filter((w) => w.data.status === 'live');
+const draftWorkflows = allWorkflows.filter((w) => w.data.status === 'draft');
+
+const title = "Production GTM Workflows & Schematics | Tibin Jacob";
+const description = "Open-source and production-tested GTM workflows: waterfall enrichment, anonymous visitor identification, HubSpot lead routing, and AI reply triage.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Workflows', url: '/workflows' },
+  ]}
+>
+  <div class="py-6 max-w-5xl mx-auto">
+    <div class="mb-10">
+      <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+        Operational Blueprints
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+        GTM Workflow Schematics
+      </h1>
+      <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl">
+        Deterministic revenue automations engineered with Clay, n8n, and HubSpot. Each blueprint features exact trigger payloads, cascading logic, and circuit-breaker failure guards.
+      </p>
+    </div>
+
+    <!-- Live Production Blueprints -->
+    <div class="mb-12">
+      <div class="flex items-center gap-2 mb-6">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <h2 class="text-xl font-bold text-white">Live Production Blueprints</h2>
+        <span class="text-xs font-mono text-gray-400">({liveWorkflows.length})</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {liveWorkflows.map((wf) => (
+          <article class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] hover:border-white/20 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono text-gray-400 mb-2">
+                <span class="text-[var(--accent)]">{wf.data.cluster}</span>
+                <span>Live Blueprint</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 leading-snug">
+                <a href={`/workflows/${wf.data.slug || wf.id}`} class="hover:text-[var(--accent)] transition-colors">
+                  {wf.data.title}
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                {wf.data.description}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                {wf.data.tools.map((tool) => (
+                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-gray-400 font-mono text-[10px]">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+
+              <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+                <span class="text-xs font-mono text-gray-400">Trigger: {wf.data.trigger.slice(0, 28)}...</span>
+                <a
+                  href={`/workflows/${wf.data.slug || wf.id}`}
+                  class="cta-button text-xs px-3.5 py-1.5 rounded-lg"
+                >
+                  View Schematic
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- Upcoming & Draft Blueprints -->
+    <div>
+      <div class="flex items-center gap-2 mb-6">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        <h2 class="text-xl font-bold text-white">In-Development Architecture Drafts</h2>
+        <span class="text-xs font-mono text-gray-400">({draftWorkflows.length})</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {draftWorkflows.map((dw) => (
+          <div class="p-4 rounded-xl border border-[var(--surface-border)] bg-[#0d0d0d] flex flex-col justify-between">
+            <div>
+              <div class="text-[10px] font-mono text-gray-500 uppercase mb-1">
+                {dw.data.cluster} · Drafting
+              </div>
+              <h3 class="text-sm font-semibold text-white mb-1 leading-snug">
+                {dw.data.title}
+              </h3>
+              <p class="text-xs text-gray-400 leading-relaxed mb-3">
+                {dw.data.description}
+              </p>
+            </div>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-500">
+              <span>Stack: {dw.data.tools.join(', ')}</span>
+              <a href="/hire" class="text-[var(--accent)] hover:underline">
+                Request Early Blueprint
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

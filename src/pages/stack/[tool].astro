@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const tools = [
+    {
+      tool: 'clay',
+      name: 'Clay',
+      category: 'Waterfall Data & Table Logic',
+      description: 'How I use Clay to orchestrate multi-vendor waterfall lookups, company firmographic filtering, and automated CRM write-backs.',
+      workflows: ['/workflows/waterfall-enrichment'],
+      caseStudy: '/work/paddleboat-sdr-scaling-signals',
+    },
+    {
+      tool: 'hubspot',
+      name: 'HubSpot',
+      category: 'CRM Architecture & SLA Routing',
+      description: 'How I configure HubSpot lifecycle stages, round-robin lead distribution, and automated rep Slack alerts with 15-minute SLAs.',
+      workflows: ['/workflows/website-visitors-to-hubspot'],
+      caseStudy: '/work/mavlers-partner-agency-signals',
+    },
+    {
+      tool: 'n8n',
+      name: 'n8n',
+      category: 'Self-Hosted Workflow Orchestration',
+      description: 'How I use n8n for webhook ingestion, state machines, exponential backoff retries, and AI agent execution.',
+      workflows: ['/workflows/waterfall-enrichment'],
+      caseStudy: '/work/heurist-autopilot-agents',
+    },
+    {
+      tool: 'apollo',
+      name: 'Apollo',
+      category: 'B2B Waterfall Enrichment',
+      description: 'How I configure Apollo as the primary tier data provider in automated waterfall enrichment pipelines.',
+      workflows: ['/workflows/waterfall-enrichment'],
+      caseStudy: '/work/paddleboat-sdr-scaling-signals',
+    },
+    {
+      tool: 'salesiq',
+      name: 'Zoho Sales IQ',
+      category: 'Website Intent Telemetry',
+      description: 'How I deploy Sales IQ to capture anonymous website visitors, track dwell time on pricing pages, and trigger outbound alerts.',
+      workflows: ['/workflows/website-visitors-to-hubspot'],
+      caseStudy: '/work/mavlers-partner-agency-signals',
+    },
+    {
+      tool: 'claude',
+      name: 'Claude / Anthropic API',
+      category: 'Human-in-the-Loop AI Logic',
+      description: 'How I integrate Claude LLM APIs with strict formatting guardrails and Slack human approval gates for outbound personalization.',
+      workflows: ['/workflows/waterfall-enrichment'],
+      caseStudy: '/work/heurist-autopilot-agents',
+    },
+  ];
+
+  return tools.map((item) => ({
+    params: { tool: item.tool },
+    props: { item },
+  }));
+}
+
+export interface Props {
+  item: {
+    tool: string;
+    name: string;
+    category: string;
+    description: string;
+    workflows: string[];
+    caseStudy: string;
+  };
+}
+
+const { item } = Astro.props;
+
+const title = `${item.name} for GTM Engineering & RevOps | Tibin Jacob`;
+const description = item.description;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Stack', url: '/work' },
+    { name: item.name, url: `/stack/${item.tool}` },
+  ]}
+>
+  <div class="py-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <header class="mb-10 pb-8 border-b border-[var(--surface-border)]">
+      <div class="text-xs font-mono text-[var(--accent)] uppercase tracking-wider mb-2">
+        {item.category}
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+        {item.name} in My GTM Architecture
+      </h1>
+      <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl">
+        {item.description}
+      </p>
+    </header>
+
+    <!-- Production Implementations -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] flex flex-col justify-between">
+        <div>
+          <h2 class="text-lg font-bold text-white mb-2">Verified Case Study Proof</h2>
+          <p class="text-xs text-gray-300 mb-4">
+            See how I deployed {item.name} in a production environment to unblock revenue bottlenecks.
+          </p>
+        </div>
+        <a href={item.caseStudy} class="cta-button text-xs px-4 py-2 rounded-lg inline-block text-center">
+          Read Production Case Study →
+        </a>
+      </div>
+
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] flex flex-col justify-between">
+        <div>
+          <h2 class="text-lg font-bold text-white mb-2">Associated Workflow Schematic</h2>
+          <p class="text-xs text-gray-300 mb-4">
+            Review the architecture diagram, trigger payload, and failure handling for {item.name}.
+          </p>
+        </div>
+        <a href={item.workflows[0]} class="btn-secondary text-xs px-4 py-2 rounded-lg inline-block text-center">
+          Explore Workflow Schematic →
+        </a>
+      </div>
+    </div>
+
+    <!-- Hire CTA -->
+    <div class="mt-12 pt-8 border-t border-[var(--surface-border)] flex flex-wrap justify-between items-center gap-4">
+      <a href="/work" class="text-xs font-mono text-gray-400 hover:text-white transition-colors">
+        ← Back to All Case Studies
+      </a>
+
+      <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
+        Hire me to integrate {item.name}
+      </a>
+    </div>
+  </div>
+</BaseLayout>

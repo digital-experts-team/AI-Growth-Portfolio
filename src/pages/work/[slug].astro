@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection('caseStudies');
+  return caseStudies.map((entry) => ({
+    params: { slug: entry.data.slug || entry.id },
+    props: { entry },
+  }));
+}
+
+export interface Props {
+  entry: CollectionEntry<'caseStudies'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const slug = entry.data.slug || entry.id;
+const title = `${entry.data.title} | Tibin Jacob`;
+const description = entry.data.description;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schemaType="Article"
+  publishedDate={entry.data.publishedDate}
+  updatedDate={entry.data.updatedDate}
+  faq={entry.data.faq}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Work', url: '/work' },
+    { name: entry.data.company, url: `/work/${slug}` },
+  ]}
+>
+  <article class="py-6 max-w-4xl mx-auto">
+    <!-- Breadcrumbs Display -->
+    <nav class="text-xs font-mono text-gray-500 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-white transition-colors">Home</a>
+      <span>/</span>
+      <a href="/work" class="hover:text-white transition-colors">Work</a>
+      <span>/</span>
+      <span class="text-gray-300">{entry.data.company}</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-10 pb-8 border-b border-[var(--surface-border)]">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class="text-xs font-mono text-[var(--accent)] bg-[var(--accent)]/10 px-2.5 py-1 rounded">
+          {entry.data.cluster}
+        </span>
+        <span class="text-xs font-mono text-gray-400">
+          Role: <strong class="text-white">{entry.data.role}</strong>
+        </span>
+        <span class="text-xs font-mono text-gray-500">·</span>
+        <span class="text-xs font-mono text-gray-400">
+          Timeline: <strong class="text-white">{entry.data.dates}</strong>
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 leading-tight">
+        {entry.data.title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl">
+        {entry.data.description}
+      </p>
+
+      {entry.data.updatedDate && (
+        <div class="mt-4 text-xs font-mono text-gray-500">
+          Last verified: {entry.data.updatedDate.toISOString().split('T')[0]} · Bengaluru, IN
+        </div>
+      )}
+    </header>
+
+    <!-- MDX Content -->
+    <div class="prose prose-invert max-w-none space-y-6 text-gray-300 leading-relaxed text-sm sm:text-base">
+      <Content />
+    </div>
+
+    <!-- Related Links & CTA -->
+    <footer class="mt-12 pt-8 border-t border-[var(--surface-border)] flex flex-wrap justify-between items-center gap-4">
+      {entry.data.proofLink ? (
+        <a href={entry.data.proofLink} class="text-xs font-mono text-[var(--accent)] hover:underline inline-flex items-center gap-1">
+          ← View Underlying Technical Workflow
+        </a>
+      ) : (
+        <a href="/work" class="text-xs font-mono text-gray-400 hover:text-white transition-colors">
+          ← Back to All Case Studies
+        </a>
+      )}
+
+      <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
+        Hire me for this motion
+      </a>
+    </footer>
+  </article>
+</BaseLayout>

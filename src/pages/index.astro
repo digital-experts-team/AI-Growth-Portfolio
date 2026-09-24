@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { HeroPipeline } from '../components/HeroPipeline';
+import { ContactForm } from '../components/ContactForm';
+import { getCollection } from 'astro:content';
+
+const caseStudies = await getCollection('caseStudies');
+const liveWorkflows = await getCollection('workflows', ({ data }) => data.status === 'live');
+
+const title = "Tibin Jacob — GTM Engineer | Signal → Score → Route";
+const description = "GTM Engineer with 4+ years architecting signal-based outbound, waterfall enrichment, and HubSpot routing for high-growth B2B sales teams.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://tibinjacob.com"
+>
+  <!-- Hero Section -->
+  <section class="pt-6 pb-12 sm:pt-10 sm:pb-16" aria-labelledby="hero-title">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-gray-300 font-mono mb-6">
+      <span class="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"></span>
+      <span>Tibin Jacob · GTM Engineer · 4+ Years Experience</span>
+    </div>
+
+    <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl leading-[1.15] mb-6">
+      I build the systems that turn buying signals into pipeline your sales team can work.
+    </h1>
+
+    <p class="text-base sm:text-xl text-gray-300 max-w-2xl leading-relaxed mb-8">
+      GTM Engineer. Clay, n8n, HubSpot and AI agents, plus the paid, SEO and content side that feeds them.
+    </p>
+
+    <div class="flex flex-wrap items-center gap-4 mb-10">
+      <a href="/work" class="cta-button px-6 py-3 rounded-xl text-sm font-semibold inline-flex items-center gap-2">
+        See how I work
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+      <a href="/hire" class="btn-secondary px-6 py-3 rounded-xl text-sm font-medium">
+        Hire me (Full-time / Fractional)
+      </a>
+      <a
+        href="/resume/tibin-jacob-gtm-engineer.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-xs text-gray-400 hover:text-white font-mono flex items-center gap-1.5 ml-2 transition-colors"
+      >
+        <svg class="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        Download Resume (PDF)
+      </a>
+    </div>
+
+    <!-- The One Bold Moment: Hero Pipeline React Island -->
+    <HeroPipeline client:load />
+  </section>
+
+  <!-- Section: How I Work (Signal -> Score -> Route) -->
+  <section class="py-12 border-t border-[var(--surface-border)]" aria-labelledby="framework-heading">
+    <div class="mb-8">
+      <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+        Operational Framework
+      </div>
+      <h2 id="framework-heading" class="text-2xl sm:text-3xl font-bold tracking-tight">
+        How I Work: Signal → Score → Route
+      </h2>
+      <p class="text-sm text-gray-400 max-w-xl mt-2">
+        Every outbound motion I engineer follows three deterministic stages to protect rep focus and prevent CRM data decay.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card-technical p-6 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-[var(--accent)] mb-2">PHASE 01</div>
+          <h3 class="text-lg font-semibold text-white mb-2">01. Signal Capture</h3>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            Monitor real-time buyer actions: pricing page visits, hiring surges in specific roles, funding announcements, or executive transitions.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5">
+          <a href="/workflows/website-visitors-to-hubspot" class="text-xs text-[var(--accent)] hover:underline inline-flex items-center gap-1 font-mono">
+            Explore Visitor Intent Flow →
+          </a>
+        </div>
+      </div>
+
+      <div class="card-technical p-6 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-[var(--accent)] mb-2">PHASE 02</div>
+          <h3 class="text-lg font-semibold text-white mb-2">02. Waterfall Scoring</h3>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            Run accounts through multi-vendor waterfalls (Apollo, Prospeo, Debounce) and score firmographic fit against exact ICP parameters.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5">
+          <a href="/workflows/waterfall-enrichment" class="text-xs text-[var(--accent)] hover:underline inline-flex items-center gap-1 font-mono">
+            Explore Waterfall Engine →
+          </a>
+        </div>
+      </div>
+
+      <div class="card-technical p-6 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-[var(--accent)] mb-2">PHASE 03</div>
+          <h3 class="text-lg font-semibold text-white mb-2">03. Route to Pipeline</h3>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            Write clean contacts directly to HubSpot with custom lifecycle stages, assign territory reps, and trigger a 15-minute response SLA.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5">
+          <a href="/work/mavlers-partner-agency-signals" class="text-xs text-[var(--accent)] hover:underline inline-flex items-center gap-1 font-mono">
+            Explore Partner Routing →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Selected Work / Case Studies -->
+  <section class="py-12 border-t border-[var(--surface-border)]" aria-labelledby="work-heading">
+    <div class="flex flex-wrap items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+          Documented Work
+        </div>
+        <h2 id="work-heading" class="text-2xl sm:text-3xl font-bold tracking-tight">
+          Selected GTM Case Studies
+        </h2>
+      </div>
+      <a href="/work" class="text-xs font-mono text-[var(--accent)] hover:underline">
+        View All Case Studies ({caseStudies.length}) →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {caseStudies.map((cs) => (
+        <article class="card-technical p-6 flex flex-col justify-between hover:border-white/20 transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-gray-400 mb-3">
+              <span class="text-white font-semibold">{cs.data.company}</span>
+              <span>{cs.data.dates}</span>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2 leading-snug">
+              <a href={`/work/${cs.data.slug || cs.id}`} class="hover:text-[var(--accent)] transition-colors">
+                {cs.data.title}
+              </a>
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+              {cs.data.description}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-xs font-mono text-gray-400">{cs.data.role}</span>
+            <a
+              href={`/work/${cs.data.slug || cs.id}`}
+              class="text-xs font-mono text-[var(--accent)] hover:underline inline-flex items-center gap-1"
+            >
+              Read Architecture →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Section: Production Tool Stack -->
+  <section class="py-12 border-t border-[var(--surface-border)]" aria-labelledby="stack-heading">
+    <div class="mb-8">
+      <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+        Engineered Infrastructure
+      </div>
+      <h2 id="stack-heading" class="text-2xl sm:text-3xl font-bold tracking-tight">
+        Core GTM Technology Stack
+      </h2>
+      <p class="text-sm text-gray-400 max-w-xl mt-2">
+        Every integration is built natively via REST APIs, webhooks, and headless automation.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      {[
+        { name: 'Clay', role: 'Waterfall Data & Table Logic', tag: 'Core Engine' },
+        { name: 'n8n', role: 'Self-Hosted Workflow Orchestration', tag: 'State Machine' },
+        { name: 'HubSpot', role: 'CRM Architecture & SLA Routing', tag: 'System of Record' },
+        { name: 'Apollo & Prospeo', role: 'B2B Waterfall Enrichment', tag: 'Data Providers' },
+        { name: 'Zoho Sales IQ', role: 'Website Intent Telemetry', tag: 'Signal Ingestion' },
+        { name: 'Claude / OpenAI API', role: 'Human-in-the-Loop AI Logic', tag: 'LLM Agents' },
+        { name: 'Make & Zapier', role: 'High-Speed Webhook Hooks', tag: 'Integration' },
+        { name: 'PostgreSQL / Supabase', role: 'Deduplication & Event Cache', tag: 'Data Store' },
+      ].map((tool) => (
+        <div class="p-4 rounded-xl border border-[var(--surface-border)] bg-[var(--surface)]">
+          <div class="text-[10px] font-mono text-[var(--accent)] uppercase mb-1">{tool.tag}</div>
+          <div class="text-base font-semibold text-white mb-1">{tool.name}</div>
+          <div class="text-xs text-gray-400 leading-snug">{tool.role}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Section: Who I Work With -->
+  <section class="py-12 border-t border-[var(--surface-border)]" aria-labelledby="audiences-heading">
+    <div class="mb-8">
+      <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+        Target Collaboration
+      </div>
+      <h2 id="audiences-heading" class="text-2xl sm:text-3xl font-bold tracking-tight">
+        Who I Work With
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]">
+        <h3 class="text-lg font-semibold text-white mb-2">Head of GTM / VP Sales</h3>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Looking to replace manual rep prospecting with automated signal-based outbound that consistently fills calendars with qualified meetings.
+        </p>
+        <span class="text-xs font-mono text-[var(--accent)]">Outcome: Predictable SQL velocity</span>
+      </div>
+
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]">
+        <h3 class="text-lg font-semibold text-white mb-2">Head of RevOps</h3>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Needing airtight CRM data hygiene, strict speed-to-lead routing, and automated deduplication between external tools and HubSpot/Salesforce.
+        </p>
+        <span class="text-xs font-mono text-[var(--accent)]">Outcome: Zero CRM pollution & clean SLAs</span>
+      </div>
+
+      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)]">
+        <h3 class="text-lg font-semibold text-white mb-2">Demand Gen Leaders</h3>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Wanting to bridge the gap between ad traffic/SEO content and sales pipeline by identifying and enriching high-intent anonymous visitors.
+        </p>
+        <span class="text-xs font-mono text-[var(--accent)]">Outcome: Higher inbound-to-pipeline ROI</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Live Demo Contact Form -->
+  <section class="py-12 border-t border-[var(--surface-border)]" id="contact" aria-labelledby="contact-heading">
+    <div class="text-center max-w-xl mx-auto mb-8">
+      <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+        Live Demonstration
+      </div>
+      <h2 id="contact-heading" class="text-2xl sm:text-3xl font-bold tracking-tight">
+        Ready to engineer your GTM engine?
+      </h2>
+      <p class="text-sm text-gray-400 mt-2">
+        Submit this form to test my live webhook pipeline. Inquiries are instantly ingested, enriched, and routed into HubSpot.
+      </p>
+    </div>
+
+    <ContactForm client:visible />
+  </section>
+
+  <!-- Page Verification Stamp -->
+  <div class="pt-8 text-center text-xs font-mono text-gray-500">
+    Last updated: September 2026 · Bengaluru, India · Built static-first with Astro 5
+  </div>
+</BaseLayout>

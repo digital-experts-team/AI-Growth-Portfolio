@@ -1,0 +1,27 @@
+---
+export interface Props {
+  steps: { title: string; body: string }[];
+  title?: string;
+}
+
+const { steps, title = 'Execution Steps' } = Astro.props;
+---
+
+<section class="steps-section my-10" aria-label={title}>
+  {title && <h2 class="text-2xl font-semibold mb-6 tracking-tight">{title}</h2>}
+  <ol class="relative border-l border-[var(--surface-border)] ml-4 space-y-8">
+    {steps.map((step, idx) => (
+      <li class="mb-8 ml-6 group">
+        <span class="absolute -left-3.5 flex items-center justify-center w-7 h-7 rounded-full bg-[var(--surface-elevated)] border border-[var(--accent)] text-xs font-bold text-[var(--accent)] group-hover:scale-110 transition-transform">
+          {idx + 1}
+        </span>
+        <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-[var(--accent)] transition-colors">
+          {step.title}
+        </h3>
+        <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-prose">
+          {step.body}
+        </p>
+      </li>
+    ))}
+  </ol>
+</section>

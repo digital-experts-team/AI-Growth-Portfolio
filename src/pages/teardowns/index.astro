@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ContactForm } from '../../components/ContactForm';
+
+const title = "GTM Pipeline Teardowns (Coming Soon) | Tibin";
+const description = "Architectural teardowns of how top B2B SaaS companies configure their buying signals, enrichment, and outbound routing. Currently in progress.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Teardowns', url: '/teardowns' },
+  ]}
+>
+  <div class="py-12 max-w-3xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-gray-400 font-mono mb-6">
+      <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+      <span>In Progress</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
+      GTM Architecture Teardowns
+    </h1>
+
+    <p class="text-base sm:text-lg text-gray-300 leading-relaxed mb-8">
+      Deep-dive teardowns analyzing how leading enterprise and high-growth B2B organizations capture buying signals, enrich contact pools, and route pipeline without rep churn.
+    </p>
+
+    <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] text-left mb-12">
+      <h2 class="text-lg font-bold text-white mb-3">Upcoming Teardowns</h2>
+      <ul class="space-y-2 text-xs sm:text-sm text-gray-300 list-disc list-inside">
+        <li>Deconstructing a $50M ARR SaaS Inbound Form: What happens between submit and calendar?</li>
+        <li>How Top Sales Orgs Detect SDR Hiring Spikes 3 Weeks Before Competitors</li>
+        <li>The Reverse IP Intent Trap: Why 80% of visitor tools give you junk data</li>
+      </ul>
+    </div>
+
+    <div class="p-8 rounded-2xl border border-[var(--accent)]/30 bg-[var(--surface-elevated)] text-left">
+      <h3 class="text-xl font-bold text-white mb-2">Suggest a Company or Request a Teardown</h3>
+      <p class="text-xs sm:text-sm text-gray-400 mb-6">
+        Have a specific B2B motion or product you'd like me to analyze? Drop the company or stack below.
+      </p>
+
+      <ContactForm client:visible />
+    </div>
+  </div>
+</BaseLayout>

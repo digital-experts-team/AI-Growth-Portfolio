@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "gtm-expert-tibin.vercel.app"
+        }
+      ],
+      "destination": "https://tibinjacob.com/$1",
+      "permanent": true
+    }
+  ]
+}

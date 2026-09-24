@@ -1,0 +1,143 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  publishedDate?: Date;
+  updatedDate?: Date;
+  breadcrumbs?: { name: string; url: string }[];
+  schemaType?: 'Person' | 'Article' | 'HowTo' | 'FAQPage' | 'DefinedTermSet' | 'DefinedTerm' | 'WebPage';
+  faq?: { q: string; a: string }[];
+  howToSteps?: { title: string; body: string }[];
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogType = 'website',
+  publishedDate,
+  updatedDate,
+  breadcrumbs = [],
+  schemaType,
+  faq,
+  howToSteps,
+} = Astro.props;
+
+const siteUrl = import.meta.env.SITE_URL || 'https://tibinjacob.com';
+const ogImage = `${siteUrl}/og/share.png`;
+
+// Sitewide Person Schema
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${siteUrl}/#person`,
+  name: 'Tibin Jacob',
+  jobTitle: 'GTM Engineer',
+  description: 'GTM Engineer with 4+ years building signal-based outbound, HubSpot routing, and AI agents for B2B teams.',
+  url: siteUrl,
+  image: 'https://avatars.githubusercontent.com/u/256321244?v=4',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bengaluru',
+    addressCountry: 'IN',
+  },
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Amity University',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/tibinjacob',
+    'https://github.com/digital-experts-team',
+  ],
+  knowsAbout: [
+    'GTM engineering',
+    'signal-based selling',
+    'waterfall enrichment',
+    'lead routing',
+    'RevOps automation',
+    'AI agents for GTM',
+    'HubSpot',
+    'Clay',
+    'n8n',
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: 'Tibin Jacob — GTM Engineer',
+  author: { '@id': `${siteUrl}/#person` },
+};
+
+// BreadcrumbList Schema
+const breadcrumbsSchema = breadcrumbs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    name: crumb.name,
+    item: crumb.url.startsWith('http') ? crumb.url : `${siteUrl}${crumb.url}`,
+  })),
+} : null;
+
+// FAQ Schema if present
+const faqSchema = (faq && faq.length > 0) ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+} : null;
+
+// HowTo Schema if present
+const howToSchema = (howToSteps && howToSteps.length > 0) ? {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howToSteps.map((s, idx) => ({
+    '@type': 'HowToStep',
+    position: idx + 1,
+    name: s.title,
+    text: s.body,
+  })),
+} : null;
+---
+
+<!-- Canonical & Title -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content="Tibin Jacob — GTM Engineer" />
+<meta property="og:image" content={ogImage} />
+{publishedDate && <meta property="article:published_time" content={publishedDate.toISOString()} />}
+{updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+{breadcrumbsSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbsSchema)} />}
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+{howToSchema && <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}
