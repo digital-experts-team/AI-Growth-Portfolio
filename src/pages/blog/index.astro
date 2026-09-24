@@ -13,58 +13,60 @@ const description = "Technical articles and guides on GTM engineering, MQL vs SQ
   description={description}
   breadcrumbs={[
     { name: 'Home', url: '/' },
-    { name: 'Blog', url: '/blog' },
+    { name: 'Writing', url: '/blog' },
   ]}
 >
   <div class="py-6 max-w-5xl mx-auto">
     <div class="mb-10">
-      <div class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] mb-2">
+      <div class="text-[11px] font-mono uppercase tracking-wider text-cyan-600 font-semibold mb-2">
         Technical Writing & Guides
       </div>
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
         GTM Engineering & RevOps Articles
       </h1>
-      <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl">
+      <p class="text-base sm:text-lg text-slate-500 leading-relaxed max-w-2xl">
         Architectural breakdowns, operational playbooks, and strategic perspectives on building predictable B2B revenue infrastructure.
       </p>
     </div>
 
     <div class="space-y-6">
       {posts.map((post) => (
-        <article class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] hover:border-white/20 transition-all flex flex-col justify-between">
+        <article class="p-6 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 hover:shadow-sm transition-all flex flex-col justify-between group">
           <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
             <div class="flex items-center gap-2">
-              <span class="text-xs font-mono text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded">
+              <span class="text-xs font-mono text-cyan-700 bg-cyan-50 border border-cyan-200 px-2 py-0.5 rounded">
                 {post.data.cluster}
               </span>
               {post.data.type === 'pillar' && (
-                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-2 py-0.5 rounded">
+                <span class="text-xs font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
                   Pillar Guide
                 </span>
               )}
             </div>
-            <span class="text-xs font-mono text-gray-500">
+            <span class="text-xs font-mono text-slate-400">
               {post.data.status === 'draft' ? 'Under Review / Draft' : 'Published'}
             </span>
           </div>
 
-          <h2 class="text-xl sm:text-2xl font-bold text-white mb-2 leading-snug">
-            <a href={`/blog/${post.data.slug || post.id}`} class="hover:text-[var(--accent)] transition-colors">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2 leading-snug">
+            <a href={`/blog/${post.data.slug || post.id}`}>
               {post.data.title}
             </a>
           </h2>
 
-          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4 max-w-3xl">
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 max-w-3xl">
             {post.data.description}
           </p>
 
-          <div class="pt-3 border-t border-white/5 flex items-center justify-between">
-            <span class="text-xs font-mono text-gray-500">Target Keyword: {post.data.targetKeyword}</span>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-mono text-slate-400">
+              Target: {post.data.targetKeyword || 'GTM Architecture'}
+            </span>
             <a
               href={`/blog/${post.data.slug || post.id}`}
-              class="text-xs font-mono text-[var(--accent)] hover:underline inline-flex items-center gap-1"
+              class="text-xs font-semibold text-[#1d6ff2] hover:underline"
             >
-              Read Article Outline & FAQ →
+              Read Article →
             </a>
           </div>
         </article>

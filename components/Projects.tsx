@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, TrendingUp, ArrowDown, ExternalLink } from 'lucide-react';
-import { SectionId, Project } from '../types';
+import { SectionId, type Project } from '../types';
 
 const projects: Project[] = [
   {

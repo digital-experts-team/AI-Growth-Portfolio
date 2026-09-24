@@ -1,0 +1,110 @@
+---
+interface StoryItem {
+  number: string;
+  title: string;
+  stack: string;
+  imageSrc?: string;
+}
+
+const stories: StoryItem[] = [
+  {
+    number: 'STORY 01',
+    title: 'Signal Ingestion Engine',
+    stack: 'Zoho SalesIQ • Webhooks',
+  },
+  {
+    number: 'STORY 02',
+    title: 'Waterfall Enrichment Flow',
+    stack: 'Clay • Apollo • Prospeo',
+  },
+  {
+    number: 'STORY 03',
+    title: 'Dynamic CRM Lead Routing',
+    stack: 'HubSpot • Slack Alerts',
+  },
+  {
+    number: 'STORY 04',
+    title: 'Content & Outbound Loop',
+    stack: 'n8n • Slack Approval Gate',
+  },
+];
+---
+
+<section class="flex flex-col gap-6" aria-labelledby="stories-heading">
+  <div class="flex flex-col gap-1">
+    <span class="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
+      PRODUCTION SYSTEMS
+    </span>
+    <div class="flex items-center justify-between">
+      <div>
+        <h2 id="stories-heading" class="text-[28px] font-bold text-slate-900 tracking-tight">
+          My Stories
+        </h2>
+        <p class="text-[13px] font-mono text-slate-400 mt-0.5">
+          Tested and validated across 40+ production instances
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button
+          class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:border-slate-400 hover:bg-slate-50 transition-all text-xs"
+          type="button"
+          aria-label="Previous story"
+        >
+          <span class="material-symbols-outlined text-[16px]">chevron_left</span>
+        </button>
+        <button
+          class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:border-slate-400 hover:bg-slate-50 transition-all text-xs"
+          type="button"
+          aria-label="Next story"
+        >
+          <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative w-full">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {stories.map((story) => (
+        <div class="h-80 rounded-2xl bg-[#080d19] border border-slate-900 shadow-lg p-4 flex flex-col justify-between relative overflow-hidden group cursor-pointer hover:border-cyan-500/60 transition-all">
+          {story.imageSrc ? (
+            <img
+              src={story.imageSrc}
+              alt={story.title}
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          ) : (
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-[#080d19]/80 to-[#0e1626]/40 pointer-events-none"></div>
+          )}
+
+          {/* Top tag */}
+          <div class="relative z-10 flex items-center justify-between">
+            <span class="text-[10px] font-mono text-cyan-400 font-semibold tracking-wider">
+              {story.number}
+            </span>
+          </div>
+
+          {/* Center Play Pulse Node */}
+          <div class="relative z-10 flex items-center justify-center my-auto">
+            <div class="relative flex items-center justify-center">
+              <div class="w-12 h-12 rounded-full bg-cyan-500/20 play-pulse-ring absolute"></div>
+              <div class="w-10 h-10 rounded-full bg-[#0e1626] border border-cyan-500/40 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all shadow-md">
+                <span class="material-symbols-outlined text-[20px]">play_arrow</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Info */}
+          <div class="relative z-10 text-white">
+            <p class="text-[13px] font-bold leading-tight group-hover:text-cyan-300 transition-colors">
+              {story.title}
+            </p>
+            <p class="text-[11px] text-slate-400 font-mono mt-1 truncate">
+              {story.stack}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

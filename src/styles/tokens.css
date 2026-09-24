@@ -1,37 +1,41 @@
 :root {
-  /* Canvas & Surfaces */
-  --bg: #000000;
-  --surface: #0a0a0a;
-  --surface-elevated: #141414;
-  --surface-border: rgba(255, 255, 255, 0.08);
-  --surface-border-hover: rgba(212, 175, 55, 0.3);
+  /* Canvas & Surfaces (Signal Schematic Light Theme) */
+  --bg: #ffffff;
+  --bg-gradient: linear-gradient(to right, rgba(59, 130, 246, 0.06) 0%, rgba(147, 197, 253, 0.03) 40%, rgb(255, 255, 255) 100%);
+  --surface: #ffffff;
+  --surface-low: #f8fafc;
+  --surface-elevated: #f1f5f9;
+  --surface-border: #e2e8f0;
+  --surface-border-hover: #cbd5e1;
 
   /* Typography */
-  --text: #ffffff;
-  --text-muted: #9ca3af;
-  --text-subtle: #71717a;
-  --text-on-accent: #0a0800;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --text-on-accent: #ffffff;
 
-  /* Accent & Gold Palette */
-  --accent: #D4AF37;
-  --accent-light: #F6E27A;
-  --accent-dark: #8E6216;
-  --accent-shadow: #453005;
-  --amber-fallback: #fbbf24;
+  /* Accent & Signal Palette */
+  --accent: #1d6ff2;
+  --accent-hover: #1557c0;
+  --signal-cyan: #06b6d4;
+  --signal-emerald: #10b981;
+  --signal-dark: #080d19;
 
   /* Signal Flow & Action Gradients */
-  --gradient-signal: linear-gradient(90deg, #8E6216 0%, #D4AF37 50%, #F6E27A 100%);
-  --gradient-cta: linear-gradient(180deg, #F9F295 0%, #E0AA3E 52%, #B88A44 100%);
-  --gradient-shine: linear-gradient(90deg, #D4AF37, #F6E27A, #D4AF37, #8E6216, #D4AF37);
+  --gradient-signal: linear-gradient(90deg, #06b6d4 0%, #10b981 100%);
+  --gradient-cta: linear-gradient(135deg, #1d6ff2 0%, #06b6d4 100%);
+  --gradient-card-dark: linear-gradient(to top right, #080d19 0%, #0f172a 100%);
 
   /* Typography Stacks */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   /* Geometry */
   --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
 }
+

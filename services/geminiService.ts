@@ -1,5 +1,5 @@
-import { GoogleGenAI, Chat } from "@google/genai";
-import { ChatMessage } from "../types";
+import { GoogleGenAI, type Chat } from "@google/genai";
+import type { ChatMessage } from "../types";
 
 // Initialize Gemini Client lazily to prevent crash on load if API key is missing
 let ai: GoogleGenAI | null = null;

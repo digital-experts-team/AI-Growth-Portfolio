@@ -87,24 +87,24 @@ const description = item.description;
 >
   <div class="py-6 max-w-4xl mx-auto">
     <!-- Header -->
-    <header class="mb-10 pb-8 border-b border-[var(--surface-border)]">
-      <div class="text-xs font-mono text-[var(--accent)] uppercase tracking-wider mb-2">
+    <header class="mb-10 pb-8 border-b border-slate-200">
+      <div class="text-[11px] font-mono text-cyan-600 font-semibold uppercase tracking-wider mb-2">
         {item.category}
       </div>
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
         {item.name} in My GTM Architecture
       </h1>
-      <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl">
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
         {item.description}
       </p>
     </header>
 
     <!-- Production Implementations -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
-      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] flex flex-col justify-between">
+      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
         <div>
-          <h2 class="text-lg font-bold text-white mb-2">Verified Case Study Proof</h2>
-          <p class="text-xs text-gray-300 mb-4">
+          <h2 class="text-lg font-bold text-slate-900 mb-2">Verified Case Study Proof</h2>
+          <p class="text-xs text-slate-600 mb-4">
             See how I deployed {item.name} in a production environment to unblock revenue bottlenecks.
           </p>
         </div>
@@ -113,10 +113,10 @@ const description = item.description;
         </a>
       </div>
 
-      <div class="p-6 rounded-2xl border border-[var(--surface-border)] bg-[var(--surface)] flex flex-col justify-between">
+      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
         <div>
-          <h2 class="text-lg font-bold text-white mb-2">Associated Workflow Schematic</h2>
-          <p class="text-xs text-gray-300 mb-4">
+          <h2 class="text-lg font-bold text-slate-900 mb-2">Associated Workflow Schematic</h2>
+          <p class="text-xs text-slate-600 mb-4">
             Review the architecture diagram, trigger payload, and failure handling for {item.name}.
           </p>
         </div>
@@ -127,8 +127,8 @@ const description = item.description;
     </div>
 
     <!-- Hire CTA -->
-    <div class="mt-12 pt-8 border-t border-[var(--surface-border)] flex flex-wrap justify-between items-center gap-4">
-      <a href="/work" class="text-xs font-mono text-gray-400 hover:text-white transition-colors">
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-wrap justify-between items-center gap-4">
+      <a href="/work" class="text-xs font-mono text-slate-500 hover:text-slate-900 transition-colors">
         ← Back to All Case Studies
       </a>
 

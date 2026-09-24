@@ -37,6 +37,7 @@ const workflows = defineCollection({
   schema: baseSchema.extend({
     tools: z.array(z.string()),
     trigger: z.string(),
+    buildTime: z.string().optional(),
     loomUrl: z.string().optional(),
     templateUrl: z.string().optional(),
     githubUrl: z.string().optional(),

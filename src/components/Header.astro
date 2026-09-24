@@ -2,55 +2,50 @@
 const navLinks = [
   { name: 'Work', href: '/work' },
   { name: 'Workflows', href: '/workflows' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Glossary', href: '/glossary' },
-  { name: 'Demand', href: '/demand' },
+  { name: 'Writing', href: '/blog' },
   { name: 'About', href: '/about' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-40 w-full backdrop-blur-md bg-black/80 border-b border-[var(--surface-border)]">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2 group">
-      <span class="w-3 h-3 rounded-full bg-[var(--accent)] group-hover:scale-125 transition-transform"></span>
-      <span class="font-display font-semibold text-white tracking-tight text-lg">
-        Tibin Jacob
-      </span>
-      <span class="hidden sm:inline-block text-xs font-mono text-gray-400 bg-white/5 px-2 py-0.5 rounded border border-white/10 ml-1">
-        GTM Engineer
-      </span>
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-slate-100/80">
+  <div class="h-16 max-w-[1160px] mx-auto px-4 sm:px-6 flex items-center justify-between">
+    <a href="/" class="text-slate-900 font-bold tracking-tight flex items-center gap-2 text-[15px] group">
+      <span class="w-2 h-2 rounded-full bg-cyan-500 group-hover:scale-125 transition-transform"></span>
+      <span>Tibin Jacob</span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-6" aria-label="Primary Navigation">
-      {navLinks.map((link) => {
-        const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
-        return (
-          <a
-            href={link.href}
-            class={`text-sm font-medium transition-colors ${
-              isActive ? 'text-[var(--accent)] font-semibold' : 'text-gray-300 hover:text-white'
-            }`}
-          >
-            {link.name}
-          </a>
-        );
-      })}
-    </nav>
+    <div class="flex items-center gap-6">
+      <nav class="hidden md:flex items-center gap-6" aria-label="Primary Navigation">
+        {navLinks.map((link) => {
+          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+          return (
+            <a
+              href={link.href}
+              class={`text-[14px] transition-colors ${
+                isActive ? 'text-cyan-600 font-medium' : 'text-slate-600 font-normal hover:text-slate-900'
+              }`}
+            >
+              {link.name}
+            </a>
+          );
+        })}
+      </nav>
 
-    <div class="flex items-center gap-3">
       <a
-        href="/hire"
-        class="cta-button text-xs sm:text-sm px-4 py-2 rounded-lg"
+        href="https://wa.me/919995551234?text=Hi%20Tibin,%20interested%20in%20GTM%20Engineering"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-5 py-2 bg-[#1d6ff2] hover:bg-blue-600 text-white font-medium text-[13px] rounded-full transition-all shadow-sm"
       >
-        Hire Me
+        Whatsapp Number
       </a>
 
       <!-- Mobile Menu Toggle Button -->
       <button
         id="mobile-nav-toggle"
-        class="md:hidden p-2 rounded-lg text-gray-300 hover:text-white border border-white/10"
+        class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 border border-slate-200"
         aria-label="Toggle Navigation Menu"
         aria-expanded="false"
       >
@@ -62,15 +57,20 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-nav-menu" class="hidden md:hidden border-b border-[var(--surface-border)] bg-black px-4 pt-2 pb-4 space-y-2">
+  <div id="mobile-nav-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
     {navLinks.map((link) => (
       <a
         href={link.href}
-        class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-white hover:bg-white/5"
+        class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-cyan-600 hover:bg-slate-50"
       >
         {link.name}
       </a>
     ))}
+    <div class="pt-2 border-t border-slate-100 flex gap-4 text-xs font-mono text-slate-500 px-3">
+      <a href="/glossary" class="hover:text-slate-900">Glossary</a>
+      <a href="/demand" class="hover:text-slate-900">Demand</a>
+      <a href="/hire" class="hover:text-slate-900">Hire Me</a>
+    </div>
   </div>
 </header>
 
@@ -85,3 +85,4 @@ const currentPath = Astro.url.pathname;
     });
   }
 </script>
+

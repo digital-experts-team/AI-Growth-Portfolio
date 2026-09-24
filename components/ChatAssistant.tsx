@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Sparkles, Loader2 } from 'lucide-react';
-import { ChatMessage } from '../types';
+import type { ChatMessage } from '../types';
 import { sendMessageToGemini, initializeChat } from '../services/geminiService';
 
 interface ChatAssistantProps {

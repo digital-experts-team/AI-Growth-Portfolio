@@ -38,70 +38,62 @@ const description = entry.data.description;
 >
   <article class="py-6 max-w-4xl mx-auto">
     <!-- Breadcrumbs -->
-    <nav class="text-xs font-mono text-gray-500 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-white transition-colors">Home</a>
+    <nav class="text-xs font-mono text-slate-400 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
-      <a href="/workflows" class="hover:text-white transition-colors">Workflows</a>
+      <a href="/workflows" class="hover:text-slate-900 transition-colors">Workflows</a>
       <span>/</span>
-      <span class="text-gray-300 truncate max-w-xs">{entry.data.title}</span>
+      <span class="text-slate-600 truncate max-w-xs">{entry.data.title}</span>
     </nav>
 
     <!-- Header -->
-    <header class="mb-10 pb-8 border-b border-[var(--surface-border)]">
+    <header class="mb-10 pb-8 border-b border-slate-200">
       <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="text-xs font-mono text-[var(--accent)] bg-[var(--accent)]/10 px-2.5 py-1 rounded">
+        <span class="text-xs font-mono text-cyan-700 bg-cyan-50 border border-cyan-200 px-2.5 py-1 rounded">
           {entry.data.cluster}
         </span>
-        <span class="text-xs font-mono text-gray-400">
-          Target Keyword: <strong class="text-white">{entry.data.targetKeyword || 'GTM Automation'}</strong>
+        <span class="text-xs font-mono text-slate-500">
+          Target Keyword: <strong class="text-slate-900">{entry.data.targetKeyword || 'GTM Automation'}</strong>
         </span>
         {entry.data.updatedDate && (
-          <span class="text-xs font-mono text-gray-500">
+          <span class="text-xs font-mono text-slate-400">
             · Updated: {entry.data.updatedDate.toISOString().split('T')[0]}
           </span>
         )}
       </div>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 leading-tight">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4 leading-tight">
         {entry.data.title}
       </h1>
 
-      <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl mb-6">
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-6">
         {entry.data.description}
       </p>
 
-      <!-- Key Metadata Card -->
-      <div class="p-4 rounded-xl border border-[var(--surface-border)] bg-[var(--surface)] grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
-        <div>
-          <span class="text-gray-400 block mb-1">Trigger Event:</span>
-          <span class="text-white">{entry.data.trigger}</span>
-        </div>
-        <div>
-          <span class="text-gray-400 block mb-1">Integrated Stack:</span>
-          <span class="text-[var(--accent)]">{entry.data.tools.join(' · ')}</span>
-        </div>
+      <!-- Technical Stack Strip -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-mono text-slate-400 mr-2">Orchestration:</span>
+        {entry.data.tools.map((t) => (
+          <span class="text-xs font-mono bg-slate-100 border border-slate-200 text-slate-700 px-2.5 py-1 rounded">
+            {t}
+          </span>
+        ))}
       </div>
     </header>
 
-    <!-- MDX Content -->
-    <div class="prose prose-invert max-w-none space-y-6 text-gray-300 leading-relaxed text-sm sm:text-base">
+    <!-- Content -->
+    <div class="prose max-w-none space-y-6 text-slate-700 leading-relaxed text-sm sm:text-base">
       <Content />
     </div>
 
-    <!-- Related Link & Hire CTA -->
-    <footer class="mt-12 pt-8 border-t border-[var(--surface-border)] flex flex-wrap justify-between items-center gap-4">
-      {entry.data.proofLink ? (
-        <a href={entry.data.proofLink} class="text-xs font-mono text-[var(--accent)] hover:underline inline-flex items-center gap-1">
-          ← See Case Study Proof in Production
-        </a>
-      ) : (
-        <a href="/workflows" class="text-xs font-mono text-gray-400 hover:text-white transition-colors">
-          ← Back to All Workflows
-        </a>
-      )}
+    <!-- Related Links & CTA -->
+    <footer class="mt-12 pt-8 border-t border-slate-200 flex flex-wrap justify-between items-center gap-4">
+      <a href="/workflows" class="text-xs font-mono text-slate-500 hover:text-slate-900 transition-colors">
+        ← Back to All Workflows
+      </a>
 
       <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
-        Hire me to build this for your team
+        Deploy this in your stack
       </a>
     </footer>
   </article>
