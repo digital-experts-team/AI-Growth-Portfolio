@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { WorkflowsCarousel } from '../components/WorkflowsCarousel';
 import StoriesSection from '../components/StoriesSection.astro';
 import TechStackRail from '../components/TechStackRail.astro';
-import { HeroPipeline } from '../components/HeroPipeline';
+import HeroFromUIUX from '../components/HeroFromUIUX.astro';
 import { ContactForm } from '../components/ContactForm';
 import { getCollection } from 'astro:content';
 
@@ -66,36 +66,37 @@ const faq = [
 ];
 ---
 
-<BaseLayout title={title} ogTitle={ogTitle} description={description} canonicalUrl={siteUrl} faq={faq}>
+<BaseLayout
+  title={title}
+  ogTitle={ogTitle}
+  description={description}
+  canonicalUrl={siteUrl}
+  faq={faq}
+  preloadImage="/images/hero-bg.webp"
+  transparentHeader={true}
+>
+  <HeroFromUIUX slot="hero" bgImage="/images/hero-bg.webp">
+    <div class="flex flex-col items-start gap-5 max-w-[720px]">
+      <h1 id="hero-heading" class="flex flex-col gap-3">
+        <span class="text-[40px] sm:text-[56px] lg:text-[64px] font-bold text-white tracking-tight leading-[1.04]">
+          AI Growth Expert for B2B Companies
+        </span>
+        <span class="text-[15px] sm:text-[18px] font-semibold text-[#d2f39c] leading-snug">
+          GTM Engineer · AI Search (AEO/GEO) · B2B Performance Marketing
+        </span>
+      </h1>
+      <p class="text-[15px] sm:text-[17px] text-white/80 leading-relaxed max-w-[600px]">
+        I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n and HubSpot for GTM automation; ChatGPT, Perplexity and Google AI Overviews for AI search; Meta and Google Ads measured to SQLs.
+      </p>
+      <div class="flex flex-wrap items-center gap-3 pt-1">
+        <a class="inline-flex items-center justify-center px-6 py-3 bg-[#d2f39c] hover:bg-white text-black text-[14px] font-bold rounded-full transition-colors" href="/work">See how I work</a>
+        <a class="inline-flex items-center justify-center px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-[14px] font-semibold rounded-full backdrop-blur-md transition-colors" href="/resume/tibin-jacob-gtm-engineer.pdf" target="_blank" rel="noopener noreferrer">Download resume</a>
+      </div>
+      <p class="text-[13px] text-white/60">Bengaluru, working with US and European hours. Open to full-time roles and project builds.</p>
+    </div>
+  </HeroFromUIUX>
+
   <div class="flex flex-col gap-20 py-6 sm:py-10">
-    <!-- HERO -->
-    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2" aria-labelledby="hero-heading">
-      <div class="lg:col-span-7 flex flex-col items-start gap-5">
-        <h1 id="hero-heading" class="flex flex-col gap-3">
-          <span class="text-[40px] sm:text-[52px] font-bold text-slate-900 tracking-tight leading-[1.08]">
-            AI Growth Expert for B2B Companies
-          </span>
-          <span class="text-[16px] sm:text-[18px] font-semibold text-slate-600 leading-snug">
-            GTM Engineer · AI Search (AEO/GEO) · B2B Performance Marketing
-          </span>
-        </h1>
-        <p class="text-[16px] text-slate-600 leading-relaxed max-w-[560px]">
-          I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n and HubSpot for GTM automation; ChatGPT, Perplexity and Google AI Overviews for AI search; Meta and Google Ads measured to SQLs.
-        </p>
-        <div class="flex flex-wrap items-center gap-3 pt-1">
-          <a class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1d6ff2] hover:bg-blue-600 text-white text-[14px] font-semibold rounded-lg shadow-sm transition-colors" href="/work">
-            See how I work
-          </a>
-          <a class="inline-flex items-center justify-center px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 text-[14px] font-medium rounded-lg transition-colors" href="/resume/tibin-jacob-gtm-engineer.pdf" target="_blank" rel="noopener noreferrer">
-            Download resume
-          </a>
-        </div>
-        <p class="text-[13px] text-slate-500">Bengaluru, working with US and European hours. Open to full-time roles and project builds.</p>
-      </div>
-      <div class="lg:col-span-5 w-full">
-        <HeroPipeline />
-      </div>
-    </section>
 
     <TechStackRail />
 

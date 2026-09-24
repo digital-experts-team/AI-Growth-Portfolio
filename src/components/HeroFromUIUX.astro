@@ -1,0 +1,40 @@
+---
+// HeroFromUIUX.astro - Clean Full-Width Hero: Image, Black Background, and Natural Black Fade Layer
+export interface Props {
+  bgImage?: string;
+}
+
+const {
+  bgImage = "/images/hero-bg.webp",
+} = Astro.props;
+---
+
+<section
+  class="relative w-full h-[75vh] sm:h-[85vh] md:h-[92vh] lg:h-screen overflow-hidden bg-black flex flex-col justify-end"
+  aria-label="Portfolio Visual Hero"
+>
+  <!-- Background Image Layer -->
+  <div
+    class="absolute inset-0 z-0 bg-cover bg-left md:bg-center bg-no-repeat will-change-transform"
+    style={`background-image: url('${bgImage}'), url('https://i.ibb.co/5gNLHSnP/Hero.webp'); background-color: #000000;`}
+    role="img"
+    aria-label="Tibin Jacob Portfolio Visual"
+  >
+  </div>
+
+  <!-- Subtle Top Vignette for Transparent Navigation Contrast -->
+  <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/85 via-black/35 to-transparent pointer-events-none z-[1]"></div>
+
+  <!-- Radial Depth Vignette -->
+  <div class="absolute inset-0 z-[1] bg-radial from-transparent via-black/15 to-black/55 pointer-events-none"></div>
+
+  <!-- Natural Black Fade Layer at Bottom -->
+  <div class="absolute inset-x-0 bottom-0 h-44 sm:h-64 md:h-80 lg:h-96 bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none z-[2]"></div>
+
+  <!-- Live text content (H1, subline, CTAs) sits on the black fade so crawlers can read it -->
+  {Astro.slots.has('default') && (
+    <div class="relative z-[3] w-full max-w-[1160px] mx-auto px-4 sm:px-6 pb-12 sm:pb-16">
+      <slot />
+    </div>
+  )}
+</section>
