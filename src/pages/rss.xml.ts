@@ -24,7 +24,7 @@ export const GET: APIRoute = async (context) => {
   return rss({
     title: 'Tibin Jacob — GTM Engineering & RevOps Feed',
     description: 'Production architectures, signal-based outbound workflows, and revenue engineering articles by Tibin Jacob.',
-    site: context.site || 'https://gtm-expert-tibin.vercel.app',
+    site: context.site || 'https://tibinjacob.com',
     items,
     customData: `<language>en-us</language>`,
   });

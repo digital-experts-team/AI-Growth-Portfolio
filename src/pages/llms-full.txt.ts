@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async ({ site }) => {
-  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://gtm-expert-tibin.vercel.app';
+  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://tibinjacob.com';
   const caseStudies = await getCollection('caseStudies');
   const workflows = await getCollection('workflows', ({ data }) => data.status === 'live');
   const glossary = await getCollection('glossary');
