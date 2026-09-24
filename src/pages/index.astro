@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroFromUIUX from '../components/HeroFromUIUX.astro';
 import { WorkflowsCarousel } from '../components/WorkflowsCarousel';
 import StoriesSection from '../components/StoriesSection.astro';
 import TechStackRail from '../components/TechStackRail.astro';
@@ -14,63 +15,28 @@ const workflowItems = allWorkflows.map((w) => ({
   description: w.data.description,
 }));
 
-const title = "Tibin Jacob — GTM Engineer | Signals into Pipeline That Drive Your Business";
-const description = "GTM Engineer specializing in Clay, n8n, HubSpot, and AI agents, with full-funnel content and demand architecture that feeds them.";
+const title = "Tibin Jacob — Product, UX & GTM Architecture | High-Impact Systems";
+const description = "Product & UX Lead and GTM Engineer. Helping startups and scaling enterprises launch MVPs, increase conversion, and build scalable revenue engines.";
 ---
 
 <BaseLayout
   title={title}
   description={description}
   canonicalUrl="https://tibinjacob.com"
+  preloadImage="/images/hero-bg.webp"
 >
-  <div class="flex flex-col gap-20 py-6 sm:py-10">
-    <!-- HERO SECTION -->
-    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2" aria-labelledby="hero-heading">
-      <div class="lg:col-span-7 flex flex-col items-start gap-4">
-        <span class="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
-          AVAILBLE FOR CONTRACTS AND FULL-TIME
-        </span>
-        <h1 id="hero-heading" class="text-[40px] sm:text-[46px] font-bold text-slate-900 tracking-tight leading-[1.15]">
-          Signals into pipeline that<br />will drive your business
-        </h1>
-        <p class="text-[15px] text-slate-500 leading-relaxed max-w-[500px]">
-          GTM Engineer. Clay, n8n, HubSpot and AI agents, content side that feeds them well.
-        </p>
-        <div class="flex flex-wrap items-center gap-3 pt-2">
-          <a
-            class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1d6ff2] hover:bg-blue-600 text-white text-[13px] font-semibold rounded-lg shadow-sm transition-all"
-            href="/resume/tibin-jacob-gtm-engineer.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Download Resume
-          </a>
-          <a
-            class="inline-flex items-center justify-center px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 text-[13px] font-medium rounded-lg shadow-sm transition-all"
-            href="#contact"
-          >
-            Contact Now
-          </a>
-        </div>
-      </div>
-
-      <!-- Right side of hero: Visual container for user's screenshot/image -->
-      <div class="lg:col-span-5 w-full flex items-center justify-center">
-        <div class="w-full aspect-[4/3] rounded-2xl bg-[#080d19] border border-slate-900 shadow-xl overflow-hidden flex items-center justify-center relative group">
-          <div class="flex flex-col items-center justify-center gap-2 p-6 text-center select-none">
-            <span class="material-symbols-outlined text-[36px] text-slate-700 group-hover:text-cyan-500/80 transition-colors">schema</span>
-            <span class="text-xs font-mono text-slate-400 font-medium">Hero Architecture Visual</span>
-            <span class="text-[11px] font-mono text-slate-600">4:3 Aspect Ratio · Image Placement</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="flex flex-col gap-12 sm:gap-16 py-4">
+    <!-- HERO SECTION IMPORTED FROM UIUX-PORTFOLIO -->
+    <HeroFromUIUX
+      bgImage="/images/hero-bg.webp"
+      dynamicWords={['Launch MVPs.', 'Increase Conversion.', 'Improve Retention.']}
+    />
 
     <!-- TECH STACK & INTEGRATIONS RAIL -->
     <TechStackRail />
 
     <!-- WHO I WORK WITH (IDEAL PARTNERS) -->
-    <section class="flex flex-col gap-6" aria-labelledby="partners-heading">
+    <section class="flex flex-col gap-6" id="explore-work" aria-labelledby="partners-heading">
       <div class="flex flex-col gap-1">
         <span class="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
           IDEAL PARTNERS
@@ -222,7 +188,6 @@ const description = "GTM Engineer specializing in Clay, n8n, HubSpot, and AI age
             Tell me what's leaking<br />in your pipeline.
           </h2>
         </div>
-
         <ContactForm client:visible />
       </div>
 
