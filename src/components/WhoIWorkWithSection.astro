@@ -18,17 +18,12 @@ const partners = [
 ];
 ---
 
-<div class="relative z-10 w-full px-6 sm:px-10 lg:px-14 xl:px-16 py-10 sm:py-12 bg-[#000000]" id="explore-work" aria-labelledby="partners-heading">
+<div class="relative z-10 w-full px-6 sm:px-10 lg:px-14 xl:px-16 pt-6 sm:pt-7 pb-8 sm:pb-10 bg-[#000000]" id="explore-work" aria-labelledby="partners-heading">
   <!-- Section Header -->
-  <div class="flex items-center justify-between pb-8">
-    <div class="flex flex-col gap-1.5">
-      <span class="text-[12px] font-bold text-[#b4f04d] tracking-widest uppercase font-mono">
-        PARTNERSHIP TYPES
-      </span>
-      <h2 id="partners-heading" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-        Who I work with<span class="text-[#b4f04d]">.</span>
-      </h2>
-    </div>
+  <div class="flex items-center justify-between pb-6">
+    <h2 id="partners-heading" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+      Who I work with<span class="text-[#b4f04d]">.</span>
+    </h2>
 
     <!-- Group/Users Icon Badge on Right -->
     <div class="w-10 h-10 rounded-full bg-[#000000] border border-zinc-800 flex items-center justify-center text-zinc-400">
@@ -42,7 +37,7 @@ const partners = [
   </div>
 
   <!-- Open 3 Columns Grid: Within Hero Container (No Card Boxes) -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pt-2">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pt-1">
     {partners.map((item, index) => (
       <div class={`flex flex-col gap-3.5 group ${index < partners.length - 1 ? 'md:border-r md:border-zinc-800/80 md:pr-8 lg:pr-10' : ''}`}>
         <!-- Numbered Badge in Lime -->
