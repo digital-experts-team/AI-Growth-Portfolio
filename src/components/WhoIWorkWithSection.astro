@@ -18,16 +18,16 @@ const partners = [
 ];
 ---
 
-<div class="relative z-10 w-full px-6 sm:px-10 lg:px-14 xl:px-16 pt-6 sm:pt-7 pb-8 sm:pb-10 bg-[#000000]" id="explore-work" aria-labelledby="partners-heading">
-  <!-- Section Header -->
-  <div class="flex items-center justify-between pb-6">
-    <h2 id="partners-heading" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-      Who I work with<span class="text-[#b4f04d]">.</span>
+<div class="relative z-10 w-full px-6 sm:px-10 lg:px-14 xl:px-16 pt-4 sm:pt-5 pb-6 sm:pb-8 bg-[#000000]" id="explore-work" aria-labelledby="partners-heading">
+  <!-- Section Header (Compact) -->
+  <div class="flex items-center justify-between pb-4">
+    <h2 id="partners-heading" class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+      Who I work with<span class="text-[#d2f39c]">.</span>
     </h2>
 
     <!-- Group/Users Icon Badge on Right -->
-    <div class="w-10 h-10 rounded-full bg-[#000000] border border-zinc-800 flex items-center justify-center text-zinc-400">
-      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <div class="w-8 h-8 rounded-full bg-[#000000] border border-zinc-800 flex items-center justify-center text-zinc-400">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
         <circle cx="9" cy="7" r="4"></circle>
         <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -36,20 +36,20 @@ const partners = [
     </div>
   </div>
 
-  <!-- Open 3 Columns Grid: Within Hero Container (No Card Boxes) -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pt-1">
+  <!-- Open 3 Columns Grid: Compact Within Hero Container (No Card Boxes) -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 pt-1">
     {partners.map((item, index) => (
-      <div class={`flex flex-col gap-3.5 group ${index < partners.length - 1 ? 'md:border-r md:border-zinc-800/80 md:pr-8 lg:pr-10' : ''}`}>
-        <!-- Numbered Badge in Lime -->
-        <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#121c08] border border-[#b4f04d]/40 text-[#b4f04d] text-[11px] font-mono font-bold tracking-wider">
+      <div class={`flex flex-col gap-2.5 group ${index < partners.length - 1 ? 'md:border-r md:border-zinc-800/80 md:pr-6 lg:pr-8' : ''}`}>
+        <!-- Numbered Badge in Hire Me Light Green -->
+        <span class="inline-flex w-fit px-2.5 py-0.5 rounded-full bg-[#182310] border border-[#d2f39c]/40 text-[#d2f39c] text-[10px] font-mono font-bold tracking-wider">
           {item.num}
         </span>
 
-        <h3 class="text-white text-[19px] sm:text-[20px] font-bold tracking-tight group-hover:text-[#b4f04d] transition-colors">
+        <h3 class="text-white text-[15px] sm:text-[16px] font-semibold tracking-tight group-hover:text-[#d2f39c] transition-colors leading-snug">
           {item.title}
         </h3>
 
-        <p class="text-zinc-400 text-[14px] sm:text-[14.5px] leading-relaxed">
+        <p class="text-zinc-400 text-[13px] sm:text-[13.5px] leading-relaxed">
           {item.description}
         </p>
       </div>

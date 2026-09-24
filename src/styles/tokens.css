@@ -14,16 +14,16 @@
   --text-subtle: #71717a;
   --text-on-accent: #000000;
 
-  /* Accent & Signal Palette */
-  --accent: #b4f04d;
-  --accent-hover: #d2f39c;
-  --signal-cyan: #b4f04d;
-  --signal-emerald: #b4f04d;
+  /* Accent & Signal Palette - Hire Me Light Green */
+  --accent: #d2f39c;
+  --accent-hover: #c2e887;
+  --signal-cyan: #d2f39c;
+  --signal-emerald: #d2f39c;
   --signal-dark: #000000;
 
   /* Solid Theme - Zero Gradients */
-  --gradient-signal: #b4f04d;
-  --gradient-cta: #b4f04d;
+  --gradient-signal: #d2f39c;
+  --gradient-cta: #d2f39c;
   --gradient-card-dark: #000000;
 
   /* Typography Stacks */
