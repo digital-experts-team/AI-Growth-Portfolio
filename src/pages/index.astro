@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroFromUIUX from '../components/HeroFromUIUX.astro';
-import WhoIWorkWithSection from '../components/WhoIWorkWithSection.astro';
 import DarkToolRail from '../components/DarkToolRail.astro';
 import MyLibrarySection from '../components/MyLibrarySection.astro';
 import RecognitionSection from '../components/RecognitionSection.astro';
@@ -22,20 +21,17 @@ const description = "I turn buying signals, AI search and paid demand into pipel
   preloadImage="/images/hero-bg.webp"
   transparentHeader={true}
 >
-  <!-- 1. HERO SECTION (CONTAINER RECTANGLE WITH PHOTO + FLOATING CONTENT) -->
+  <!-- 1. HERO SECTION (CONTAINER RECTANGLE WITH PHOTO + FLOATING CONTENT + WHO I WORK WITH WITHIN IT) -->
   <HeroFromUIUX
     slot="hero"
     photoUrl="/images/hero-bg.webp"
   />
 
   <div class="flex flex-col gap-16 sm:gap-24 py-4 bg-[#000000]">
-    <!-- 2. PARTNERSHIP TYPES / WHO I WORK WITH -->
-    <WhoIWorkWithSection />
-
-    <!-- 3. CORE INTEGRATIONS MARQUEE RAIL -->
+    <!-- 2. SECTION BETWEEN HERO AND MY LIBRARY (5 MILLION USERS TEXT + CLEAN ROW OF LOGOS) -->
     <DarkToolRail />
 
-    <!-- 4. MODERN AI GROWTH WORKFLOWS / MY LIBRARY -->
+    <!-- 3. MODERN AI GROWTH WORKFLOWS / MY LIBRARY -->
     <MyLibrarySection />
 
     <!-- 5. RECOGNITION & AWARDS -->

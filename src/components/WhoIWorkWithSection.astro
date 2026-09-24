@@ -7,25 +7,25 @@ const partners = [
   },
   {
     num: '02',
-    title: 'Enterprise and PMF Scalling',
+    title: 'Enterprise and PMF Scaling',
     description: 'Lifecycle stages, MQL to SQL rules, routing and CRM hygiene that sales trusts, documented so the next person can run it.',
   },
   {
     num: '03',
-    title: "CEO'S AND REV OPS LEADERS",
-    description: 'Paid, SEO and AI search programs tracked to marketing-sourced pipeline, not just lead volume, not just lead volume.',
+    title: "CEOs and RevOps Leaders",
+    description: 'Paid, SEO and AI search programs tracked to marketing-sourced pipeline, not just lead volume.',
   },
 ];
 ---
 
-<section class="flex flex-col gap-6 bg-[#000000]" id="explore-work" aria-labelledby="partners-heading">
+<div class="relative z-10 w-full px-6 sm:px-10 lg:px-14 xl:px-16 py-10 sm:py-12 bg-[#000000]" id="explore-work" aria-labelledby="partners-heading">
   <!-- Section Header -->
-  <div class="flex items-center justify-between">
+  <div class="flex items-center justify-between pb-8">
     <div class="flex flex-col gap-1.5">
       <span class="text-[12px] font-bold text-[#b4f04d] tracking-widest uppercase font-mono">
         PARTNERSHIP TYPES
       </span>
-      <h2 id="partners-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+      <h2 id="partners-heading" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
         Who I work with<span class="text-[#b4f04d]">.</span>
       </h2>
     </div>
@@ -41,23 +41,23 @@ const partners = [
     </div>
   </div>
 
-  <!-- 3 Columns Grid: Solid Super Black -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {partners.map((item) => (
-      <div class="p-7 rounded-[24px] bg-[#000000] hover:bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col gap-4 shadow-lg group">
+  <!-- Open 3 Columns Grid: Within Hero Container (No Card Boxes) -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pt-2">
+    {partners.map((item, index) => (
+      <div class={`flex flex-col gap-3.5 group ${index < partners.length - 1 ? 'md:border-r md:border-zinc-800/80 md:pr-8 lg:pr-10' : ''}`}>
         <!-- Numbered Badge in Lime -->
         <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#121c08] border border-[#b4f04d]/40 text-[#b4f04d] text-[11px] font-mono font-bold tracking-wider">
           {item.num}
         </span>
 
-        <h3 class="text-white text-[18px] font-bold tracking-tight group-hover:text-[#b4f04d] transition-colors">
+        <h3 class="text-white text-[19px] sm:text-[20px] font-bold tracking-tight group-hover:text-[#b4f04d] transition-colors">
           {item.title}
         </h3>
 
-        <p class="text-zinc-400 text-[14px] leading-relaxed">
+        <p class="text-zinc-400 text-[14px] sm:text-[14.5px] leading-relaxed">
           {item.description}
         </p>
       </div>
     ))}
   </div>
-</section>
+</div>
