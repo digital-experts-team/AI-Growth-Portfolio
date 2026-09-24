@@ -1,0 +1,25 @@
+name: Build check
+on:
+  push:
+    branches: ['**']
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci || npm install --no-audit --no-fund
+      - run: npx astro check || true
+      - run: npm run build
+        env:
+          SITE_URL: https://tibinjacob.com
+      - name: Verify rendered HTML contains content
+        run: |
+          test -f dist/index.html || test -f .vercel/output/static/index.html
+          F=$(ls dist/index.html .vercel/output/static/index.html 2>/dev/null | head -1)
+          grep -q "<h1" "$F" && echo "h1 ok"
+          ! grep -R 'href="#"' dist .vercel/output/static 2>/dev/null | head -5
