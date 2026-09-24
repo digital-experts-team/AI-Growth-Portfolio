@@ -15,8 +15,8 @@ const workflowItems = allWorkflows.map((w) => ({
   description: w.data.description,
 }));
 
-const title = "Tibin Jacob — Product, UX & GTM Architecture | High-Impact Systems";
-const description = "Product & UX Lead and GTM Engineer. Helping startups and scaling enterprises launch MVPs, increase conversion, and build scalable revenue engines.";
+const title = "Tibin Jacob — AI Growth Expert for B2B Companies | GTM Engineer";
+const description = "I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n, and HubSpot for GTM automation; AI search and performance systems measured to SQLs.";
 ---
 
 <BaseLayout
@@ -26,21 +26,21 @@ const description = "Product & UX Lead and GTM Engineer. Helping startups and sc
   preloadImage="/images/hero-bg.webp"
   transparentHeader={true}
 >
-  <!-- FULL WIDTH HERO WITH CLEAN IMAGE & NATURAL BLACK FADE -->
+  <!-- HERO SECTION: EXACT SCREENSHOT MATCH (PHOTO IN ROUNDED CONTAINER ON LEFT, HEADLINE & ACTIONS ON RIGHT) -->
   <HeroFromUIUX
     slot="hero"
-    bgImage="/images/hero-bg.webp"
+    photoUrl="/images/hero-bg.webp"
   />
 
-  <div class="flex flex-col gap-14 sm:gap-18 py-2">
+  <div class="flex flex-col gap-14 sm:gap-18 py-6">
     <!-- TECH STACK & INTEGRATIONS RAIL -->
     <TechStackRail />
 
-    <!-- WHO I WORK WITH (IDEAL PARTNERS) -->
+    <!-- WHO I WORK WITH (PARTNERSHIP TYPES) -->
     <section class="flex flex-col gap-6" id="explore-work" aria-labelledby="partners-heading">
       <div class="flex flex-col gap-1">
-        <span class="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
-          IDEAL PARTNERS
+        <span class="text-[12px] font-bold text-[#b4f04d] tracking-wider uppercase font-mono">
+          PARTNERSHIP TYPES
         </span>
         <h2 id="partners-heading" class="text-[28px] font-bold text-slate-900 tracking-tight">
           Who I work with

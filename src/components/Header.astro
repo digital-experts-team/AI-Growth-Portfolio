@@ -6,10 +6,11 @@ export interface Props {
 const { transparent = false } = Astro.props;
 
 const navLinks = [
-  { name: 'Work', href: '/work' },
-  { name: 'Workflows', href: '/workflows' },
-  { name: 'Writing', href: '/blog' },
-  { name: 'About', href: '/about' },
+  { name: 'WORK', href: '/work' },
+  { name: 'WORKFLOWS', href: '/workflows' },
+  { name: 'AI SEARCH', href: '/demand' },
+  { name: 'PERFORMANCE', href: '/revops' },
+  { name: 'ABOUT', href: '/about' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -19,67 +20,101 @@ const currentPath = Astro.url.pathname;
   class={`w-full z-50 transition-all duration-300 ${
     transparent
       ? 'absolute top-0 left-0 bg-transparent border-transparent'
-      : 'sticky top-0 backdrop-blur-md bg-white/90 border-b border-slate-100/80'
+      : 'sticky top-0 backdrop-blur-md bg-white/95 border-b border-slate-100'
   }`}
 >
-  <div class="h-20 max-w-[1160px] mx-auto px-4 sm:px-6 flex items-center justify-between">
+  <div class="h-20 sm:h-24 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
+    <!-- Brand Logo -->
     <a
       href="/"
-      class={`font-bold tracking-tight flex items-center gap-2 text-[16px] group transition-colors ${
+      class={`font-bold tracking-tight text-[20px] sm:text-[22px] transition-colors ${
         transparent ? 'text-white' : 'text-slate-900'
       }`}
     >
-      <span
-        class={`w-2.5 h-2.5 rounded-full transition-transform group-hover:scale-125 ${
-          transparent ? 'bg-[#d2f39c] shadow-[0_0_12px_rgba(210,243,156,0.9)]' : 'bg-cyan-500'
-        }`}
-      ></span>
-      <span>Tibin Jacob{transparent ? <span class="text-[#d2f39c]">.</span> : ''}</span>
+      Tibin Jacob<span class="text-[#b4f04d]">.</span>
     </a>
 
-    <div class="flex items-center gap-6">
-      <nav class="hidden md:flex items-center gap-7" aria-label="Primary Navigation">
-        {navLinks.map((link) => {
-          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
-          return (
-            <a
-              href={link.href}
-              class={`text-[13px] uppercase tracking-[0.14em] font-medium transition-colors ${
-                transparent
-                  ? isActive
-                    ? 'text-[#d2f39c] font-semibold'
-                    : 'text-white/80 hover:text-white'
-                  : isActive
-                    ? 'text-cyan-600 font-semibold'
-                    : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              {link.name}
-            </a>
-          );
-        })}
-      </nav>
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-8 xl:gap-10" aria-label="Primary Navigation">
+      {navLinks.map((link) => {
+        const isActive =
+          link.href === '/work'
+            ? currentPath === '/' || currentPath.startsWith('/work')
+            : currentPath.startsWith(link.href);
+        return (
+          <a
+            href={link.href}
+            class={`text-[12px] font-semibold tracking-[0.18em] uppercase transition-colors ${
+              transparent
+                ? isActive
+                  ? 'text-[#b4f04d]'
+                  : 'text-zinc-400 hover:text-white'
+                : isActive
+                  ? 'text-cyan-600 font-bold'
+                  : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            {link.name}
+          </a>
+        );
+      })}
+    </nav>
 
+    <!-- Right Actions: WhatsApp & Hire Me -->
+    <div class="flex items-center gap-3 sm:gap-3.5">
+      <!-- WhatsApp Pill Button -->
       <a
-        href="https://wa.me/918129917227?text=Hi%20Tibin,%20interested%20in%20discussing%20GTM%20and%20product%20architecture"
+        href="https://wa.me/918129917227?text=Hi%20Tibin,%20interested%20in%20discussing%20GTM%20and%20AI%20Growth%20systems"
         target="_blank"
         rel="noopener noreferrer"
-        class={`inline-flex items-center justify-center px-5 py-2.5 rounded-full text-[12px] font-bold uppercase tracking-[0.15em] transition-all shadow-sm active:scale-95 ${
+        class={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase transition-all active:scale-95 ${
           transparent
-            ? 'bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md hover:border-white/40'
-            : 'bg-[#1d6ff2] hover:bg-blue-600 text-white'
+            ? 'bg-[#141414] hover:bg-[#202020] text-white border border-white/15 shadow-sm'
+            : 'bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200'
         }`}
       >
-        WhatsApp
+        <span>WHATSAPP</span>
+        <svg
+          class="w-3.5 h-3.5 text-zinc-300"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+
+      <!-- Hire Me Pill Button -->
+      <a
+        href="/hire"
+        class="inline-flex items-center gap-1.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[12px] sm:text-[13px] font-bold text-black bg-[#d2f39c] hover:bg-[#c2e887] shadow-sm transition-all active:scale-95"
+      >
+        <span>Hire me</span>
+        <svg
+          class="w-3.5 h-3.5 text-black"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
       </a>
 
       <!-- Mobile Menu Toggle Button -->
       <button
         id="mobile-nav-toggle"
-        class={`md:hidden p-2 rounded-xl border transition-all ${
+        class={`lg:hidden p-2 rounded-xl border transition-all ${
           transparent
-            ? 'text-white border-white/20 bg-white/10 backdrop-blur-md'
-            : 'text-slate-600 hover:text-slate-900 border-slate-200 bg-white'
+            ? 'text-white border-white/20 bg-white/5 backdrop-blur-md'
+            : 'text-slate-700 hover:text-slate-900 border-slate-200 bg-white'
         }`}
         aria-label="Toggle Navigation Menu"
         aria-expanded="false"
@@ -94,7 +129,7 @@ const currentPath = Astro.url.pathname;
   <!-- Mobile Drawer -->
   <div
     id="mobile-nav-menu"
-    class={`hidden md:hidden border-b px-5 pt-3 pb-6 space-y-3 transition-all ${
+    class={`hidden lg:hidden border-b px-6 pt-4 pb-6 space-y-3 transition-all ${
       transparent
         ? 'bg-black/95 border-white/10 text-white backdrop-blur-2xl'
         : 'bg-white border-slate-200 text-slate-900'
@@ -105,7 +140,7 @@ const currentPath = Astro.url.pathname;
         href={link.href}
         class={`block px-3 py-2 rounded-lg text-sm font-semibold tracking-wider uppercase ${
           transparent
-            ? 'text-white/80 hover:text-white hover:bg-white/10'
+            ? 'text-zinc-300 hover:text-[#b4f04d] hover:bg-white/5'
             : 'text-slate-700 hover:text-cyan-600 hover:bg-slate-50'
         }`}
       >
@@ -113,13 +148,13 @@ const currentPath = Astro.url.pathname;
       </a>
     ))}
     <div
-      class={`pt-3 border-t flex gap-4 text-xs font-mono px-3 ${
-        transparent ? 'border-white/10 text-slate-400' : 'border-slate-100 text-slate-500'
+      class={`pt-4 border-t flex flex-wrap gap-4 text-xs font-mono px-3 ${
+        transparent ? 'border-white/10 text-zinc-400' : 'border-slate-100 text-slate-500'
       }`}
     >
-      <a href="/glossary" class={transparent ? 'hover:text-white' : 'hover:text-slate-900'}>Glossary</a>
-      <a href="/demand" class={transparent ? 'hover:text-white' : 'hover:text-slate-900'}>Demand</a>
-      <a href="/hire" class={transparent ? 'hover:text-white' : 'hover:text-slate-900'}>Hire Me</a>
+      <a href="/glossary" class={transparent ? 'hover:text-[#b4f04d]' : 'hover:text-slate-900'}>Glossary</a>
+      <a href="/demand" class={transparent ? 'hover:text-[#b4f04d]' : 'hover:text-slate-900'}>Demand</a>
+      <a href="/hire" class={transparent ? 'hover:text-[#b4f04d]' : 'hover:text-slate-900'}>Hire Me</a>
     </div>
   </div>
 </header>

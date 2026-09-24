@@ -1,33 +1,108 @@
 ---
-// HeroFromUIUX.astro - Clean Full-Width Hero: Image, Black Background, and Natural Black Fade Layer
+// HeroFromUIUX.astro - Exact match to screenshot: photo container with corner radius on left, content on right
 export interface Props {
-  bgImage?: string;
+  photoUrl?: string;
 }
 
 const {
-  bgImage = "/images/hero-bg.webp",
+  photoUrl = "/images/hero-bg.webp",
 } = Astro.props;
 ---
 
 <section
-  class="relative w-full h-[75vh] sm:h-[85vh] md:h-[92vh] lg:h-screen overflow-hidden bg-black flex flex-col justify-end"
-  aria-label="Portfolio Visual Hero"
+  class="relative w-full bg-[#000000] text-white pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 overflow-hidden"
+  aria-labelledby="hero-title"
 >
-  <!-- Background Image Layer -->
-  <div
-    class="absolute inset-0 z-0 bg-cover bg-left md:bg-center bg-no-repeat will-change-transform"
-    style={`background-image: url('${bgImage}'), url('https://i.ibb.co/5gNLHSnP/Hero.webp'); background-color: #000000;`}
-    role="img"
-    aria-label="Tibin Jacob Portfolio Visual"
-  >
+  <div class="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
+      
+      <!-- LEFT COLUMN: Clean Photo Container with Corner Radius -->
+      <div class="lg:col-span-5 w-full flex justify-center lg:justify-start">
+        <div class="w-full max-w-[460px] lg:max-w-none aspect-[4/5] rounded-[28px] sm:rounded-[36px] overflow-hidden relative shadow-2xl border border-white/10 bg-[#0d0d0d] group">
+          <!-- Main Portrait Photo -->
+          <img
+            src={photoUrl}
+            alt="Tibin Jacob - AI Growth Expert & GTM Engineer"
+            class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 group-hover:scale-105"
+            loading="eager"
+            fetchpriority="high"
+          />
+
+          <!-- Corner Watermark Badge matching screenshot -->
+          <div class="absolute top-5 right-5 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-mono text-white/90 shadow-lg">
+            <span class="w-2 h-2 rounded-xs bg-[#b4f04d] animate-pulse"></span>
+            <span>Tibin Jacob.</span>
+          </div>
+
+          <!-- Subtle bottom shadow gradient inside frame -->
+          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Exact Hero Content -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-6 lg:gap-7">
+        
+        <!-- Category Overline in Lime Accent -->
+        <div class="text-[#b4f04d] text-[13px] sm:text-[14px] font-medium tracking-wide">
+          GTM Engineer · AI Search (AEO/GEO) · B2B Performance Marketing
+        </div>
+
+        <!-- Main Title -->
+        <h1
+          id="hero-title"
+          class="text-white text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] font-extrabold tracking-tight leading-[1.08]"
+        >
+          AI Growth Expert for<br />
+          B2B Companies<span class="text-[#b4f04d]">.</span>
+        </h1>
+
+        <!-- Subtitle Paragraph -->
+        <p class="text-zinc-400 text-[15px] sm:text-[17px] leading-relaxed max-w-2xl font-light">
+          I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n and HubSpot for GTM automation; ChatGPT, Perplexity and Google AI Overviews for AI search; Meta and Google Ads measured to SQLs.
+        </p>
+
+        <!-- CTA Buttons Row -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <!-- Primary Pill Button: See how I work ↗ -->
+          <a
+            href="#explore-work"
+            class="group inline-flex items-center gap-3 bg-white hover:bg-zinc-100 text-black font-bold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full shadow-lg transition-all active:scale-95"
+          >
+            <span>See how I work</span>
+            <span class="w-9 h-9 rounded-full bg-black flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-45">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Secondary Pill Button: Download resume ⤓ -->
+          <a
+            href="https://drive.google.com/file/d/1uBhd_NZycAvqsasK7_VIY3R_Psad8N-n/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center gap-3 bg-[#111111] hover:bg-[#1a1a1a] text-white border border-white/15 font-semibold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full transition-all active:scale-95"
+          >
+            <span>Download resume</span>
+            <span class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-zinc-300 transition-transform duration-200 group-hover:translate-y-0.5">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Location & Availability Divider Note -->
+        <div class="w-full pt-6 mt-2 border-t border-zinc-800/80">
+          <p class="text-zinc-500 text-[13px] sm:text-[14px] font-normal leading-relaxed">
+            Bengaluru, working with US and European hours. Open to full-time roles and project builds.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
   </div>
-
-  <!-- Subtle Top Vignette for Transparent Navigation Contrast -->
-  <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/85 via-black/35 to-transparent pointer-events-none z-[1]"></div>
-
-  <!-- Radial Depth Vignette -->
-  <div class="absolute inset-0 z-[1] bg-radial from-transparent via-black/15 to-black/55 pointer-events-none"></div>
-
-  <!-- Natural Black Fade Layer at Bottom -->
-  <div class="absolute inset-x-0 bottom-0 h-44 sm:h-64 md:h-80 lg:h-96 bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none z-[2]"></div>
 </section>
