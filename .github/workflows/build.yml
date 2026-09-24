@@ -1,0 +1,26 @@
+name: Build check
+on:
+  push:
+    branches: ['**']
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci || npm install --no-audit --no-fund
+      - run: npm run build
+        env:
+          SITE_URL: https://tibinjacob.com
+      - name: Verify rendered HTML
+        run: |
+          OUT=dist; [ -f "$OUT/index.html" ] || OUT=.vercel/output/static
+          test -f "$OUT/index.html"
+          grep -q "<h1" "$OUT/index.html" && echo "home h1 ok"
+          if grep -Rl 'href="#"' "$OUT" --include=*.html; then echo "dead # links found"; exit 1; fi
+          if grep -Rl 'import AnswerBlock' "$OUT" --include=*.html; then echo "raw MDX import leaked into HTML"; exit 1; fi
+          for p in answer-engine-optimization b2b-performance-marketing about hire; do test -f "$OUT/$p/index.html" && echo "$p ok"; done

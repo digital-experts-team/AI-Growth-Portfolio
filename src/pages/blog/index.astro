@@ -1,8 +1,9 @@
 ---
+import { isLive } from '../../lib/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('posts');
+const posts = await getCollection('posts', isLive);
 
 const title = "GTM Engineering & RevOps Articles | Tibin Jacob";
 const description = "Technical articles and guides on GTM engineering, MQL vs SQL alignment, automated lead routing, and human-in-the-loop AI sales agents.";

@@ -1,8 +1,9 @@
 ---
+import { isLive } from '../../lib/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const caseStudies = await getCollection('caseStudies');
+const caseStudies = await getCollection('caseStudies', isLive);
 
 const title = "GTM Engineering Case Studies | Tibin Jacob";
 const description = "Production GTM engineering case studies: signal-based outbound, waterfall enrichment, and AI agent architectures across B2B SaaS and agencies.";

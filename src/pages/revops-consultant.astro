@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQ from '../components/FAQ.astro';
+import { Content } from '../page-content/revops-consultant.md';
+const title = "RevOps Consultant for B2B (HubSpot & GTM) | Tibin Jacob";
+const description = "RevOps and GTM engineering consultant for B2B: lifecycle stages, HubSpot lead scoring, routing, enrichment and reporting, built and documented for your team.";
+const faq = [
+  {
+    "q": "What does a RevOps consultant do?",
+    "a": "A RevOps consultant designs and fixes the systems sales, marketing and customer teams share: lifecycle stages, lead scoring, routing, CRM data quality and reporting, so revenue data is trusted and leads don't fall through the gaps."
+  },
+  {
+    "q": "What's the difference between a RevOps consultant and a GTM engineer?",
+    "a": "A RevOps consultant focuses on process, definitions and reporting. A GTM engineer builds the automated systems behind them: enrichment, signal capture, scoring, routing and AI agents. I do both, which means the rules we agree on actually get built."
+  },
+  {
+    "q": "Do you work with HubSpot or Salesforce?",
+    "a": "Mostly HubSpot, and I've worked with Salesforce as well. The approach (clear stage definitions, fit and engagement scoring, automatic routing) applies to both."
+  },
+  {
+    "q": "Can you work with a US or European team from India?",
+    "a": "Yes. I'm based in Bengaluru and overlap with US and European working hours for calls and reviews."
+  }
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'RevOps Consultant', url: '/revops-consultant' },
+  ]}
+  faq={faq}
+>
+  <article class="py-6 max-w-3xl mx-auto flex flex-col gap-8">
+    <header class="flex flex-col gap-3">
+      <p class="text-[12px] font-mono uppercase tracking-wider text-zinc-500">RevOps & GTM engineering consulting</p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-950">RevOps Consultant for B2B Teams: HubSpot, Lead Scoring & Routing</h1>
+    </header>
+    <div class="prose max-w-none space-y-6 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <Content />
+    </div>
+    <FAQ items={faq} />
+    <div class="flex flex-wrap gap-3 pt-4 border-t border-zinc-200">
+      <a href="/hire" class="inline-flex items-center px-6 py-3 rounded-full bg-black text-white text-[14px] font-semibold hover:bg-zinc-800">Hire me for this</a>
+      <a href="/workflows/hubspot-lead-scoring" class="inline-flex items-center px-6 py-3 rounded-full border border-zinc-300 text-zinc-900 text-[14px] font-semibold hover:bg-zinc-50">See the HubSpot lead scoring workflow</a>
+    </div>
+  </article>
+</BaseLayout>

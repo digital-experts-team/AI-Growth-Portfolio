@@ -1,59 +1,54 @@
 ---
-title: "Paddleboat AI: Scaling SDR Team Intent Signals"
-description: "How I built a multi-signal outbound architecture targeting sales leaders scaling their SDR teams, driving a #1 Product Hunt launch."
-metaTitle: "Paddleboat AI Case Study — SDR Scaling Signals | Tibin"
+title: "Paddleboat AI: flagging B2B SaaS companies scaling their SDR org"
+description: "A multi-signal GTM system for an AI sales-roleplay product, targeting VPs and Heads of Sales at 50–500 person B2B SaaS companies scaling their SDR teams."
+metaTitle: "Paddleboat AI Case Study — SDR Scaling Signals | Tibin Jacob"
 slug: "paddleboat-sdr-scaling-signals"
 status: "live"
 cluster: "GTM Engineering"
-targetKeyword: "sdr scaling signals gtm"
-audience: ["VP Sales", "Head of GTM", "SDR Manager"]
+targetKeyword: "sdr scaling signals"
+audience: ["VP Sales", "Head of GTM", "Head of RevOps"]
 sourceRole: "Paddleboat AI"
 company: "Paddleboat AI"
 role: "GTM Engineer — Outbound & Sales Enablement"
 dates: "May 2022 – Dec 2023"
+problem: "Find B2B SaaS companies scaling their SDR org and likely to need ramp and training tools."
+architecture: "Site intent + engagement + funding, hiring and team-scale signals → flag SDR-scaling accounts → VP / Head of Sales outreach"
 proofLink: "/workflows/waterfall-enrichment"
-publishedDate: 2023-12-15
-updatedDate: 2026-09-18
+publishedDate: 2026-09-24
+updatedDate: 2026-09-24
 faq:
-  - q: "What buying signals flagged companies ready for AI sales coaching?"
-    a: "Signals included active SDR job postings, recent Series A/B funding rounds, and executive sales leadership transitions."
+  - q: "Which signals flagged companies scaling their SDR team?"
+    a: "Site intent from Sales IQ and engagement data, combined with firmographics and growth signals: funding, hiring and team scale."
+  - q: "Who was the target buyer?"
+    a: "VPs and Heads of Sales at 50–500 person B2B SaaS companies."
 ---
 
-## Executive Summary
+## Context
 
-Paddleboat AI provides an interactive AI sales coaching and roleplay platform. To maximize outbound ROI, we needed to identify B2B SaaS companies at the exact moment they were aggressively hiring and scaling new sales development representatives (SDRs).
+Paddleboat AI is an AI sales roleplay and coaching product. I was the GTM Engineer for outbound and sales enablement (May 2022 – Dec 2023, Bengaluru, hybrid).
 
-## The Core Bottleneck
+## The problem
 
-Broad outbound campaigns targeting all SaaS VP Sales contacts suffered from low urgency. Companies without active onboarding cohorts saw AI coaching as a future consideration rather than an urgent requirement.
+A coaching and ramp tool is most urgent for a company that is actively growing its SDR team. The job was to find those companies and reach the sales leaders who own ramp.
 
-## Architecture Schematic
+## The system
 
 ```text
-[Signal Watcher: Job Postings + Funding] ──> [Apollo Org Scrape]
-                                                    │
-                   ┌────────────────────────────────┘
-                   ▼
-      [SDR Team Size > 5 & Roles Open]
-       ├── FALSE ──> Low-touch Newsletter Nurture
-       └── TRUE  ──> [Clay Waterfall Enrichment (Work Email + Phone)]
-                       └──> [Personalized Sales Coaching Playbook]
-                              └──> Push to SDR Sequence
+Site intent (Sales IQ) ─┐
+Engagement data ────────┤
+Firmographics ──────────┼─▶ flag "scaling SDR org" ─▶ VP / Head of Sales at 50–500 person B2B SaaS
+Funding / hiring / team ┘
+scale signals
 ```
 
-## How I Built It
+## How I built it
 
-1. **Multi-Signal Intent Engine**: Combined website intent data with external job board postings (LinkedIn Talent Solutions, job board APIs) and Crunchbase funding alerts.
-2. **ICP Difficulty Matrix**: Collaborated directly with founders and senior SDRs to structure rep personas based on buyer objection hardness, tech vertical, and deal complexity.
-3. **LLM Scorecards & Missed Opportunity Alerts**: Configured automated scorecard summaries highlighting objection handling gaps during reps' practice calls.
-4. **Launch Orchestration**: Aligned the signal-driven pipeline with our public release, contributing directly to achieving a #1 Product of the Day launch on Product Hunt.
+- **Targeting:** VPs and Heads of Sales at 50–500 person B2B SaaS companies.
+- **Signals:** site intent (Sales IQ) and engagement data, combined with firmographics and growth signals (funding, hiring, team scale) to flag companies scaling their SDR org.
+- **Product input:** I worked directly with SDRs and founders on how reps practice objections and close, and turned real workflows into product design: personas by difficulty, industry and deal stage; LLM scorecards; missed-opportunity flags.
 
-## Verified Results
+## Results
 
-- Engineered an automated GTM system targeting VP and Head of Sales at 50–500 person SaaS organizations.
-- Turned real sales representative feedback into modular product designs and objection templates.
-- Contributed to achieving the #1 Product Hunt launch position through coordinated customer engagement and automated outbound outreach.
+- A multi-signal system that flagged companies likely to need SDR ramp and training tools.
+- Contributed to a #1 Product Hunt launch.
 
-## What I Would Do Differently
-
-TODO(tibin): Add details on automated SDR rep ramp time tracking and direct CRM scorecard synchronization.

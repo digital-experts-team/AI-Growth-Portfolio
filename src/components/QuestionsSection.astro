@@ -1,32 +1,7 @@
 ---
 // Questions & Answers Accordion Section - Pure Solid Super Black (No Gradients)
-const faqs = [
-  {
-    q: 'What does a GTM engineer do?',
-    a: 'A GTM engineer builds the systems that turn buying signals into qualified pipeline: capturing intent, enriching and scoring accounts, routing them into the CRM, and automating follow-up so sales works the right accounts at the right time.',
-    isOpen: true,
-  },
-  {
-    q: 'What is answer engine optimization (AEO)?',
-    a: 'AEO structures your technical case studies, entity data, and product proof so generative engines like Perplexity, ChatGPT Search, and Google AI Overviews cite your solutions during enterprise vendor evaluations.',
-    isOpen: false,
-  },
-  {
-    q: 'What is generative engine optimization (GEO)?',
-    a: 'GEO focuses on knowledge graph presence, clear comparative data points, and technical documentation indexing to ensure AI models accurately explain your product\'s architecture and capabilities.',
-    isOpen: false,
-  },
-  {
-    q: 'How do you measure marketing to SQLs?',
-    a: 'Through closed-loop webhook attribution linking ad conversions, website deanonymization, and outbound touches directly to accepted pipeline opportunities inside HubSpot and Salesforce.',
-    isOpen: false,
-  },
-  {
-    q: 'Do you work full-time or on projects?',
-    a: 'I take on selective full-time GTM engineering leadership roles as well as targeted quarterly automation sprints for venture-backed B2B companies.',
-    isOpen: false,
-  },
-];
+import { homeFaq } from '../data/homeFaq';
+const faqs = homeFaq.map((f, i) => ({ ...f, isOpen: i === 0 }));
 ---
 
 <section class="flex flex-col gap-6 bg-[#000000]" aria-labelledby="questions-heading">

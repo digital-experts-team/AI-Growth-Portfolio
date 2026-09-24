@@ -1,9 +1,10 @@
+import { isLive } from '../lib/content';
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async (context) => {
-  const caseStudies = await getCollection('caseStudies');
+  const caseStudies = await getCollection('caseStudies', isLive);
   const workflows = await getCollection('workflows', ({ data }) => data.status === 'live');
 
   const items = [

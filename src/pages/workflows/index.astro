@@ -1,8 +1,9 @@
 ---
+import { isLive } from '../../lib/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const allWorkflows = await getCollection('workflows');
+const allWorkflows = await getCollection('workflows', isLive);
 const liveWorkflows = allWorkflows.filter((w) => w.data.status === 'live');
 const draftWorkflows = allWorkflows.filter((w) => w.data.status === 'draft');
 

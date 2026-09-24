@@ -1,10 +1,11 @@
 ---
+import { isLive } from '../../lib/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = await getCollection('posts', isLive);
   return posts.map((entry) => ({
     params: { slug: entry.data.slug || entry.id },
     props: { entry },

@@ -9,14 +9,18 @@ import WalkthroughVideosSection from '../components/WalkthroughVideosSection.ast
 import QuestionsSection from '../components/QuestionsSection.astro';
 import DirectPipelineSection from '../components/DirectPipelineSection.astro';
 import QuickContactRow from '../components/QuickContactRow.astro';
+import { homeFaq } from '../data/homeFaq';
 
 const title = "GTM Engineer & AI Search (AEO/GEO) | Tibin Jacob";
-const description = "I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n and HubSpot for GTM automation; ChatGPT, Perplexity and Google AI Overviews for AI search; Meta and Google Ads measured to SQLs.";
+const description = "GTM Engineer and AI growth expert for B2B: signal-based outbound in Clay, n8n and HubSpot, AEO/GEO for AI search, and paid ads measured to pipeline.";
+const ogTitle = "AI Growth Expert for B2B Companies — Tibin Jacob";
 ---
 
 <BaseLayout
   title={title}
   description={description}
+  ogTitle={ogTitle}
+  faq={homeFaq}
   canonicalUrl="https://tibinjacob.com"
   preloadImage="/images/hero-bg.webp"
   transparentHeader={false}
@@ -51,9 +55,9 @@ const description = "I turn buying signals, AI search and paid demand into pipel
       <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 text-[11px] font-mono tracking-widest uppercase">
         AVAILABLE FOR NEW PROJECTS & ROLES
       </span>
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-950 tracking-tight max-w-4xl leading-tight">
+      <p class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-950 tracking-tight max-w-4xl leading-tight">
         Let’s build something <span class="text-zinc-950 underline decoration-[#d2f39c] underline-offset-8">impactful.</span>
-      </h2>
+      </p>
       <p class="text-zinc-600 text-[15px] sm:text-[17px] max-w-xl leading-relaxed font-light">
         Tell me what’s leaking in your pipeline or let’s talk about a zero-to-one growth motion.
       </p>

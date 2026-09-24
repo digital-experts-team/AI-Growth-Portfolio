@@ -1,41 +1,8 @@
 ---
 const workflows = [
-  {
-    title: 'Waterfall enrichment agent',
-    slug: 'clay-waterfall-enrichment',
-    description: 'Multi-vendor cascading data waterfalls that deduplicate, verify work emails, and enrich firmographics before CRM ingestion.',
-    tools: 'Clay · Apollo · n8n',
-  },
-  {
-    title: 'Website visitors to HubSpot',
-    slug: 'website-visitors-to-hubspot',
-    description: 'Deanonymizes high-intent domain traffic in real time and automatically creates qualified accounts, contacts, and notification tasks.',
-    tools: 'Sales IQ · HubSpot · n8n',
-  },
-  {
-    title: 'Hiring & funding signal watcher',
-    slug: 'hiring-funding-signal-watcher',
-    description: 'Tracks tech stack expansion, headcount spikes, and funding events to trigger timely outreach workflows.',
-    tools: 'Clay · HubSpot · n8n',
-  },
-  {
-    title: 'CRM dedupe & write-back',
-    slug: 'crm-dedupe-write-back',
-    description: 'Continuous background hygiene merging duplicate records, normalizing company domains, and verifying contact activity.',
-    tools: 'n8n · HubSpot · PostgreSQL',
-  },
-  {
-    title: 'LLM personalization guardrails',
-    slug: 'llm-personalization-guardrails',
-    description: 'Deterministic validation pipeline ensuring AI sales generation respects tone rules, excludes forbidden words, and verifies facts.',
-    tools: 'Claude · OpenAI · n8n',
-  },
-  {
-    title: 'Reply triage & routing agent',
-    slug: 'reply-triage-agent',
-    description: 'Autonomous categorization of incoming sales replies (positive, objection, OOO, unsub) with automated calendar booking alerts.',
-    tools: 'OpenAI · HubSpot · Slack',
-  },
+  { title: 'HubSpot lead scoring & routing', slug: 'hubspot-lead-scoring', description: 'Separate fit and engagement scores, MQL thresholds agreed with sales, and automatic stage changes, owners and follow-up.', tools: 'HubSpot · Clay · n8n' },
+  { title: 'Waterfall enrichment agent', slug: 'waterfall-enrichment', description: 'Queries data providers in order until a field is filled with a verified value, then writes it back to HubSpot with its source.', tools: 'Clay · Apollo · n8n' },
+  { title: 'Website visitors to HubSpot', slug: 'website-visitors-to-hubspot', description: 'Flags high-intent visits at account level with Zoho SalesIQ, scores them against the ICP and routes qualified accounts into HubSpot.', tools: 'Zoho SalesIQ · HubSpot · n8n' },
 ];
 ---
 
