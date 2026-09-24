@@ -24,14 +24,15 @@ const description = "Product & UX Lead and GTM Engineer. Helping startups and sc
   description={description}
   canonicalUrl="https://tibinjacob.com"
   preloadImage="/images/hero-bg.webp"
+  transparentHeader={true}
 >
-  <div class="flex flex-col gap-12 sm:gap-16 py-4">
-    <!-- HERO SECTION IMPORTED FROM UIUX-PORTFOLIO -->
-    <HeroFromUIUX
-      bgImage="/images/hero-bg.webp"
-      dynamicWords={['Launch MVPs.', 'Increase Conversion.', 'Improve Retention.']}
-    />
+  <!-- FULL WIDTH HERO WITH CLEAN IMAGE & NATURAL BLACK FADE -->
+  <HeroFromUIUX
+    slot="hero"
+    bgImage="/images/hero-bg.webp"
+  />
 
+  <div class="flex flex-col gap-14 sm:gap-18 py-2">
     <!-- TECH STACK & INTEGRATIONS RAIL -->
     <TechStackRail />
 
