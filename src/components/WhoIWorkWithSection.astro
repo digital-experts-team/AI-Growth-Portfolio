@@ -18,7 +18,7 @@ const partners = [
 ];
 ---
 
-<section class="flex flex-col gap-6" id="explore-work" aria-labelledby="partners-heading">
+<section class="flex flex-col gap-6 bg-[#000000]" id="explore-work" aria-labelledby="partners-heading">
   <!-- Section Header -->
   <div class="flex items-center justify-between">
     <div class="flex flex-col gap-1.5">
@@ -31,7 +31,7 @@ const partners = [
     </div>
 
     <!-- Group/Users Icon Badge on Right -->
-    <div class="w-10 h-10 rounded-full bg-[#111111] border border-white/10 flex items-center justify-center text-zinc-400">
+    <div class="w-10 h-10 rounded-full bg-[#000000] border border-zinc-800 flex items-center justify-center text-zinc-400">
       <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
         <circle cx="9" cy="7" r="4"></circle>
@@ -41,12 +41,12 @@ const partners = [
     </div>
   </div>
 
-  <!-- 3 Columns Grid -->
+  <!-- 3 Columns Grid: Solid Super Black -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {partners.map((item) => (
-      <div class="p-7 rounded-[22px] bg-[#0c0c0c] hover:bg-[#121212] border border-white/10 hover:border-white/20 transition-all flex flex-col gap-4 shadow-lg group">
+      <div class="p-7 rounded-[24px] bg-[#000000] hover:bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col gap-4 shadow-lg group">
         <!-- Numbered Badge in Lime -->
-        <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#1a2810] border border-[#b4f04d]/30 text-[#b4f04d] text-[11px] font-mono font-bold tracking-wider">
+        <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#121c08] border border-[#b4f04d]/40 text-[#b4f04d] text-[11px] font-mono font-bold tracking-wider">
           {item.num}
         </span>
 

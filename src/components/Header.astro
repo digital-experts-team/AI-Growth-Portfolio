@@ -19,7 +19,7 @@ const currentPath = Astro.url.pathname;
 <header
   class={`w-full z-50 transition-all duration-300 ${
     transparent
-      ? 'absolute top-0 left-0 bg-transparent border-transparent'
+      ? 'absolute top-0 left-0 bg-[#000000]/0 border-transparent'
       : 'sticky top-0 backdrop-blur-md bg-white/95 border-b border-slate-100'
   }`}
 >
@@ -62,14 +62,14 @@ const currentPath = Astro.url.pathname;
 
     <!-- Right Actions: WhatsApp & Hire Me -->
     <div class="flex items-center gap-3 sm:gap-3.5">
-      <!-- WhatsApp Pill Button -->
+      <!-- WhatsApp Pill Button (Solid Super Black) -->
       <a
         href="https://wa.me/918129917227?text=Hi%20Tibin,%20interested%20in%20discussing%20GTM%20and%20AI%20Growth%20systems"
         target="_blank"
         rel="noopener noreferrer"
         class={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase transition-all active:scale-95 ${
           transparent
-            ? 'bg-[#141414] hover:bg-[#202020] text-white border border-white/15 shadow-sm'
+            ? 'bg-[#000000] hover:bg-zinc-900 text-white border border-zinc-800 shadow-sm'
             : 'bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200'
         }`}
       >
@@ -113,7 +113,7 @@ const currentPath = Astro.url.pathname;
         id="mobile-nav-toggle"
         class={`lg:hidden p-2 rounded-xl border transition-all ${
           transparent
-            ? 'text-white border-white/20 bg-white/5 backdrop-blur-md'
+            ? 'text-white border-zinc-800 bg-[#000000]'
             : 'text-slate-700 hover:text-slate-900 border-slate-200 bg-white'
         }`}
         aria-label="Toggle Navigation Menu"
@@ -126,12 +126,12 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer (Solid Super Black) -->
   <div
     id="mobile-nav-menu"
     class={`hidden lg:hidden border-b px-6 pt-4 pb-6 space-y-3 transition-all ${
       transparent
-        ? 'bg-black/95 border-white/10 text-white backdrop-blur-2xl'
+        ? 'bg-[#000000] border-zinc-800 text-white'
         : 'bg-white border-slate-200 text-slate-900'
     }`}
   >
@@ -140,7 +140,7 @@ const currentPath = Astro.url.pathname;
         href={link.href}
         class={`block px-3 py-2 rounded-lg text-sm font-semibold tracking-wider uppercase ${
           transparent
-            ? 'text-zinc-300 hover:text-[#b4f04d] hover:bg-white/5'
+            ? 'text-zinc-300 hover:text-[#b4f04d] hover:bg-zinc-900'
             : 'text-slate-700 hover:text-cyan-600 hover:bg-slate-50'
         }`}
       >
@@ -149,7 +149,7 @@ const currentPath = Astro.url.pathname;
     ))}
     <div
       class={`pt-4 border-t flex flex-wrap gap-4 text-xs font-mono px-3 ${
-        transparent ? 'border-white/10 text-zinc-400' : 'border-slate-100 text-slate-500'
+        transparent ? 'border-zinc-800 text-zinc-400' : 'border-slate-100 text-slate-500'
       }`}
     >
       <a href="/glossary" class={transparent ? 'hover:text-[#b4f04d]' : 'hover:text-slate-900'}>Glossary</a>
@@ -162,6 +162,7 @@ const currentPath = Astro.url.pathname;
 <script>
   const toggle = document.getElementById('mobile-nav-toggle');
   const menu = document.getElementById('mobile-nav-menu');
+
   if (toggle && menu) {
     toggle.addEventListener('click', () => {
       const isExpanded = toggle.getAttribute('aria-expanded') === 'true';

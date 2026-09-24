@@ -1,4 +1,5 @@
 ---
+// Walkthrough Videos Section - Pure Solid Super Black (No Gradients)
 const videos = [
   {
     title: 'Clay Waterfall Pipeline Engine',
@@ -27,7 +28,7 @@ const videos = [
 ];
 ---
 
-<section class="flex flex-col gap-6" aria-labelledby="videos-heading">
+<section class="flex flex-col gap-6 bg-[#000000]" aria-labelledby="videos-heading">
   <!-- Section Header -->
   <div class="flex items-center justify-between">
     <div class="flex flex-col gap-1.5">
@@ -44,12 +45,11 @@ const videos = [
     </span>
   </div>
 
-  <!-- Video Grid: 4 Tall Cards -->
+  <!-- Video Grid: 4 Tall Cards in Solid Super Black -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
     {videos.map((vid) => (
-      <div class="aspect-[9/15] rounded-[24px] bg-[#0c0c0c] hover:bg-[#121212] border border-white/10 hover:border-[#b4f04d]/40 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group shadow-xl">
-        
-        <!-- Subtle Background Waveform / Schematic Graphic -->
+      <div class="aspect-[9/15] rounded-[24px] bg-[#000000] hover:bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group shadow-xl">
+        <!-- Subtle Schematic Lines (No Gradients) -->
         <div class="absolute inset-0 opacity-15 pointer-events-none group-hover:opacity-25 transition-opacity">
           <svg class="w-full h-full" viewBox="0 0 200 350" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="20" y1="50" x2="180" y2="50" stroke="#b4f04d" stroke-dasharray="4 4" stroke-width="1.5" />
@@ -61,17 +61,17 @@ const videos = [
 
         <!-- Top Badge: Category & Duration -->
         <div class="relative z-10 flex items-center justify-between">
-          <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono font-semibold text-[#b4f04d] tracking-wider uppercase backdrop-blur-md">
+          <span class="px-2.5 py-1 rounded-full bg-[#000000] border border-zinc-800 text-[10px] font-mono font-semibold text-[#b4f04d] tracking-wider uppercase">
             {vid.category}
           </span>
-          <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-zinc-400 backdrop-blur-md">
+          <span class="px-2.5 py-1 rounded-full bg-[#000000] border border-zinc-800 text-[11px] font-mono text-zinc-400">
             {vid.duration}
           </span>
         </div>
 
-        <!-- Center: Glowing Play Button -->
+        <!-- Center: Play Button -->
         <div class="relative z-10 flex items-center justify-center my-auto">
-          <div class="w-14 h-14 rounded-full bg-white/10 group-hover:bg-[#b4f04d] border border-white/20 group-hover:border-transparent flex items-center justify-center text-white group-hover:text-black transition-all duration-300 shadow-2xl backdrop-blur-md group-hover:scale-110 cursor-pointer">
+          <div class="w-14 h-14 rounded-full bg-zinc-900 group-hover:bg-[#b4f04d] border border-zinc-700 group-hover:border-transparent flex items-center justify-center text-white group-hover:text-black transition-all duration-300 shadow-2xl group-hover:scale-110 cursor-pointer">
             <svg class="w-6 h-6 translate-x-0.5" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
@@ -79,7 +79,7 @@ const videos = [
         </div>
 
         <!-- Bottom: Title & Description -->
-        <div class="relative z-10 flex flex-col gap-1.5 pt-4 border-t border-white/5">
+        <div class="relative z-10 flex flex-col gap-1.5 pt-4 border-t border-zinc-900">
           <h3 class="text-white text-[15px] sm:text-[16px] font-bold group-hover:text-[#b4f04d] transition-colors leading-snug">
             {vid.title}
           </h3>
@@ -87,7 +87,6 @@ const videos = [
             {vid.description}
           </p>
         </div>
-
       </div>
     ))}
   </div>

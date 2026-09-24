@@ -4,7 +4,7 @@ interface ContactFormProps {
   dark?: boolean;
 }
 
-export const ContactForm: React.FC<ContactFormProps> = ({ dark = true }) => {
+export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,6 +22,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = true }) => {
       setStatus('success');
       return;
     }
+
     setStatus('loading');
     setErrorMessage('');
 
@@ -56,7 +57,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = true }) => {
     <div className="w-full">
       {status === 'success' ? (
         <div className={`p-6 rounded-2xl border text-center flex flex-col items-center gap-3 ${
-          dark ? 'bg-[#0d0d0d] border-white/15 text-white' : 'bg-white border-slate-200 text-slate-900'
+          dark ? 'bg-[#000000] border-zinc-800 text-white' : 'bg-white border-slate-200 text-slate-900'
         }`}>
           <div className="w-12 h-12 rounded-full bg-[#b4f04d]/20 border border-[#b4f04d]/40 flex items-center justify-center text-[#b4f04d]">
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -99,7 +100,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = true }) => {
             <input
               className={`w-full rounded-xl px-4 py-3 text-[14px] transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#0d0d0d] border border-white/10 text-white placeholder:text-zinc-600 focus:border-[#b4f04d]/70'
+                  ? 'bg-[#000000] border border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#b4f04d]'
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
               }`}
               id="contact-name"
@@ -119,7 +120,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = true }) => {
             <input
               className={`w-full rounded-xl px-4 py-3 text-[14px] transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#0d0d0d] border border-white/10 text-white placeholder:text-zinc-600 focus:border-[#b4f04d]/70'
+                  ? 'bg-[#000000] border border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#b4f04d]'
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
               }`}
               id="contact-email"
@@ -139,7 +140,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = true }) => {
             <input
               className={`w-full rounded-xl px-4 py-3 text-[14px] transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#0d0d0d] border border-white/10 text-white placeholder:text-zinc-600 focus:border-[#b4f04d]/70'
+                  ? 'bg-[#000000] border border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#b4f04d]'
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
               }`}
               id="contact-company"
@@ -159,7 +160,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = true }) => {
             <textarea
               className={`w-full rounded-xl px-4 py-3 text-[14px] transition-colors focus:outline-none resize-none ${
                 dark
-                  ? 'bg-[#0d0d0d] border border-white/10 text-white placeholder:text-zinc-600 focus:border-[#b4f04d]/70'
+                  ? 'bg-[#000000] border border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#b4f04d]'
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
               }`}
               id="contact-msg"
@@ -172,7 +173,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = true }) => {
           </div>
 
           {status === 'error' && (
-            <div className="p-3 rounded-xl bg-red-950/60 border border-red-500/40 text-xs text-red-300 font-medium">
+            <div className="p-3 rounded-xl bg-red-950/80 border border-red-500/40 text-xs text-red-300 font-medium">
               {errorMessage}
             </div>
           )}

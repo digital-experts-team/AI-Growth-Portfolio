@@ -1,4 +1,5 @@
 ---
+// Questions & Answers Accordion Section - Pure Solid Super Black (No Gradients)
 const faqs = [
   {
     q: 'What does a GTM engineer do?',
@@ -28,7 +29,7 @@ const faqs = [
 ];
 ---
 
-<section class="flex flex-col gap-6" aria-labelledby="questions-heading">
+<section class="flex flex-col gap-6 bg-[#000000]" aria-labelledby="questions-heading">
   <!-- Section Header -->
   <div class="flex items-center justify-between">
     <div class="flex flex-col gap-1.5">
@@ -41,7 +42,7 @@ const faqs = [
     </div>
 
     <!-- Question Mark Icon Circle -->
-    <div class="w-10 h-10 rounded-full bg-[#111111] border border-white/10 flex items-center justify-center text-zinc-400">
+    <div class="w-10 h-10 rounded-full bg-[#000000] border border-zinc-800 flex items-center justify-center text-zinc-400">
       <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"></circle>
         <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
@@ -50,24 +51,24 @@ const faqs = [
     </div>
   </div>
 
-  <!-- Accordion List -->
+  <!-- Accordion List: Solid Super Black (No Gradients) -->
   <div class="flex flex-col gap-3">
     {faqs.map((item, idx) => (
       <details
-        class="group bg-[#0d0d0d] hover:bg-[#111111] border border-white/10 rounded-2xl overflow-hidden transition-all duration-200"
+        class="group bg-[#000000] hover:bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden transition-all duration-200"
         open={item.isOpen}
       >
         <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none select-none">
           <span class="text-white text-[16px] sm:text-[17px] font-bold group-hover:text-[#b4f04d] transition-colors">
             {item.q}
           </span>
-          <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 group-hover:text-white transition-transform duration-300 group-open:rotate-180 shrink-0">
+          <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 group-hover:text-white transition-transform duration-300 group-open:rotate-180 shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </div>
         </summary>
-        <div class="px-6 pb-6 pt-1 text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed border-t border-white/5">
+        <div class="px-6 pb-6 pt-1 text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed border-t border-zinc-900">
           <p>{item.a}</p>
         </div>
       </details>

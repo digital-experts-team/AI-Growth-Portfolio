@@ -15,17 +15,13 @@ const tools = [
 ];
 ---
 
-<div class="w-full py-4 overflow-hidden" aria-label="Core Technology Integrations">
-  <div class="relative w-full overflow-hidden">
-    <!-- Edge Gradients for seamless infinite look -->
-    <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-black via-black/80 to-transparent z-10"></div>
-    <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-black via-black/80 to-transparent z-10"></div>
-
-    <!-- Scrolling Rail -->
+<div class="w-full py-4 bg-[#000000]" aria-label="Core Technology Integrations">
+  <div class="relative w-full overflow-hidden bg-[#000000]">
+    <!-- Scrolling Rail without gradients -->
     <div class="flex items-center justify-center gap-3 sm:gap-4 flex-wrap select-none py-1">
       {tools.map((tool, index) => (
         <div class="flex items-center gap-3">
-          <div class="px-4 sm:px-5 py-2 rounded-full bg-[#111111] hover:bg-[#1a1a1a] border border-white/10 text-zinc-300 hover:text-white text-[12px] sm:text-[13px] font-mono transition-all duration-200 shadow-sm cursor-default">
+          <div class="px-4 sm:px-5 py-2 rounded-full bg-[#000000] hover:bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-white text-[12px] sm:text-[13px] font-mono transition-all duration-200 shadow-sm cursor-default">
             {tool}
           </div>
           {index < tools.length - 1 && (
