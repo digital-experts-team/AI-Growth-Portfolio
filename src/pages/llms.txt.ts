@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = ({ site }) => {
-  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://tibinjacob.com';
+  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://gtm-expert-tibin.vercel.app';
 
   const body = `# Tibin Jacob — GTM Engineer
 
