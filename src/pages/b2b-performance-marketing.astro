@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "B2B Performance Marketing: Meta & Google Ads to Pipeline | Tibin Jacob";
+const description = "Performance marketing engineered for B2B pipeline: Meta & Google Ads measured to SQLs, pipeline revenue, and account-level conversion rates.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'B2B Performance Marketing', url: '/b2b-performance-marketing' },
+  ]}
+>
+  <div class="py-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="text-[11px] font-mono uppercase tracking-wider text-cyan-600 font-semibold mb-2">
+        Paid demand, measured to pipeline
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+        B2B Performance Marketing: Meta & Google Ads to Pipeline
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+        Optimizing paid campaigns for MQL form fills leads to low-quality leads and SDR fatigue. Here is how we measure Meta & Google Ads directly to pipeline revenue, SQL conversion, and target account engagement.
+      </p>
+    </div>
+
+    <!-- Features -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-cyan-600 font-semibold mb-2">MOTION 01</div>
+          <h2 class="text-xl font-bold text-slate-900 mb-2">High-Intent Google Ads & Search PPC</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Capturing high-intent BOFU search queries, competitor alternatives, and pricing searches with dedicated high-converting landing pages.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Target: High-intent SQL conversion</span>
+      </div>
+
+      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-cyan-600 font-semibold mb-2">MOTION 02</div>
+          <h2 class="text-xl font-bold text-slate-900 mb-2">Meta Ads & Paid Social Retargeting</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Targeting decision-makers at ICP companies with high-signal content, video teardowns, and case study proofs to keep your brand top-of-mind during long deal cycles.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Target: ICP account engagement</span>
+      </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-xl font-bold mb-2">Want to measure your ad spend directly to sales pipeline?</h3>
+        <p class="text-xs sm:text-sm text-slate-300">Let’s audit your campaign attribution and CRM integration.</p>
+      </div>
+      <a href="/hire" class="px-6 py-3 rounded-full bg-[#d2f39c] text-black font-bold text-xs uppercase tracking-wider hover:bg-[#c2e887] transition-all shrink-0">
+        Work with me →
+      </a>
+    </div>
+  </div>
+</BaseLayout>
