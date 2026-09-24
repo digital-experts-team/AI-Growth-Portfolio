@@ -1,0 +1,78 @@
+name: Notion publish
+# Notion (Status = Approved) → site → Notion (Live) → LinkedIn.
+# Secrets: NOTION_TOKEN (required). Optional: LINKEDIN_ACCESS_TOKEN, LINKEDIN_AUTHOR_URN,
+# ANTHROPIC_API_KEY or XAI_API_KEY, INDEXNOW_KEY.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [notion-approved]
+  deployment_status:
+
+concurrency:
+  group: notion-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.event_name != 'deployment_status'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Pull approved pages from Notion
+        run: node scripts/notion-sync.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          SITE_URL: https://tibinjacob.com
+      - name: Detect changes
+        id: diff
+        run: |
+          git add -A src/content src/page-content public/content-images || true
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+      - name: Build check before publishing
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          npm ci || npm install --no-audit --no-fund
+          npm run build
+        env:
+          SITE_URL: https://tibinjacob.com
+      - name: Commit and push (triggers Vercel deploy)
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "Tibin Jacob"
+          git config user.email "jobsocial.team@gmail.com"
+          git commit -m "content: publish approved Notion pages"
+          git push origin HEAD:main
+
+  post-deploy:
+    if: >-
+      (github.event_name == 'deployment_status' &&
+       github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production') ||
+      github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Mark live pages in Notion + LinkedIn
+        run: node scripts/post-deploy.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          SITE_URL: https://tibinjacob.com
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_AUTHOR_URN: ${{ secrets.LINKEDIN_AUTHOR_URN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
