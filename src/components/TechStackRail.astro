@@ -130,21 +130,21 @@ const stackTools: StackTool[] = [
   }
 ];
 
+// Only tools I have used in production (per resume)
+const allowed = ['Clay', 'Apollo.io', 'HubSpot', 'Instantly.ai', 'Claude', 'n8n'];
+const tools = stackTools.filter((t) => allowed.includes(t.name));
 // Duplicate list for infinite uninterrupted scrolling
-const marqueeList = [...stackTools, ...stackTools];
+const marqueeList = [...tools, ...tools, ...tools];
 ---
 
 <section class="flex flex-col gap-3 -mt-6 sm:-mt-8" aria-label="GTM and AI Tool Integrations Rail">
   <div class="flex items-center justify-between px-1">
     <div class="flex items-center gap-2">
       <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-      <span class="text-[11px] font-semibold text-slate-500 tracking-wider uppercase font-mono">
-        ORCHESTRATING WORKFLOWS ACROSS THE MODERN GTM & AI STACK
+      <span class="text-[12px] font-semibold text-slate-600">
+        Tools I build GTM systems with
       </span>
     </div>
-    <span class="text-[11px] font-mono text-slate-400 hidden sm:inline-block">
-      12+ Core Connectors
-    </span>
   </div>
 
   <!-- Marquee Scroller Container with Edge Gradient Fade -->

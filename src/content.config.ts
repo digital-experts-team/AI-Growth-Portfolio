@@ -8,7 +8,7 @@ const baseSchema = z.object({
   slug: z.string().optional(),
   status: z.enum(['draft', 'live']).default('live'),
   targetKeyword: z.string().optional(),
-  cluster: z.enum(['RevOps', 'GTM Engineering', 'Signals & Enrichment', 'AI Agents', 'Demand / Agency', 'Core']),
+  cluster: z.enum(['RevOps', 'GTM Engineering', 'Signals & Enrichment', 'AI Agents', 'Demand / Agency', 'AI Search', 'Performance Marketing', 'Core']),
   audience: z.array(z.string()).default([]),
   sourceRole: z.enum(['Mavlers', 'Heurist AI', 'Sonic', 'Paddleboat AI', 'General']).optional(),
   proofLink: z.string().optional(),

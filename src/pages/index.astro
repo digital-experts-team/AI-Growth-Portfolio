@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { WorkflowsCarousel } from '../components/WorkflowsCarousel';
 import StoriesSection from '../components/StoriesSection.astro';
 import TechStackRail from '../components/TechStackRail.astro';
+import { HeroPipeline } from '../components/HeroPipeline';
 import { ContactForm } from '../components/ContactForm';
 import { getCollection } from 'astro:content';
 
@@ -14,227 +15,192 @@ const workflowItems = allWorkflows.map((w) => ({
   description: w.data.description,
 }));
 
-const title = "Tibin Jacob — GTM Engineer | Signals into Pipeline That Drive Your Business";
-const description = "GTM Engineer specializing in Clay, n8n, HubSpot, and AI agents, with full-funnel content and demand architecture that feeds them.";
+const siteUrl = import.meta.env.SITE_URL || 'https://tibinjacob.com';
+const title = 'GTM Engineer & AI Search (AEO/GEO) | Tibin Jacob';
+const ogTitle = 'AI Growth Expert for B2B Companies — Tibin Jacob';
+const description = 'GTM Engineer and AI growth expert for B2B: signal-based outbound in Clay, n8n and HubSpot, AEO/GEO for AI search, and paid ads measured to pipeline.';
+
+const lanes = [
+  {
+    id: 'gtm',
+    name: 'GTM automation',
+    heading: 'GTM automation: signals scored and routed into HubSpot',
+    body: 'I capture buying signals (site visits, funding, hiring, engagement), score them against your ICP, and route them into HubSpot lifecycle stages and follow-up sequences, with a human approval step where it matters.',
+    tools: ['Clay', 'n8n', 'HubSpot', 'Apollo', 'Zoho SalesIQ', 'Claude', 'Make', 'Instantly'],
+    href: '/workflows',
+    cta: 'See GTM workflows',
+  },
+  {
+    id: 'ai-search',
+    name: 'AI search (AEO/GEO)',
+    heading: 'AI search optimization: answer engine and generative engine optimization',
+    body: 'I structure B2B sites so ChatGPT, Perplexity and Google AI Overviews can find, understand and cite them: server-rendered pages, direct answers under question headings, schema, and llms.txt.',
+    tools: ['Google Search Console', 'GA4', 'Schema.org', 'llms.txt', 'ChatGPT', 'Perplexity', 'Google AI Overviews'],
+    href: '/answer-engine-optimization',
+    cta: 'How I approach AEO and GEO',
+  },
+  {
+    id: 'performance',
+    name: 'B2B performance marketing',
+    heading: 'B2B performance marketing measured to pipeline',
+    body: 'I run Meta and Google Ads for B2B and track them past the lead form, through MQL and SQL stages in the CRM, so spend is judged on qualified pipeline rather than clicks.',
+    tools: ['Meta Ads', 'Google Ads', 'GA4', 'Looker Studio', 'Microsoft Clarity', 'HubSpot'],
+    href: '/b2b-performance-marketing',
+    cta: 'See the performance marketing approach',
+  },
+];
+
+const faq = [
+  {
+    q: 'What does a GTM engineer do?',
+    a: 'A GTM engineer builds the systems that turn buying signals into qualified pipeline: capturing intent, enriching and scoring accounts, routing them into the CRM, and automating follow-up so sales works the right accounts at the right time.',
+  },
+  {
+    q: 'What is answer engine optimization (AEO)?',
+    a: 'Answer engine optimization is structuring content so AI assistants and search features can quote it directly: clear question headings, short direct answers, schema markup, and pages that render fully without JavaScript.',
+  },
+  {
+    q: 'Do you work full-time or on projects?',
+    a: 'Both. I am open to full-time GTM Engineer and AI growth roles, and to project-based builds for B2B teams. I am based in Bengaluru and work with US and European hours.',
+  },
+];
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  canonicalUrl="https://tibinjacob.com"
->
+<BaseLayout title={title} ogTitle={ogTitle} description={description} canonicalUrl={siteUrl} faq={faq}>
   <div class="flex flex-col gap-20 py-6 sm:py-10">
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2" aria-labelledby="hero-heading">
-      <div class="lg:col-span-7 flex flex-col items-start gap-4">
-        <span class="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
-          AVAILBLE FOR CONTRACTS AND FULL-TIME
-        </span>
-        <h1 id="hero-heading" class="text-[40px] sm:text-[46px] font-bold text-slate-900 tracking-tight leading-[1.15]">
-          Signals into pipeline that<br />will drive your business
+      <div class="lg:col-span-7 flex flex-col items-start gap-5">
+        <h1 id="hero-heading" class="flex flex-col gap-3">
+          <span class="text-[40px] sm:text-[52px] font-bold text-slate-900 tracking-tight leading-[1.08]">
+            AI Growth Expert for B2B Companies
+          </span>
+          <span class="text-[16px] sm:text-[18px] font-semibold text-slate-600 leading-snug">
+            GTM Engineer · AI Search (AEO/GEO) · B2B Performance Marketing
+          </span>
         </h1>
-        <p class="text-[15px] text-slate-500 leading-relaxed max-w-[500px]">
-          GTM Engineer. Clay, n8n, HubSpot and AI agents, content side that feeds them well.
+        <p class="text-[16px] text-slate-600 leading-relaxed max-w-[560px]">
+          I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n and HubSpot for GTM automation; ChatGPT, Perplexity and Google AI Overviews for AI search; Meta and Google Ads measured to SQLs.
         </p>
-        <div class="flex flex-wrap items-center gap-3 pt-2">
-          <a
-            class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1d6ff2] hover:bg-blue-600 text-white text-[13px] font-semibold rounded-lg shadow-sm transition-all"
-            href="/resume/tibin-jacob-gtm-engineer.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Download Resume
+        <div class="flex flex-wrap items-center gap-3 pt-1">
+          <a class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1d6ff2] hover:bg-blue-600 text-white text-[14px] font-semibold rounded-lg shadow-sm transition-colors" href="/work">
+            See how I work
           </a>
-          <a
-            class="inline-flex items-center justify-center px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 text-[13px] font-medium rounded-lg shadow-sm transition-all"
-            href="#contact"
-          >
-            Contact Now
+          <a class="inline-flex items-center justify-center px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 text-[14px] font-medium rounded-lg transition-colors" href="/resume/tibin-jacob-gtm-engineer.pdf" target="_blank" rel="noopener noreferrer">
+            Download resume
           </a>
         </div>
+        <p class="text-[13px] text-slate-500">Bengaluru, working with US and European hours. Open to full-time roles and project builds.</p>
       </div>
-
-      <!-- Right side of hero: Visual container for user's screenshot/image -->
-      <div class="lg:col-span-5 w-full flex items-center justify-center">
-        <div class="w-full aspect-[4/3] rounded-2xl bg-[#080d19] border border-slate-900 shadow-xl overflow-hidden flex items-center justify-center relative group">
-          <div class="flex flex-col items-center justify-center gap-2 p-6 text-center select-none">
-            <span class="material-symbols-outlined text-[36px] text-slate-700 group-hover:text-cyan-500/80 transition-colors">schema</span>
-            <span class="text-xs font-mono text-slate-400 font-medium">Hero Architecture Visual</span>
-            <span class="text-[11px] font-mono text-slate-600">4:3 Aspect Ratio · Image Placement</span>
-          </div>
-        </div>
+      <div class="lg:col-span-5 w-full">
+        <HeroPipeline />
       </div>
     </section>
 
-    <!-- TECH STACK & INTEGRATIONS RAIL -->
     <TechStackRail />
 
-    <!-- WHO I WORK WITH (IDEAL PARTNERS) -->
-    <section class="flex flex-col gap-6" aria-labelledby="partners-heading">
-      <div class="flex flex-col gap-1">
-        <span class="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
-          IDEAL PARTNERS
-        </span>
-        <h2 id="partners-heading" class="text-[28px] font-bold text-slate-900 tracking-tight">
-          Who I work with
-        </h2>
+    <!-- THREE LANES -->
+    <section class="flex flex-col gap-8" aria-labelledby="lanes-heading">
+      <div class="flex flex-col gap-2 max-w-[680px]">
+        <h2 id="lanes-heading" class="text-[28px] font-bold text-slate-900 tracking-tight">Three ways I grow B2B pipeline</h2>
+        <p class="text-[15px] text-slate-600 leading-relaxed">GTM automation is the core. AI search and performance marketing are the demand sources that feed it, all measured in the same CRM.</p>
       </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {lanes.map((lane, i) => (
+          <article class={`flex flex-col gap-4 p-6 rounded-2xl border bg-white ${i === 0 ? 'border-[#1d6ff2]/40 lg:row-span-1' : 'border-slate-200'}`} aria-labelledby={`lane-${lane.id}`}>
+            <p class="text-[13px] font-semibold text-[#1d6ff2]">{lane.name}{i === 0 ? ' (core)' : ''}</p>
+            <h3 id={`lane-${lane.id}`} class="text-[18px] font-bold text-slate-900 leading-snug">{lane.heading}</h3>
+            <p class="text-[14px] text-slate-600 leading-relaxed">{lane.body}</p>
+            <div>
+              <p class="text-[12px] font-semibold text-slate-500 pb-1.5">Tools</p>
+              <ul class="flex flex-wrap gap-1.5" aria-label={`${lane.name} tools`}>
+                {lane.tools.map((tool) => (
+                  <li class="text-[12px] text-slate-700 bg-slate-50 border border-slate-200 rounded-md px-2 py-0.5">{tool}</li>
+                ))}
+              </ul>
+            </div>
+            <a href={lane.href} class="mt-auto text-[13px] font-semibold text-[#1d6ff2] hover:underline">{lane.cta}</a>
+          </article>
+        ))}
+      </div>
+    </section>
 
+    <!-- WHO I WORK WITH -->
+    <section class="flex flex-col gap-6" aria-labelledby="partners-heading">
+      <h2 id="partners-heading" class="text-[28px] font-bold text-slate-900 tracking-tight">Who I work with</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="p-6 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 hover:shadow-sm transition-all flex flex-col gap-3">
-          <div class="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-cyan-600">
-            <span class="material-symbols-outlined text-[20px]">rocket_launch</span>
-          </div>
-          <h3 class="text-[16px] font-bold text-slate-900 pt-1">Startups finding ICP Fit</h3>
-          <p class="text-[13px] text-slate-500 leading-relaxed">
-            Looking to scale outbound and inbound automation without blowing up headcount.
-          </p>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white flex flex-col gap-2">
+          <h3 class="text-[16px] font-bold text-slate-900">Heads of GTM and founders</h3>
+          <p class="text-[14px] text-slate-600 leading-relaxed">Turning scattered signals into SQL-ready accounts your SDRs can actually work, without adding headcount.</p>
         </div>
-
-        <div class="p-6 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 hover:shadow-sm transition-all flex flex-col gap-3">
-          <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
-            <span class="material-symbols-outlined text-[20px]">hub</span>
-          </div>
-          <h3 class="text-[16px] font-bold text-slate-900 pt-1">Enterprise with PMF Scalling</h3>
-          <p class="text-[13px] text-slate-500 leading-relaxed">
-            Tight CRM architecture, reliable waterfall enrichment, and clean routing rules.
-          </p>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white flex flex-col gap-2">
+          <h3 class="text-[16px] font-bold text-slate-900">Heads of RevOps</h3>
+          <p class="text-[14px] text-slate-600 leading-relaxed">Lifecycle stages, MQL to SQL rules, routing and CRM hygiene that sales trusts, documented so the next person can run it.</p>
         </div>
-
-        <div class="p-6 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 hover:shadow-sm transition-all flex flex-col gap-3">
-          <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
-            <span class="material-symbols-outlined text-[20px]">track_changes</span>
-          </div>
-          <h3 class="text-[16px] font-bold text-slate-900 pt-1">Founders and Revops Leaders</h3>
-          <p class="text-[13px] text-slate-500 leading-relaxed">
-            Leaders wanting high-intent signal capture that converts directly into real qualified pipeline.
-          </p>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white flex flex-col gap-2">
+          <h3 class="text-[16px] font-bold text-slate-900">Demand gen and marketing leaders</h3>
+          <p class="text-[14px] text-slate-600 leading-relaxed">Paid, SEO and AI search programs tracked to marketing-sourced pipeline, not just lead volume.</p>
         </div>
       </div>
     </section>
 
-    <!-- MY LIBRARY (PRODUCTION SYSTEMS) -->
     <WorkflowsCarousel client:visible items={workflowItems} />
 
-    <!-- RECENT EXPERIENCE (CASE STUDIES) -->
+    <!-- CASE STUDIES -->
     <section class="flex flex-col gap-6" aria-labelledby="experience-heading">
-      <div class="flex flex-col gap-1">
-        <span class="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
-          CASE STUDIES
-        </span>
-        <h2 id="experience-heading" class="text-[28px] font-bold text-slate-900 tracking-tight">
-          Recent Experience
-        </h2>
-      </div>
-
+      <h2 id="experience-heading" class="text-[28px] font-bold text-slate-900 tracking-tight">Selected work</h2>
       <div class="flex flex-col gap-4">
-        {/* Featured Case Study: Mavlers */}
-        <div class="w-full p-6 sm:p-7 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 transition-all flex flex-col gap-3 group">
-          <div class="flex items-center gap-2">
-            <span class="bg-[#fef9c3] text-[#854d0e] font-semibold text-[11px] px-2 py-0.5 rounded">
-              Mavlers
-            </span>
-            <span class="text-slate-400 text-xs">•</span>
-            <span class="text-slate-500 text-[11px] font-mono">GTM Automation Lead • 2026</span>
-          </div>
-          <h3 class="text-[18px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-            <a href="/work/mavlers-partner-agency-signals">
-              Finding partner agencies for white-label delivery with a multi-signal HubSpot motion
-            </a>
+        <article class="w-full p-6 sm:p-7 rounded-2xl border border-slate-200 bg-white flex flex-col gap-3">
+          <p class="text-[12px] text-slate-500">Mavlers · GTM Automation Lead · Apr 2026 – Sep 2026</p>
+          <h3 class="text-[19px] font-bold text-slate-900">
+            <a href="/work/mavlers-partner-agency-signals" class="hover:text-[#1d6ff2]">Finding partner agencies for white-label delivery with a multi-signal HubSpot motion</a>
           </h3>
-          <p class="text-[13px] text-slate-500 leading-relaxed">
-            Architected a synchronized multi-signal pipeline scanning tech stack indicators, job postings, and partner network expansions to identify high-fit agency opportunities automatically.
-          </p>
-          <div class="pt-2">
-            <a
-              href="/work/mavlers-partner-agency-signals"
-              class="inline-flex items-center gap-1 text-[12px] font-semibold text-[#1d6ff2] hover:underline"
-            >
-              Read case study architecture →
-            </a>
-          </div>
-        </div>
-
-        {/* Split Case Studies: Paddleboat AI & Heurist AI */}
+          <p class="text-[14px] text-slate-600 leading-relaxed">Combined Sales IQ site intent, firmographics and engagement data, scored against the partner-agency ICP, and routed SQL-ready accounts into HubSpot using the MQL to SQL stages sales already trusted. Ran the ICP workshop that became the brief for a new automation service line.</p>
+          <a href="/work/mavlers-partner-agency-signals" class="text-[13px] font-semibold text-[#1d6ff2] hover:underline">Read the Mavlers case study</a>
+        </article>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-6 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 transition-all flex flex-col justify-between gap-4 group">
-            <div class="flex flex-col gap-2.5">
-              <div class="flex items-center justify-between">
-                <span class="bg-cyan-50 text-cyan-700 font-semibold text-[11px] px-2 py-0.5 rounded border border-cyan-200">
-                  Paddleboat AI
-                </span>
-                <a href="/work/paddleboat-sdr-scaling-signals" class="text-slate-400 group-hover:text-blue-600 transition-colors" aria-label="View Paddleboat AI case study">
-                  <span class="material-symbols-outlined text-[16px]">north_east</span>
-                </a>
-              </div>
-              <h3 class="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                <a href="/work/paddleboat-sdr-scaling-signals">
-                  Flagging companies scaling their SDR org
-                </a>
-              </h3>
-              <p class="text-[12px] text-slate-500 leading-relaxed">
-                Automated intent detection analyzing LinkedIn Sales Nav alerts and job board APIs to alert reps within 2 hours of SDR manager job posts.
-              </p>
-            </div>
-            <span class="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-100">
-              Role: GTM Automation • 2022-2023
-            </span>
-          </div>
-
-          <div class="p-6 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 transition-all flex flex-col justify-between gap-4 group">
-            <div class="flex flex-col gap-2.5">
-              <div class="flex items-center justify-between">
-                <span class="bg-emerald-50 text-emerald-700 font-semibold text-[11px] px-2 py-0.5 rounded border border-emerald-200">
-                  Heurist AI
-                </span>
-                <a href="/work/heurist-autopilot-agents" class="text-slate-400 group-hover:text-blue-600 transition-colors" aria-label="View Heurist AI case study">
-                  <span class="material-symbols-outlined text-[16px]">north_east</span>
-                </a>
-              </div>
-              <h3 class="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                <a href="/work/heurist-autopilot-agents">
-                  Autopilot content agents with a human approval gate
-                </a>
-              </h3>
-              <p class="text-[12px] text-slate-500 leading-relaxed">
-                Multi-agent system that synthesizes market themes, drafts targeted sales collateral, and routes to Slack for 1-click human editorial approval.
-              </p>
-            </div>
-            <span class="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-100">
-              Role: GTM Engineer • 2024-2025
-            </span>
-          </div>
+          <article class="p-6 rounded-2xl border border-slate-200 bg-white flex flex-col gap-2.5">
+            <p class="text-[12px] text-slate-500">Paddleboat AI · GTM Engineer · 2022 – 2023</p>
+            <h3 class="text-[16px] font-bold text-slate-900"><a href="/work/paddleboat-sdr-scaling-signals" class="hover:text-[#1d6ff2]">Flagging B2B SaaS companies scaling their SDR org</a></h3>
+            <p class="text-[13px] text-slate-600 leading-relaxed">Site intent and engagement combined with funding, hiring and team-scale signals to target VPs and Heads of Sales at 50–500 person companies. Contributed to a #1 Product Hunt launch.</p>
+          </article>
+          <article class="p-6 rounded-2xl border border-slate-200 bg-white flex flex-col gap-2.5">
+            <p class="text-[12px] text-slate-500">Heurist AI · GTM Automation · 2024 – 2025</p>
+            <h3 class="text-[16px] font-bold text-slate-900"><a href="/work/heurist-autopilot-agents" class="hover:text-[#1d6ff2]">Autopilot content agents with a human approval gate</a></h3>
+            <p class="text-[13px] text-slate-600 leading-relaxed">Agents that generated and distributed top-of-funnel content on X and LinkedIn, built with state-machine logic, retries and error handling so they ran without daily babysitting.</p>
+          </article>
         </div>
+        <a href="/work" class="text-[13px] font-semibold text-[#1d6ff2] hover:underline">All case studies, including Sonic</a>
       </div>
     </section>
 
-    <!-- MY STORIES (PRODUCTION SYSTEMS) -->
     <StoriesSection />
 
-    <!-- START A CONVERSATION -->
-    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-4" id="contact" aria-labelledby="contact-heading">
-      <div class="lg:col-span-6 flex flex-col gap-5">
-        <div class="flex flex-col gap-1">
-          <span class="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
-            START A CONVERSATION
-          </span>
-          <h2 id="contact-heading" class="text-[28px] font-bold text-slate-900 tracking-tight leading-snug">
-            Tell me what's leaking<br />in your pipeline.
-          </h2>
-        </div>
+    <!-- FAQ (visible, matches FAQPage schema) -->
+    <section class="flex flex-col gap-4 max-w-[760px]" aria-labelledby="faq-heading">
+      <h2 id="faq-heading" class="text-[28px] font-bold text-slate-900 tracking-tight">Questions</h2>
+      {faq.map((item) => (
+        <details class="border-b border-slate-200 py-3">
+          <summary class="text-[16px] font-semibold text-slate-900 cursor-pointer">{item.q}</summary>
+          <p class="text-[14px] text-slate-600 leading-relaxed pt-2">{item.a}</p>
+        </details>
+      ))}
+    </section>
 
+    <!-- CONTACT -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-4" id="contact" aria-labelledby="contact-heading">
+      <div class="lg:col-span-7 flex flex-col gap-5">
+        <h2 id="contact-heading" class="text-[28px] font-bold text-slate-900 tracking-tight leading-snug">Tell me what's leaking in your pipeline.</h2>
         <ContactForm client:visible />
       </div>
-
-      <!-- Right side of contact: Visual container for user's pipeline schematic/diagram -->
-      <div class="lg:col-span-6 w-full">
-        <div class="w-full h-96 rounded-2xl bg-[#080d19] border border-slate-900 shadow-xl overflow-hidden flex items-center justify-center relative group">
-          <div class="flex flex-col items-center justify-center gap-2 p-6 text-center select-none">
-            <span class="material-symbols-outlined text-[36px] text-slate-700 group-hover:text-cyan-500/80 transition-colors">hub</span>
-            <span class="text-xs font-mono text-slate-400 font-medium">Pipeline Flow Diagram</span>
-            <span class="text-[11px] font-mono text-slate-600">Schematic & Routing Graphic Placement</span>
-          </div>
-        </div>
+      <div class="lg:col-span-5 flex flex-col gap-3 p-6 rounded-2xl bg-slate-50 border border-slate-200">
+        <h3 class="text-[16px] font-bold text-slate-900">What happens next</h3>
+        <ol class="list-decimal pl-5 text-[14px] text-slate-600 leading-relaxed space-y-1.5">
+          <li>Your message goes straight into HubSpot, the same kind of routing I build for clients.</li>
+          <li>I reply with questions or a short plan.</li>
+          <li>If it's a fit, we set up a call to go through your stack and goals.</li>
+        </ol>
+        <p class="text-[13px] text-slate-500 pt-2">Prefer email? <a class="text-[#1d6ff2] hover:underline" href="mailto:tibin.jacob.uiux@gmail.com">tibin.jacob.uiux@gmail.com</a></p>
       </div>
     </section>
   </div>

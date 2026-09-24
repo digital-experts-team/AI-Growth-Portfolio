@@ -66,7 +66,7 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
             My Library
           </h2>
           <p className="text-[13px] font-mono text-slate-400 mt-0.5">
-            Tested and validated across 40+ production instances
+            Signal, enrichment, routing and AI agent workflows I build
           </p>
         </div>
 

@@ -1,59 +1,59 @@
 ---
-title: "Heurist AI: Human-in-the-Loop Content Autopilot Agents"
-description: "Architecting automated AI agents with state machines and approval gates to generate top-of-funnel content across X and LinkedIn."
-metaTitle: "Heurist AI Case Study — GTM Autopilot Agents | Tibin"
+title: "Heurist AI: autopilot content agents with a human approval gate"
+description: "Autopilot agents that generated and distributed top-of-funnel content on X and LinkedIn, built with state-machine logic, retries and error handling."
+metaTitle: "Heurist AI Case Study — Autopilot GTM Agents | Tibin Jacob"
 slug: "heurist-autopilot-agents"
 status: "live"
 cluster: "AI Agents"
 targetKeyword: "ai agents gtm automation"
-audience: ["Head of Growth", "AI Product Lead", "GTM Engineer"]
+audience: ["Head of Growth", "Head of GTM", "Demand gen leader"]
 sourceRole: "Heurist AI"
 company: "Heurist AI"
 role: "GTM Automation — Autopilot Agents"
 dates: "Oct 2024 – Nov 2025"
-proofLink: "/workflows/waterfall-enrichment"
-publishedDate: 2025-11-20
-updatedDate: 2026-09-15
+problem: "Keep the product in the feed on X and LinkedIn without a full content team."
+architecture: "Agent generates → state machine (retries, error handling) → human approval gate → distribute to X and LinkedIn"
+proofLink: "/workflows"
+publishedDate: 2026-09-24
+updatedDate: 2026-09-24
 faq:
-  - q: "How did you prevent AI hallucination or brand damage?"
-    a: "Every generated post was buffered into a strict state machine with human-in-the-loop Slack approval buttons before dispatch."
+  - q: "How did the agents avoid posting bad content?"
+    a: "Generation and outbound ran behind a human approval gate, and the workflows used state-machine logic with retries and error handling so failures were caught instead of posted."
+  - q: "Which channels did the agents cover?"
+    a: "X and LinkedIn, for top-of-funnel content."
 ---
 
-## Executive Summary
+## Context
 
-Heurist AI is a decentralized AI cloud platform. The challenge was maintaining constant, authoritative technical engagement across social media channels (X and LinkedIn) without hiring an expensive editorial team.
+Heurist AI is a US product/SaaS company. The GTM motion was discovery and always-on social rather than partner or outbound-heavy. I built GTM automation with autopilot agents (Oct 2024 – Nov 2025, remote).
 
-## The Core Bottleneck
+## The problem
 
-Purely autonomous AI posting tools frequently hallucinate, repeat stale templates, or cause brand embarrassment. Conversely, manual drafting creates severe content bottlenecks and irregular posting cadences.
+The product needed to stay visible on X and LinkedIn continuously, without a full content bench to write and schedule posts.
 
-## Architecture Schematic
+## The system
 
 ```text
-[Tech RSS / GitHub Commits / Papers] ──> [Claude / GPT Summarizer]
-                                                   │
-                   ┌───────────────────────────────┘
-                   ▼
-      [State Machine: Draft -> Format -> Validation]
-       ├── Validation Failed ──> Retries (Max 3) ──> Error Log
-       └── Validation Passed ──> [Slack Interactive Approval Gate]
-                                   ├── Reject  ──> Feed to RL Feedback
-                                   └── Approve ──> Scheduled Multi-Platform Dispatch
+Agent generates TOFU content
+        │
+        ▼
+State machine: draft → check → retry on failure (error handling)
+        │
+        ▼
+Human approval gate
+        │
+        ▼
+Distribute to X and LinkedIn
 ```
 
-## How I Built It
+## How I built it
 
-1. **State Machine Logic**: Structured workflows inside n8n with deterministic states (`DRAFTED`, `FORMATTED`, `AWAITING_REVIEW`, `APPROVED`, `DISPATCHED`).
-2. **Error Recovery & Circuit Breakers**: Built retry loops with exponential backoff for LLM rate limits and API timeouts.
-3. **Interactive Approval Gate**: Dispatched formatted previews with 1-click Approve/Edit/Reject buttons into a dedicated Slack channel.
-4. **Distribution Automation**: Routed approved payloads to X (Twitter) API v2 and LinkedIn marketing endpoints with native media attachments.
+- **Agents:** autopilot agents generated and distributed top-of-funnel content on X and LinkedIn.
+- **Reliability:** workflows used state-machine logic, retries and error handling, so the system ran without a daily babysit.
+- **Control:** generation and outbound ran behind a human approval gate, not fully unattended.
 
-## Verified Results
+## Results
 
-- Maintained regular top-of-funnel technical presence across X and LinkedIn without a dedicated content department.
-- Designed agent workflows with resilient state-machine logic, retries, and comprehensive error handling.
-- Ensured 100% of outbound social posts passed through human editorial verification before publishing.
+- The product stayed in the feed on X and LinkedIn without a full content team.
+- Agents ran reliably behind a human gate instead of needing daily manual fixes.
 
-## What I Would Do Differently
-
-TODO(tibin): Add notes on automated comment sentiment analysis and inbound engagement auto-replies.

@@ -14,18 +14,13 @@ definition: "Waterfall enrichment is an automated data lookup method that querie
 related: ["signal-based-selling", "crm-write-back", "speed-to-lead"]
 faq:
   - q: "What is the primary advantage of waterfall enrichment?"
-    a: "It raises contact coverage from approximately 65% with a single vendor to over 85% by querying fallback providers when records are missing."
+    a: "It fills gaps that any single provider leaves by querying fallback providers when a record is missing or unverified."
 ---
 
-import AnswerBlock from '../../components/AnswerBlock.astro';
-
-<AnswerBlock question="What is Waterfall Enrichment?">
-Waterfall enrichment is an automated data lookup method that queries multiple contact databases sequentially. Instead of relying on one provider, the system checks primary, secondary, and tertiary vendors until an accurate, verified email or phone is found. This maximizes match rates, eliminates single-vendor blind spots, and cuts data costs by prioritizing cheaper APIs first.
-</AnswerBlock>
 
 ## Why It Matters for Modern Outbound
 
-No single B2B data vendor has comprehensive global coverage. While Apollo excels with US SaaS profiles, providers like Prospeo or Datagma offer superior European and agency coverage. Implementing a waterfall engine ensures sales teams never miss high-value accounts due to a single vendor database lapse.
+No single B2B data vendor has comprehensive global coverage. Providers differ by region and segment. Implementing a waterfall engine ensures sales teams never miss high-value accounts due to a single vendor database lapse.
 
 ## Key Technical Requirements
 
@@ -35,7 +30,7 @@ No single B2B data vendor has comprehensive global coverage. While Apollo excels
 
 <div class="mt-8 pt-6 border-t border-[var(--surface-border)] flex flex-wrap gap-4 items-center justify-between text-sm">
   <a href="/workflows/waterfall-enrichment" class="text-[var(--accent)] hover:underline">
-    Explore the Waterfall Enrichment Workflow Blueprint →
+    Explore the Waterfall Enrichment Workflow Blueprint 
   </a>
   <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
     Hire me for this motion

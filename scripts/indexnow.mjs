@@ -20,7 +20,8 @@ const urls = [
   `${SITE_URL}/workflows/waterfall-enrichment`,
   `${SITE_URL}/workflows/website-visitors-to-hubspot`,
   `${SITE_URL}/glossary`,
-  `${SITE_URL}/demand`,
+  `${SITE_URL}/b2b-performance-marketing`,
+  `${SITE_URL}/answer-engine-optimization`,
   `${SITE_URL}/blog`,
 ];
 

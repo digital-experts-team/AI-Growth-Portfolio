@@ -17,11 +17,6 @@ faq:
     a: "Prospects are actively at their desk evaluating your product. Contacting them immediately catches them while context is fresh."
 ---
 
-import AnswerBlock from '../../components/AnswerBlock.astro';
-
-<AnswerBlock question="What is Speed-to-Lead?">
-Speed-to-lead measures the elapsed time between a prospective buyer submitting an inquiry or triggering a high-intent signal and a sales representative initiating contact. Responding within five minutes dramatically increases qualification rates compared to delays over an hour, making automated routing, instant Slack notifications, and calendar links essential GTM components.
-</AnswerBlock>
 
 ## The Engineering Behind Sub-15 Minute SLAs
 
@@ -29,7 +24,7 @@ Achieving rapid response requires tight integration: webhook listeners trigger i
 
 <div class="mt-8 pt-6 border-t border-[var(--surface-border)] flex flex-wrap gap-4 items-center justify-between text-sm">
   <a href="/workflows/website-visitors-to-hubspot" class="text-[var(--accent)] hover:underline">
-    See Real-Time SLA Routing Workflows →
+    See Real-Time SLA Routing Workflows 
   </a>
   <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
     Hire me for this motion

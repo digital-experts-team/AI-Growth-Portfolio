@@ -1,8 +1,9 @@
 ---
 const navLinks = [
   { name: 'Work', href: '/work' },
-  { name: 'Workflows', href: '/workflows' },
-  { name: 'Writing', href: '/blog' },
+  { name: 'GTM Workflows', href: '/workflows' },
+  { name: 'AI Search', href: '/answer-engine-optimization' },
+  { name: 'Performance Marketing', href: '/b2b-performance-marketing' },
   { name: 'About', href: '/about' },
 ];
 
@@ -33,14 +34,7 @@ const currentPath = Astro.url.pathname;
         })}
       </nav>
 
-      <a
-        href="https://wa.me/919995551234?text=Hi%20Tibin,%20interested%20in%20GTM%20Engineering"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center px-5 py-2 bg-[#1d6ff2] hover:bg-blue-600 text-white font-medium text-[13px] rounded-full transition-all shadow-sm"
-      >
-        Whatsapp Number
-      </a>
+      <a href="/hire" class="inline-flex items-center justify-center px-5 py-2 bg-[#1d6ff2] hover:bg-blue-600 text-white font-medium text-[13px] rounded-full transition-all shadow-sm">Hire me</a>
 
       <!-- Mobile Menu Toggle Button -->
       <button
@@ -68,8 +62,8 @@ const currentPath = Astro.url.pathname;
     ))}
     <div class="pt-2 border-t border-slate-100 flex gap-4 text-xs font-mono text-slate-500 px-3">
       <a href="/glossary" class="hover:text-slate-900">Glossary</a>
-      <a href="/demand" class="hover:text-slate-900">Demand</a>
-      <a href="/hire" class="hover:text-slate-900">Hire Me</a>
+      <a href="/blog" class="hover:text-slate-900">Writing</a>
+      <a href="/hire" class="hover:text-slate-900">Hire me</a>
     </div>
   </div>
 </header>
