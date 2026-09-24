@@ -39,9 +39,9 @@ const workflows = [
 ];
 ---
 
-<section class="flex flex-col gap-6 bg-[#000000]" aria-labelledby="library-heading">
+<section class="relative w-full rounded-[28px] sm:rounded-[36px] overflow-hidden bg-[#000000] border border-zinc-800 p-6 sm:p-10 lg:p-12 text-white shadow-2xl flex flex-col gap-8 sm:gap-10" aria-labelledby="library-heading">
   <!-- Section Header -->
-  <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+  <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-4 border-b border-zinc-800/80">
     <div class="flex flex-col gap-1.5">
       <span class="text-[12px] font-bold text-[#d2f39c] tracking-widest uppercase font-mono">
         MODERN AI GROWTH WORKFLOWS
@@ -52,23 +52,23 @@ const workflows = [
     </div>
 
     <!-- Production Deployments Pill -->
-    <span class="px-4 py-1.5 rounded-full bg-[#000000] border border-zinc-800 text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-400">
+    <span class="px-4 py-1.5 rounded-full bg-[#000000] border border-zinc-800 text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-300">
       PRODUCTION DEPLOYMENTS
     </span>
   </div>
 
-  <!-- Workflows Grid: Solid Super Black -->
+  <!-- Workflows Grid: Black Container Cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     {workflows.map((wf) => (
       <a
         href={`/workflows/${wf.slug}`}
-        class="p-7 rounded-[24px] bg-[#000000] hover:bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col justify-between gap-6 group shadow-lg"
+        class="p-7 rounded-[22px] bg-[#000000] hover:bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col justify-between gap-6 group shadow-lg"
       >
         <div class="flex flex-col gap-3">
           <h3 class="text-white text-[18px] font-bold tracking-tight group-hover:text-[#d2f39c] transition-colors">
             {wf.title}
           </h3>
-          <p class="text-zinc-400 text-[13px] sm:text-[14px] leading-relaxed">
+          <p class="text-zinc-400 text-[13px] sm:text-[14px] leading-relaxed font-light">
             {wf.description}
           </p>
         </div>

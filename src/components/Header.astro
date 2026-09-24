@@ -50,8 +50,8 @@ const currentPath = Astro.url.pathname;
                   ? 'text-[#d2f39c]'
                   : 'text-zinc-400 hover:text-white'
                 : isActive
-                  ? 'text-cyan-600 font-bold'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'text-zinc-950 font-bold underline decoration-[#d2f39c] underline-offset-6 decoration-2'
+                  : 'text-zinc-600 hover:text-zinc-950'
             }`}
           >
             {link.name}
@@ -62,7 +62,7 @@ const currentPath = Astro.url.pathname;
 
     <!-- Right Actions: WhatsApp & Hire Me -->
     <div class="flex items-center gap-3 sm:gap-3.5">
-      <!-- WhatsApp Pill Button (Solid Super Black) -->
+      <!-- WhatsApp Pill Button -->
       <a
         href="https://wa.me/918129917227?text=Hi%20Tibin,%20interested%20in%20discussing%20GTM%20and%20AI%20Growth%20systems"
         target="_blank"
@@ -70,12 +70,12 @@ const currentPath = Astro.url.pathname;
         class={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase transition-all active:scale-95 ${
           transparent
             ? 'bg-[#000000] hover:bg-zinc-900 text-white border border-zinc-800 shadow-sm'
-            : 'bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200'
+            : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-900 border border-zinc-200'
         }`}
       >
         <span>WHATSAPP</span>
         <svg
-          class="w-3.5 h-3.5 text-zinc-300"
+          class="w-3.5 h-3.5 text-zinc-600"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

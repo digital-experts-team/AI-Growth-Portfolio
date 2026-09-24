@@ -27,34 +27,34 @@ const awards = [
 ];
 ---
 
-<section class="flex flex-col gap-6 bg-[#000000]" aria-labelledby="awards-heading">
+<section class="flex flex-col gap-6 bg-white text-zinc-900" aria-labelledby="awards-heading">
   <!-- Header Row -->
   <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
-    <h2 id="awards-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-      Recognition & <span class="text-[#d2f39c]">Awards.</span>
+    <h2 id="awards-heading" class="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
+      Recognition & <span class="text-zinc-950 underline decoration-[#d2f39c] underline-offset-4">Awards.</span>
     </h2>
-    <p class="text-zinc-400 text-sm max-w-md sm:text-right font-light leading-relaxed">
+    <p class="text-zinc-600 text-sm max-w-md sm:text-right font-light leading-relaxed">
       Validation from the industry across B2B SaaS, Web3, and growth platforms.
     </p>
   </div>
 
-  <!-- Cards Grid: Solid Super Black (No Gradients) -->
+  <!-- Cards Grid: Clean White Cards -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
     {awards.map((award) => (
-      <div class="p-6 sm:p-7 rounded-2xl bg-[#000000] hover:bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col gap-5 shadow-lg group">
+      <div class="p-6 sm:p-7 rounded-2xl bg-white hover:bg-zinc-50 border border-zinc-200 hover:border-zinc-300 transition-all flex flex-col gap-5 shadow-xs hover:shadow-md group">
         <!-- Icon Container -->
-        <div class="w-12 h-12 rounded-xl bg-[#000000] border border-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform">
+        <div class="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 group-hover:scale-105 transition-transform">
           <Fragment set:html={award.icon} />
         </div>
 
         <div class="flex flex-col gap-1.5">
-          <h3 class="text-white text-[17px] font-bold tracking-tight">
+          <h3 class="text-zinc-950 text-[17px] font-bold tracking-tight">
             {award.title}
           </h3>
-          <span class="text-[#d2f39c] text-[11px] font-mono font-semibold tracking-wider uppercase">
+          <span class="text-zinc-700 text-[11px] font-mono font-semibold tracking-wider uppercase">
             {award.org}
           </span>
-          <p class="text-zinc-400 text-[13px] leading-relaxed pt-2">
+          <p class="text-zinc-600 text-[13px] leading-relaxed pt-2">
             {award.description}
           </p>
         </div>
