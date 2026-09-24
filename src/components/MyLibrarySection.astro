@@ -1,0 +1,90 @@
+---
+const workflows = [
+  {
+    title: 'Waterfall enrichment agent',
+    slug: 'clay-waterfall-enrichment',
+    description: 'Multi-vendor cascading data waterfalls that deduplicate, verify work emails, and enrich firmographics before CRM ingestion.',
+    tools: 'Clay · Apollo · n8n',
+  },
+  {
+    title: 'Website visitors to HubSpot',
+    slug: 'website-visitors-to-hubspot',
+    description: 'Deanonymizes high-intent domain traffic in real time and automatically creates qualified accounts, contacts, and notification tasks.',
+    tools: 'Sales IQ · HubSpot · n8n',
+  },
+  {
+    title: 'Hiring & funding signal watcher',
+    slug: 'hiring-funding-signal-watcher',
+    description: 'Tracks tech stack expansion, headcount spikes, and funding events to trigger timely outreach workflows.',
+    tools: 'Clay · HubSpot · n8n',
+  },
+  {
+    title: 'CRM dedupe & write-back',
+    slug: 'crm-dedupe-write-back',
+    description: 'Continuous background hygiene merging duplicate records, normalizing company domains, and verifying contact activity.',
+    tools: 'n8n · HubSpot · PostgreSQL',
+  },
+  {
+    title: 'LLM personalization guardrails',
+    slug: 'llm-personalization-guardrails',
+    description: 'Deterministic validation pipeline ensuring AI sales generation respects tone rules, excludes forbidden words, and verifies facts.',
+    tools: 'Claude · OpenAI · n8n',
+  },
+  {
+    title: 'Reply triage & routing agent',
+    slug: 'reply-triage-agent',
+    description: 'Autonomous categorization of incoming sales replies (positive, objection, OOO, unsub) with automated calendar booking alerts.',
+    tools: 'OpenAI · HubSpot · Slack',
+  },
+];
+---
+
+<section class="flex flex-col gap-6" aria-labelledby="library-heading">
+  <!-- Section Header -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+    <div class="flex flex-col gap-1.5">
+      <span class="text-[12px] font-bold text-[#b4f04d] tracking-widest uppercase font-mono">
+        MODERN AI GROWTH WORKFLOWS
+      </span>
+      <h2 id="library-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        My Library<span class="text-[#b4f04d]">.</span>
+      </h2>
+    </div>
+
+    <!-- Production Deployments Pill -->
+    <span class="px-4 py-1.5 rounded-full bg-[#111111] border border-white/10 text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-400">
+      PRODUCTION DEPLOYMENTS
+    </span>
+  </div>
+
+  <!-- Workflows Grid: 3 columns x 2 rows -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    {workflows.map((wf) => (
+      <a
+        href={`/workflows/${wf.slug}`}
+        class="p-7 rounded-[22px] bg-[#0c0c0c] hover:bg-[#121212] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between gap-6 group shadow-lg"
+      >
+        <div class="flex flex-col gap-3">
+          <h3 class="text-white text-[18px] font-bold tracking-tight group-hover:text-[#b4f04d] transition-colors">
+            {wf.title}
+          </h3>
+          <p class="text-zinc-400 text-[13px] sm:text-[14px] leading-relaxed">
+            {wf.description}
+          </p>
+        </div>
+
+        <div class="flex items-center justify-between pt-4 border-t border-white/5">
+          <span class="px-3 py-1 rounded-full bg-[#141414] border border-white/10 text-[11px] font-mono text-zinc-300">
+            {wf.tools}
+          </span>
+          <div class="w-8 h-8 rounded-full bg-white/5 group-hover:bg-[#b4f04d] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all">
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>

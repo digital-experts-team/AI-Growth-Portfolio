@@ -1,0 +1,94 @@
+---
+const videos = [
+  {
+    title: 'Clay Waterfall Pipeline Engine',
+    duration: '04:12',
+    category: 'ENRICHMENT',
+    description: 'Multi-provider cascading validation from Apollo to Hunter with automated deduplication.',
+  },
+  {
+    title: 'HubSpot Zero-Leak Routing Rules',
+    duration: '03:45',
+    category: 'REVOPS ARCHITECTURE',
+    description: 'Lead assignment round-robin and MQL-to-SQL stage progression with zero dropped accounts.',
+  },
+  {
+    title: 'Slack Human Approval Gate Agent',
+    duration: '05:20',
+    category: 'AI AGENTS',
+    description: 'Autonomous research and draft generation paused for single-click editorial approval in Slack.',
+  },
+  {
+    title: 'Real-Time Intent Ingestion & Scoring',
+    duration: '04:50',
+    category: 'SIGNALS',
+    description: 'Live visitor identification triggered directly into personalized SDR sequence drafts.',
+  },
+];
+---
+
+<section class="flex flex-col gap-6" aria-labelledby="videos-heading">
+  <!-- Section Header -->
+  <div class="flex items-center justify-between">
+    <div class="flex flex-col gap-1.5">
+      <span class="text-[12px] font-bold text-[#b4f04d] tracking-widest uppercase font-mono">
+        VIDEO DEMOS
+      </span>
+      <h2 id="videos-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Walkthroughs Videos <span class="text-[#b4f04d]">.</span>
+      </h2>
+    </div>
+
+    <span class="text-zinc-500 text-[11px] font-mono tracking-widest uppercase">
+      NO PLACEHOLDERS
+    </span>
+  </div>
+
+  <!-- Video Grid: 4 Tall Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    {videos.map((vid) => (
+      <div class="aspect-[9/15] rounded-[24px] bg-[#0c0c0c] hover:bg-[#121212] border border-white/10 hover:border-[#b4f04d]/40 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group shadow-xl">
+        
+        <!-- Subtle Background Waveform / Schematic Graphic -->
+        <div class="absolute inset-0 opacity-15 pointer-events-none group-hover:opacity-25 transition-opacity">
+          <svg class="w-full h-full" viewBox="0 0 200 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="50" x2="180" y2="50" stroke="#b4f04d" stroke-dasharray="4 4" stroke-width="1.5" />
+            <line x1="20" y1="120" x2="180" y2="120" stroke="white" stroke-dasharray="2 4" stroke-width="1" />
+            <circle cx="100" cy="175" r="45" stroke="#b4f04d" stroke-width="1" stroke-dasharray="6 6" />
+            <rect x="30" y="240" width="140" height="60" rx="10" stroke="white" stroke-width="1" />
+          </svg>
+        </div>
+
+        <!-- Top Badge: Category & Duration -->
+        <div class="relative z-10 flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono font-semibold text-[#b4f04d] tracking-wider uppercase backdrop-blur-md">
+            {vid.category}
+          </span>
+          <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-zinc-400 backdrop-blur-md">
+            {vid.duration}
+          </span>
+        </div>
+
+        <!-- Center: Glowing Play Button -->
+        <div class="relative z-10 flex items-center justify-center my-auto">
+          <div class="w-14 h-14 rounded-full bg-white/10 group-hover:bg-[#b4f04d] border border-white/20 group-hover:border-transparent flex items-center justify-center text-white group-hover:text-black transition-all duration-300 shadow-2xl backdrop-blur-md group-hover:scale-110 cursor-pointer">
+            <svg class="w-6 h-6 translate-x-0.5" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Bottom: Title & Description -->
+        <div class="relative z-10 flex flex-col gap-1.5 pt-4 border-t border-white/5">
+          <h3 class="text-white text-[15px] sm:text-[16px] font-bold group-hover:text-[#b4f04d] transition-colors leading-snug">
+            {vid.title}
+          </h3>
+          <p class="text-zinc-400 text-[12px] leading-relaxed line-clamp-2">
+            {vid.description}
+          </p>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>
