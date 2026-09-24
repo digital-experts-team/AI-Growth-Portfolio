@@ -11,12 +11,12 @@ export const Footer: React.FC = () => {
         </div>
         
         <a 
-          href="https://ai-automation-tibin.vercel.app" 
+          href="https://ai-growth-portfolio.vercel.app" 
           target="_blank" 
           rel="noopener noreferrer"
           className="hover:text-white transition-colors"
         >
-          ai-automation-tibin.vercel.app
+          ai-growth-portfolio.vercel.app
         </a>
       </div>
     </footer>

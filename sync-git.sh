@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-REPO_NAME="digital-experts-team/AI-Automation-Portfolio"
+REPO_NAME="digital-experts-team/AI-Growth-Portfolio"
 BRANCH="main"
 
 action="${1:-status}"

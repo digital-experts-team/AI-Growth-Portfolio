@@ -5,6 +5,17 @@
       "has": [
         {
           "type": "host",
+          "value": "www.tibinjacob.com"
+        }
+      ],
+      "destination": "https://tibinjacob.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
           "value": "gtm-expert-tibin.vercel.app"
         }
       ],
