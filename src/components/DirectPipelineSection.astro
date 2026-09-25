@@ -7,15 +7,15 @@ import { ContactForm } from './ContactForm';
     <!-- Left Column: Form -->
     <div class="lg:col-span-7 flex flex-col gap-6">
       <div class="flex flex-col gap-1.5">
-        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+        <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
           Zero-to-one growth & pipeline diagnostics
         </span>
-        <h2 id="contact-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-snug">
+        <h2 id="contact-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-snug font-display">
           Direct <span class="heading-highlight">Pipeline.</span>
         </h2>
       </div>
 
-    <ContactForm client:visible dark={true} />
+    <ContactForm client:visible dark={false} />
   </div>
 
   <!-- Right Column: Book a meeting card (Bento Black Card with Fade Stroke & Drop Shadow) -->
@@ -68,7 +68,7 @@ import { ContactForm } from './ContactForm';
       </div>
 
       <!-- Divider: Prefer direct email -->
-      <div class="pt-6 border-t border-zinc-900 flex flex-col gap-1.5">
+      <div class="pt-6 border-t border-zinc-800 flex flex-col gap-1.5">
         <span class="text-zinc-500 text-xs font-mono">Prefer direct email?</span>
         <a
           href="mailto:tibin.jacob.uiux@gmail.com"

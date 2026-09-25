@@ -39,7 +39,7 @@ const { preloadImage, transparentHeader = false } = Astro.props;
       <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
     )}
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -51,7 +51,7 @@ const { preloadImage, transparentHeader = false } = Astro.props;
     <SEO {...props} />
   </head>
   <body
-    class="min-h-screen flex flex-col font-sans selection:bg-[#d2f39c] selection:text-black bg-white text-zinc-900"
+    class="min-h-screen flex flex-col font-sans selection:bg-[#d2f39c] selection:text-black bg-white text-zinc-900 antialiased"
   >
     <a
       href="#main-content"

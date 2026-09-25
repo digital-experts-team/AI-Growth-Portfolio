@@ -34,10 +34,10 @@ const faqs = [
     <!-- Section Header -->
     <div class="flex items-center justify-between pb-6 border-b border-zinc-200 mb-2">
       <div class="flex flex-col gap-1.5">
-        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+        <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
           GTM engineering & AI search answers
         </span>
-        <h2 id="questions-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+        <h2 id="questions-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight font-display">
           Clear <span class="heading-highlight">Answers.</span>
         </h2>
       </div>
@@ -56,20 +56,20 @@ const faqs = [
     <div class="flex flex-col gap-4">
       {faqs.map((item) => (
         <details
-          class="bento-card group rounded-2xl overflow-hidden"
+          class="bento-card group rounded-2xl overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-all animate-none"
           open={item.isOpen}
         >
           <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none select-none">
-            <span class="text-white text-[16px] sm:text-[17px] font-bold group-hover:text-[#d2f39c] transition-colors">
+            <span class="text-white text-[16px] sm:text-[18px] font-bold group-hover:text-[#d2f39c] transition-colors font-display">
               {item.q}
             </span>
-            <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all duration-300 group-open:rotate-180 shrink-0">
+            <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-black transition-all duration-300 group-open:rotate-180 shrink-0">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
           </summary>
-          <div class="px-6 pb-6 pt-2 text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed border-t border-zinc-900/90 font-light">
+          <div class="px-6 pb-6 pt-2 text-zinc-300 text-sm sm:text-base leading-relaxed border-t border-zinc-800/80 font-normal">
             <p>{item.a}</p>
           </div>
         </details>

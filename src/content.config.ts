@@ -6,6 +6,7 @@ const baseSchema = z.object({
   description: z.string(),
   metaTitle: z.string().optional(),
   slug: z.string().optional(),
+  shortAnswer: z.string().optional(),
   status: z.enum(['draft', 'live']).default('live'),
   targetKeyword: z.string().optional(),
   cluster: z.enum(['RevOps', 'GTM Engineering', 'Signals & Enrichment', 'AI Agents', 'Demand / Agency', 'Core']),

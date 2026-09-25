@@ -94,13 +94,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
 
           {/* Name field */}
           <div className="flex flex-col gap-1.5">
-            <label className={`text-[10px] font-mono uppercase tracking-wider font-semibold ${dark ? 'text-zinc-400' : 'text-slate-600'}`} htmlFor="contact-name">
+            <label className={`text-xs font-mono uppercase tracking-wider font-bold ${dark ? 'text-zinc-300' : 'text-slate-700'}`} htmlFor="contact-name">
               NAME
             </label>
             <input
-              className={`w-full rounded-xl px-4 py-3 text-[14px] transition-colors focus:outline-none ${
+              className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#000000] border border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#d2f39c]'
+                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
               }`}
               id="contact-name"
@@ -114,13 +114,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
 
           {/* Work Email field */}
           <div className="flex flex-col gap-1.5">
-            <label className={`text-[10px] font-mono uppercase tracking-wider font-semibold ${dark ? 'text-zinc-400' : 'text-slate-600'}`} htmlFor="contact-email">
+            <label className={`text-xs font-mono uppercase tracking-wider font-bold ${dark ? 'text-zinc-300' : 'text-slate-700'}`} htmlFor="contact-email">
               WORK EMAIL
             </label>
             <input
-              className={`w-full rounded-xl px-4 py-3 text-[14px] transition-colors focus:outline-none ${
+              className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#000000] border border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#d2f39c]'
+                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
               }`}
               id="contact-email"
@@ -134,13 +134,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
 
           {/* Company field */}
           <div className="flex flex-col gap-1.5">
-            <label className={`text-[10px] font-mono uppercase tracking-wider font-semibold ${dark ? 'text-zinc-400' : 'text-slate-600'}`} htmlFor="contact-company">
+            <label className={`text-xs font-mono uppercase tracking-wider font-bold ${dark ? 'text-zinc-300' : 'text-slate-700'}`} htmlFor="contact-company">
               COMPANY
             </label>
             <input
-              className={`w-full rounded-xl px-4 py-3 text-[14px] transition-colors focus:outline-none ${
+              className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#000000] border border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#d2f39c]'
+                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
               }`}
               id="contact-company"
@@ -154,13 +154,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
 
           {/* Message field */}
           <div className="flex flex-col gap-1.5">
-            <label className={`text-[10px] font-mono uppercase tracking-wider font-semibold ${dark ? 'text-zinc-400' : 'text-slate-600'}`} htmlFor="contact-msg">
+            <label className={`text-xs font-mono uppercase tracking-wider font-bold ${dark ? 'text-zinc-300' : 'text-slate-700'}`} htmlFor="contact-msg">
               MESSAGE
             </label>
             <textarea
-              className={`w-full rounded-xl px-4 py-3 text-[14px] transition-colors focus:outline-none resize-none ${
+              className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none resize-none ${
                 dark
-                  ? 'bg-[#000000] border border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#d2f39c]'
+                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
               }`}
               id="contact-msg"

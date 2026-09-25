@@ -24,10 +24,10 @@ const partners = [
     <!-- Section Header -->
     <div class="flex items-center justify-between pb-6 border-b border-zinc-200 mb-10">
       <div class="flex flex-col gap-1.5">
-        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+        <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
           Who I build GTM and AI growth systems for
         </span>
-        <h2 id="partners-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+        <h2 id="partners-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight font-display">
           Who I <span class="heading-highlight">work with.</span>
         </h2>
       </div>
@@ -43,20 +43,20 @@ const partners = [
       </div>
     </div>
 
-    <!-- 3 Columns Grid (White Background Layout) -->
+    <!-- 3 Columns Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
       {partners.map((item, index) => (
         <div class={`flex flex-col gap-3 group ${index < partners.length - 1 ? 'md:border-r md:border-zinc-200 md:pr-8 lg:pr-10' : ''}`}>
           <!-- Numbered Badge -->
-          <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#d2f39c] text-black text-[11px] font-mono font-bold tracking-wider">
+          <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#d2f39c] text-black text-xs font-mono font-bold tracking-wider">
             {item.num}
           </span>
 
-          <h3 class="text-zinc-950 text-lg sm:text-xl font-bold tracking-tight group-hover:text-blue-600 transition-colors leading-snug">
+          <h3 class="text-zinc-950 text-lg sm:text-xl font-bold tracking-tight group-hover:text-blue-600 transition-colors leading-snug font-display">
             {item.title}
           </h3>
 
-          <p class="text-zinc-600 text-[14px] sm:text-[15px] leading-relaxed font-light">
+          <p class="text-zinc-600 text-[14px] sm:text-[15px] leading-relaxed font-normal">
             {item.description}
           </p>
         </div>

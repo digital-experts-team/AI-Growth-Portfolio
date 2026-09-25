@@ -39,46 +39,45 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
     { name: entry.data.title, url: `/glossary/${slug}` },
   ]}
 >
-  <article class="py-6 max-w-4xl mx-auto">
+  <article class="py-8 max-w-4xl mx-auto">
     <!-- Breadcrumb -->
-    <nav class="text-xs font-mono text-slate-400 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
+    <nav class="text-xs font-mono text-zinc-500 mb-8 flex items-center gap-2" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <a href="/glossary" class="hover:text-slate-900 transition-colors">Glossary</a>
+      <a href="/glossary" class="hover:text-white transition-colors">Glossary</a>
       <span>/</span>
-      <span class="text-slate-600">{entry.data.title}</span>
+      <span class="text-zinc-400">{entry.data.title}</span>
     </nav>
 
     <!-- Header -->
-    <header class="mb-8 pb-6 border-b border-slate-200">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="text-xs font-mono text-cyan-700 bg-cyan-50 border border-cyan-200 px-2.5 py-1 rounded font-semibold">
+    <header class="mb-10 pb-8 border-b border-zinc-800/80">
+      <div class="flex flex-wrap items-center gap-3 mb-4 text-xs font-mono">
+        <span class="text-[#d2f39c] font-semibold uppercase tracking-wider">
           {entry.data.cluster}
         </span>
-        <span class="text-xs font-mono text-slate-500">
-          Target Term: <strong class="text-slate-900">{entry.data.title}</strong>
-        </span>
+        <span class="text-zinc-600">|</span>
+        <span class="text-zinc-400">Term: <strong class="text-white">{entry.data.title}</strong></span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
         What is {entry.data.title}?
       </h1>
 
-      <!-- Definition Block (Lime Left Border Callout) -->
-      <div class="p-5 rounded-xl border-l-4 border-[#d2f39c] bg-slate-50 my-6 shadow-sm">
-        <div class="text-[11px] font-mono text-slate-500 font-bold uppercase tracking-wider mb-2">
+      <!-- Definition Block -->
+      <div class="p-6 rounded-r-2xl border-l-2 border-[#d2f39c] bg-[#1a1b1e] border-y border-r border-zinc-800/80 my-6">
+        <div class="text-[11px] font-mono text-[#d2f39c] font-bold uppercase tracking-wider mb-2">
           Definition / Direct Answer
         </div>
-        <p class="text-base sm:text-lg text-slate-900 leading-relaxed font-medium">
+        <p class="text-base sm:text-lg text-zinc-200 leading-relaxed font-light">
           {entry.data.definition}
         </p>
       </div>
 
       {entry.data.related && entry.data.related.length > 0 && (
-        <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-400">
           <span>Related Terms:</span>
           {entry.data.related.map((r: string) => (
-            <span class="bg-slate-100 border border-slate-200 text-slate-700 px-2.5 py-1 rounded">
+            <span class="bg-zinc-900 border border-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full">
               {r}
             </span>
           ))}
@@ -87,26 +86,26 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
     </header>
 
     <!-- Content -->
-    <div class="prose max-w-none space-y-6 text-slate-700 leading-relaxed text-sm sm:text-base">
+    <div class="prose max-w-none space-y-6 text-zinc-300 leading-relaxed">
       <Content />
     </div>
 
-    <!-- FAQ Section (<details><summary> Accordion) -->
+    <!-- FAQ Section -->
     {entry.data.faq && entry.data.faq.length > 0 && (
-      <section class="mt-12 pt-8 border-t border-slate-200">
-        <h2 class="text-xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+      <section class="mt-16 pt-10 border-t border-zinc-800/80">
+        <h2 class="text-2xl font-bold text-white mb-6 tracking-tight font-display">Frequently Asked Questions</h2>
         <div class="space-y-4">
           {entry.data.faq.map((item: { q: string; a: string }) => (
-            <details class="group rounded-xl border border-slate-200 bg-white p-4 [&_summary::-webkit-details-marker]:none">
-              <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-semibold text-sm sm:text-base">
+            <details class="group rounded-2xl border border-zinc-800/80 bg-[#1a1b1e] p-5 [&_summary::-webkit-details-marker]:none transition-all hover:border-zinc-700">
+              <summary class="flex cursor-pointer items-center justify-between gap-2 text-white font-semibold text-base sm:text-lg">
                 <span>{item.q}</span>
-                <span class="shrink-0 rounded-full bg-slate-100 p-1.5 text-slate-900 sm:p-2 transition group-open:-rotate-180">
+                <span class="shrink-0 rounded-full bg-zinc-800 p-1.5 text-zinc-400 transition group-open:-rotate-180 group-open:text-[#d2f39c]">
                   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
               </summary>
-              <p class="mt-4 leading-relaxed text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+              <p class="mt-4 leading-relaxed text-sm sm:text-base text-zinc-400 border-t border-zinc-800/60 pt-4">
                 {item.a}
               </p>
             </details>
@@ -116,13 +115,20 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
     )}
 
     <!-- Footer Links -->
-    <footer class="mt-12 pt-8 border-t border-slate-200 flex flex-wrap justify-between items-center gap-4">
-      <a href="/glossary" class="text-xs font-mono text-slate-500 hover:text-slate-900 transition-colors">
+    <footer class="mt-16 pt-10 border-t border-zinc-800/80 flex flex-wrap justify-between items-center gap-6">
+      <a href="/glossary" class="text-xs font-mono text-zinc-400 hover:text-[#d2f39c] transition-colors flex items-center gap-1.5">
         ← Back to Glossary Index
       </a>
 
-      <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg font-bold">
-        Hire me for this motion
+      <a
+        href="/hire"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-black bg-[#d2f39c] hover:bg-[#c2e887] transition-all"
+      >
+        <span>Hire me for this motion</span>
+        <svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
       </a>
     </footer>
   </article>

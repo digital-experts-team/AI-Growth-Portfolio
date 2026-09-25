@@ -17,10 +17,10 @@ const caseStudies = allCaseStudies.sort((a, b) => {
     <!-- Section Header -->
     <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200 mb-2">
       <div class="flex flex-col gap-1.5">
-        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+        <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
           GTM engineering case studies & outcomes
         </span>
-        <h2 id="experience-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+        <h2 id="experience-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight font-display">
           Recent <span class="heading-highlight">Experience.</span>
         </h2>
       </div>
@@ -28,7 +28,7 @@ const caseStudies = allCaseStudies.sort((a, b) => {
     <!-- Link to all case studies -->
     <a
       href="/work"
-      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-900 text-[12px] font-semibold tracking-wider transition-all"
+      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-800 text-xs font-bold tracking-wider transition-all"
     >
       <span>All case studies</span>
       <svg class="w-3.5 h-3.5 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -51,14 +51,14 @@ const caseStudies = allCaseStudies.sort((a, b) => {
             
             <!-- Left Side: Image with Tag Overlay -->
             <div class="md:col-span-5 relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-900">
-              <span class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-[11px] font-mono font-bold text-white tracking-wide border border-white/10">
+              <span class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/85 backdrop-blur-md text-xs font-mono font-bold text-white tracking-wide border border-white/10">
                 {tag}
               </span>
               <img
                 src={imageUrl}
                 alt={cs.data.title}
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                referrerPolicy="no-referrer"
+                referrerpolicy="no-referrer"
                 loading="lazy"
                 onerror="this.onerror=null; this.src='/images/hero-bg.webp';"
               />
@@ -67,16 +67,16 @@ const caseStudies = allCaseStudies.sort((a, b) => {
             <!-- Right Side: Content & Metadata -->
             <div class="md:col-span-7 flex flex-col justify-between h-full py-1 gap-4">
               <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
-                  <span class="text-zinc-400 font-semibold uppercase">{cs.data.company}</span>
-                  <span class="text-zinc-500">{cs.data.dates}</span>
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <span class="text-[#d2f39c] font-bold uppercase">{cs.data.company}</span>
+                  <span class="text-zinc-400 font-medium">{cs.data.dates}</span>
                 </div>
 
-                <h3 class="text-white text-xl sm:text-2xl font-bold tracking-tight leading-snug group-hover:text-[#d2f39c] transition-colors">
+                <h3 class="text-white text-xl sm:text-2xl font-bold tracking-tight leading-snug group-hover:text-[#d2f39c] transition-colors font-display">
                   {cs.data.title}
                 </h3>
 
-                <p class="text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-light line-clamp-3">
+                <p class="text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-normal line-clamp-3">
                   {cs.data.description}
                 </p>
               </div>
@@ -88,20 +88,20 @@ const caseStudies = allCaseStudies.sort((a, b) => {
                     src={avatarUrl}
                     alt={cs.data.author || "Tibin Jacob"}
                     class="w-8 h-8 rounded-full object-cover border border-zinc-700 shrink-0"
-                    referrerPolicy="no-referrer"
+                    referrerpolicy="no-referrer"
                   />
                   <div class="flex flex-col">
-                    <span class="text-xs font-semibold text-white">
+                    <span class="text-xs font-bold text-white">
                       by {cs.data.author || "Tibin Jacob"}
                     </span>
-                    <span class="text-[11px] text-zinc-400 font-mono">
+                    <span class="text-xs text-zinc-400 font-mono font-medium">
                       {cs.data.role}
                     </span>
                   </div>
                 </div>
 
                 <div class="flex items-center gap-2 shrink-0">
-                  <div class="w-9 h-9 rounded-full bg-[#6366f1] group-hover:bg-[#d2f39c] group-hover:text-black text-white flex items-center justify-center transition-all duration-300 shadow-md">
+                  <div class="w-9 h-9 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] group-hover:text-black text-zinc-400 flex items-center justify-center transition-all duration-300 border border-zinc-800 group-hover:border-transparent">
                     <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                       <line x1="7" y1="17" x2="17" y2="7"></line>
                       <polyline points="7 7 17 7 17 17"></polyline>

@@ -3,8 +3,8 @@
 
 @layer base {
   html {
-    background-color: #121316;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #111827;
     font-family: var(--font-sans);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -12,9 +12,9 @@
   }
 
   body {
-    background-color: #121316;
-    background: #121316;
-    color: #ffffff;
+    background-color: #ffffff;
+    background: #ffffff;
+    color: #111827;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    color: #ffffff;
+    color: #0f1115;
     letter-spacing: -0.025em;
     font-weight: 700;
   }
@@ -34,7 +34,7 @@
 
   ::selection {
     background-color: #d2f39c;
-    color: #121316;
+    color: #111827;
   }
 }
 
@@ -74,37 +74,37 @@
   }
 }
 
-/* Dark Grey Bento Card Style (Matching reference layout) */
+/* Premium Deep Black Bento Card Style (Stark contrast on white canvas) */
 .bento-card {
-  background-color: #1a1b1e !important;
-  background: #1a1b1e !important;
+  background-color: #000000 !important;
+  background: #000000 !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35), 0 4px 14px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bento-card:hover {
-  background-color: #212227 !important;
-  background: #212227 !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  box-shadow: 0 28px 56px -15px rgba(0, 0, 0, 0.45), 0 8px 20px -4px rgba(0, 0, 0, 0.25);
+  background-color: #090a0c !important;
+  background: #090a0c !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.25), 0 4px 10px -2px rgba(0, 0, 0, 0.08);
 }
 
 details.bento-card[open] {
-  background-color: #1e1f23 !important;
-  background: #1e1f23 !important;
+  background-color: #0c0d10 !important;
+  background: #0c0d10 !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
-/* Big Hero Container Bento: Ambient Drop Shadow (Dark Grey) */
+/* Big Hero Container Bento */
 .bento-hero-container {
-  background-color: #18191d !important;
-  background: #18191d !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 28px 65px -15px rgba(0, 0, 0, 0.35), 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.06);
 }
 
-/* Green highlight box with black underline for headings on white background (as in screenshot) */
+/* Green highlight box with black underline for headings (as in screenshot) */
 .heading-highlight {
   background-color: #d2f39c;
   color: #000000;
@@ -115,4 +115,137 @@ details.bento-card[open] {
   text-underline-offset: 4px;
   display: inline-block;
   line-height: 1.15;
+}
+
+/* Minimal Editorial Prose Styles for Workflows & Library Inner Pages */
+.prose {
+  color: #1e293b;
+  max-width: 68ch;
+  line-height: 1.75;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  font-weight: 500;
+}
+
+.prose h2 {
+  color: #0f1115;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 2.25em;
+  margin-bottom: 0.85em;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  color: #0f1115;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 1.75em;
+  margin-bottom: 0.6em;
+}
+
+.prose strong {
+  color: #0f1115;
+  font-weight: 700;
+}
+
+.prose a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #334155;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #334155;
+}
+
+.prose li {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  color: #334155;
+}
+
+.prose blockquote {
+  border-left: 4px solid #d2f39c;
+  padding: 1rem 1.25rem;
+  background-color: #f8fafc;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: #0f1115;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border-top: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.prose pre {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: #334155;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  background-color: #f1f5f9;
+  color: #0f1115;
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.prose code.language-mermaid,
+.prose pre.mermaid {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  color: #0f1115;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
 }

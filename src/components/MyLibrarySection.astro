@@ -44,16 +44,16 @@ const workflows = [
     <!-- Section Header -->
     <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200 mb-2">
       <div class="flex flex-col gap-1.5">
-        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+        <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
           GTM automation workflows I build
         </span>
-        <h2 id="library-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+        <h2 id="library-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight font-display">
           My <span class="heading-highlight">Library.</span>
         </h2>
       </div>
 
-      <!-- Production Deployments Pill -->
-      <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-600">
+      <!-- Production Deployments Badge -->
+      <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-mono font-bold uppercase tracking-wider text-zinc-600">
         PRODUCTION DEPLOYMENTS
       </span>
     </div>
@@ -63,22 +63,22 @@ const workflows = [
       {workflows.map((wf) => (
         <a
           href={`/workflows/${wf.slug}`}
-          class="bento-card p-7 sm:p-8 rounded-[24px] flex flex-col justify-between gap-6 group"
+          class="bento-card p-6 sm:p-7 rounded-[22px] flex flex-col justify-between gap-6 group hover:border-[#d2f39c]/40 transition-all"
         >
           <div class="flex flex-col gap-3">
-            <h3 class="text-white text-[18px] font-bold tracking-tight group-hover:text-[#d2f39c] transition-colors">
+            <h3 class="text-white text-[18px] sm:text-[19px] font-bold tracking-tight group-hover:text-[#d2f39c] transition-colors leading-snug">
               {wf.title}
             </h3>
-            <p class="text-zinc-400 text-[13px] sm:text-[14px] leading-relaxed font-light">
+            <p class="text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-normal line-clamp-3">
               {wf.description}
             </p>
           </div>
 
-          <div class="flex items-center justify-between pt-4 border-t border-zinc-900/90">
-            <span class="px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 text-[11px] font-mono text-zinc-300">
+          <div class="flex items-center justify-between pt-4 border-t border-zinc-900/80">
+            <span class="px-3 py-1 rounded-md bg-zinc-900 text-xs font-mono font-medium text-zinc-300 border border-zinc-800">
               {wf.tools}
             </span>
-            <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all">
+            <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] border border-zinc-800 group-hover:border-transparent flex items-center justify-center text-zinc-400 group-hover:text-black transition-all">
               <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
