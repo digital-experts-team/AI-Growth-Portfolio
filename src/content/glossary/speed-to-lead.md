@@ -10,7 +10,7 @@ audience: ["VP Sales", "RevOps Manager", "GTM Engineer"]
 proofLink: "/workflows/website-visitors-to-hubspot"
 publishedDate: 2026-08-01
 updatedDate: 2026-09-20
-definition: "Speed-to-lead measures the elapsed time between a prospective buyer submitting an inquiry or triggering a high-intent signal and a sales representative initiating contact. Responding quickly increases qualification rates compared to delays over an hour, making automated routing, instant Slack notifications, and calendar links essential GTM components."
+definition: "Speed-to-lead measures the elapsed time between a prospective buyer submitting an inquiry or triggering a high-intent signal and a sales representative initiating contact. Responding quickly increases qualification rates compared to delays over an hour, making automated routing, instant CRM alert notifications, and calendar links essential GTM components."
 related: ["lead-routing", "signal-based-selling", "sal"]
 faq:
   - q: "Why is rapid response important in B2B inbound sales?"
@@ -21,7 +21,7 @@ faq:
 
 Inbound leads decay in value rapidly. When a buyer submits a demo request or browses pricing pages, their attention is focused on solving an immediate problem. If sales outreach arrives hours or days later, the buyer has likely scheduled calls with competitors or moved on to other priorities.
 
-Achieving rapid speed-to-lead requires automated architecture: webhooks trigger on signal capture, check rep calendar availability, assign ownership in HubSpot, and dispatch actionable alerts directly to sales Slack channels.
+Achieving rapid speed-to-lead requires automated architecture: webhooks trigger on signal capture, check rep calendar availability, assign ownership in HubSpot, and dispatch actionable alerts directly to sales CRM alert channels.
 
 ## How it connects
 

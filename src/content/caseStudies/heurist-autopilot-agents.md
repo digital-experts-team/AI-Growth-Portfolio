@@ -20,10 +20,10 @@ publishedDate: 2025-11-20
 updatedDate: 2026-09-15
 faq:
   - q: "How did you prevent AI hallucination or brand damage?"
-    a: "Every generated post was buffered into a strict state machine with human-in-the-loop Slack approval buttons before dispatch."
+    a: "Every generated post was buffered into a strict state machine with human-in-the-loop CRM alert approval buttons before dispatch."
 ---
 
-> **Short answer:** I built an automated social content agent for Heurist AI that ingested technical updates, summarized them using Claude API, and routed draft posts to a Slack channel with interactive 1-click approval buttons before publishing to X and LinkedIn.
+> **Short answer:** I built an automated social content agent for Heurist AI that ingested technical updates, summarized them using Claude API, and routed draft posts to a CRM alert channel with interactive 1-click approval buttons before publishing to X and LinkedIn.
 
 ## Context
 
@@ -35,7 +35,7 @@ Heurist AI is a decentralized AI cloud platform. The primary challenge was maint
 graph TD
     A[Tech Updates & GitHub Commits] --> B[Claude API Summarizer]
     B --> C[State Machine: Draft -> Format]
-    C --> D[Slack Interactive Approval Gate]
+    C --> D[CRM alert Interactive Approval Gate]
     D -->|Approved| E[Publish to X & LinkedIn]
     D -->|Rejected| F[Feedback Loop]
 ```
@@ -44,7 +44,7 @@ graph TD
 
 1. **State Machine Logic**: Structured workflows inside n8n with deterministic states (`DRAFTED`, `FORMATTED`, `AWAITING_REVIEW`, `APPROVED`, `DISPATCHED`).
 2. **Error Recovery & Circuit Breakers**: Built retry loops with exponential backoff for LLM rate limits and API timeouts.
-3. **Interactive Approval Gate**: Dispatched formatted previews with 1-click Approve/Edit/Reject buttons into a dedicated Slack channel.
+3. **Interactive Approval Gate**: Dispatched formatted previews with 1-click Approve/Edit/Reject buttons into a dedicated CRM alert channel.
 4. **Distribution Automation**: Routed approved payloads to X API and LinkedIn marketing endpoints with native media attachments.
 
 ## Results

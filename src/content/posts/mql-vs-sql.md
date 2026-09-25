@@ -49,7 +49,7 @@ Modern GTM architectures eliminate manual lead triage by automating the transiti
 2. **Reverse IP & Firmographic Lookup**: Zoho Sales IQ and Clay resolve company domain, headcount, funding, and tech stack.
 3. **ICP Fit Gate**: If the company falls outside target size or industry bounds, the record is flagged and kept in automated email nurture, preventing rep clutter.
 4. **Enrichment & Deliverability Verification**: Decision-maker contact information is pulled via Apollo and verified with MX/SMTP deliverability checks.
-5. **CRM Write-Back & Rep SLA Alert**: Qualified leads are stamped as SQLs in HubSpot, assigned to territory account executives, and dispatched with an instant Slack notification.
+5. **CRM Write-Back & Rep SLA Alert**: Qualified leads are stamped as SQLs in HubSpot, assigned to territory account executives, and dispatched with an instant CRM alert notification.
 
 ## Implementing MQL to SQL Architecture in HubSpot
 

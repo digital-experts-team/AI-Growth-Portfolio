@@ -40,11 +40,11 @@ If no active account owner exists, the lead is evaluated against territory param
 Assigning leads within a rep pool requires checking rep availability. Integrating Google Calendar status prevents routing leads to reps currently out on vacation or in long meetings.
 
 ### 4. SLA Escalation & Reassignment
-If an assigned representative fails to initiate outreach (logged via call, email, or meeting invite) within the defined SLA window, an automated escalation fires in Slack. If untouched after the grace period, the record reassigns to an active backup representative.
+If an assigned representative fails to initiate outreach (logged via call, email, or meeting invite) within the defined SLA window, an automated escalation fires in CRM alert. If untouched after the grace period, the record reassigns to an active backup representative.
 
 ## Handling After-Hours Inbound Traffic
 
-Global inbound traffic arrives 24/7. Sending mobile Slack alerts at 2:00 AM local rep time leads to missed SLAs or rep burnout.
+Global inbound traffic arrives 24/7. Sending mobile CRM alert alerts at 2:00 AM local rep time leads to missed SLAs or rep burnout.
 
 Best practice logic queues after-hours leads in a priority buffer state and releases them with high-priority notifications at 8:30 AM in the assigned representative's local timezone.
 

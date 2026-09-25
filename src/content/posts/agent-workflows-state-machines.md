@@ -41,7 +41,7 @@ A finite state machine defines explicit states, allowed transitions, and failure
 1. **INGESTED**: Raw signal payload received via webhook.
 2. **ENRICHED**: Contact firmographics and deliverability score confirmed.
 3. **DRAFTED**: Claude API has generated personalized outreach copy.
-4. **AWAITING_REVIEW**: Draft buffered; interactive Slack review card dispatched.
+4. **AWAITING_REVIEW**: Draft buffered; interactive CRM alert review card dispatched.
 5. **APPROVED / DISPATCHED**: Human approved draft; outbound email sent via API.
 6. **DEAD_LETTER_QUEUE**: Execution failed max retry attempts; logged for engineer review.
 
@@ -49,7 +49,7 @@ A finite state machine defines explicit states, allowed transitions, and failure
 
 To prevent API rate limits or transient network errors from dropping leads, state machines implement exponential backoff retry loops. If an API request fails, the state machine logs the attempt count and delays execution (e.g., retrying in 2s, 10s, 60s).
 
-If a record reaches 3 failed attempts, the workflow moves it to a `DEAD_LETTER_QUEUE` state and posts a diagnostic alert in Slack. The overall pipeline continues processing remaining records without stalling.
+If a record reaches 3 failed attempts, the workflow moves it to a `DEAD_LETTER_QUEUE` state and posts a diagnostic alert in CRM alert. The overall pipeline continues processing remaining records without stalling.
 
 By enforcing state machine boundaries, GTM engineers build resilient AI agents that operate reliably at enterprise scale.
 

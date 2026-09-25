@@ -44,7 +44,7 @@ Not every website visit warrants an outreach email. Alerting reps on single blog
 - **Repeat Sessions**: Multiple visits from the same corporate domain within a 48-hour window.
 - **Multi-Role Browsing**: Concurrent sessions from different IPs mapped to the same target account.
 
-When an account crosses these thresholds, the system automatically creates a deal or task in HubSpot, notifies the assigned account executive via Slack, and attaches session recording telemetry.
+When an account crosses these thresholds, the system automatically creates a deal or task in HubSpot, notifies the assigned account executive via CRM alert, and attaches session recording telemetry.
 
 [See it in production: Website Visitors to HubSpot](/workflows/website-visitors-to-hubspot)
 

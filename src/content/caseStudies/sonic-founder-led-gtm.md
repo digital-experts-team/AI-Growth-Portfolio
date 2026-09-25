@@ -34,7 +34,7 @@ Sonic required automated briefings for institutional partners and high-volume tr
 ```mermaid
 graph TD
     A[Sales IQ + Discord + Web Form Ingest] --> B[n8n Multi-Channel Triage]
-    B -->|Investor / VIP| C[Instant Slack Alert & Founder Calendar Link]
+    B -->|Investor / VIP| C[Instant CRM alert Alert & Founder Calendar Link]
     B -->|Dev Query| D[Discord Thread & Docs Auto-Responder]
     B -->|General Inbound| E[Standard Support Queue]
     C --> F[Clarity Session Replay Attached]

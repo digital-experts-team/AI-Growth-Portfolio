@@ -45,7 +45,7 @@ Once an agency lead passes the ICP filter, the record is routed into a dedicated
 
 - **Lifecycle Stage Stamping**: Marked as `Partner SQL` to separate from retail brand prospects.
 - **Automated AE Allocation**: Assigned round-robin to partner account executives with specialized agency pricing enablement.
-- **SLA Escalation**: Triggering an instant Slack notification containing session history and visited service pages.
+- **SLA Escalation**: Triggering an instant CRM alert notification containing session history and visited service pages.
 
 By engineering a signal-based channel pipeline, white-label agencies replace messy inbound forms with predictable, high-value partner relationships.
 

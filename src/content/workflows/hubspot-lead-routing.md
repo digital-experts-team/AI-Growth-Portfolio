@@ -9,11 +9,11 @@ targetKeyword: "hubspot lead routing"
 audience: ["RevOps Manager", "Head of Sales"]
 sourceRole: "General"
 publishedDate: 2026-09-01
-tools: ["HubSpot", "Zapier", "Slack"]
+tools: ["HubSpot", "Zapier", "CRM alert"]
 trigger: "New MQL / SQL Created"
 steps: []
 ---
 
 ## Overview
 
-Draft workflow for territory and round-robin routing logic in HubSpot CRM with automated Slack escalations.
+Draft workflow for territory and round-robin routing logic in HubSpot CRM with automated CRM alert escalations.

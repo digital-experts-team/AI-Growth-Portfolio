@@ -52,7 +52,7 @@ Building sequential data lookup workflows that check primary databases, evaluate
 Evaluating inbound and outbound accounts against strict firmographic, technographic, and behavioral parameters before sales reps ever see the lead.
 
 ### 4. Deterministic CRM Lead Routing
-Writing enriched records back to HubSpot with complete context, triggering round-robin account executive assignments, and dispatching instant Slack alerts to enforce speed-to-lead SLAs.
+Writing enriched records back to HubSpot with complete context, triggering round-robin account executive assignments, and dispatching instant CRM alert alerts to enforce speed-to-lead SLAs.
 
 ## When Should a B2B Company Hire a GTM Engineer?
 

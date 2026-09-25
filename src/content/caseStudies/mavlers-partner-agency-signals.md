@@ -39,7 +39,7 @@ graph TD
     B --> C[Clay Agency ICP Fit Gate]
     C -->|Fits Agency ICP| D[HubSpot Partner SQL Stage]
     C -->|Direct Brand| E[Standard Nurture Track]
-    D --> F[Round-Robin AE Allocation & Slack Alert]
+    D --> F[Round-Robin AE Allocation & CRM alert Alert]
 ```
 
 ## How I built it
