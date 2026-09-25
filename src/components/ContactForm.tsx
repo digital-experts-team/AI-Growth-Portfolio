@@ -101,7 +101,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
               className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
                   ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
-                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
+                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-name"
               placeholder="Your name"
@@ -121,7 +121,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
               className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
                   ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
-                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
+                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-email"
               placeholder="name@company.com"
@@ -141,7 +141,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
               className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
                   ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
-                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
+                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-company"
               placeholder="Company name"
@@ -161,7 +161,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
               className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none resize-none ${
                 dark
                   ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
-                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-cyan-500'
+                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-msg"
               placeholder="What parts of GTM automation, AI search or paid need fixing?"

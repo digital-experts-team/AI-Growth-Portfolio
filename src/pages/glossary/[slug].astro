@@ -42,42 +42,42 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
   <article class="py-8 max-w-4xl mx-auto">
     <!-- Breadcrumb -->
     <nav class="text-xs font-mono text-zinc-500 mb-8 flex items-center gap-2" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-white transition-colors">Home</a>
+      <a href="/" class="hover:text-zinc-950 transition-colors font-medium">Home</a>
       <span>/</span>
-      <a href="/glossary" class="hover:text-white transition-colors">Glossary</a>
+      <a href="/glossary" class="hover:text-zinc-950 transition-colors font-medium">Glossary</a>
       <span>/</span>
-      <span class="text-zinc-400">{entry.data.title}</span>
+      <span class="text-zinc-800 font-semibold truncate max-w-xs">{entry.data.title}</span>
     </nav>
 
     <!-- Header -->
-    <header class="mb-10 pb-8 border-b border-zinc-800/80">
+    <header class="mb-10 pb-8 border-b border-zinc-200">
       <div class="flex flex-wrap items-center gap-3 mb-4 text-xs font-mono">
-        <span class="text-[#d2f39c] font-semibold uppercase tracking-wider">
+        <span class="text-green-600 font-bold uppercase tracking-wider">
           {entry.data.cluster}
         </span>
-        <span class="text-zinc-600">|</span>
-        <span class="text-zinc-400">Term: <strong class="text-white">{entry.data.title}</strong></span>
+        <span class="text-zinc-300">|</span>
+        <span class="text-zinc-500">Term: <strong class="text-zinc-800 font-bold">{entry.data.title}</strong></span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-950 mb-6 leading-tight font-display">
         What is {entry.data.title}?
       </h1>
 
       <!-- Definition Block -->
-      <div class="p-6 rounded-r-2xl border-l-2 border-[#d2f39c] bg-[#1a1b1e] border-y border-r border-zinc-800/80 my-6">
-        <div class="text-[11px] font-mono text-[#d2f39c] font-bold uppercase tracking-wider mb-2">
+      <div class="p-6 rounded-r-2xl border-l-4 border-[#d2f39c] bg-[#f8fafc] border-y border-r border-zinc-200 my-6 shadow-sm">
+        <div class="text-xs font-mono text-zinc-500 font-bold uppercase tracking-wider mb-2">
           Definition / Direct Answer
         </div>
-        <p class="text-base sm:text-lg text-zinc-200 leading-relaxed font-light">
+        <p class="text-base sm:text-lg text-zinc-800 leading-relaxed font-medium">
           {entry.data.definition}
         </p>
       </div>
 
       {entry.data.related && entry.data.related.length > 0 && (
-        <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-400">
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-500">
           <span>Related Terms:</span>
           {entry.data.related.map((r: string) => (
-            <span class="bg-zinc-900 border border-zinc-800 text-zinc-300 px-2.5 py-1 rounded-full">
+            <span class="bg-zinc-100 border border-zinc-200 text-zinc-700 px-2.5 py-1 rounded-full text-xs font-semibold">
               {r}
             </span>
           ))}
@@ -86,26 +86,26 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
     </header>
 
     <!-- Content -->
-    <div class="prose max-w-none space-y-6 text-zinc-300 leading-relaxed">
+    <div class="prose max-w-none space-y-6 text-zinc-800 leading-relaxed font-medium">
       <Content />
     </div>
 
     <!-- FAQ Section -->
     {entry.data.faq && entry.data.faq.length > 0 && (
-      <section class="mt-16 pt-10 border-t border-zinc-800/80">
-        <h2 class="text-2xl font-bold text-white mb-6 tracking-tight font-display">Frequently Asked Questions</h2>
+      <section class="mt-16 pt-10 border-t border-zinc-200">
+        <h2 class="text-2xl font-bold text-zinc-950 mb-6 tracking-tight font-display">Frequently Asked Questions</h2>
         <div class="space-y-4">
           {entry.data.faq.map((item: { q: string; a: string }) => (
-            <details class="group rounded-2xl border border-zinc-800/80 bg-[#1a1b1e] p-5 [&_summary::-webkit-details-marker]:none transition-all hover:border-zinc-700">
-              <summary class="flex cursor-pointer items-center justify-between gap-2 text-white font-semibold text-base sm:text-lg">
+            <details class="group rounded-2xl border border-zinc-200 bg-white p-5 [&_summary::-webkit-details-marker]:none transition-all hover:border-zinc-300">
+              <summary class="flex cursor-pointer items-center justify-between gap-2 text-zinc-900 font-bold text-base sm:text-lg">
                 <span>{item.q}</span>
-                <span class="shrink-0 rounded-full bg-zinc-800 p-1.5 text-zinc-400 transition group-open:-rotate-180 group-open:text-[#d2f39c]">
+                <span class="shrink-0 rounded-full bg-zinc-100 p-1.5 text-zinc-600 transition group-open:-rotate-180 group-open:bg-green-600 group-open:text-white">
                   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
               </summary>
-              <p class="mt-4 leading-relaxed text-sm sm:text-base text-zinc-400 border-t border-zinc-800/60 pt-4">
+              <p class="mt-4 leading-relaxed text-sm sm:text-base text-zinc-600 font-normal border-t border-zinc-100 pt-4">
                 {item.a}
               </p>
             </details>
@@ -115,8 +115,8 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
     )}
 
     <!-- Footer Links -->
-    <footer class="mt-16 pt-10 border-t border-zinc-800/80 flex flex-wrap justify-between items-center gap-6">
-      <a href="/glossary" class="text-xs font-mono text-zinc-400 hover:text-[#d2f39c] transition-colors flex items-center gap-1.5">
+    <footer class="mt-16 pt-10 border-t border-zinc-200 flex flex-wrap justify-between items-center gap-6">
+      <a href="/glossary" class="text-xs font-mono font-bold text-zinc-500 hover:text-green-600 transition-colors flex items-center gap-1.5">
         ← Back to Glossary Index
       </a>
 

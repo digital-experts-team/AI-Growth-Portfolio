@@ -117,9 +117,9 @@ const stackTools: StackTool[] = [
   {
     name: 'Looker Studio',
     category: 'BI & Reporting',
-    color: '#2563eb',
-    badgeBg: 'bg-blue-50 border-blue-200/80 text-blue-700',
-    svg: `<svg viewBox="0 0 24 24" class="w-5 h-5 fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg">
+    color: '#16a34a',
+    badgeBg: 'bg-green-50 border-green-200/80 text-green-700',
+    svg: `<svg viewBox="0 0 24 24" class="w-5 h-5 fill-current text-green-600" xmlns="http://www.w3.org/2000/svg">
       <path d="M5 19h14V5H5v14zm2-12h10v10H7V7z"/>
     </svg>`
   }
@@ -159,7 +159,7 @@ const marqueeList = [...stackTools, ...stackTools];
             <Fragment set:html={tool.svg} />
           </div>
           <div class="flex flex-col">
-            <span class="text-[13px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-tight">
+            <span class="text-[13px] font-bold text-slate-900 group-hover:text-green-600 transition-colors leading-tight">
               {tool.name}
             </span>
             <span class="text-[10px] font-mono text-slate-500 font-medium leading-tight pt-0.5">

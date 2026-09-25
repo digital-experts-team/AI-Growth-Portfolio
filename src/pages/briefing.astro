@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Briefing - Weekly GTM & RevOps Notes | Tibin Jacob";
+const description = "Weekly tactical briefings, operator notes, and revenue operations insights by Tibin Jacob.";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Briefing', url: '/briefing' },
+  ]}
+>
+  <div class="py-16 max-w-3xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 bg-zinc-50 text-xs text-zinc-600 font-mono mb-6">
+      <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+      <span>Weekly Intelligence</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-950 mb-6 font-display">
+      Weekly Briefings
+    </h1>
+
+    <p class="text-base sm:text-lg text-zinc-600 leading-relaxed mb-8 font-medium">
+      Weekly notes. First briefing soon.
+    </p>
+
+    <div class="p-8 rounded-2xl border border-zinc-200 bg-slate-50 text-left max-w-md mx-auto">
+      <h3 class="text-lg font-bold text-zinc-900 mb-2 font-display">Get the Next Briefing</h3>
+      <p class="text-xs text-zinc-500 mb-4">
+        Direct-to-inbox weekly summaries of actionable outbound plays, without fluffy newsletters.
+      </p>
+      <a
+        href="/hire"
+        class="inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold text-black bg-[#d2f39c] hover:bg-[#c2e887] transition-all"
+      >
+        <span>Subscribe to Briefings</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</BaseLayout>

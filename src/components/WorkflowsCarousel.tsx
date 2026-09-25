@@ -59,17 +59,17 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
     <section className="flex flex-col gap-6" id="workflows" aria-labelledby="library-heading">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <span className="text-[11px] font-semibold text-cyan-600 tracking-wider uppercase font-mono">
+          <span className="text-[11px] font-semibold text-green-600 tracking-wider uppercase font-mono">
             PRODUCTION SYSTEMS
           </span>
           <h2 id="library-heading" className="text-[28px] font-bold text-slate-900 tracking-tight">
-            My Library
+            GTM systems I ship
           </h2>
           <p className="text-[13px] font-mono text-slate-400 mt-0.5">
             Tested and validated in production
           </p>
         </div>
-
+ 
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <button
@@ -85,14 +85,14 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
               <span
                 className={`transition-all duration-300 ${
                   startIndex === 0
-                    ? 'w-3.5 h-1.5 rounded-full bg-cyan-600'
+                    ? 'w-3.5 h-1.5 rounded-full bg-green-600'
                     : 'w-1.5 h-1.5 rounded-full bg-slate-300'
                 }`}
               ></span>
               <span
                 className={`transition-all duration-300 ${
                   startIndex > 0
-                    ? 'w-3.5 h-1.5 rounded-full bg-cyan-600'
+                    ? 'w-3.5 h-1.5 rounded-full bg-green-600'
                     : 'w-1.5 h-1.5 rounded-full bg-slate-300'
                 }`}
               ></span>
@@ -112,7 +112,7 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
           </span>
         </div>
       </div>
-
+ 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {visibleWorkflows.map((item) => (
           <div
@@ -126,17 +126,17 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
                 <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-white/10 text-white font-mono text-[10px]">
                   {item.tools}
                 </span>
-                <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+                <span className="w-2 h-2 rounded-full bg-green-400"></span>
               </div>
               <div className="relative z-10 font-mono text-[10px] text-slate-400">
                 Production-Ready Orchestration
               </div>
             </div>
-
+ 
             {/* Card Content */}
             <div className="p-5 flex flex-col justify-between flex-1 gap-4">
               <div className="flex flex-col gap-1.5">
-                <h3 className="text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-[15px] font-bold text-slate-900 group-hover:text-green-600 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-[12px] text-slate-500 leading-relaxed">
@@ -144,7 +144,7 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
                 </p>
               </div>
               <a
-                className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#1d6ff2] hover:underline"
+                className="inline-flex items-center gap-1 text-[12px] font-semibold text-green-600 hover:underline"
                 href={`/workflows/${item.slug}`}
               >
                 View workflow →

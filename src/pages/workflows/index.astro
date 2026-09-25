@@ -3,11 +3,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const allWorkflows = await getCollection('workflows');
-const liveWorkflows = allWorkflows.filter((w) => w.data.status === 'live');
-const draftWorkflows = allWorkflows.filter((w) => w.data.status === 'draft');
 
-const title = "GTM Automation Workflows: Clay, n8n & HubSpot | Tibin Jacob";
-const description = "Open-source and production-tested GTM workflows: waterfall enrichment, anonymous visitor identification, HubSpot lead routing, and AI reply triage.";
+const mapCategory = (slug: string) => {
+  if (slug === 'clay-waterfall-enrichment' || slug === 'waterfall-enrichment') return 'Enrichment';
+  if (slug === 'website-visitors-to-hubspot' || slug === 'hiring-funding-signal-watcher') return 'Signals';
+  if (slug === 'crm-dedupe-write-back' || slug === 'hubspot-lead-routing') return 'Routing';
+  if (slug === 'llm-personalization-guardrails') return 'Outbound';
+  if (slug === 'reply-triage-agent') return 'Qualification';
+  if (slug === 'tofu-content-agent') return 'Agents';
+  return 'Signals'; // fallback
+};
+
+const title = "AI Growth systems I ship | Tibin Jacob";
+const description = "Systems that turn signals into revenue";
 ---
 
 <BaseLayout
@@ -22,89 +30,79 @@ const description = "Open-source and production-tested GTM workflows: waterfall 
     <!-- Header -->
     <div class="mb-12 pb-8 border-b border-zinc-200">
       <div class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold mb-3">
-        MY LIBRARY / AUTOMATION BLUEPRINTS
+        SYSTEM SCHEMATICS / ARCHITECTURES
       </div>
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 mb-4 leading-tight font-display">
-        GTM Automation Workflows: <span class="heading-highlight">Clay, n8n & HubSpot.</span>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 mb-4 leading-tight font-display text-wrap: balance">
+        AI Growth systems I <span class="heading-highlight">ship.</span>
       </h1>
       <p class="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl font-normal">
-        Deterministic revenue automations engineered with Clay, n8n, and HubSpot. Every blueprint features verified triggers, cascading logic, and circuit-breaker failure handling.
+        Systems that turn signals into revenue
       </p>
     </div>
 
-    <!-- Live Production Blueprints -->
-    <div class="mb-16">
-      <div class="flex items-center justify-between gap-4 mb-8 pb-4 border-b border-zinc-200">
-        <div class="flex items-center gap-3">
-          <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
-          <h2 class="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight font-display">Production Blueprints</h2>
-          <span class="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200">
-            {liveWorkflows.length}
-          </span>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {liveWorkflows.map((wf) => (
-          <a
-            href={`/workflows/${wf.data.slug || wf.id}`}
-            class="bento-card p-6 sm:p-8 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-[#d2f39c]/40 transition-all"
-          >
-            <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="text-[#d2f39c] font-bold uppercase tracking-wider">{wf.data.cluster}</span>
-                <span class="text-zinc-400 font-mono text-xs font-medium">Production Live</span>
-              </div>
-              <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#d2f39c] transition-colors mb-3 leading-snug">
-                {wf.data.title}
-              </h3>
-              <p class="text-sm sm:text-[15px] text-zinc-300 leading-relaxed font-normal mb-4 line-clamp-3">
-                {wf.data.description}
-              </p>
-            </div>
-
-            <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between gap-4 flex-wrap">
-              <div class="flex flex-wrap gap-1.5">
-                {wf.data.tools.map((tool) => (
-                  <span class="px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800 font-mono text-xs font-medium">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-              <span class="text-[#d2f39c] font-bold text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
-                View Blueprint →
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
+    <!-- Filters Bar (not navigation) -->
+    <div class="mb-10 flex flex-wrap items-center gap-2 bg-zinc-50 border border-zinc-200/80 p-2 rounded-xl w-fit">
+      <button data-filter="all" class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg bg-[#d2f39c] text-[#0f1115] shadow-sm transition-all whitespace-nowrap cursor-pointer">
+        All
+      </button>
+      <button data-filter="signals" class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 transition-all whitespace-nowrap cursor-pointer">
+        Signals
+      </button>
+      <button data-filter="enrichment" class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 transition-all whitespace-nowrap cursor-pointer">
+        Enrichment
+      </button>
+      <button data-filter="routing" class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 transition-all whitespace-nowrap cursor-pointer">
+        Routing
+      </button>
+      <button data-filter="outbound" class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 transition-all whitespace-nowrap cursor-pointer">
+        Outbound
+      </button>
+      <button data-filter="qualification" class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 transition-all whitespace-nowrap cursor-pointer">
+        Qualification
+      </button>
+      <button data-filter="agents" class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 transition-all whitespace-nowrap cursor-pointer">
+        Agents
+      </button>
+      <button data-filter="growth" class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 transition-all whitespace-nowrap cursor-pointer">
+        Growth
+      </button>
     </div>
 
-    <!-- Draft / Lab Blueprints -->
-    {draftWorkflows.length > 0 && (
-      <div>
-        <div class="flex items-center justify-between gap-4 mb-8 pb-4 border-b border-zinc-200">
-          <div class="flex items-center gap-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-            <h2 class="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight font-display">Reference Schematics</h2>
-            <span class="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200">
-              {draftWorkflows.length}
-            </span>
-          </div>
-        </div>
+    <!-- Unified Systems Grid -->
+    <div class="mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {allWorkflows.map((wf) => {
+          const slug = wf.data.slug || wf.id;
+          const category = mapCategory(slug);
+          const isConstrained = slug.includes('enrichment') || slug.includes('watcher');
+          
+          let statusLabel = 'Live';
+          if (wf.data.status === 'draft') {
+            statusLabel = 'Build note';
+          } else if (isConstrained) {
+            statusLabel = 'Constrained';
+          }
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {draftWorkflows.map((wf) => (
+          return (
             <a
-              href={`/workflows/${wf.data.slug || wf.id}`}
-              class="bento-card p-6 sm:p-8 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-amber-400/40 transition-all"
+              href={`/workflows/${slug}`}
+              data-category={category.toLowerCase()}
+              class="workflow-card bento-card p-6 sm:p-8 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-[#d2f39c]/40 transition-all duration-300"
             >
               <div>
                 <div class="flex items-center justify-between text-xs font-mono mb-3">
-                  <span class="text-amber-400 font-bold uppercase tracking-wider">{wf.data.cluster}</span>
-                  <span class="text-zinc-400 font-mono text-xs font-medium">Reference Design</span>
+                  <span class="text-[#d2f39c] font-bold uppercase tracking-wider">{category}</span>
+                  <span class={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                    statusLabel === 'Build note'
+                      ? 'bg-zinc-900 text-zinc-400 border border-zinc-800'
+                      : statusLabel === 'Constrained'
+                      ? 'bg-amber-950/80 text-amber-400 border border-amber-800/60'
+                      : 'bg-green-950/80 text-green-400 border border-green-800/60'
+                  }`}>
+                    {statusLabel}
+                  </span>
                 </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-amber-300 transition-colors mb-3 leading-snug">
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#d2f39c] transition-colors mb-3 leading-snug">
                   {wf.data.title}
                 </h3>
                 <p class="text-sm sm:text-[15px] text-zinc-300 leading-relaxed font-normal mb-4 line-clamp-3">
@@ -120,14 +118,43 @@ const description = "Open-source and production-tested GTM workflows: waterfall 
                     </span>
                   ))}
                 </div>
-                <span class="text-amber-400 font-bold text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
-                  View Blueprint →
+                <span class="text-[#d2f39c] font-bold text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
+                  View system →
                 </span>
               </div>
             </a>
-          ))}
-        </div>
+          );
+        })}
       </div>
-    )}
+    </div>
   </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.workflow-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update button styles
+        buttons.forEach(b => {
+          b.classList.remove('bg-[#d2f39c]', 'text-[#0f1115]', 'shadow-sm');
+          b.classList.add('text-zinc-600', 'hover:text-zinc-950', 'hover:bg-zinc-100');
+        });
+        btn.classList.add('bg-[#d2f39c]', 'text-[#0f1115]', 'shadow-sm');
+        btn.classList.remove('text-zinc-600', 'hover:text-zinc-950', 'hover:bg-zinc-100');
+
+        // Filter cards
+        cards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || filter === category) {
+            (card as HTMLElement).style.display = 'flex';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </BaseLayout>

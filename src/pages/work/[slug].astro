@@ -35,7 +35,7 @@ const canonicalUrl = `https://tibinjacob.com/work/${slug}`;
   faq={entry.data.faq}
   breadcrumbs={[
     { name: 'Home', url: '/' },
-    { name: 'Work', url: '/work' },
+    { name: 'Experience', url: '/work' },
     { name: entry.data.company, url: `/work/${slug}` },
   ]}
 >
@@ -44,7 +44,7 @@ const canonicalUrl = `https://tibinjacob.com/work/${slug}`;
     <nav class="text-xs font-mono text-slate-400 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
       <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
-      <a href="/work" class="hover:text-slate-900 transition-colors">Work</a>
+      <a href="/work" class="hover:text-slate-900 transition-colors">Experience</a>
       <span>/</span>
       <span class="text-slate-600 truncate max-w-xs">{entry.data.company}</span>
     </nav>
@@ -85,12 +85,12 @@ const canonicalUrl = `https://tibinjacob.com/work/${slug}`;
     <!-- 9-10. Related Links & CTA -->
     <footer class="mt-12 pt-8 border-t border-slate-200 flex flex-wrap justify-between items-center gap-4">
       {entry.data.proofLink ? (
-        <a href={entry.data.proofLink} class="text-xs font-mono text-[#1d6ff2] hover:underline font-semibold">
+        <a href={entry.data.proofLink} class="text-xs font-mono text-[#16a34a] hover:underline font-semibold">
           ← See the workflow: Underlying Technical Architecture
         </a>
       ) : (
         <a href="/work" class="text-xs font-mono text-slate-500 hover:text-slate-900 transition-colors">
-          ← Back to All Case Studies
+          ← Back to Selected work
         </a>
       )}
 

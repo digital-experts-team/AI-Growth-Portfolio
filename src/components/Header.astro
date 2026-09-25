@@ -6,10 +6,11 @@ export interface Props {
 const { transparent = false } = Astro.props;
 
 const navLinks = [
-  { name: 'WORK', href: '/work' },
+  { name: 'EXPERIENCE', href: '/work' },
   { name: 'WORKFLOWS', href: '/workflows' },
-  { name: 'AI SEARCH', href: '/answer-engine-optimization' },
-  { name: 'PERFORMANCE MARKETING', href: '/b2b-performance-marketing' },
+  { name: 'ARTICLES', href: '/blog' },
+  { name: 'LAB', href: '/lab' },
+  { name: 'BRIEFING', href: '/briefing' },
   { name: 'ABOUT', href: '/about' },
 ];
 
@@ -27,30 +28,27 @@ const currentPath = Astro.url.pathname;
     <!-- Brand Logo -->
     <a
       href="/"
-      class={`font-bold tracking-tight text-[20px] sm:text-[22px] transition-colors ${
+      class={`font-bold tracking-tight text-[18px] sm:text-[20px] lg:text-[22px] transition-colors shrink-0 ${
         transparent
           ? 'text-white hover:text-[#d2f39c]'
-          : 'text-zinc-900 hover:text-blue-600'
+          : 'text-zinc-900 hover:text-green-600'
       }`}
     >
-      Tibin Jacob<span class={transparent ? 'text-[#d2f39c]' : 'text-blue-600'}>.</span>
+      Tibin Jacob<span class={transparent ? 'text-[#d2f39c]' : 'text-green-600'}>.</span>
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-8 xl:gap-10" aria-label="Primary Navigation">
+    <nav class="hidden lg:flex items-center gap-5 xl:gap-8 whitespace-nowrap" aria-label="Primary Navigation">
       {navLinks.map((link) => {
-        const isActive =
-          link.href === '/work'
-            ? currentPath === '/' || currentPath.startsWith('/work')
-            : currentPath.startsWith(link.href);
+        const isActive = currentPath.startsWith(link.href);
         return (
           <a
             href={link.href}
-            class={`text-[12px] font-bold tracking-[0.18em] uppercase transition-colors ${
+            class={`text-[11px] xl:text-[12px] font-bold tracking-[0.12em] xl:tracking-[0.16em] uppercase transition-colors whitespace-nowrap shrink-0 ${
               isActive
                 ? transparent
                   ? 'text-[#d2f39c] underline decoration-[#d2f39c] underline-offset-6 decoration-2'
-                  : 'text-blue-600 underline decoration-blue-600 underline-offset-6 decoration-2'
+                  : 'text-green-600 underline decoration-green-600 underline-offset-6 decoration-2'
                 : transparent
                 ? 'text-zinc-300 hover:text-white'
                 : 'text-zinc-600 hover:text-zinc-950'
@@ -116,7 +114,7 @@ const currentPath = Astro.url.pathname;
         class={`lg:hidden p-2 rounded-xl border transition-all ${
           transparent
             ? 'border-zinc-800 bg-[#1a1b1e] text-white hover:text-[#d2f39c]'
-            : 'border-zinc-200 bg-white text-zinc-900 hover:text-blue-600'
+            : 'border-zinc-200 bg-white text-zinc-900 hover:text-green-600'
         }`}
         aria-label="Toggle Navigation Menu"
         aria-expanded="false"
@@ -156,9 +154,9 @@ const currentPath = Astro.url.pathname;
           : 'border-zinc-200 text-zinc-500'
       }`}
     >
-      <a href="/glossary" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-blue-600'}>Glossary</a>
-      <a href="/demand" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-blue-600'}>Demand</a>
-      <a href="/hire" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-blue-600'}>Hire Me</a>
+      <a href="/glossary" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-green-600'}>Glossary</a>
+      <a href="/demand" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-green-600'}>Demand</a>
+      <a href="/hire" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-green-600'}>Hire Me</a>
     </div>
   </div>
 </header>

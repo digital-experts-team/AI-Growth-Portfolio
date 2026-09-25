@@ -18,14 +18,14 @@ const description = "Concise, plain-language definitions of core GTM engineering
   ]}
 >
   <div class="py-8 max-w-[1200px] mx-auto">
-    <div class="mb-12 pb-8 border-b border-zinc-800/80">
-      <div class="text-[12px] font-mono uppercase tracking-widest text-[#d2f39c] font-semibold mb-3">
+    <div class="mb-12 pb-8 border-b border-zinc-200">
+      <div class="text-[12px] font-mono uppercase tracking-widest text-zinc-500 font-semibold mb-3">
         AEO & VOCABULARY INDEX
       </div>
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-tight font-display">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 mb-4 leading-tight font-display">
         GTM Engineering <span class="heading-highlight">Glossary.</span>
       </h1>
-      <p class="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-2xl font-light">
+      <p class="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl font-medium">
         Clear, direct technical definitions of revenue architecture terms, optimized for search engines, LLMs, and executive decision-makers.
       </p>
     </div>
@@ -34,23 +34,23 @@ const description = "Concise, plain-language definitions of core GTM engineering
       {glossaryItems.map((item) => (
         <a
           href={`/glossary/${item.data.slug || item.id}`}
-          class="bento-card p-6 sm:p-8 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-zinc-700 transition-all"
+          class="bento-card p-6 sm:p-8 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-[#d2f39c]/40 transition-all"
         >
           <div>
             <div class="flex items-center justify-between text-xs font-mono text-zinc-400 mb-3">
               <span class="text-[#d2f39c] font-semibold uppercase tracking-wider">{item.data.cluster}</span>
-              <span class="text-zinc-500 font-mono text-[11px]">Defined Term</span>
+              <span class="text-zinc-400 font-mono text-[11px]">Defined Term</span>
             </div>
             <h2 class="text-xl font-bold text-white group-hover:text-[#d2f39c] transition-colors mb-3">
               {item.data.title}
             </h2>
-            <p class="text-sm text-zinc-400 leading-relaxed font-light mb-4">
+            <p class="text-sm text-zinc-300 leading-relaxed font-medium mb-4">
               {item.data.definition}
             </p>
           </div>
 
-          <div class="pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-mono text-zinc-400">
-            <span class="text-zinc-500 truncate max-w-[200px]">Related: {item.data.related.join(', ')}</span>
+          <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
+            <span class="text-zinc-400 truncate max-w-[200px]">Related: {item.data.related.join(', ')}</span>
             <span class="text-[#d2f39c] font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1">
               Read Entry →
             </span>

@@ -1,42 +1,17 @@
 ---
-const workflows = [
-  {
-    title: 'Waterfall enrichment agent',
-    slug: 'clay-waterfall-enrichment',
-    description: 'Multi-vendor cascading data waterfalls that deduplicate, verify work emails, and enrich firmographics before CRM ingestion.',
-    tools: 'Clay · Apollo · n8n',
-  },
-  {
-    title: 'Website visitors to HubSpot',
-    slug: 'website-visitors-to-hubspot',
-    description: 'Captures high-intent domain traffic in real time and automatically creates qualified accounts, contacts, and notification tasks.',
-    tools: 'Zoho SalesIQ · HubSpot · n8n',
-  },
-  {
-    title: 'Hiring & funding signal watcher',
-    slug: 'hiring-funding-signal-watcher',
-    description: 'Tracks tech stack expansion, headcount spikes, and funding events to trigger timely outreach workflows.',
-    tools: 'Clay · HubSpot · n8n',
-  },
-  {
-    title: 'CRM dedupe & write-back',
-    slug: 'crm-dedupe-write-back',
-    description: 'Continuous background hygiene merging duplicate records, normalizing company domains, and verifying contact activity.',
-    tools: 'n8n · HubSpot · Clay',
-  },
-  {
-    title: 'LLM personalization guardrails',
-    slug: 'llm-personalization-guardrails',
-    description: 'Deterministic validation pipeline ensuring AI sales generation respects tone rules, excludes forbidden words, and verifies facts.',
-    tools: 'Claude · n8n · Clay',
-  },
-  {
-    title: 'Reply triage & routing agent',
-    slug: 'reply-triage-agent',
-    description: 'Autonomous categorization of incoming sales replies (positive, objection, OOO, unsub) with automated calendar booking alerts.',
-    tools: 'Claude · HubSpot · Slack',
-  },
-];
+import { getCollection } from 'astro:content';
+
+const allWorkflows = await getCollection('workflows');
+
+const mapCategory = (slug: string) => {
+  if (slug === 'clay-waterfall-enrichment' || slug === 'waterfall-enrichment') return 'Enrichment';
+  if (slug === 'website-visitors-to-hubspot' || slug === 'hiring-funding-signal-watcher') return 'Signals';
+  if (slug === 'crm-dedupe-write-back' || slug === 'hubspot-lead-routing') return 'Routing';
+  if (slug === 'llm-personalization-guardrails') return 'Outbound';
+  if (slug === 'reply-triage-agent') return 'Qualification';
+  if (slug === 'tofu-content-agent') return 'Agents';
+  return 'Signals'; // fallback
+};
 ---
 
 <section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="library-heading">
@@ -45,48 +20,81 @@ const workflows = [
     <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200 mb-2">
       <div class="flex flex-col gap-1.5">
         <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
-          GTM automation workflows I build
+          Systems that turn buying signals into routable SQLs
         </span>
         <h2 id="library-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight font-display">
-          My <span class="heading-highlight">Library.</span>
+          GTM systems <span class="heading-highlight">I ship.</span>
         </h2>
       </div>
 
-      <!-- Production Deployments Badge -->
-      <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-mono font-bold uppercase tracking-wider text-zinc-600">
-        PRODUCTION DEPLOYMENTS
-      </span>
+      <!-- View All Workflows CTA -->
+      <a
+        href="/workflows"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-800 text-xs font-bold tracking-wider transition-all font-display whitespace-nowrap shrink-0"
+      >
+        <span>View all workflows</span>
+        <svg class="w-3.5 h-3.5 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
     </div>
 
     <!-- Workflows Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {workflows.map((wf) => (
-        <a
-          href={`/workflows/${wf.slug}`}
-          class="bento-card p-6 sm:p-7 rounded-[22px] flex flex-col justify-between gap-6 group hover:border-[#d2f39c]/40 transition-all"
-        >
-          <div class="flex flex-col gap-3">
-            <h3 class="text-white text-[18px] sm:text-[19px] font-bold tracking-tight group-hover:text-[#d2f39c] transition-colors leading-snug">
-              {wf.title}
-            </h3>
-            <p class="text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-normal line-clamp-3">
-              {wf.description}
-            </p>
-          </div>
+      {allWorkflows.map((wf) => {
+        const slug = wf.data.slug || wf.id;
+        const category = mapCategory(slug);
+        const isConstrained = slug.includes('enrichment') || slug.includes('watcher');
+        
+        let statusLabel = 'Live';
+        if (wf.data.status === 'draft') {
+          statusLabel = 'Build note';
+        } else if (isConstrained) {
+          statusLabel = 'Constrained';
+        }
 
-          <div class="flex items-center justify-between pt-4 border-t border-zinc-900/80">
-            <span class="px-3 py-1 rounded-md bg-zinc-900 text-xs font-mono font-medium text-zinc-300 border border-zinc-800">
-              {wf.tools}
-            </span>
-            <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] border border-zinc-800 group-hover:border-transparent flex items-center justify-center text-zinc-400 group-hover:text-black transition-all">
-              <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
+        return (
+          <a
+            href={`/workflows/${slug}`}
+            class="bento-card p-6 sm:p-8 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-[#d2f39c]/40 transition-all duration-300"
+          >
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-3">
+                <span class="text-[#d2f39c] font-bold uppercase tracking-wider">{category}</span>
+                <span class={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                  statusLabel === 'Build note'
+                    ? 'bg-zinc-900 text-zinc-400 border border-zinc-800'
+                    : statusLabel === 'Constrained'
+                    ? 'bg-amber-950/80 text-amber-400 border border-amber-800/60'
+                    : 'bg-green-950/80 text-green-400 border border-green-800/60'
+                }`}>
+                  {statusLabel}
+                </span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-[#d2f39c] transition-colors mb-3 leading-snug">
+                {wf.data.title}
+              </h3>
+              <p class="text-sm sm:text-[15px] text-zinc-300 leading-relaxed font-normal mb-4 line-clamp-3">
+                {wf.data.description}
+              </p>
             </div>
-          </div>
-        </a>
-      ))}
+
+            <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between gap-4 flex-wrap">
+              <div class="flex flex-wrap gap-1.5">
+                {wf.data.tools.map((tool) => (
+                  <span class="px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800 font-mono text-xs font-medium">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+              <span class="text-[#d2f39c] font-bold text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
+                View system →
+              </span>
+            </div>
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>
