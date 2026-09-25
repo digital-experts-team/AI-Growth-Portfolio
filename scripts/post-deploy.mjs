@@ -12,7 +12,7 @@
 // Secrets: NOTION_TOKEN (required)
 // Optional: COMPOSIO_API_KEY + COMPOSIO_LINKEDIN_ACCOUNT (preferred for LinkedIn)
 //           LINKEDIN_ACCESS_TOKEN + LINKEDIN_AUTHOR_URN (fallback direct API)
-//           ANTHROPIC_API_KEY or XAI_API_KEY (post drafting)
+//           GEMINI_API_KEY (post drafting, primary) or XAI_API_KEY (fallback)
 //           INDEXNOW_KEY
 //           FORCE_POST=true (override time window for testing)
 
@@ -200,13 +200,18 @@ TEXT POST
 [under 200 words. Hook line. 3-4 insight lines. One question. No link.]`;
   const user = `Article title: ${title}\nURL: ${utmUrl}\n\nArticle text:\n${pageText.slice(0, 10000)}`;
 
-  if (process.env.ANTHROPIC_API_KEY) {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1200, system, messages: [{ role: 'user', content: user }] }),
-    });
-    if (r.ok) return (await r.json()).content.map(c => c.text || '').join('');
+  if (process.env.GEMINI_API_KEY) {
+    const model = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+    const r = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      { method: 'POST', headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: system + '\n\n' + user }] }], generationConfig: { maxOutputTokens: 1200, temperature: 0.7 } }) }
+    );
+    if (r.ok) {
+      const d = await r.json();
+      return d.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || null;
+    }
+    console.log('  Gemini draft failed:', (await r.text().catch(() => r.status)));
   }
   if (process.env.XAI_API_KEY) {
     const r = await fetch('https://api.x.ai/v1/chat/completions', {
