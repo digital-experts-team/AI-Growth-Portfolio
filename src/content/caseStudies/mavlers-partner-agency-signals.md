@@ -1,57 +1,64 @@
 ---
-title: "Mavlers: finding partner agencies with a multi-signal HubSpot motion"
-description: "How I built a multi-signal motion (Sales IQ site intent, firmographics, engagement) routed into HubSpot so sales worked SQL-ready partner agency accounts."
-metaTitle: "Mavlers Case Study — Partner Agency GTM Signals | Tibin Jacob"
+title: "Mavlers: Partner Agency Signal-Based Outbound Engine"
+description: "How I built a multi-signal motion using Sales IQ and HubSpot to route SQL-ready partner agency accounts for white-label agency delivery."
+metaTitle: "Mavlers Case Study — Partner Agency GTM Signals | Tibin"
 slug: "mavlers-partner-agency-signals"
 status: "live"
 cluster: "Signals & Enrichment"
 targetKeyword: "partner agency gtm signals"
-audience: ["Head of GTM", "Head of RevOps", "Agency founder"]
+audience: ["Head of GTM", "RevOps Leader", "Agency Founder"]
 sourceRole: "Mavlers"
 company: "Mavlers"
 role: "GTM Automation Lead"
 dates: "Apr 2026 – Sep 2026"
-problem: "Find partner agencies to white-label delivery to, not brand-side MQLs."
-architecture: "Sales IQ site intent + firmographics + engagement → ICP score → HubSpot MQL → SQL → follow-up sequence"
+image: "/images/case-studies/mavlers.jpg"
+tag: "#HubSpot"
+author: "Tibin Jacob"
+authorAvatar: "/images/tibin-avatar.jpg"
 proofLink: "/workflows/website-visitors-to-hubspot"
-publishedDate: 2026-09-24
-updatedDate: 2026-09-24
+publishedDate: 2026-09-01
+updatedDate: 2026-09-20
 faq:
-  - q: "What was the main GTM challenge at Mavlers?"
-    a: "Mavlers sells delivery capacity to other agencies, so the goal was finding partner agencies that needed white-label PPC, SEO and AEO delivery, not generating brand-side MQLs."
-  - q: "Which signals fed the Mavlers pipeline?"
-    a: "Site intent from Zoho SalesIQ, firmographic data and engagement data, scored against the partner-agency ICP and routed into HubSpot."
+  - q: "What was the main qualification challenge for Mavlers?"
+    a: "Mavlers needed to filter out direct brand accounts and isolate peer digital agencies seeking white-label fulfillment capacity."
+  - q: "Which core tools powered this multi-signal pipeline?"
+    a: "Zoho Sales IQ for real-time visitor identification, Clay for enrichment, and HubSpot for SLA routing."
 ---
 
-## Context
+## Executive Summary
 
-Mavlers is an agency that sells delivery capacity to other agencies: white-label PPC, SEO and AEO. I joined as GTM Automation Lead (Apr 2026 – Sep 2026, remote).
+Mavlers provides white-label digital delivery (SEO, PPC, and AEO) exclusively to other agencies. The core GTM challenge was separating retail brand inquiries from high-value agency partners who needed white-label fulfillment at scale.
 
-## The problem
+## The Core Bottleneck
 
-Mavlers' buyers are other agencies, not brands. The GTM problem was finding partner agencies to white-label delivery to, and getting them to sales as accounts sales could actually work, rather than generating brand-side MQLs.
+Traditional inbound forms and ad traffic generated standard brand-side MQLs. Sales representatives spent excessive hours disqualifying end-clients who lacked the partner volume profile required for sustainable white-label retainers.
 
-## The system
+## Architecture Schematic
 
 ```text
-Sales IQ site intent ─┐
-Firmographics ────────┼─▶ ICP score (partner-agency fit) ─▶ HubSpot MQL ─▶ SQL ─▶ follow-up sequence
-Engagement data ──────┘
+[Sales IQ Intent] ──> [Domain IP Resolution] ──> [Clay ICP Fit Matrix]
+                                                          │
+                   ┌──────────────────────────────────────┘
+                   ▼
+      [Is Agency Partner?]
+       ├── NO  ──> Standard Nurture Track
+       └── YES ──> [HubSpot Partner Pipeline Stage: SQL]
+                     └──> Round-Robin AE Notification (SLA 15m)
 ```
 
-## How I built it
+## How I Built It
 
-- **Signals:** site intent from Zoho SalesIQ, combined with firmographics and engagement data.
-- **Scoring:** each flagged visitor was scored against the partner-agency ICP.
-- **Routing:** qualified accounts moved through the same MQL → SQL stages in HubSpot that sales already trusted, so nothing about the handoff was new to them.
-- **Follow-up:** SQL-ready accounts were pushed into a defined follow-up sequence. I owned the flow end to end, from inbound signal to outbound follow-up.
+1. **Multi-Signal Intent Capture**: Deployed Sales IQ tracking across key white-label service pages and pricing calculators.
+2. **Deterministic ICP Filtering**: Programmed enrichment logic in Clay to filter out direct brands, isolating marketing, digital, and media agencies with 10–200 employees.
+3. **HubSpot Architecture**: Mapped intent scores directly into HubSpot lifecycle stages, eliminating manual SDR qualification overhead.
+4. **ICP Workshop & Offer Expansion**: Led an internal ICP workshop with executive leadership that formed the blueprint for an automated delivery add-on package.
 
-## Beyond the pipeline: the ICP workshop
+## Verified Results
 
-I ran an ICP workshop that became the brief for a new business vertical: automation packaged on top of Mavlers' existing white-label PPC and SEO/AEO delivery.
+- Owned the inbound-to-outbound transition end to end: visitors were flagged, scored against agency ICP criteria, and pushed into active sales sequences within HubSpot.
+- Created alignment across sales and delivery teams using standard MQL → SQL transitions that sales representatives trusted.
+- Delivered the technical foundation for a new automation service vertical built on top of existing white-label SEO and PPC retainers.
 
-## Results
+## What I Would Do Differently
 
-- Internal sales worked SQL-ready partner accounts instead of unqualified brand inquiries.
-- The ICP workshop became the brief for a new automation service line.
-
+TODO(tibin): Add reflections on secondary webhook fallback handling and automated partner onboarding portal integration.

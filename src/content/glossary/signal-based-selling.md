@@ -17,10 +17,15 @@ faq:
     a: "Cold outbound emails companies randomly, whereas signal-based selling contacts accounts at the exact moment their public activity demonstrates an active business need."
 ---
 
+import AnswerBlock from '../../components/AnswerBlock.astro';
+
+<AnswerBlock question="What is Signal-Based Selling?">
+Signal-based selling is an outbound methodology triggered by observable buyer actions rather than static contact lists. Buying signals include website visits, hiring surges, funding rounds, executive transitions, or tech stack changes. When detected, automated systems score the event against ideal customer profiles and route tailored outreach directly to sales reps.
+</AnswerBlock>
 
 ## Why Modern Sales Relies on Intent Signals
 
-Blasting generic lists burns domain deliverability and generates low response rates. Signal-based selling allows lean sales teams to focus outbound energy on the accounts in your target market that are showing signs of an active buying cycle right now.
+Blasting generic lists burns domain deliverability and generates low response rates. Signal-based selling allows lean sales teams to focus outbound energy on the 5% of your target market currently in an active buying cycle.
 
 ## Core Signals to Monitor
 
@@ -30,7 +35,7 @@ Blasting generic lists burns domain deliverability and generates low response ra
 
 <div class="mt-8 pt-6 border-t border-[var(--surface-border)] flex flex-wrap gap-4 items-center justify-between text-sm">
   <a href="/workflows/website-visitors-to-hubspot" class="text-[var(--accent)] hover:underline">
-    See Website Visitors to HubSpot Workflow Blueprint 
+    See Website Visitors to HubSpot Workflow Blueprint →
   </a>
   <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
     Hire me for this motion

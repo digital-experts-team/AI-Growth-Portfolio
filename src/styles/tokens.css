@@ -1,30 +1,30 @@
 :root {
-  /* Canvas & Surfaces - Pure Super Black Theme */
-  --bg: #000000;
-  --bg-gradient: #000000;
-  --surface: #000000;
-  --surface-low: #000000;
-  --surface-elevated: #000000;
-  --surface-border: #27272a;
-  --surface-border-hover: #3f3f46;
+  /* Canvas & Surfaces - Modern Dark Grey Theme */
+  --bg: #121316;
+  --bg-gradient: #121316;
+  --surface: #1a1b1e;
+  --surface-low: #18191d;
+  --surface-elevated: #202227;
+  --surface-border: #2a2c32;
+  --surface-border-hover: #383a42;
 
   /* Typography */
   --text: #ffffff;
   --text-muted: #a1a1aa;
   --text-subtle: #71717a;
-  --text-on-accent: #000000;
+  --text-on-accent: #121316;
 
-  /* Accent & Signal Palette - Hire Me Light Green */
+  /* Accent & Signal Palette - Hire Me Light Green & Action Purple */
   --accent: #d2f39c;
   --accent-hover: #c2e887;
   --signal-cyan: #d2f39c;
   --signal-emerald: #d2f39c;
-  --signal-dark: #000000;
+  --signal-dark: #121316;
 
   /* Solid Theme - Zero Gradients */
   --gradient-signal: #d2f39c;
   --gradient-cta: #d2f39c;
-  --gradient-card-dark: #000000;
+  --gradient-card-dark: #1a1b1e;
 
   /* Typography Stacks */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

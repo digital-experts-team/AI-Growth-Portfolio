@@ -1,9 +1,8 @@
 ---
-import { isLive } from '../../lib/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const allWorkflows = await getCollection('workflows', isLive);
+const allWorkflows = await getCollection('workflows');
 const liveWorkflows = allWorkflows.filter((w) => w.data.status === 'live');
 const draftWorkflows = allWorkflows.filter((w) => w.data.status === 'draft');
 
@@ -25,7 +24,7 @@ const description = "Open-source and production-tested GTM workflows: waterfall 
         My Library
       </div>
       <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-        GTM Automation Workflows: Clay, n8n & HubSpot
+        GTM Automation Workflows: <span class="heading-highlight">Clay, n8n & HubSpot.</span>
       </h1>
       <p class="text-base sm:text-lg text-slate-500 leading-relaxed max-w-2xl">
         Deterministic revenue automations engineered with Clay, n8n, and HubSpot. Each blueprint features exact trigger payloads, cascading logic, and circuit-breaker failure guards.

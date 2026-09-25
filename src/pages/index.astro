@@ -1,72 +1,68 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroFromUIUX from '../components/HeroFromUIUX.astro';
-import DarkToolRail from '../components/DarkToolRail.astro';
+import WhoIWorkWithSection from '../components/WhoIWorkWithSection.astro';
 import MyLibrarySection from '../components/MyLibrarySection.astro';
-import RecognitionSection from '../components/RecognitionSection.astro';
+import DarkToolRail from '../components/DarkToolRail.astro';
 import RecentExperiencesSection from '../components/RecentExperiencesSection.astro';
 import WalkthroughVideosSection from '../components/WalkthroughVideosSection.astro';
 import QuestionsSection from '../components/QuestionsSection.astro';
 import DirectPipelineSection from '../components/DirectPipelineSection.astro';
 import QuickContactRow from '../components/QuickContactRow.astro';
-import { homeFaq } from '../data/homeFaq';
 
 const title = "GTM Engineer & AI Search (AEO/GEO) | Tibin Jacob";
-const description = "GTM Engineer and AI growth expert for B2B: signal-based outbound in Clay, n8n and HubSpot, AEO/GEO for AI search, and paid ads measured to pipeline.";
-const ogTitle = "AI Growth Expert for B2B Companies — Tibin Jacob";
+const description = "I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n and HubSpot for GTM automation; ChatGPT, Perplexity and Google AI Overviews for AI search; Meta and Google Ads measured to SQLs.";
 ---
 
 <BaseLayout
   title={title}
   description={description}
-  ogTitle={ogTitle}
-  faq={homeFaq}
   canonicalUrl="https://tibinjacob.com"
   preloadImage="/images/hero-bg.webp"
-  transparentHeader={false}
+  transparentHeader={true}
 >
-  <!-- 1. HERO SECTION (CONTAINER RECTANGLE WITH PHOTO + FLOATING CONTENT + WHO I WORK WITH WITHIN IT) -->
+  <!-- 1. FULL WIDTH HERO SECTION (WITH TRANSPARENT HEADER OVERLAP) -->
   <HeroFromUIUX
     slot="hero"
     photoUrl="/images/hero-bg.webp"
   />
 
-  <div class="flex flex-col gap-16 sm:gap-24 py-4 bg-white text-zinc-900">
-    <!-- 2. SECTION BETWEEN HERO AND MY LIBRARY (5 MILLION USERS TEXT + CLEAN ROW OF LOGOS) -->
-    <DarkToolRail />
+  <!-- 2. WHO I WORK WITH SECTION (DIRECTLY BELOW HERO) -->
+  <WhoIWorkWithSection />
 
-    <!-- 3. MODERN AI GROWTH WORKFLOWS / MY LIBRARY -->
+  <div class="flex flex-col bg-white text-zinc-900">
+    <!-- 3. MY LIBRARY / WORKFLOW LIBRARY -->
     <MyLibrarySection />
 
-    <!-- 5. RECOGNITION & AWARDS -->
-    <RecognitionSection />
+    <!-- 4. MY TOOL STACK (MOVED BELOW WORKFLOW LIBRARY) -->
+    <DarkToolRail />
 
-    <!-- 6. EVIDENCE & OUTCOMES / RECENT EXPERIENCES -->
+    <!-- 5. RECENT EXPERIENCE / CASE STUDIES -->
     <RecentExperiencesSection />
 
-    <!-- 7. VIDEO DEMOS / WALKTHROUGHS VIDEOS -->
+    <!-- 6. WALKTHROUGH REELS / VIDEOS -->
     <WalkthroughVideosSection />
 
-    <!-- 8. CLEAR ANSWERS / QUESTIONS ACCORDION -->
+    <!-- 7. CLEAR ANSWERS / QUESTIONS ACCORDION -->
     <QuestionsSection />
 
-    <!-- 9. BIG IMPACTFUL CALLOUT BANNER -->
-    <div class="py-12 sm:py-16 flex flex-col items-center text-center gap-5 border-t border-zinc-200 bg-white">
+    <!-- 8. CALLOUT BANNER -->
+    <div class="py-16 sm:py-20 lg:py-24 flex flex-col items-center text-center gap-5 border-b border-zinc-200 bg-white px-4">
       <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 text-[11px] font-mono tracking-widest uppercase">
         AVAILABLE FOR NEW PROJECTS & ROLES
       </span>
-      <p class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-950 tracking-tight max-w-4xl leading-tight">
-        Let’s build something <span class="text-zinc-950 underline decoration-[#d2f39c] underline-offset-8">impactful.</span>
-      </p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight max-w-4xl leading-tight">
+        Let’s build something <span class="heading-highlight">impactful.</span>
+      </h2>
       <p class="text-zinc-600 text-[15px] sm:text-[17px] max-w-xl leading-relaxed font-light">
         Tell me what’s leaking in your pipeline or let’s talk about a zero-to-one growth motion.
       </p>
     </div>
 
-    <!-- 10. DIRECT PIPELINE (LEAKING PIPELINE FORM + BOOKING STEPS) -->
+    <!-- 9. DIRECT PIPELINE (LEAKING PIPELINE FORM + BOOKING STEPS) -->
     <DirectPipelineSection />
 
-    <!-- 11. QUICK CONTACT ROW (EMAIL, LINKEDIN, WHATSAPP) -->
+    <!-- 10. QUICK CONTACT ROW (EMAIL, LINKEDIN, WHATSAPP) -->
     <QuickContactRow />
   </div>
 </BaseLayout>

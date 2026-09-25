@@ -2,7 +2,6 @@
 export interface Props {
   title: string;
   description: string;
-  ogTitle?: string;
   canonicalUrl?: string;
   ogType?: 'website' | 'article' | 'profile';
   publishedDate?: Date;
@@ -16,7 +15,6 @@ export interface Props {
 const {
   title,
   description,
-  ogTitle,
   canonicalUrl = Astro.url.href,
   ogType = 'website',
   publishedDate,
@@ -63,11 +61,6 @@ const personSchema = {
     'HubSpot',
     'Clay',
     'n8n',
-    'Answer engine optimization',
-    'Generative engine optimization',
-    'B2B performance marketing',
-    'Meta Ads',
-    'Google Ads',
   ],
 };
 
@@ -128,17 +121,17 @@ const howToSchema = (howToSteps && howToSteps.length > 0) ? {
 
 <!-- Open Graph -->
 <meta property="og:type" content={ogType} />
-<meta property="og:title" content={ogTitle || title} />
+<meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
-<meta property="og:site_name" content="Tibin Jacob" />
+<meta property="og:site_name" content="Tibin Jacob — GTM Engineer" />
 <meta property="og:image" content={ogImage} />
 {publishedDate && <meta property="article:published_time" content={publishedDate.toISOString()} />}
 {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={ogTitle || title} />
+<meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 

@@ -1,110 +1,85 @@
 ---
-// DarkToolRail.astro - Section between Hero and My Library
-// Tools I build with (resume-verified only)
-const logos = [
+// DarkToolRail.astro - Tool Stack in exact same style as WhoIWorkWithSection
+const toolGroups = [
   {
-    name: 'Clay',
-    category: 'Waterfall Enrichment',
-    svg: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <rect x="3" y="3" width="8" height="8" rx="2"/>
-      <rect x="13" y="3" width="8" height="8" rx="2" opacity="0.6"/>
-      <rect x="3" y="13" width="8" height="8" rx="2" opacity="0.6"/>
-      <rect x="13" y="13" width="8" height="8" rx="2"/>
-    </svg>`,
+    num: '01',
+    label: 'GTM & Outbound',
+    pills: ['Clay', 'Apollo', 'HubSpot', 'Zoho SalesIQ', 'Instantly'],
   },
   {
-    name: 'Apollo.io',
-    category: 'B2B Data Intelligence',
-    svg: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2.5L14.7 9.5H21.5L16 13.8L18.1 20.8L12 16.5L5.9 20.8L8 13.8L2.5 9.5H9.3L12 2.5Z"/>
-    </svg>`,
+    num: '02',
+    label: 'Automation & Agents',
+    pills: ['n8n', 'Make', 'Zapier', 'Claude'],
   },
   {
-    name: 'HubSpot',
-    category: 'CRM & Marketing Hub',
-    svg: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.5 7.5a2.5 2.5 0 0 0-2.3 1.55l-4.1-1.37a2.5 2.5 0 0 0 .15-.68V6.5a2.5 2.5 0 1 0-2 0v.5c0 .24.05.47.14.68l-2.6 1.8A2.5 2.5 0 1 0 7.8 11.2l2.45-1.7a2.46 2.46 0 0 0 1-.03l4.03 1.34a2.5 2.5 0 1 0 2.22-3.31Z"/>
-    </svg>`,
+    num: '03',
+    label: 'Analytics & Ads',
+    pills: ['GA4', 'Microsoft Clarity', 'Meta Ads', 'Google Ads', 'Looker Studio'],
   },
-  {
-    name: 'Instantly.ai',
-    category: 'Outbound Scale',
-    svg: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M13.5 2.5L4 13.5h6.5L9.5 21.5L19 10.5h-6.5l1-8Z"/>
-    </svg>`,
-  },
-  {
-    name: 'n8n',
-    category: 'Workflow Automation',
-    svg: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="5" cy="12" r="2.5" fill="currentColor"/>
-      <circle cx="12" cy="6" r="2.5" fill="currentColor"/>
-      <circle cx="12" cy="18" r="2.5" fill="currentColor"/>
-      <circle cx="19" cy="12" r="2.5" fill="currentColor"/>
-      <path d="M7.5 12h9M12 8.5v7" stroke-linecap="round"/>
-    </svg>`,
-  },
-  {
-    name: 'Claude',
-    category: 'Anthropic AI Agent',
-    svg: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2a1.5 1.5 0 0 1 1.5 1.5v3.6l2.55-2.55a1.5 1.5 0 1 1 2.12 2.12L15.62 9.22h3.63a1.5 1.5 0 1 1 0 3h-3.63l2.55 2.55a1.5 1.5 0 0 1-2.12 2.12L13.5 14.34v3.63a1.5 1.5 0 1 1-3 0v-3.63l-2.55 2.55a1.5 1.5 0 1 1-2.12-2.12L8.38 12.22H4.75a1.5 1.5 0 1 1 0-3h3.63L5.83 6.67a1.5 1.5 0 1 1 2.12-2.12L10.5 7.1V3.5A1.5 1.5 0 0 1 12 2Z"/>
-    </svg>`,
-  },
-  {
-    name: 'Salesforce',
-    category: 'Enterprise CRM',
-    svg: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
-    </svg>`,
-  },
-  {
-    name: 'Paddleboat',
-    category: 'SDR Acceleration',
-    svg: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="8"/>
-      <path d="M12 8v8M8 12h8"/>
-    </svg>`,
-  }
 ];
 ---
 
-<section class="w-full py-8 sm:py-12 bg-white text-zinc-900" aria-labelledby="scale-impact-heading">
-  <div class="flex flex-col gap-8 sm:gap-10">
-    <!-- STACK INTRO -->
-    <div class="flex flex-col items-center text-center gap-3.5 max-w-3xl mx-auto px-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-[11px] font-mono text-zinc-800">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#d2f39c] animate-pulse"></span>
-        <span>MY STACK</span>
+<section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="tool-stack-heading">
+  <div class="max-w-[1360px] mx-auto flex flex-col gap-8">
+    
+    <!-- Section Header (Identical to WhoIWorkWithSection) -->
+    <div class="flex items-center justify-between pb-6 border-b border-zinc-200">
+      <div class="flex flex-col gap-1.5">
+        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+          The tools I build AI growth systems with
+        </span>
+        <h2 id="tool-stack-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+          My Tool <span class="heading-highlight">Stack.</span>
+        </h2>
       </div>
 
-      <h3 id="scale-impact-heading" class="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-zinc-950 tracking-tight leading-tight">
-        Tools I build <span class="text-zinc-950 underline decoration-[#d2f39c] underline-offset-6">GTM and AI growth</span> systems with.
-      </h3>
-
-      <p class="text-zinc-600 text-[14px] sm:text-[15px] max-w-xl leading-relaxed font-light">
-        Signal capture, waterfall enrichment, lead scoring and routing, and AI agents with a human approval step.
-      </p>
+      <!-- Terminal / Layers Icon Badge on Right -->
+      <div class="w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 shadow-xs">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
     </div>
 
-    <!-- CLEAN ROW OF LOGOS BELOW -->
-    <div class="relative w-full overflow-hidden bg-white">
-      <!-- Clean row of logos - centered wrap on desktop, smooth horizontal rail on mobile -->
-      <div class="flex items-center justify-center gap-3 sm:gap-4 flex-wrap px-4 select-none">
-        {logos.map((logo) => (
-          <div
-            class="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-white hover:bg-zinc-50 border border-zinc-200 hover:border-zinc-300 text-zinc-700 hover:text-black transition-all duration-200 group cursor-default shadow-xs"
-            title={`${logo.name} — ${logo.category}`}
-          >
-            <div class="text-zinc-500 group-hover:text-black transition-colors flex items-center justify-center">
-              <Fragment set:html={logo.svg} />
-            </div>
-            <span class="text-[13px] sm:text-[14px] font-semibold tracking-tight text-zinc-800 group-hover:text-black">
-              {logo.name}
+    <!-- 3 Columns Grid (Matching WhoIWorkWithSection Layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      {toolGroups.map((group, index) => (
+        <div class={`flex flex-col gap-4 group ${index < toolGroups.length - 1 ? 'md:border-r md:border-zinc-200 md:pr-8 lg:pr-10' : ''}`}>
+          
+          <!-- Numbered Badge & Group Label Header -->
+          <div class="flex items-center gap-2.5">
+            <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#d2f39c] text-black text-[11px] font-mono font-bold tracking-wider">
+              {group.num}
             </span>
+            <h3 class="text-zinc-950 text-base sm:text-lg font-bold tracking-tight uppercase font-mono text-xs">
+              {group.label}
+            </h3>
           </div>
-        ))}
-      </div>
+
+          <!-- Horizontal Pill Row -->
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            {group.pills.map((pill) => (
+              <span class="px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-800 text-xs font-mono font-semibold hover:bg-zinc-200 hover:border-zinc-300 transition-colors cursor-default shadow-2xs">
+                {pill}
+              </span>
+            ))}
+          </div>
+
+        </div>
+      ))}
     </div>
+
+    <!-- Lime Link: See the workflows → -->
+    <div class="pt-4 border-t border-zinc-100 flex items-center justify-between">
+      <a
+        href="/workflows"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#d2f39c] hover:bg-[#c2e887] text-black text-xs font-mono font-bold tracking-wider transition-all shadow-sm"
+      >
+        <span>See the workflows →</span>
+      </a>
+    </div>
+
   </div>
 </section>

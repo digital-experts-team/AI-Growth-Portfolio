@@ -9,10 +9,6 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: process.env.SITE_URL || 'https://tibinjacob.com',
   output: 'static',
-  redirects: {
-    '/demand': '/b2b-performance-marketing',
-    '/workflows/hubspot-lead-routing': '/workflows/hubspot-lead-scoring',
-  },
   adapter: vercel(),
   server: {
     port: 3000,

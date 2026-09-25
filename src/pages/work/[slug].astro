@@ -1,10 +1,9 @@
 ---
-import { isLive } from '../../lib/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const caseStudies = await getCollection('caseStudies', isLive);
+  const caseStudies = await getCollection('caseStudies');
   return caseStudies.map((entry) => ({
     params: { slug: entry.data.slug || entry.id },
     props: { entry },
@@ -65,9 +64,23 @@ const description = entry.data.description;
         {entry.data.title}
       </h1>
 
-      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-6">
         {entry.data.description}
       </p>
+
+      {entry.data.image && (
+        <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden bg-zinc-900 mb-6 border border-zinc-200 shadow-md">
+          <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded-md bg-black/75 backdrop-blur-md text-xs font-mono font-bold text-white tracking-wide border border-white/10">
+            {entry.data.tag || `#${entry.data.cluster.replace(/\s+/g, '')}`}
+          </span>
+          <img
+            src={entry.data.image}
+            alt={entry.data.title}
+            class="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+      )}
 
       {entry.data.updatedDate && (
         <div class="mt-4 text-xs font-mono text-slate-400">

@@ -17,6 +17,11 @@ faq:
     a: "Without write-backs, reps operate with blind spots, duplicate contacts are created, and attribution models break down completely."
 ---
 
+import AnswerBlock from '../../components/AnswerBlock.astro';
+
+<AnswerBlock question="What is CRM Write-Back?">
+CRM write-back is the automated process of committing enriched external data, lead scores, or event timestamps back into the core customer relationship management database (such as HubSpot or Salesforce). Reliable write-backs require deduplication rules, schema field mapping, and conflict resolution to maintain spotless data hygiene without overwriting active sales notes.
+</AnswerBlock>
 
 ## Safe Write-Back Architecture
 
@@ -24,7 +29,7 @@ A proper GTM pipeline enforces deduplication before writing. It checks existing 
 
 <div class="mt-8 pt-6 border-t border-[var(--surface-border)] flex flex-wrap gap-4 items-center justify-between text-sm">
   <a href="/workflows/website-visitors-to-hubspot" class="text-[var(--accent)] hover:underline">
-    Explore HubSpot CRM Ingestion Architecture 
+    Explore HubSpot CRM Ingestion Architecture →
   </a>
   <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
     Hire me for this motion

@@ -1,33 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = 'Answer Engine Optimization (AEO) & GEO for B2B | Tibin Jacob';
-const description = 'How I approach answer engine optimization and generative engine optimization for B2B: pages ChatGPT, Perplexity and Google AI Overviews can read, trust and cite.';
-const faq = [
-  {
-    q: 'What is answer engine optimization (AEO)?',
-    a: 'Answer engine optimization is structuring content so AI assistants and search features can quote it directly. In practice that means question-style headings, a short direct answer under each one, schema markup, and pages that render fully without JavaScript.',
-  },
-  {
-    q: 'What is generative engine optimization (GEO)?',
-    a: 'Generative engine optimization is making a brand easy for generative AI tools like ChatGPT, Perplexity and Google AI Overviews to find, understand and cite when they write an answer. It leans on clear entities, consistent facts across the web, specific evidence and machine-readable structure.',
-  },
-  {
-    q: 'What is the difference between AEO and GEO?',
-    a: 'AEO focuses on being the quoted answer for a specific question, such as a featured snippet or voice answer. GEO focuses on being included and cited when an AI model writes a longer answer. The work overlaps heavily, so I treat them as one program.',
-  },
-  {
-    q: 'How do you measure AI search visibility?',
-    a: 'With Search Console and GA4 for search and referral traffic, plus a recurring check of target questions in ChatGPT, Perplexity and Google AI Overviews to see whether the site is cited.',
-  },
-];
-const steps = [
-  { title: 'Make every page readable without JavaScript', body: 'Server-render or statically generate pages so crawlers and AI bots see the full content, not an empty app shell.' },
-  { title: 'Answer the question first', body: 'Use question-style headings with a 40–60 word direct answer underneath, then go deeper.' },
-  { title: 'Add structured data', body: 'Person or Organization, Article, FAQPage, HowTo, DefinedTerm and BreadcrumbList schema, matching what is visible on the page.' },
-  { title: 'Make the entity consistent', body: 'The same name, role and facts on the site, LinkedIn and other profiles, linked with sameAs, so AI models can connect them.' },
-  { title: 'Publish llms.txt and open access to AI crawlers', body: 'A plain-text map of key pages for AI tools, and a robots.txt that allows GPTBot, PerplexityBot, ClaudeBot and Google-Extended.' },
-  { title: 'Measure citations, not just rankings', body: 'Track target questions in AI tools each month alongside Search Console and GA4 data.' },
-];
+import { getCollection } from 'astro:content';
+
+const title = "Answer Engine Optimization (AEO) & GEO for B2B | Tibin Jacob";
+const description = "Engineer your B2B brand and technical documentation to get cited by Perplexity, ChatGPT, Gemini, and Google AI Overviews.";
 ---
 
 <BaseLayout
@@ -37,56 +13,54 @@ const steps = [
     { name: 'Home', url: '/' },
     { name: 'AI Search (AEO/GEO)', url: '/answer-engine-optimization' },
   ]}
-  faq={faq}
-  howToSteps={steps}
 >
-  <article class="flex flex-col gap-12 py-6 sm:py-10 max-w-[800px]">
-    <header class="flex flex-col gap-4">
-      <h1 class="text-[34px] sm:text-[42px] font-bold text-slate-900 tracking-tight leading-tight">Answer engine optimization and GEO for B2B</h1>
-      <div class="border-l-4 border-[#1d6ff2] pl-4">
-        <p class="text-[16px] text-slate-700 leading-relaxed">
-          Answer engine optimization (AEO) and generative engine optimization (GEO) make a B2B site easy for ChatGPT, Perplexity and Google AI Overviews to read, trust and cite. I do it with server-rendered pages, direct answers under question headings, schema, consistent entity facts and llms.txt, then measure whether AI tools actually cite you.
-        </p>
+  <div class="py-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="text-[11px] font-mono uppercase tracking-wider text-cyan-600 font-semibold mb-2">
+        Get cited by AI search
       </div>
-    </header>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+        Answer Engine Optimization (AEO) & <span class="heading-highlight">GEO for B2B.</span>
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+        B2B buyers research solutions directly inside ChatGPT, Perplexity, and Claude before ever visiting a vendor site. Here is how we engineer technical content, schema, and brand references to get cited in AI answers.
+      </p>
+    </div>
 
-    <section class="flex flex-col gap-4" aria-labelledby="why-heading">
-      <h2 id="why-heading" class="text-[24px] font-bold text-slate-900">Why AI search matters for B2B pipeline</h2>
-      <p class="text-[15px] text-slate-600 leading-relaxed">Buyers increasingly ask AI assistants to shortlist vendors and explain problems before they ever visit a site. If your pages can't be read or quoted, you're not in that answer. AI search is a demand source like paid or outbound, so I connect it to the same CRM and pipeline reporting as everything else I build.</p>
-    </section>
+    <!-- Core AEO Pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-cyan-600 font-semibold mb-2">PILLAR 01</div>
+          <h2 class="text-xl font-bold text-slate-900 mb-2">Structured Entity Schema & Technical Docs</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            JSON-LD schema, static-first markdown specs, and clear term definitions engineered for LLM web crawlers to scrape, index, and cite.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Signal: LLM scraper inclusion & citation rate</span>
+      </div>
 
-    <section class="flex flex-col gap-4" aria-labelledby="steps-heading">
-      <h2 id="steps-heading" class="text-[24px] font-bold text-slate-900">How I approach AEO and GEO</h2>
-      <ol class="flex flex-col gap-4 list-decimal pl-5">
-        {steps.map((s) => (
-          <li class="text-[15px] text-slate-700 leading-relaxed"><strong class="text-slate-900">{s.title}.</strong> {s.body}</li>
-        ))}
-      </ol>
-    </section>
+      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-cyan-600 font-semibold mb-2">PILLAR 02</div>
+          <h2 class="text-xl font-bold text-slate-900 mb-2">Generative Engine Optimization (GEO)</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Optimizing comparison queries, category teardowns, and architectural trade-off specs that generative engines reference when recommending B2B SaaS tools.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Signal: AI Overviews & ChatGPT answer citations</span>
+      </div>
+    </div>
 
-    <section class="flex flex-col gap-3" aria-labelledby="tools-heading">
-      <h2 id="tools-heading" class="text-[24px] font-bold text-slate-900">Tools I use for AI search</h2>
-      <p class="text-[15px] text-slate-700 leading-relaxed">Google Search Console, GA4, Schema.org markup, llms.txt, and direct checks in ChatGPT, Perplexity and Google AI Overviews.</p>
-    </section>
-
-    <section class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-50 border border-slate-200" aria-labelledby="proof-heading">
-      <h2 id="proof-heading" class="text-[18px] font-bold text-slate-900">See it on this site</h2>
-      <p class="text-[14px] text-slate-600 leading-relaxed">This site is built the way I describe: every page is statically rendered, uses question headings with direct answers, carries Person, FAQPage, HowTo and DefinedTerm schema, and publishes <a class="text-[#1d6ff2] hover:underline" href="/llms.txt">llms.txt</a>. Start with the <a class="text-[#1d6ff2] hover:underline" href="/glossary/answer-engine-optimization">AEO definition</a> or the <a class="text-[#1d6ff2] hover:underline" href="/glossary/generative-engine-optimization">GEO definition</a>.</p>
-    </section>
-
-    <section class="flex flex-col gap-3" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" class="text-[24px] font-bold text-slate-900">AEO and GEO questions</h2>
-      {faq.map((item) => (
-        <details class="border-b border-slate-200 py-3">
-          <summary class="text-[16px] font-semibold text-slate-900 cursor-pointer">{item.q}</summary>
-          <p class="text-[14px] text-slate-600 leading-relaxed pt-2">{item.a}</p>
-        </details>
-      ))}
-    </section>
-
-    <footer class="flex flex-wrap gap-4 items-center justify-between pt-4 border-t border-slate-200">
-      <a href="/workflows/website-visitors-to-hubspot" class="text-[14px] font-semibold text-[#1d6ff2] hover:underline">See how AI search traffic gets routed into HubSpot</a>
-      <a href="/hire" class="inline-flex items-center px-5 py-2.5 bg-[#1d6ff2] hover:bg-blue-600 text-white text-[14px] font-semibold rounded-lg">Hire me for this</a>
-    </footer>
-  </article>
+    <div class="mt-12 p-8 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-xl font-bold mb-2">Want to rank in Perplexity & ChatGPT for your category?</h3>
+        <p class="text-xs sm:text-sm text-slate-300">Let’s audit your current AEO visibility and build an AI search strategy.</p>
+      </div>
+      <a href="/hire" class="px-6 py-3 rounded-full bg-[#d2f39c] text-black font-bold text-xs uppercase tracking-wider hover:bg-[#c2e887] transition-all shrink-0">
+        Work with me →
+      </a>
+    </div>
+  </div>
 </BaseLayout>

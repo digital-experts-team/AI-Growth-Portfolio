@@ -1,23 +1,49 @@
 ---
 // Questions & Answers Accordion Section - Pure Solid Super Black (No Gradients)
-import { homeFaq } from '../data/homeFaq';
-const faqs = homeFaq.map((f, i) => ({ ...f, isOpen: i === 0 }));
+const faqs = [
+  {
+    q: 'What does a GTM engineer do?',
+    a: 'A GTM engineer builds the systems that turn buying signals into qualified pipeline: capturing intent, enriching and scoring accounts, routing them into the CRM, and automating follow-up so sales works the right accounts at the right time.',
+    isOpen: true,
+  },
+  {
+    q: 'What is answer engine optimization (AEO)?',
+    a: 'AEO structures your technical case studies, entity data, and product proof so generative engines like Perplexity, ChatGPT Search, and Google AI Overviews cite your solutions during enterprise vendor evaluations.',
+    isOpen: false,
+  },
+  {
+    q: 'What is generative engine optimization (GEO)?',
+    a: 'GEO focuses on knowledge graph presence, clear comparative data points, and technical documentation indexing to ensure AI models accurately explain your product\'s architecture and capabilities.',
+    isOpen: false,
+  },
+  {
+    q: 'How do you measure marketing to SQLs?',
+    a: 'Through closed-loop webhook attribution linking ad conversions, website deanonymization, and outbound touches directly to accepted pipeline opportunities inside HubSpot and Salesforce.',
+    isOpen: false,
+  },
+  {
+    q: 'Do you work full-time or on projects?',
+    a: 'I take on selective full-time GTM engineering leadership roles as well as targeted quarterly automation sprints for venture-backed B2B companies.',
+    isOpen: false,
+  },
+];
 ---
 
-<section class="flex flex-col gap-6 bg-[#000000]" aria-labelledby="questions-heading">
-  <!-- Section Header -->
-  <div class="flex items-center justify-between">
-    <div class="flex flex-col gap-1.5">
-      <span class="text-[12px] font-bold text-[#d2f39c] tracking-widest uppercase font-mono">
-        Questions.
-      </span>
-      <h2 id="questions-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-        GTM engineering and AI search questions
-      </h2>
-    </div>
+<section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="questions-heading">
+  <div class="max-w-[1360px] mx-auto flex flex-col gap-8">
+    <!-- Section Header (Outside cards - clean & inverted for readability) -->
+    <div class="flex items-center justify-between pb-6 border-b border-zinc-200 mb-2">
+      <div class="flex flex-col gap-1.5">
+        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+          GTM engineering & AI search answers
+        </span>
+        <h2 id="questions-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+          Clear <span class="heading-highlight">Answers.</span>
+        </h2>
+      </div>
 
     <!-- Question Mark Icon Circle -->
-    <div class="w-10 h-10 rounded-full bg-[#000000] border border-zinc-800 flex items-center justify-center text-zinc-400">
+    <div class="w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-600">
       <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"></circle>
         <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
@@ -26,27 +52,28 @@ const faqs = homeFaq.map((f, i) => ({ ...f, isOpen: i === 0 }));
     </div>
   </div>
 
-  <!-- Accordion List: Solid Super Black (No Gradients) -->
-  <div class="flex flex-col gap-3">
+  <!-- Accordion List: Bento Black Container Cards with Fade Stroke & Drop Shadow -->
+  <div class="flex flex-col gap-4">
     {faqs.map((item, idx) => (
       <details
-        class="group bg-[#000000] hover:bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden transition-all duration-200"
+        class="bento-card group rounded-2xl overflow-hidden"
         open={item.isOpen}
       >
         <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none select-none">
           <span class="text-white text-[16px] sm:text-[17px] font-bold group-hover:text-[#d2f39c] transition-colors">
             {item.q}
           </span>
-          <div class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 group-hover:text-white transition-transform duration-300 group-open:rotate-180 shrink-0">
+          <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all duration-300 group-open:rotate-180 shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </div>
         </summary>
-        <div class="px-6 pb-6 pt-1 text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed border-t border-zinc-900">
+        <div class="px-6 pb-6 pt-2 text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed border-t border-zinc-900/90 font-light">
           <p>{item.a}</p>
         </div>
       </details>
     ))}
   </div>
+</div>
 </section>

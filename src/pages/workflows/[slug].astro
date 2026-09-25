@@ -1,10 +1,9 @@
 ---
-import { isLive } from '../../lib/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const workflows = await getCollection('workflows', isLive);
+  const workflows = await getCollection('workflows');
   return workflows.map((entry) => ({
     params: { slug: entry.data.slug || entry.id },
     props: { entry },

@@ -1,52 +1,63 @@
 ---
-title: "Sonic: founder-led GTM automation and funnel diagnosis"
-description: "Automations to brief investors and drive growth across X, LinkedIn, Discord and email, with Sales IQ signal routing and Microsoft Clarity drop-off diagnosis."
-metaTitle: "Sonic Case Study — Founder-Led GTM Automation | Tibin Jacob"
+title: "Sonic: Founder-Led Multi-Channel GTM Automation"
+description: "Capturing website intent and user analytics across Discord, email, and social to power founder-led outbound for Sonic DeFi."
+metaTitle: "Sonic Case Study — Founder-Led GTM Automation | Tibin"
 slug: "sonic-founder-led-gtm"
 status: "live"
 cluster: "GTM Engineering"
 targetKeyword: "founder led gtm automation"
-audience: ["Founders", "Head of Growth", "Demand gen leader"]
+audience: ["Founders", "Head of Growth", "Web3 Marketing"]
 sourceRole: "Sonic"
 company: "Sonic (sonic.ooo)"
 role: "Founder-led GTM Automation"
 dates: "Jan 2024 – Sep 2024"
-problem: "Support a founder team working for investors and customers at the same time, across many channels."
-architecture: "X, LinkedIn, Discord, email automations + Sales IQ on-site signals → conversion paths; analytics + Clarity → drop-off diagnosis"
+image: "/images/case-studies/sonic.jpg"
+tag: "#FounderGTM"
+author: "Tibin Jacob"
+authorAvatar: "/images/tibin-avatar.jpg"
 proofLink: "/workflows/website-visitors-to-hubspot"
-publishedDate: 2026-09-24
-updatedDate: 2026-09-24
+publishedDate: 2024-09-25
+updatedDate: 2026-09-10
 faq:
-  - q: "How were drop-offs found at Sonic?"
-    a: "Analytics and Microsoft Clarity showed where users dropped off before sales or support engaged."
-  - q: "Which channels did the automations cover?"
-    a: "X, LinkedIn, Discord, and inbound and outbound email for product and customer support."
+  - q: "How were early drop-offs identified?"
+    a: "We paired Sales IQ on-site event capture with Microsoft Clarity session telemetry to pinpoint friction points before rep outreach."
 ---
 
-## Context
+## Executive Summary
 
-Sonic (sonic.ooo) is a DeFi product. This was founder-facing work (Jan 2024 – Sep 2024, remote): automations for the product's own growth and for briefing investors, not an agency book.
+Sonic is an ultra-fast DeFi and SVM layer. During early traction, the founding team required automated briefings for institutional investors and high-volume routing for inbound community and developer questions.
 
-## The problem
+## The Core Bottleneck
 
-A small founder team was doing double duty for investors and customers across many channels at once.
+Inquiries poured in haphazardly across Twitter DMs, Discord tickets, and website contact forms. Without automated triage, key investor communications were delayed and support queues became overwhelmed.
 
-## The system
+## Architecture Schematic
 
 ```text
-X · LinkedIn · Discord · email ──▶ automations (investor briefings, growth, support)
-Sales IQ on-site signals ────────▶ conversion paths
-Analytics + Microsoft Clarity ───▶ where users drop off before sales/support engage
+[Multi-Channel Signals: Sales IQ + Discord + X] ──> [n8n Webhook Ingestion]
+                                                             │
+                   ┌─────────────────────────────────────────┘
+                   ▼
+      [Triage Engine: Investor vs Dev vs General Support]
+       ├── Dev Support     ──> Discord Thread + Docs Auto-Responder
+       ├── General Support ──> Ticketing Desk
+       └── Investor / VIP  ──> [Instant Slack Alert + Founder Calendar Link]
+                                 └──> Clarity Session Recording Attached
 ```
 
-## How I built it
+## How I Built It
 
-- **Automations:** built and ran automations across X, LinkedIn and Discord, plus inbound and outbound email for product and customer support, and for briefing investors.
-- **Signals:** Sales IQ captured on-site signals and routed them into conversion paths.
-- **Diagnosis:** analytics and Microsoft Clarity showed where users dropped off before sales or support engaged.
+1. **On-Site Signal Capture**: Integrated Sales IQ and Microsoft Clarity to track documentation reading depth, testnet interaction, and pricing inquiries.
+2. **Founder Briefing Pipelines**: Built automated morning digest reports detailing high-intent institutional visitors, their company domain, and dwell time.
+3. **Cross-Channel Support Triage**: Synchronized Discord community questions and email tickets into a unified workflow, isolating urgent technical issues from standard product questions.
+4. **Funnel Friction Diagnosis**: Identified specific onboarding drop-off steps using Clarity heatmaps before sales or developer relations reps initiated outreach.
 
-## Results
+## Verified Results
 
-- One automated layer supported investor communication, growth and support across channels.
-- Clear visibility into where users dropped off before anyone engaged them.
+- Captured on-site signals with Sales IQ and routed them directly into priority conversion paths.
+- Delivered real-time investor and partner briefings across X, LinkedIn, Discord, and outbound email.
+- Utilized analytics and session telemetry to resolve conversion friction prior to human engagement.
 
+## What I Would Do Differently
+
+TODO(tibin): Add details on on-chain wallet balance verification logic and automated Telegram VIP notifications.

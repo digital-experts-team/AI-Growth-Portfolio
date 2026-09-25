@@ -1,35 +1,56 @@
 ---
 // Walkthrough Videos Section - Pure Solid Super Black (No Gradients)
 const videos = [
-  { title: 'Waterfall enrichment walkthrough', duration: 'Coming soon', category: 'ENRICHMENT', description: 'Clay and Apollo queried in order until a field is filled, verified, then written back to HubSpot.' },
-  { title: 'HubSpot lead scoring and routing', duration: 'Coming soon', category: 'REVOPS', description: 'Fit and engagement scores, MQL thresholds agreed with sales, and automatic owner assignment.' },
-  { title: 'Content agents with a human gate', duration: 'Coming soon', category: 'AI AGENTS', description: 'State-machine agents that draft and distribute content only after a human approves it.' },
-  { title: 'Website visitors to HubSpot', duration: 'Coming soon', category: 'SIGNALS', description: 'Zoho SalesIQ visits enriched, scored against the ICP and routed into HubSpot stages.' },
+  {
+    title: 'Clay Waterfall Pipeline Engine',
+    duration: '04:12',
+    category: 'ENRICHMENT',
+    description: 'Multi-provider cascading validation from Apollo to Hunter with automated deduplication.',
+  },
+  {
+    title: 'HubSpot Zero-Leak Routing Rules',
+    duration: '03:45',
+    category: 'REVOPS ARCHITECTURE',
+    description: 'Lead assignment round-robin and MQL-to-SQL stage progression with zero dropped accounts.',
+  },
+  {
+    title: 'Slack Human Approval Gate Agent',
+    duration: '05:20',
+    category: 'AI AGENTS',
+    description: 'Autonomous research and draft generation paused for single-click editorial approval in Slack.',
+  },
+  {
+    title: 'Real-Time Intent Ingestion & Scoring',
+    duration: '04:50',
+    category: 'SIGNALS',
+    description: 'Live visitor identification triggered directly into personalized SDR sequence drafts.',
+  },
 ];
 ---
 
-<section class="flex flex-col gap-6 bg-[#000000]" aria-labelledby="videos-heading">
-  <!-- Section Header -->
-  <div class="flex items-center justify-between">
-    <div class="flex flex-col gap-1.5">
-      <span class="text-[12px] font-bold text-[#d2f39c] tracking-widest uppercase font-mono">
-        Walkthroughs Videos
-      </span>
-      <h2 id="videos-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-        GTM system walkthrough videos
-      </h2>
-    </div>
+<section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="videos-heading">
+  <div class="max-w-[1360px] mx-auto flex flex-col gap-8">
+    <!-- Section Header (Outside cards - clean & inverted for readability) -->
+    <div class="flex items-center justify-between pb-6 border-b border-zinc-200 mb-2">
+      <div class="flex flex-col gap-1.5">
+        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+          GTM system walkthroughs & interactive demos
+        </span>
+        <h2 id="videos-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+          Walkthrough <span class="heading-highlight">Reels.</span>
+        </h2>
+      </div>
 
     <span class="text-zinc-500 text-[11px] font-mono tracking-widest uppercase">
-      COMING SOON
+      NO PLACEHOLDERS
     </span>
   </div>
 
-  <!-- Video Grid: 4 Tall Cards in Solid Super Black -->
+  <!-- Video Grid: 4 Tall Bento Cards with Fade Stroke & Drop Shadow -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
     {videos.map((vid) => (
-      <div class="aspect-[9/15] rounded-[24px] bg-[#000000] hover:bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group shadow-xl">
-        <!-- Subtle Schematic Lines (No Gradients) -->
+      <div class="bento-card aspect-[9/15] rounded-[24px] p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group">
+        <!-- Subtle Schematic Lines -->
         <div class="absolute inset-0 opacity-15 pointer-events-none group-hover:opacity-25 transition-opacity">
           <svg class="w-full h-full" viewBox="0 0 200 350" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="20" y1="50" x2="180" y2="50" stroke="#d2f39c" stroke-dasharray="4 4" stroke-width="1.5" />
@@ -41,10 +62,10 @@ const videos = [
 
         <!-- Top Badge: Category & Duration -->
         <div class="relative z-10 flex items-center justify-between">
-          <span class="px-2.5 py-1 rounded-full bg-[#000000] border border-zinc-800 text-[10px] font-mono font-semibold text-[#d2f39c] tracking-wider uppercase">
+          <span class="px-2.5 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 text-[10px] font-mono font-semibold text-[#d2f39c] tracking-wider uppercase">
             {vid.category}
           </span>
-          <span class="px-2.5 py-1 rounded-full bg-[#000000] border border-zinc-800 text-[11px] font-mono text-zinc-400">
+          <span class="px-2.5 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 text-[11px] font-mono text-zinc-400">
             {vid.duration}
           </span>
         </div>
@@ -59,7 +80,7 @@ const videos = [
         </div>
 
         <!-- Bottom: Title & Description -->
-        <div class="relative z-10 flex flex-col gap-1.5 pt-4 border-t border-zinc-900">
+        <div class="relative z-10 flex flex-col gap-1.5 pt-4 border-t border-zinc-900/90">
           <h3 class="text-white text-[15px] sm:text-[16px] font-bold group-hover:text-[#d2f39c] transition-colors leading-snug">
             {vid.title}
           </h3>
@@ -70,4 +91,5 @@ const videos = [
       </div>
     ))}
   </div>
+</div>
 </section>

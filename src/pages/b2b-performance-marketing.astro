@@ -1,21 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = 'B2B Performance Marketing Measured to Pipeline | Tibin Jacob';
-const description = 'B2B performance marketing on Meta and Google Ads, tracked past the lead form through MQL and SQL stages in HubSpot, so spend is judged on qualified pipeline.';
-const faq = [
-  {
-    q: 'What is B2B performance marketing?',
-    a: 'B2B performance marketing is paid acquisition, mostly search and social ads, managed against measurable business outcomes. For B2B that means qualified pipeline and revenue, not clicks or raw lead counts.',
-  },
-  {
-    q: 'Why measure paid ads to SQLs instead of cost per lead?',
-    a: 'Cost per lead rewards cheap, low-intent form fills. Tracking each campaign through MQL and SQL stages shows which spend actually produces opportunities sales will work.',
-  },
-  {
-    q: 'Which ad platforms do you work with?',
-    a: 'Meta Ads and Google Ads, measured with GA4, Looker Studio, Microsoft Clarity and HubSpot.',
-  },
-];
+
+const title = "B2B Performance Marketing: Meta & Google Ads to Pipeline | Tibin Jacob";
+const description = "Performance marketing engineered for B2B pipeline: Meta & Google Ads measured to SQLs, pipeline revenue, and account-level conversion rates.";
 ---
 
 <BaseLayout
@@ -25,50 +12,54 @@ const faq = [
     { name: 'Home', url: '/' },
     { name: 'B2B Performance Marketing', url: '/b2b-performance-marketing' },
   ]}
-  faq={faq}
 >
-  <article class="flex flex-col gap-12 py-6 sm:py-10 max-w-[800px]">
-    <header class="flex flex-col gap-4">
-      <h1 class="text-[34px] sm:text-[42px] font-bold text-slate-900 tracking-tight leading-tight">B2B performance marketing, measured to pipeline</h1>
-      <div class="border-l-4 border-[#1d6ff2] pl-4">
-        <p class="text-[16px] text-slate-700 leading-relaxed">I run Meta and Google Ads for B2B and track every campaign past the lead form, through MQL and SQL stages in the CRM. Because I also build the routing and scoring behind the form, paid traffic lands in a system that qualifies it, and spend is judged on pipeline rather than clicks.</p>
+  <div class="py-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="text-[11px] font-mono uppercase tracking-wider text-cyan-600 font-semibold mb-2">
+        Paid demand, measured to pipeline
       </div>
-    </header>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+        B2B Performance Marketing: <span class="heading-highlight">Meta & Google Ads to Pipeline.</span>
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+        Optimizing paid campaigns for MQL form fills leads to low-quality leads and SDR fatigue. Here is how we measure Meta & Google Ads directly to pipeline revenue, SQL conversion, and target account engagement.
+      </p>
+    </div>
 
-    <section class="flex flex-col gap-4" aria-labelledby="how-heading">
-      <h2 id="how-heading" class="text-[24px] font-bold text-slate-900">How paid demand connects to GTM engineering</h2>
-      <ul class="flex flex-col gap-3 text-[15px] text-slate-700 leading-relaxed list-disc pl-5">
-        <li><strong class="text-slate-900">Audience from the ICP.</strong> Targeting and exclusions come from the same ICP and firmographic rules used for outbound, so paid and outbound go after the same accounts.</li>
-        <li><strong class="text-slate-900">Every lead source tracked.</strong> UTMs and form fields carry campaign data into HubSpot so each contact keeps its source through the funnel.</li>
-        <li><strong class="text-slate-900">Qualified before sales sees it.</strong> Paid leads are enriched, scored and routed with the same MQL to SQL rules as every other source.</li>
-        <li><strong class="text-slate-900">Funnel diagnosis.</strong> GA4 and Microsoft Clarity show where visitors drop off on landing pages, before budget gets increased.</li>
-        <li><strong class="text-slate-900">Reporting on pipeline.</strong> Looker Studio and HubSpot reports show cost per qualified lead and marketing-sourced pipeline by campaign.</li>
-      </ul>
-    </section>
+    <!-- Features -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-cyan-600 font-semibold mb-2">MOTION 01</div>
+          <h2 class="text-xl font-bold text-slate-900 mb-2">High-Intent Google Ads & Search PPC</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Capturing high-intent BOFU search queries, competitor alternatives, and pricing searches with dedicated high-converting landing pages.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Target: High-intent SQL conversion</span>
+      </div>
 
-    <section class="flex flex-col gap-3" aria-labelledby="tools-heading">
-      <h2 id="tools-heading" class="text-[24px] font-bold text-slate-900">Tools</h2>
-      <p class="text-[15px] text-slate-700">Meta Ads, Google Ads, GA4, Looker Studio, Microsoft Clarity, HubSpot.</p>
-    </section>
+      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-mono text-cyan-600 font-semibold mb-2">MOTION 02</div>
+          <h2 class="text-xl font-bold text-slate-900 mb-2">Meta Ads & Paid Social Retargeting</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Targeting decision-makers at ICP companies with high-signal content, video teardowns, and case study proofs to keep your brand top-of-mind during long deal cycles.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Target: ICP account engagement</span>
+      </div>
+    </div>
 
-    <section class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-50 border border-slate-200" aria-labelledby="proof-heading">
-      <h2 id="proof-heading" class="text-[18px] font-bold text-slate-900">Related work</h2>
-      <p class="text-[14px] text-slate-600 leading-relaxed">At Mavlers I built the lead qualification side: site intent, firmographics and engagement routed through MQL to SQL stages in HubSpot. <a class="text-[#1d6ff2] hover:underline" href="/work/mavlers-partner-agency-signals">Read the Mavlers case study</a>.</p>
-    </section>
-
-    <section class="flex flex-col gap-3" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" class="text-[24px] font-bold text-slate-900">Questions</h2>
-      {faq.map((item) => (
-        <details class="border-b border-slate-200 py-3">
-          <summary class="text-[16px] font-semibold text-slate-900 cursor-pointer">{item.q}</summary>
-          <p class="text-[14px] text-slate-600 leading-relaxed pt-2">{item.a}</p>
-        </details>
-      ))}
-    </section>
-
-    <footer class="flex flex-wrap gap-4 items-center justify-between pt-4 border-t border-slate-200">
-      <a href="/glossary/mql" class="text-[14px] font-semibold text-[#1d6ff2] hover:underline">What counts as an MQL</a>
-      <a href="/hire" class="inline-flex items-center px-5 py-2.5 bg-[#1d6ff2] hover:bg-blue-600 text-white text-[14px] font-semibold rounded-lg">Hire me for this</a>
-    </footer>
-  </article>
+    <div class="mt-12 p-8 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-xl font-bold mb-2">Want to measure your ad spend directly to sales pipeline?</h3>
+        <p class="text-xs sm:text-sm text-slate-300">Let’s audit your campaign attribution and CRM integration.</p>
+      </div>
+      <a href="/hire" class="px-6 py-3 rounded-full bg-[#d2f39c] text-black font-bold text-xs uppercase tracking-wider hover:bg-[#c2e887] transition-all shrink-0">
+        Work with me →
+      </a>
+    </div>
+  </div>
 </BaseLayout>

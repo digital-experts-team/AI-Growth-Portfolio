@@ -1,8 +1,5 @@
 ---
-// HeroFromUIUX.astro - Single rounded container rectangle with solid super black background (no gradients)
-// Encloses both hero floating content and Who I Work With within the same container
-import WhoIWorkWithSection from './WhoIWorkWithSection.astro';
-
+// HeroFromUIUX.astro - Full-width edge-to-edge hero image with text floating directly over it with balanced padding
 export interface Props {
   photoUrl?: string;
 }
@@ -13,99 +10,105 @@ const {
 ---
 
 <section
-  class="relative w-full bg-white text-white pt-4 sm:pt-6 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-10"
+  class="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center text-white overflow-hidden"
   aria-labelledby="hero-title"
 >
-  <div class="max-w-[1360px] mx-auto">
-    <!-- SINGLE CLEAN CONTAINER RECTANGLE WITH CORNER RADIUS - PURE SUPER BLACK -->
-    <div class="relative w-full rounded-[28px] sm:rounded-[36px] overflow-hidden bg-[#000000] border border-zinc-800 shadow-2xl flex flex-col">
+  <!-- FULL WIDTH EXTENDED HERO IMAGE ACROSS THE ENTIRE SCREEN -->
+  <img
+    src={photoUrl}
+    alt="Tibin Jacob, GTM Engineer & AI Search Specialist"
+    class="absolute inset-0 w-full h-full object-cover object-[20%_top] sm:object-center select-none pointer-events-none z-0"
+    loading="eager"
+    fetchpriority="high"
+    width="1920"
+    height="1080"
+    referrerPolicy="no-referrer"
+    onerror="this.onerror=null; this.src='https://i.ibb.co/5gNLHSnP/Hero.webp';"
+  />
+
+  <!-- Subtle gradient scrim strictly behind text for legibility -->
+  <div class="absolute inset-0 bg-gradient-to-t via-black/25 from-black/80 lg:from-black/60 to-transparent pointer-events-none z-0"></div>
+
+  <!-- FLOATING HERO CONTENT WITH BALANCED EQUAL TOP AND BOTTOM PADDING -->
+  <div class="relative z-10 w-full max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12 pt-24 sm:pt-28 pb-20 sm:pb-24 flex flex-col justify-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
       
-      <!-- TOP HERO PORTION: PHOTO ACROSS FULL CONTAINER + FLOATING CONTENT -->
-      <div class="relative w-full flex items-center min-h-[480px] sm:min-h-[520px]">
-        <!-- Photo Layer: Extending the full width of the container -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          <img
-            src={photoUrl}
-            alt="Tibin Jacob, GTM Engineer and AI growth expert for B2B"
-            class="w-full h-full object-cover object-center select-none"
-            loading="eager"
-            fetchpriority="high"
-            onerror="this.onerror=null; this.src='https://i.ibb.co/5gNLHSnP/Hero.webp';"
-          />
+      <!-- Left spacer column allowing the portrait subject to show cleanly -->
+      <div class="hidden lg:block lg:col-span-5 pointer-events-none"></div>
+
+      <!-- Hero Text Column on Right (Brought higher up with equal vertical padding) -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-5 sm:gap-6 max-w-2xl">
+        
+        <!-- Top Badge Overline -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[#d2f39c] text-[12px] font-mono font-bold tracking-wide uppercase shadow-lg">
+          <span class="w-2 h-2 rounded-xs bg-[#d2f39c]"></span>
+          <span>Tibin Jacob — GTM Engineer, AI Search & B2B Marketing</span>
         </div>
 
-        <!-- Corner Watermark Badge matching screenshot -->
-        <div class="absolute top-5 left-5 sm:top-6 sm:left-6 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#000000] border border-zinc-800 text-[11px] font-mono text-white/90 shadow-lg">
-          <span class="w-2 h-2 rounded-xs bg-[#d2f39c] animate-pulse"></span>
-          <span>Tibin Jacob.</span>
+        <!-- Main H1 Headline -->
+        <h1
+          id="hero-title"
+          class="text-white text-3xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.08] [text-shadow:_0_2px_12px_rgba(0,0,0,0.8)]"
+        >
+          AI Growth Expert for<br />
+          <span class="text-[#d2f39c] underline decoration-[#d2f39c] underline-offset-4 sm:underline-offset-8">B2B Companies.</span>
+        </h1>
+
+        <!-- Subtitle Prose -->
+        <p class="text-zinc-100 text-[15px] sm:text-[17px] lg:text-[18px] leading-relaxed font-normal max-w-xl [text-shadow:_0_1px_8px_rgba(0,0,0,0.8)]">
+          I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n and HubSpot for GTM automation; Meta and Google Ads measured to SQLs.
+        </p>
+
+        <!-- CTA Buttons Row -->
+        <div class="flex flex-wrap items-center gap-4 pt-1">
+          <!-- Primary Pill Button: See how I work ↗ -->
+          <a
+            href="#explore-work"
+            class="group inline-flex items-center gap-3 bg-white hover:bg-zinc-100 text-black font-bold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full shadow-2xl transition-all active:scale-95"
+          >
+            <span>See how I work</span>
+            <span class="w-9 h-9 rounded-full bg-black flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-45">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Secondary Pill Button: Download resume ⤓ -->
+          <a
+            href="https://drive.google.com/file/d/1uBhd_NZycAvqsasK7_VIY3R_Psad8N-n/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center gap-3 bg-black/60 hover:bg-black/80 backdrop-blur-md text-white border border-white/25 font-semibold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full transition-all active:scale-95 shadow-xl"
+          >
+            <span>Download resume</span>
+            <span class="w-9 h-9 rounded-full bg-black/80 flex items-center justify-center text-zinc-300 transition-transform duration-200 group-hover:translate-y-0.5">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </span>
+          </a>
         </div>
 
-        <!-- FLOATING CONTENT INSIDE CONTAINER ON RIGHT SIDE (SUPER BLACK BACKGROUND) -->
-        <div class="relative z-10 w-full px-6 sm:px-10 lg:px-14 xl:px-16 pt-8 sm:pt-12 pb-5 sm:pb-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <!-- Spacer column on left to showcase portrait clearly -->
-          <div class="hidden lg:block lg:col-span-5 pointer-events-none"></div>
-
-          <!-- Content Column on right floating without black fill -->
-          <div class="lg:col-span-7 flex flex-col items-start gap-5 sm:gap-6 max-w-2xl">
-            
-            <!-- Search-focused H1: Visible, readable overline style -->
-            <h1
-              id="hero-title"
-              class="text-[#d2f39c] text-[13px] sm:text-[14px] font-bold tracking-wide font-mono uppercase"
-            >
-              Tibin Jacob — GTM Engineer, AI Search (AEO/GEO) & B2B Performance Marketing
-            </h1>
-
-            <!-- Visual Headline kept punchy as styled paragraph -->
-            <p class="text-white text-3xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold tracking-tight leading-[1.08]">
-              AI Growth Expert for<br />
-              <span class="text-[#d2f39c] underline decoration-[#d2f39c] underline-offset-4 sm:underline-offset-8">B2B Companies.</span>
-            </p>
-
-            <!-- Subtitle Paragraph -->
-            <p class="text-zinc-300 text-[15px] sm:text-[16px] lg:text-[17px] leading-relaxed font-light">
-              I turn buying signals, AI search and paid demand into pipeline your sales team can work. Clay, n8n and HubSpot for GTM automation; Meta and Google Ads measured to SQLs.
-            </p>
-
-            <!-- CTA Buttons Row -->
-            <div class="flex flex-wrap items-center gap-4 pt-1">
-              <!-- Primary Pill Button: See how I work ↗ -->
-              <a
-                href="#explore-work"
-                class="group inline-flex items-center gap-3 bg-white hover:bg-zinc-100 text-black font-bold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full shadow-lg transition-all active:scale-95"
-              >
-                <span>See how I work</span>
-                <span class="w-9 h-9 rounded-full bg-[#000000] flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-45">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </span>
-              </a>
-
-              <!-- Secondary Pill Button: Download resume ⤓ -->
-              <a
-                href="/resume/tibin-jacob-gtm-engineer.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group inline-flex items-center gap-3 bg-[#000000] hover:bg-zinc-900 text-white border border-zinc-800 font-semibold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full transition-all active:scale-95 shadow-md"
-              >
-                <span>Download resume</span>
-                <span class="w-9 h-9 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-300 transition-transform duration-200 group-hover:translate-y-0.5">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <polyline points="19 12 12 19 5 12"></polyline>
-                  </svg>
-                </span>
-              </a>
-            </div>
-
+        <!-- Trust / Verification Highlights -->
+        <div class="pt-4 border-t border-white/20 w-full flex flex-wrap items-center gap-6 text-xs font-mono text-zinc-200 [text-shadow:_0_1px_6px_rgba(0,0,0,0.8)]">
+          <div class="flex items-center gap-2">
+            <span class="text-[#d2f39c] font-bold">✓</span>
+            <span>5M+ Users Reached</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[#d2f39c] font-bold">✓</span>
+            <span>Signal-Based Outbound</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[#d2f39c] font-bold">✓</span>
+            <span>Clay & n8n Specialist</span>
           </div>
         </div>
-      </div>
 
-      <!-- WHO I WORK WITH SECTION EMBEDDED INSIDE HERO CONTAINER (DIVIDER REMOVED) -->
-      <WhoIWorkWithSection />
+      </div>
 
     </div>
   </div>

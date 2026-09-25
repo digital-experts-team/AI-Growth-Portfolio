@@ -3,7 +3,7 @@
 
 @layer base {
   html {
-    background-color: #000000;
+    background-color: #121316;
     color: #ffffff;
     font-family: var(--font-sans);
     scroll-behavior: smooth;
@@ -12,8 +12,8 @@
   }
 
   body {
-    background-color: #000000;
-    background: #000000;
+    background-color: #121316;
+    background: #121316;
     color: #ffffff;
     min-height: 100vh;
     margin: 0;
@@ -34,7 +34,7 @@
 
   ::selection {
     background-color: #d2f39c;
-    color: #000000;
+    color: #121316;
   }
 }
 
@@ -72,4 +72,47 @@
     animation: none;
     overflow-x: auto;
   }
+}
+
+/* Dark Grey Bento Card Style (Matching reference layout) */
+.bento-card {
+  background-color: #1a1b1e !important;
+  background: #1a1b1e !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35), 0 4px 14px -2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  background-color: #212227 !important;
+  background: #212227 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 28px 56px -15px rgba(0, 0, 0, 0.45), 0 8px 20px -4px rgba(0, 0, 0, 0.25);
+}
+
+details.bento-card[open] {
+  background-color: #1e1f23 !important;
+  background: #1e1f23 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Big Hero Container Bento: Ambient Drop Shadow (Dark Grey) */
+.bento-hero-container {
+  background-color: #18191d !important;
+  background: #18191d !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 28px 65px -15px rgba(0, 0, 0, 0.35), 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Green highlight box with black underline for headings on white background (as in screenshot) */
+.heading-highlight {
+  background-color: #d2f39c;
+  color: #000000;
+  padding: 0.06em 0.22em;
+  text-decoration: underline;
+  text-decoration-color: #000000;
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 4px;
+  display: inline-block;
+  line-height: 1.15;
 }

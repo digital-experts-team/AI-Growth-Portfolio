@@ -1,35 +1,69 @@
 ---
 const workflows = [
-  { title: 'HubSpot lead scoring & routing', slug: 'hubspot-lead-scoring', description: 'Separate fit and engagement scores, MQL thresholds agreed with sales, and automatic stage changes, owners and follow-up.', tools: 'HubSpot · Clay · n8n' },
-  { title: 'Waterfall enrichment agent', slug: 'waterfall-enrichment', description: 'Queries data providers in order until a field is filled with a verified value, then writes it back to HubSpot with its source.', tools: 'Clay · Apollo · n8n' },
-  { title: 'Website visitors to HubSpot', slug: 'website-visitors-to-hubspot', description: 'Flags high-intent visits at account level with Zoho SalesIQ, scores them against the ICP and routes qualified accounts into HubSpot.', tools: 'Zoho SalesIQ · HubSpot · n8n' },
+  {
+    title: 'Waterfall enrichment agent',
+    slug: 'clay-waterfall-enrichment',
+    description: 'Multi-vendor cascading data waterfalls that deduplicate, verify work emails, and enrich firmographics before CRM ingestion.',
+    tools: 'Clay · Apollo · n8n',
+  },
+  {
+    title: 'Website visitors to HubSpot',
+    slug: 'website-visitors-to-hubspot',
+    description: 'Deanonymizes high-intent domain traffic in real time and automatically creates qualified accounts, contacts, and notification tasks.',
+    tools: 'Sales IQ · HubSpot · n8n',
+  },
+  {
+    title: 'Hiring & funding signal watcher',
+    slug: 'hiring-funding-signal-watcher',
+    description: 'Tracks tech stack expansion, headcount spikes, and funding events to trigger timely outreach workflows.',
+    tools: 'Clay · HubSpot · n8n',
+  },
+  {
+    title: 'CRM dedupe & write-back',
+    slug: 'crm-dedupe-write-back',
+    description: 'Continuous background hygiene merging duplicate records, normalizing company domains, and verifying contact activity.',
+    tools: 'n8n · HubSpot · PostgreSQL',
+  },
+  {
+    title: 'LLM personalization guardrails',
+    slug: 'llm-personalization-guardrails',
+    description: 'Deterministic validation pipeline ensuring AI sales generation respects tone rules, excludes forbidden words, and verifies facts.',
+    tools: 'Claude · OpenAI · n8n',
+  },
+  {
+    title: 'Reply triage & routing agent',
+    slug: 'reply-triage-agent',
+    description: 'Autonomous categorization of incoming sales replies (positive, objection, OOO, unsub) with automated calendar booking alerts.',
+    tools: 'OpenAI · HubSpot · Slack',
+  },
 ];
 ---
 
-<section class="relative w-full rounded-[28px] sm:rounded-[36px] overflow-hidden bg-[#000000] border border-zinc-800 p-6 sm:p-10 lg:p-12 text-white shadow-2xl flex flex-col gap-8 sm:gap-10" aria-labelledby="library-heading">
-  <!-- Section Header -->
-  <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-4 border-b border-zinc-800/80">
-    <div class="flex flex-col gap-1.5">
-      <span class="text-[12px] font-bold text-[#d2f39c] tracking-widest uppercase font-mono">
-        My Library.
-      </span>
-      <h2 id="library-heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-        GTM automation workflows I build
-      </h2>
-    </div>
+<section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="library-heading">
+  <div class="max-w-[1360px] mx-auto flex flex-col gap-8">
+    <!-- Section Header -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200 mb-2">
+      <div class="flex flex-col gap-1.5">
+        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+          GTM automation workflows I build
+        </span>
+        <h2 id="library-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+          My <span class="heading-highlight">Library.</span>
+        </h2>
+      </div>
 
     <!-- Production Deployments Pill -->
-    <span class="px-4 py-1.5 rounded-full bg-[#000000] border border-zinc-800 text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-300">
+    <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-600">
       PRODUCTION DEPLOYMENTS
     </span>
   </div>
 
-  <!-- Workflows Grid: Black Container Cards -->
+  <!-- Workflows Grid: Bento Black Container Cards with Fade Stroke & Drop Shadow -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     {workflows.map((wf) => (
       <a
         href={`/workflows/${wf.slug}`}
-        class="p-7 rounded-[22px] bg-[#000000] hover:bg-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col justify-between gap-6 group shadow-lg"
+        class="bento-card p-7 sm:p-8 rounded-[24px] flex flex-col justify-between gap-6 group"
       >
         <div class="flex flex-col gap-3">
           <h3 class="text-white text-[18px] font-bold tracking-tight group-hover:text-[#d2f39c] transition-colors">
@@ -40,8 +74,8 @@ const workflows = [
           </p>
         </div>
 
-        <div class="flex items-center justify-between pt-4 border-t border-zinc-900">
-          <span class="px-3 py-1 rounded-full bg-[#000000] border border-zinc-800 text-[11px] font-mono text-zinc-300">
+        <div class="flex items-center justify-between pt-4 border-t border-zinc-900/90">
+          <span class="px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 text-[11px] font-mono text-zinc-300">
             {wf.tools}
           </span>
           <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all">
@@ -54,4 +88,5 @@ const workflows = [
       </a>
     ))}
   </div>
+</div>
 </section>

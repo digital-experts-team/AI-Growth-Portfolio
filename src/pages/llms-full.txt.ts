@@ -1,12 +1,11 @@
-import { isLive } from '../lib/content';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async ({ site }) => {
   const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://tibinjacob.com';
-  const caseStudies = await getCollection('caseStudies', isLive);
+  const caseStudies = await getCollection('caseStudies');
   const workflows = await getCollection('workflows', ({ data }) => data.status === 'live');
-  const glossary = await getCollection('glossary', isLive);
+  const glossary = await getCollection('glossary');
 
   let body = `# Tibin Jacob — Full GTM Engineering Knowledge & Architecture Reference
 Site: ${siteUrl}

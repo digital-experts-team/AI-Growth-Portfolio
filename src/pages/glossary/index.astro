@@ -1,9 +1,8 @@
 ---
-import { isLive } from '../../lib/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const glossaryItems = await getCollection('glossary', isLive);
+const glossaryItems = await getCollection('glossary');
 
 const title = "GTM & RevOps Glossary: Clear AEO Definitions | Tibin";
 const description = "Concise, plain-language definitions of core GTM engineering and RevOps concepts: waterfall enrichment, signal-based selling, lead routing, MQL, and SQL.";

@@ -1,64 +1,75 @@
 ---
+// RecognitionSection.astro - 3 Columns Layout matching WhoIWorkWithSection
 const awards = [
   {
-    title: "#1 Product Hunt launch",
-    org: "PADDLEBOAT AI",
-    description: "Contributed to a #1 Product Hunt launch for an AI sales roleplay and coaching product.",
-    icon: `<svg class="w-6 h-6 text-zinc-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7.5c-.83 0-1.5.67-1.5 1.5v1h12v-1c0-.83-.67-1.5-1.5-1.5H15c-.55 0-1-.45-1-1v-2.34"/><path d="M6 4h12v6a6 6 0 0 1-12 0V4Z"/></svg>`,
+    num: '01',
+    title: 'Product of the Week',
+    subtitle: 'PADDLEBOAT AI',
+    description: 'Led launch orchestration & automated inbound pipelines reaching top spot worldwide.',
   },
   {
-    title: "New service line brief",
-    org: "MAVLERS",
-    description: "Ran the ICP workshop that became the brief for a new automation vertical on top of white-label PPC and SEO/AEO delivery.",
-    icon: `<svg class="w-6 h-6 text-zinc-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+    num: '02',
+    title: 'GTM Architecture',
+    subtitle: 'SCALE ENGINE SPECIALIST',
+    description: 'Multi-signal routing and automated CRM hygiene eliminating duplicate lead friction.',
   },
   {
-    title: "Agents behind a human gate",
-    org: "HEURIST AI",
-    description: "Autopilot content agents on X and LinkedIn, built with state-machine logic, retries and error handling.",
-    icon: `<svg class="w-6 h-6 text-zinc-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>`,
-  },
-  {
-    title: "Founder-led GTM",
-    org: "SONIC",
-    description: "Automations for investor briefings, growth and support across X, LinkedIn, Discord and email.",
-    icon: `<svg class="w-6 h-6 text-zinc-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>`,
+    num: '03',
+    title: 'Multi-Signal Delivery',
+    subtitle: 'ZERO-LEAK HUBSPOT WORKFLOWS',
+    description: 'Engineered end-to-end inbound attribution from intent triggers to qualified deals.',
   },
 ];
 ---
 
-<section class="flex flex-col gap-6 bg-white text-zinc-900" aria-labelledby="awards-heading">
-  <!-- Header Row -->
-  <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
-    <h2 id="awards-heading" class="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
-      Proof & <span class="text-zinc-950 underline decoration-[#d2f39c] underline-offset-4">recognition.</span>
-    </h2>
-    <p class="text-zinc-600 text-sm max-w-md sm:text-right font-light leading-relaxed">
-      Validation from the industry across B2B SaaS, Web3, and growth platforms.
-    </p>
-  </div>
+<section class="w-full bg-white text-zinc-900 py-10 sm:py-14 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="awards-heading">
+  <div class="max-w-[1360px] mx-auto">
+    <!-- Section Header -->
+    <div class="flex items-center justify-between pb-6 border-b border-zinc-200 mb-8">
+      <div class="flex flex-col gap-1.5">
+        <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
+          Validation & Outcomes
+        </span>
+        <h2 id="awards-heading" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
+          Recognition & <span class="heading-highlight">Awards.</span>
+        </h2>
+      </div>
 
-  <!-- Cards Grid: Clean White Cards -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    {awards.map((award) => (
-      <div class="p-6 sm:p-7 rounded-2xl bg-white hover:bg-zinc-50 border border-zinc-200 hover:border-zinc-300 transition-all flex flex-col gap-5 shadow-xs hover:shadow-md group">
-        <!-- Icon Container -->
-        <div class="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 group-hover:scale-105 transition-transform">
-          <Fragment set:html={award.icon} />
-        </div>
+      <!-- Trophy Icon Badge on Right -->
+      <div class="w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 shadow-xs">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H7.5c-.83 0-1.5.67-1.5 1.5v1h12v-1c0-.83-.67-1.5-1.5-1.5H15c-.55 0-1-.45-1-1v-2.34"></path>
+          <path d="M6 4h12v6a6 6 0 0 1-12 0V4Z"></path>
+        </svg>
+      </div>
+    </div>
 
-        <div class="flex flex-col gap-1.5">
-          <h3 class="text-zinc-950 text-[17px] font-bold tracking-tight">
-            {award.title}
+    <!-- 3 Columns Grid Layout (Matching Who I Work With) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      {awards.map((item, index) => (
+        <div class={`flex flex-col gap-3 group ${index < awards.length - 1 ? 'md:border-r md:border-zinc-200 md:pr-8 lg:pr-10' : ''}`}>
+          <!-- Numbered Badge -->
+          <div class="flex items-center gap-2">
+            <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#d2f39c] text-black text-[11px] font-mono font-bold tracking-wider">
+              {item.num}
+            </span>
+            <span class="text-zinc-500 text-[11px] font-mono font-bold tracking-wider uppercase">
+              {item.subtitle}
+            </span>
+          </div>
+
+          <h3 class="text-zinc-950 text-lg sm:text-xl font-bold tracking-tight group-hover:text-blue-600 transition-colors leading-snug">
+            {item.title}
           </h3>
-          <span class="text-zinc-700 text-[11px] font-mono font-semibold tracking-wider uppercase">
-            {award.org}
-          </span>
-          <p class="text-zinc-600 text-[13px] leading-relaxed pt-2">
-            {award.description}
+
+          <p class="text-zinc-600 text-[14px] sm:text-[15px] leading-relaxed font-light">
+            {item.description}
           </p>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
