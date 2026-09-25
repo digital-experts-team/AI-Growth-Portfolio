@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // post-deploy.mjs v2 — full automation:
-// 1. Publishing → Live (URL check, IndexNow, Notion update)
-// 2. LinkedIn text post via Composio (no expiring tokens)
+// 1. LinkedIn Ready → Live (URL check, IndexNow, Notion update, Gemini draft, → LinkedIn Scheduled)
+// 2. LinkedIn Scheduled → post at IST 19-21 window → LinkedIn Posted
 // 3. First comment with tracked URL (30s after post)
 // 4. Claude/Grok draft when LinkedIn Draft is empty
 // 5. Scheduled posting: only during IST 19:00-21:00 (US 08:30-10:30 ET)
@@ -321,7 +321,7 @@ async function publishLinkedIn(type, page, liveUrl) {
   const commentResult = await postFirstComment(res.url, firstCommentText || utmUrl);
 
   // Update Notion
-  await patch(page.id, { 'LinkedIn Posted': { checkbox: true }, 'LinkedIn Post URL': uProp(res.url) });
+  await patch(page.id, { 'LinkedIn Posted': { checkbox: true }, 'LinkedIn Post URL': uProp(res.url), Status: { select: { name: 'Live' } } });
 
   // Log to Distribution Log
   await logDist(type, page.id, `LinkedIn: ${title}`, res.url, commentResult, utmUrl);
@@ -340,7 +340,7 @@ async function publishLinkedIn(type, page, liveUrl) {
 
 // ─── STEP 1: Publishing → Live ───────────────────────────────────────────────
 for (const [type, [db, prefix]] of Object.entries(DBS)) {
-  const { results } = await query(db, { property: 'Status', select: { equals: 'Publishing' } });
+  const { results } = await query(db, { property: 'Status', select: { equals: 'LinkedIn Ready' } });
   for (const page of results) {
     const p = page.properties;
     const title = prop(p, 'H1') || prop(p, 'Title');
@@ -365,22 +365,64 @@ for (const [type, [db, prefix]] of Object.entries(DBS)) {
     }
 
     const mode = prop(p, 'LinkedIn Mode') || 'Review';
-    if (mode === 'Skip') continue;
-    if (mode === 'Auto') await publishLinkedIn(type, page, liveUrl);
+    if (mode === 'Skip') {
+      console.log(`  LinkedIn: Skip mode — not scheduling`);
+      continue;
+    }
+
+    // Draft the LinkedIn post now that we have the live URL
+    let draft = prop(p, 'LinkedIn Draft');
+    if (!draft) {
+      console.log(`  Gemini drafting LinkedIn post for "${title}"...`);
+      draft = await draftWithLLM(title, liveUrl, await pageBlocks(page.id));
+      if (draft) {
+        await patch(page.id, { 'LinkedIn Draft': rt(draft) });
+        console.log(`  LinkedIn draft written by Gemini`);
+      }
+    }
+
+    // Move to LinkedIn Scheduled — post-deploy step 2 will pick it up at the right time
+    await patch(page.id, { Status: { select: { name: 'LinkedIn Scheduled' } } });
+    console.log(`  Status → LinkedIn Scheduled (will post IST 19:00-21:00)`);
   }
 }
 
-// ─── STEP 2: Review → post when LinkedIn Approved ────────────────────────────
+// ─── STEP 2: LinkedIn Scheduled → post at IST 19:00-21:00 ──────────────────
+// Also handles: Live + LinkedIn Approved (manual approve override)
 for (const [type, [db]] of Object.entries(DBS)) {
-  const { results } = await query(db, { and: [
-    { property: 'Status',           select:   { equals: 'Live' } },
-    { property: 'LinkedIn Approved',checkbox: { equals: true   } },
-    { property: 'LinkedIn Posted',  checkbox: { equals: false  } },
+  // Auto: LinkedIn Scheduled entries, post during time window
+  const { results: scheduled } = await query(db, { and: [
+    { property: 'Status',          select:   { equals: 'LinkedIn Scheduled' } },
+    { property: 'LinkedIn Posted', checkbox: { equals: false } },
   ]});
-  for (const page of results) {
-    const slug     = (prop(page.properties, 'URL Slug') || '').split('/').filter(Boolean).pop();
+  for (const page of scheduled) {
+    const slug    = (prop(page.properties, 'URL Slug') || '').split('/').filter(Boolean).pop();
     const [, prefix] = DBS[type];
-    const liveUrl  = `${SITE}${prefix}${slug}`;
+    const liveUrl = `${SITE}${prefix}${slug}`;
+    const liMode  = prop(page.properties, 'LinkedIn Mode') || 'Review';
+
+    if (liMode === 'Auto') {
+      await publishLinkedIn(type, page, liveUrl);
+    } else {
+      // Review mode: post only if LinkedIn Approved is ticked
+      if (prop(page.properties, 'LinkedIn Approved')) {
+        await publishLinkedIn(type, page, liveUrl);
+      } else {
+        console.log(`  Waiting for LinkedIn Approved tick: "${prop(page.properties, 'H1') || prop(page.properties, 'Title')}"`);
+      }
+    }
+  }
+
+  // Manual override: Live + LinkedIn Approved ticked directly
+  const { results: manual } = await query(db, { and: [
+    { property: 'Status',           select:   { equals: 'Live' } },
+    { property: 'LinkedIn Approved',checkbox: { equals: true  } },
+    { property: 'LinkedIn Posted',  checkbox: { equals: false } },
+  ]});
+  for (const page of manual) {
+    const slug    = (prop(page.properties, 'URL Slug') || '').split('/').filter(Boolean).pop();
+    const [, prefix] = DBS[type];
+    const liveUrl = `${SITE}${prefix}${slug}`;
     await publishLinkedIn(type, page, liveUrl);
   }
 }
