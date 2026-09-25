@@ -1,64 +1,148 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "B2B Performance Marketing: Meta & Google Ads to Pipeline | Tibin Jacob";
-const description = "Performance marketing engineered for B2B pipeline: Meta & Google Ads measured to SQLs, pipeline revenue, and account-level conversion rates.";
+const title = "B2B Performance Marketing: Meta & Google Ads | Tibin";
+const description = "Performance marketing engineered for B2B pipeline: Meta & Google Ads measured to SQLs, pipeline revenue, and account conversion.";
+const canonicalUrl = "https://tibinjacob.com/b2b-performance-marketing";
+
+const faqList = [
+  {
+    q: "How do you measure ad spend to CRM pipeline instead of form fills?",
+    a: "By setting up offline conversion tracking, passing UTM parameters and GCLID/FBCLID values into CRM hidden fields, and firing conversion webhooks back to ad platforms when opportunities progress to SQL stage."
+  },
+  {
+    q: "Which ad platforms work best for B2B pipeline generation?",
+    a: "Google Ads captures high-intent bottom-of-funnel search queries (competitor alternatives, pricing, category keywords), while Meta Ads and LinkedIn drive targeted account awareness and retargeting."
+  },
+  {
+    q: "How do you prevent wasting ad budget on unqualified traffic?",
+    a: "By setting negative keyword lists, filtering traffic through firmographic ICP gates, and optimizing campaigns for offline SQL conversions rather than raw lead volume."
+  }
+];
 ---
 
 <BaseLayout
   title={title}
   description={description}
+  canonicalUrl={canonicalUrl}
+  schemaType="WebPage"
+  faq={faqList}
   breadcrumbs={[
     { name: 'Home', url: '/' },
     { name: 'B2B Performance Marketing', url: '/b2b-performance-marketing' },
   ]}
 >
   <div class="py-6 max-w-4xl mx-auto">
+    <!-- 1. Breadcrumb -->
+    <nav class="text-xs font-mono text-slate-400 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-600">B2B Performance Marketing</span>
+    </nav>
+
     <!-- Header -->
-    <div class="mb-10">
-      <div class="text-[11px] font-mono uppercase tracking-wider text-cyan-600 font-semibold mb-2">
-        Paid demand, measured to pipeline
+    <header class="mb-8 pb-6 border-b border-slate-200">
+      <!-- 2. Service category label (small pill) -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-200 bg-cyan-50 text-cyan-700 text-xs font-mono font-semibold mb-4">
+        <span>Paid Demand & Attribution</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-        B2B Performance Marketing: <span class="heading-highlight">Meta & Google Ads to Pipeline.</span>
+
+      <!-- 3. H1 — keyword-first -->
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
+        B2B Performance Marketing, Measured to Pipeline
       </h1>
-      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-        Optimizing paid campaigns for MQL form fills leads to low-quality leads and SDR fatigue. Here is how we measure Meta & Google Ads directly to pipeline revenue, SQL conversion, and target account engagement.
-      </p>
+
+      <!-- 4. Short answer block (lime left border) -->
+      <div class="p-5 rounded-xl border-l-4 border-[#d2f39c] bg-slate-50 my-6">
+        <div class="text-[11px] font-mono text-slate-500 font-bold uppercase tracking-wider mb-1">
+          Service Overview
+        </div>
+        <p class="text-base sm:text-lg text-slate-900 leading-relaxed font-medium">
+          I build and manage Meta and Google Ads campaigns engineered for B2B pipeline generation. By connecting ad platforms directly to HubSpot CRM offline conversions, ad spend is optimized for qualified SQLs and pipeline revenue rather than empty form fills.
+        </p>
+      </div>
+    </header>
+
+    <!-- 5. Body sections with H2 headings (min 500 words) -->
+    <div class="prose max-w-none space-y-8 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">The Flaw in Traditional B2B Ad Management</h2>
+        <p>
+          Optimizing campaigns solely for top-of-funnel lead volume generates cheap contacts, unqualified inquiries, and SDR fatigue. When ad algorithms optimize for form fills, they find users who download gated PDFs but lack purchasing authority or company fit.
+        </p>
+        <p>
+          Modern B2B performance marketing solves this by passing offline conversion events back to Google Ads and Meta Ads API. Campaigns optimize for contacts that pass ICP firmographic filters and reach SQL or opportunity stages in your CRM.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Search Demand Capture (Google Ads)</h2>
+        <p>
+          High-intent search traffic represents buyers actively searching for solutions. We structure Google Search campaigns around bottom-of-funnel intent keywords: competitor comparisons, pricing queries, and software category terms. Traffic routes to fast, conversion-focused landing pages designed for clean lead capture.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Paid Social & Account Retargeting (Meta Ads)</h2>
+        <p>
+          Meta Ads and paid social provide cost-effective reach across target account decision-makers. We run multi-touch retargeting sequences featuring product walkthroughs, customer proofs, and architectural teardowns to keep your brand top-of-mind throughout extended B2B sales cycles.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Closed-Loop Attribution & Offline Conversion Sync</h2>
+        <p>
+          Every form submission captures campaign metadata (UTM source, medium, campaign, term, gclid, fbclid) and pushes them into hidden CRM fields. When an account progresses from lead to Sales Qualified Lead (SQL), a server-side webhook fires an offline conversion event back to Google and Meta Conversions API, retraining ad algorithms on real revenue intent.
+        </p>
+      </section>
+
+      <!-- 6. Proof section -->
+      <section class="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+        <h2 class="text-lg font-bold text-slate-900 mb-2">See Pipeline Automation in Production</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+          Explore how inbound signals and conversion tracking feed into automated CRM workflows in my case studies.
+        </p>
+        <div class="flex flex-wrap gap-4 text-xs font-mono">
+          <a href="/work/mavlers-partner-agency-signals" class="text-[#1d6ff2] hover:underline font-semibold">
+            Mavlers Case Study →
+          </a>
+          <a href="/workflows/website-visitors-to-hubspot" class="text-[#1d6ff2] hover:underline font-semibold">
+            Website Visitors Workflow →
+          </a>
+        </div>
+      </section>
     </div>
 
-    <!-- Features -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
-      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
-        <div>
-          <div class="text-xs font-mono text-cyan-600 font-semibold mb-2">MOTION 01</div>
-          <h2 class="text-xl font-bold text-slate-900 mb-2">High-Intent Google Ads & Search PPC</h2>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-            Capturing high-intent BOFU search queries, competitor alternatives, and pricing searches with dedicated high-converting landing pages.
-          </p>
-        </div>
-        <span class="text-xs font-mono text-slate-400">Target: High-intent SQL conversion</span>
+    <!-- 7. FAQ section (<details><summary>) -->
+    <section class="mt-12 pt-8 border-t border-slate-200">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        {faqList.map((item) => (
+          <details class="group rounded-xl border border-slate-200 bg-white p-4 [&_summary::-webkit-details-marker]:none">
+            <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-semibold text-sm sm:text-base">
+              <span>{item.q}</span>
+              <span class="shrink-0 rounded-full bg-slate-100 p-1.5 text-slate-900 sm:p-2 transition group-open:-rotate-180">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-4 leading-relaxed text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+              {item.a}
+            </p>
+          </details>
+        ))}
       </div>
+    </section>
 
-      <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
-        <div>
-          <div class="text-xs font-mono text-cyan-600 font-semibold mb-2">MOTION 02</div>
-          <h2 class="text-xl font-bold text-slate-900 mb-2">Meta Ads & Paid Social Retargeting</h2>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-            Targeting decision-makers at ICP companies with high-signal content, video teardowns, and case study proofs to keep your brand top-of-mind during long deal cycles.
-          </p>
-        </div>
-        <span class="text-xs font-mono text-slate-400">Target: ICP account engagement</span>
-      </div>
-    </div>
-
+    <!-- 8. "Hire me for this" CTA button -->
     <div class="mt-12 p-8 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
       <div>
-        <h3 class="text-xl font-bold mb-2">Want to measure your ad spend directly to sales pipeline?</h3>
-        <p class="text-xs sm:text-sm text-slate-300">Let’s audit your campaign attribution and CRM integration.</p>
+        <h3 class="text-xl font-bold mb-2">Ready to align ad spend with CRM pipeline?</h3>
+        <p class="text-xs sm:text-sm text-slate-300">Let’s audit your paid campaigns and build a closed-loop attribution system.</p>
       </div>
-      <a href="/hire" class="px-6 py-3 rounded-full bg-[#d2f39c] text-black font-bold text-xs uppercase tracking-wider hover:bg-[#c2e887] transition-all shrink-0">
-        Work with me →
+      <a href="/hire" class="cta-button text-xs px-6 py-3 rounded-full font-bold uppercase tracking-wider shrink-0">
+        Hire me for this
       </a>
     </div>
   </div>

@@ -9,7 +9,7 @@ targetKeyword: "clay waterfall enrichment"
 audience: ["GTM Engineer", "Outbound Specialist"]
 sourceRole: "General"
 publishedDate: 2026-09-01
-tools: ["Clay", "Datagma", "Findymail", "Debounce"]
+tools: ["Clay", "Apollo", "n8n", "HubSpot"]
 trigger: "Account Domain Ingested"
 steps: []
 ---

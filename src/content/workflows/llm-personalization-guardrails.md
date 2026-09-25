@@ -9,7 +9,7 @@ targetKeyword: "llm personalization guardrails"
 audience: ["GTM Engineer", "Head of Demand"]
 sourceRole: "General"
 publishedDate: 2026-09-01
-tools: ["Claude API", "n8n", "Smartlead"]
+tools: ["Claude API", "n8n", "Instantly"]
 trigger: "Draft Copy Generated"
 steps: []
 ---

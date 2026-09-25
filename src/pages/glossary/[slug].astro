@@ -18,13 +18,17 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const slug = entry.data.slug || entry.id;
-const title = `What is ${entry.data.title}? Definition & GTM Architecture | Tibin Jacob`;
+const title = entry.data.metaTitle && entry.data.metaTitle.length <= 60
+  ? entry.data.metaTitle
+  : `What is ${entry.data.title}? | Tibin Jacob`;
 const description = entry.data.description;
+const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
 ---
 
 <BaseLayout
   title={title}
   description={description}
+  canonicalUrl={canonicalUrl}
   schemaType="DefinedTerm"
   publishedDate={entry.data.publishedDate}
   updatedDate={entry.data.updatedDate}
@@ -36,7 +40,7 @@ const description = entry.data.description;
   ]}
 >
   <article class="py-6 max-w-4xl mx-auto">
-    <!-- Breadcrumbs -->
+    <!-- Breadcrumb -->
     <nav class="text-xs font-mono text-slate-400 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
       <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
@@ -46,9 +50,9 @@ const description = entry.data.description;
     </nav>
 
     <!-- Header -->
-    <header class="mb-10 pb-8 border-b border-slate-200">
+    <header class="mb-8 pb-6 border-b border-slate-200">
       <div class="flex items-center gap-3 mb-3">
-        <span class="text-xs font-mono text-cyan-700 bg-cyan-50 border border-cyan-200 px-2.5 py-1 rounded">
+        <span class="text-xs font-mono text-cyan-700 bg-cyan-50 border border-cyan-200 px-2.5 py-1 rounded font-semibold">
           {entry.data.cluster}
         </span>
         <span class="text-xs font-mono text-slate-500">
@@ -56,31 +60,30 @@ const description = entry.data.description;
         </span>
       </div>
 
-      <div class="text-xs font-mono uppercase tracking-wider text-cyan-600 font-semibold mb-2">
-        {entry.data.title}
-      </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4 leading-tight">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
         What is {entry.data.title}?
       </h1>
 
-      <!-- AEO Definition Box -->
-      <div class="p-5 rounded-xl border border-cyan-200 bg-cyan-50/50 my-6">
-        <div class="text-[11px] font-mono text-cyan-700 font-semibold uppercase tracking-wider mb-2">
-          Direct AEO Answer / Definition
+      <!-- Definition Block (Lime Left Border Callout) -->
+      <div class="p-5 rounded-xl border-l-4 border-[#d2f39c] bg-slate-50 my-6 shadow-sm">
+        <div class="text-[11px] font-mono text-slate-500 font-bold uppercase tracking-wider mb-2">
+          Definition / Direct Answer
         </div>
         <p class="text-base sm:text-lg text-slate-900 leading-relaxed font-medium">
           {entry.data.definition}
         </p>
       </div>
 
-      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-500">
-        <span>Related Concepts:</span>
-        {entry.data.related.map((r) => (
-          <span class="bg-slate-100 border border-slate-200 text-slate-700 px-2 py-0.5 rounded">
-            {r}
-          </span>
-        ))}
-      </div>
+      {entry.data.related && entry.data.related.length > 0 && (
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
+          <span>Related Terms:</span>
+          {entry.data.related.map((r: string) => (
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 px-2.5 py-1 rounded">
+              {r}
+            </span>
+          ))}
+        </div>
+      )}
     </header>
 
     <!-- Content -->
@@ -88,14 +91,38 @@ const description = entry.data.description;
       <Content />
     </div>
 
-    <!-- Related Links & CTA -->
+    <!-- FAQ Section (<details><summary> Accordion) -->
+    {entry.data.faq && entry.data.faq.length > 0 && (
+      <section class="mt-12 pt-8 border-t border-slate-200">
+        <h2 class="text-xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {entry.data.faq.map((item: { q: string; a: string }) => (
+            <details class="group rounded-xl border border-slate-200 bg-white p-4 [&_summary::-webkit-details-marker]:none">
+              <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-semibold text-sm sm:text-base">
+                <span>{item.q}</span>
+                <span class="shrink-0 rounded-full bg-slate-100 p-1.5 text-slate-900 sm:p-2 transition group-open:-rotate-180">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 leading-relaxed text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+                {item.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Footer Links -->
     <footer class="mt-12 pt-8 border-t border-slate-200 flex flex-wrap justify-between items-center gap-4">
       <a href="/glossary" class="text-xs font-mono text-slate-500 hover:text-slate-900 transition-colors">
         ← Back to Glossary Index
       </a>
 
-      <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
-        Discuss Technical Implementation
+      <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg font-bold">
+        Hire me for this motion
       </a>
     </footer>
   </article>

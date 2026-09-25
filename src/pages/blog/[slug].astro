@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import FAQ from '../../components/FAQ.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -19,13 +18,22 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 const slug = entry.data.slug || entry.id;
-const title = `${entry.data.title} | Tibin Jacob`;
+const title = entry.data.metaTitle && entry.data.metaTitle.length <= 60
+  ? entry.data.metaTitle
+  : `${entry.data.title} | Tibin Jacob`.slice(0, 60);
 const description = entry.data.description;
+const canonicalUrl = `https://tibinjacob.com/blog/${slug}`;
+const formattedDate = entry.data.updatedDate
+  ? entry.data.updatedDate.toISOString().split('T')[0]
+  : entry.data.publishedDate
+  ? entry.data.publishedDate.toISOString().split('T')[0]
+  : '2026-09-25';
 ---
 
 <BaseLayout
   title={title}
   description={description}
+  canonicalUrl={canonicalUrl}
   schemaType="Article"
   publishedDate={entry.data.publishedDate}
   updatedDate={entry.data.updatedDate}
@@ -37,7 +45,7 @@ const description = entry.data.description;
   ]}
 >
   <article class="py-6 max-w-4xl mx-auto">
-    <!-- Breadcrumbs -->
+    <!-- 1. Breadcrumb -->
     <nav class="text-xs font-mono text-slate-400 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
       <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
@@ -47,53 +55,92 @@ const description = entry.data.description;
     </nav>
 
     <!-- Header -->
-    <header class="mb-10 pb-8 border-b border-slate-200">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="text-xs font-mono text-cyan-700 bg-cyan-50 border border-cyan-200 px-2.5 py-1 rounded">
+    <header class="mb-8 pb-6 border-b border-slate-200">
+      <!-- 2. Cluster label (small pill) -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-mono text-cyan-700 bg-cyan-50 border border-cyan-200 px-2.5 py-1 rounded font-semibold">
           {entry.data.cluster}
-        </span>
-        <span class="text-xs font-mono text-slate-500">
-          Format: <strong class="text-slate-900 capitalize">{entry.data.type} Guide</strong>
-        </span>
-        <span class="text-xs font-mono text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
-          {entry.data.status === 'draft' ? 'Draft Outline' : 'Published'}
         </span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4 leading-tight">
+      <!-- 3. H1 — article title -->
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
         {entry.data.title}
       </h1>
 
-      <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-6">
-        {entry.data.description}
-      </p>
-
-      <div class="text-xs font-mono text-slate-400">
-        Primary Search Intent: <span class="text-slate-700">{entry.data.targetKeyword || 'GTM Strategy'}</span>
+      <!-- 4. Byline line: Tibin Jacob, GTM Engineer · Updated [date] -->
+      <div class="text-xs font-mono text-slate-500 mb-6">
+        Tibin Jacob, GTM Engineer · Updated {formattedDate}
       </div>
+
+      <!-- 5. Short answer block (styled callout with lime left border, no background fill, NOT a blockquote tag) -->
+      {entry.data.shortAnswer ? (
+        <div class="p-5 rounded-xl border-l-4 border-[#d2f39c] my-6">
+          <div class="text-[11px] font-mono text-slate-500 font-bold uppercase tracking-wider mb-1">
+            Summary / Direct Answer
+          </div>
+          <p class="text-base sm:text-lg text-slate-900 leading-relaxed font-medium">
+            {entry.data.shortAnswer}
+          </p>
+        </div>
+      ) : (
+        <div class="p-5 rounded-xl border-l-4 border-[#d2f39c] my-6">
+          <div class="text-[11px] font-mono text-slate-500 font-bold uppercase tracking-wider mb-1">
+            Summary
+          </div>
+          <p class="text-base sm:text-lg text-slate-900 leading-relaxed font-medium">
+            {entry.data.description}
+          </p>
+        </div>
+      )}
     </header>
 
-    <!-- Content -->
+    <!-- 6. Article body -->
     <div class="prose max-w-none space-y-6 text-slate-700 leading-relaxed text-sm sm:text-base">
       <Content />
     </div>
 
-    <!-- FAQ Component -->
-    {entry.data.faq && entry.data.faq.length > 0 && (
-      <div class="mt-12 pt-8 border-t border-slate-200">
-        <FAQ items={entry.data.faq} />
+    <!-- 7. "See this in production" link -->
+    {entry.data.proofLink && (
+      <div class="mt-8 p-4 rounded-xl border border-slate-200 bg-slate-50">
+        <a href={entry.data.proofLink} class="text-sm font-semibold text-[#1d6ff2] hover:underline inline-flex items-center gap-1">
+          See this in production: Related Case Study or Workflow →
+        </a>
       </div>
     )}
 
-    <!-- Related Links & CTA -->
-    <footer class="mt-12 pt-8 border-t border-slate-200 flex flex-wrap justify-between items-center gap-4">
+    <!-- 8. "Hire me for this" button -->
+    <div class="mt-8 flex items-center justify-between gap-4 pt-6 border-t border-slate-200">
       <a href="/blog" class="text-xs font-mono text-slate-500 hover:text-slate-900 transition-colors">
-        ← Back to Writing Index
+        ← Back to Writing
       </a>
+      <a href="/hire" class="cta-button text-xs px-5 py-2.5 rounded-lg font-bold">
+        Hire me for this
+      </a>
+    </div>
 
-      <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
-        Discuss GTM Strategy
-      </a>
-    </footer>
+    <!-- 9. FAQ section (visible accordion using <details><summary>) -->
+    {entry.data.faq && entry.data.faq.length > 0 && (
+      <section class="mt-12 pt-8 border-t border-slate-200">
+        <h2 class="text-xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {entry.data.faq.map((item: { q: string; a: string }) => (
+            <details class="group rounded-xl border border-slate-200 bg-white p-4 [&_summary::-webkit-details-marker]:none">
+              <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-semibold text-sm sm:text-base">
+                <span>{item.q}</span>
+                <span class="shrink-0 rounded-full bg-slate-100 p-1.5 text-slate-900 sm:p-2 transition group-open:-rotate-180">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 leading-relaxed text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+                {item.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
   </article>
 </BaseLayout>

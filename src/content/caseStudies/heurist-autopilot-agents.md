@@ -23,41 +23,36 @@ faq:
     a: "Every generated post was buffered into a strict state machine with human-in-the-loop Slack approval buttons before dispatch."
 ---
 
-## Executive Summary
+> **Short answer:** I built an automated social content agent for Heurist AI that ingested technical updates, summarized them using Claude API, and routed draft posts to a Slack channel with interactive 1-click approval buttons before publishing to X and LinkedIn.
 
-Heurist AI is a decentralized AI cloud platform. The challenge was maintaining constant, authoritative technical engagement across social media channels (X and LinkedIn) without hiring an expensive editorial team.
+## Context
 
-## The Core Bottleneck
+Heurist AI is a decentralized AI cloud platform. The primary challenge was maintaining consistent, authoritative technical engagement across social media channels without hiring a dedicated editorial team or risking brand embarrassment through unvetted AI output.
 
-Purely autonomous AI posting tools frequently hallucinate, repeat stale templates, or cause brand embarrassment. Conversely, manual drafting creates severe content bottlenecks and irregular posting cadences.
+## The system
 
-## Architecture Schematic
-
-```text
-[Tech RSS / GitHub Commits / Papers] ──> [Claude / GPT Summarizer]
-                                                   │
-                   ┌───────────────────────────────┘
-                   ▼
-      [State Machine: Draft -> Format -> Validation]
-       ├── Validation Failed ──> Retries (Max 3) ──> Error Log
-       └── Validation Passed ──> [Slack Interactive Approval Gate]
-                                   ├── Reject  ──> Feed to RL Feedback
-                                   └── Approve ──> Scheduled Multi-Platform Dispatch
+```mermaid
+graph TD
+    A[Tech Updates & GitHub Commits] --> B[Claude API Summarizer]
+    B --> C[State Machine: Draft -> Format]
+    C --> D[Slack Interactive Approval Gate]
+    D -->|Approved| E[Publish to X & LinkedIn]
+    D -->|Rejected| F[Feedback Loop]
 ```
 
-## How I Built It
+## How I built it
 
 1. **State Machine Logic**: Structured workflows inside n8n with deterministic states (`DRAFTED`, `FORMATTED`, `AWAITING_REVIEW`, `APPROVED`, `DISPATCHED`).
 2. **Error Recovery & Circuit Breakers**: Built retry loops with exponential backoff for LLM rate limits and API timeouts.
 3. **Interactive Approval Gate**: Dispatched formatted previews with 1-click Approve/Edit/Reject buttons into a dedicated Slack channel.
-4. **Distribution Automation**: Routed approved payloads to X (Twitter) API v2 and LinkedIn marketing endpoints with native media attachments.
+4. **Distribution Automation**: Routed approved payloads to X API and LinkedIn marketing endpoints with native media attachments.
 
-## Verified Results
+## Results
 
 - Maintained regular top-of-funnel technical presence across X and LinkedIn without a dedicated content department.
 - Designed agent workflows with resilient state-machine logic, retries, and comprehensive error handling.
 - Ensured 100% of outbound social posts passed through human editorial verification before publishing.
 
-## What I Would Do Differently
+[See the underlying workflow: Waterfall Enrichment](/workflows/waterfall-enrichment)
 
-TODO(tibin): Add notes on automated comment sentiment analysis and inbound engagement auto-replies.
+[Hire me for this motion](/hire)

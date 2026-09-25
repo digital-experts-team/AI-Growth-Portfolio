@@ -15,7 +15,7 @@ export function getStaticPaths() {
       tool: 'hubspot',
       name: 'HubSpot',
       category: 'CRM Architecture & SLA Routing',
-      description: 'How I configure HubSpot lifecycle stages, round-robin lead distribution, and automated rep Slack alerts with 15-minute SLAs.',
+      description: 'How I configure HubSpot lifecycle stages, round-robin lead distribution, and automated rep Slack alerts.',
       workflows: ['/workflows/website-visitors-to-hubspot'],
       caseStudy: '/work/mavlers-partner-agency-signals',
     },
@@ -72,7 +72,7 @@ export interface Props {
 
 const { item } = Astro.props;
 
-const title = `${item.name} for GTM Engineering & RevOps | Tibin Jacob`;
+const title = `${item.name} for GTM Engineering & RevOps | Tibin`;
 const description = item.description;
 ---
 
@@ -92,7 +92,7 @@ const description = item.description;
         {item.category}
       </div>
       <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-        {item.name} in My GTM Architecture
+        {item.name} in My GTM Pipeline Systems
       </h1>
       <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
         {item.description}

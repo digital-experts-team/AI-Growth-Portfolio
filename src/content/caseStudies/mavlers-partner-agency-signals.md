@@ -25,40 +25,36 @@ faq:
     a: "Zoho Sales IQ for real-time visitor identification, Clay for enrichment, and HubSpot for SLA routing."
 ---
 
-## Executive Summary
+> **Short answer:** At Mavlers, I built a signal-based inbound and outbound engine using Zoho Sales IQ, Clay, and HubSpot. The system captured high-intent site traffic, filtered for agency firmographics, enriched decision-makers, and routed qualified accounts directly to account executives.
 
-Mavlers provides white-label digital delivery (SEO, PPC, and AEO) exclusively to other agencies. The core GTM challenge was separating retail brand inquiries from high-value agency partners who needed white-label fulfillment at scale.
+## Context
 
-## The Core Bottleneck
+Mavlers provides white-label digital delivery (SEO, PPC, and AEO) exclusively to other agencies. The primary GTM challenge was separating end-client retail brand inquiries from high-value agency partners who needed white-label fulfillment capacity at scale.
 
-Traditional inbound forms and ad traffic generated standard brand-side MQLs. Sales representatives spent excessive hours disqualifying end-clients who lacked the partner volume profile required for sustainable white-label retainers.
+## The system
 
-## Architecture Schematic
-
-```text
-[Sales IQ Intent] ──> [Domain IP Resolution] ──> [Clay ICP Fit Matrix]
-                                                          │
-                   ┌──────────────────────────────────────┘
-                   ▼
-      [Is Agency Partner?]
-       ├── NO  ──> Standard Nurture Track
-       └── YES ──> [HubSpot Partner Pipeline Stage: SQL]
-                     └──> Round-Robin AE Notification (SLA 15m)
+```mermaid
+graph TD
+    A[Zoho Sales IQ Inbound Traffic] --> B[Domain IP Resolution]
+    B --> C[Clay Agency ICP Fit Gate]
+    C -->|Fits Agency ICP| D[HubSpot Partner SQL Stage]
+    C -->|Direct Brand| E[Standard Nurture Track]
+    D --> F[Round-Robin AE Allocation & Slack Alert]
 ```
 
-## How I Built It
+## How I built it
 
 1. **Multi-Signal Intent Capture**: Deployed Sales IQ tracking across key white-label service pages and pricing calculators.
 2. **Deterministic ICP Filtering**: Programmed enrichment logic in Clay to filter out direct brands, isolating marketing, digital, and media agencies with 10–200 employees.
 3. **HubSpot Architecture**: Mapped intent scores directly into HubSpot lifecycle stages, eliminating manual SDR qualification overhead.
 4. **ICP Workshop & Offer Expansion**: Led an internal ICP workshop with executive leadership that formed the blueprint for an automated delivery add-on package.
 
-## Verified Results
+## Results
 
 - Owned the inbound-to-outbound transition end to end: visitors were flagged, scored against agency ICP criteria, and pushed into active sales sequences within HubSpot.
 - Created alignment across sales and delivery teams using standard MQL → SQL transitions that sales representatives trusted.
-- Delivered the technical foundation for a new automation service vertical built on top of existing white-label SEO and PPC retainers.
+- Delivered the technical foundation for a new automation service vertical built on top of existing white-label retainers.
 
-## What I Would Do Differently
+[See the underlying workflow: Website Visitors to HubSpot](/workflows/website-visitors-to-hubspot)
 
-TODO(tibin): Add reflections on secondary webhook fallback handling and automated partner onboarding portal integration.
+[Hire me for this motion](/hire)

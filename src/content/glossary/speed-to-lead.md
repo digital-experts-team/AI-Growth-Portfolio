@@ -1,7 +1,7 @@
 ---
 title: "Speed-to-Lead"
 description: "The time elapsed between a prospect expressing buying intent and a sales rep contacting them, directly dictating pipeline conversion rates."
-metaTitle: "What is Speed-to-Lead? GTM Metric Definition | Tibin"
+metaTitle: "What is Speed-to-Lead? | Tibin Jacob"
 slug: "speed-to-lead"
 status: "live"
 cluster: "RevOps"
@@ -10,28 +10,25 @@ audience: ["VP Sales", "RevOps Manager", "GTM Engineer"]
 proofLink: "/workflows/website-visitors-to-hubspot"
 publishedDate: 2026-08-01
 updatedDate: 2026-09-20
-definition: "Speed-to-lead measures the elapsed time between a prospective buyer submitting an inquiry or triggering a high-intent signal and a sales representative initiating contact. Responding within five minutes dramatically increases qualification rates compared to delays over an hour, making automated routing, instant Slack notifications, and calendar links essential GTM components."
+definition: "Speed-to-lead measures the elapsed time between a prospective buyer submitting an inquiry or triggering a high-intent signal and a sales representative initiating contact. Responding quickly increases qualification rates compared to delays over an hour, making automated routing, instant Slack notifications, and calendar links essential GTM components."
 related: ["lead-routing", "signal-based-selling", "sal"]
 faq:
-  - q: "Why is the 5-minute response SLA standard in B2B?"
+  - q: "Why is rapid response important in B2B inbound sales?"
     a: "Prospects are actively at their desk evaluating your product. Contacting them immediately catches them while context is fresh."
 ---
 
-import AnswerBlock from '../../components/AnswerBlock.astro';
+## Why it matters for B2B
 
-<AnswerBlock question="What is Speed-to-Lead?">
-Speed-to-lead measures the elapsed time between a prospective buyer submitting an inquiry or triggering a high-intent signal and a sales representative initiating contact. Responding within five minutes dramatically increases qualification rates compared to delays over an hour, making automated routing, instant Slack notifications, and calendar links essential GTM components.
-</AnswerBlock>
+Inbound leads decay in value rapidly. When a buyer submits a demo request or browses pricing pages, their attention is focused on solving an immediate problem. If sales outreach arrives hours or days later, the buyer has likely scheduled calls with competitors or moved on to other priorities.
 
-## The Engineering Behind Sub-15 Minute SLAs
+Achieving rapid speed-to-lead requires automated architecture: webhooks trigger on signal capture, check rep calendar availability, assign ownership in HubSpot, and dispatch actionable alerts directly to sales Slack channels.
 
-Achieving rapid response requires tight integration: webhook listeners trigger instantaneously, check rep calendar availability, assign ownership via HubSpot, and post actionable mobile alerts to sales Slack channels.
+## How it connects
 
-<div class="mt-8 pt-6 border-t border-[var(--surface-border)] flex flex-wrap gap-4 items-center justify-between text-sm">
-  <a href="/workflows/website-visitors-to-hubspot" class="text-[var(--accent)] hover:underline">
-    See Real-Time SLA Routing Workflows →
-  </a>
-  <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
-    Hire me for this motion
-  </a>
-</div>
+- **Related Terms**: Explore [Lead Routing](/glossary/lead-routing), [Signal-Based Selling](/glossary/signal-based-selling), and [Sales Accepted Lead (SAL)](/glossary/sal).
+- **In Production**: See SLA routing in the [Website Visitors to HubSpot Workflow](/workflows/website-visitors-to-hubspot) and [HubSpot Lead Routing Blueprint](/workflows/hubspot-lead-routing).
+- **Deep Dive**: Read [Lead Routing Best Practices](/blog/lead-routing-best-practices) for SLA workflow blueprints.
+
+[See it in production: Website Visitors to HubSpot](/workflows/website-visitors-to-hubspot)
+
+[Hire me for this motion](/hire)

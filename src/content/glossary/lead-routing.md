@@ -1,7 +1,7 @@
 ---
 title: "Lead Routing"
 description: "The automated distribution of inbound leads and outbound accounts to sales representatives based on territory, size, and assignment rules."
-metaTitle: "What is Lead Routing? GTM & RevOps Definition | Tibin"
+metaTitle: "What is Lead Routing? | Tibin Jacob"
 slug: "lead-routing"
 status: "live"
 cluster: "RevOps"
@@ -10,28 +10,25 @@ audience: ["RevOps Leader", "Sales Operations"]
 proofLink: "/workflows/website-visitors-to-hubspot"
 publishedDate: 2026-08-01
 updatedDate: 2026-09-20
-definition: "Lead routing is the automated assignment of inbound leads and outbound accounts to sales representatives based on predefined rules. Factors include geographic territory, company headcount, annual revenue, industry vertical, and account ownership history. Automated routing eliminates manual triage delays, enforces response SLAs, and ensures equitable pipeline distribution across the sales team."
+definition: "Lead routing is the automated assignment of inbound leads and outbound accounts to sales representatives based on predefined rules. Factors include geographic territory, company headcount, industry vertical, and account ownership history. Automated routing eliminates manual triage delays, enforces response SLAs, and ensures pipeline distribution across the team."
 related: ["speed-to-lead", "crm-write-back", "sql"]
 faq:
   - q: "What happens when lead routing fails?"
-    a: "Leads sit untouched in unassigned queues, response times spike beyond SLA thresholds, and conversion rates plummet."
+    a: "Leads sit untouched in unassigned queues, response times spike beyond SLA thresholds, and conversion rates drop significantly."
 ---
 
-import AnswerBlock from '../../components/AnswerBlock.astro';
+## Why it matters for B2B
 
-<AnswerBlock question="What is Lead Routing?">
-Lead routing is the automated assignment of inbound leads and outbound accounts to sales representatives based on predefined rules. Factors include geographic territory, company headcount, annual revenue, industry vertical, and account ownership history. Automated routing eliminates manual triage delays, enforces response SLAs, and ensures equitable pipeline distribution across the sales team.
-</AnswerBlock>
+Speed-to-lead directly impacts conversion rates. When a prospect requests a demo or engages with high-intent pricing pages, every minute of delay reduces the likelihood of booking a meeting. Manual triage creates bottlenecks and inconsistent rep assignments.
 
-## Deterministic vs. Heuristic Routing
+Automated lead routing eliminates assignment friction by instantly matching incoming accounts to the right territory account executive or SDR pool. By enforcing round-robin rules and SLA fallback notifications, revenue teams guarantee fast, deterministic lead follow-up.
 
-Effective revenue architectures use deterministic rules: round-robin within territory pools, dedicated account executive reassignment for named enterprise accounts, and immediate escalation alerts if an SLA expires.
+## How it connects
 
-<div class="mt-8 pt-6 border-t border-[var(--surface-border)] flex flex-wrap gap-4 items-center justify-between text-sm">
-  <a href="/workflows/website-visitors-to-hubspot" class="text-[var(--accent)] hover:underline">
-    Review Automated Lead Routing Architecture →
-  </a>
-  <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg">
-    Hire me for this motion
-  </a>
-</div>
+- **Related Terms**: Explore [Speed-to-Lead](/glossary/speed-to-lead), [CRM Write-Back](/glossary/crm-write-back), and [Sales Qualified Lead (SQL)](/glossary/sql).
+- **In Production**: See how this runs in the [Website Visitors to HubSpot Workflow](/workflows/website-visitors-to-hubspot) and [HubSpot Lead Routing Blueprint](/workflows/hubspot-lead-routing).
+- **Deep Dive**: Read [Lead Routing Best Practices](/blog/lead-routing-best-practices) for full routing logic blueprints.
+
+[See it in production: Website Visitors to HubSpot](/workflows/website-visitors-to-hubspot)
+
+[Hire me for this motion](/hire)

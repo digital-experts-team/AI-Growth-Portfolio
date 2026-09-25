@@ -21,7 +21,7 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
       tools: '• Sales IQ • HubSpot • n8n',
       title: 'Website visitors to HubSpot',
       description:
-        'Deanonymizes high-intent domain traffic in real time and automatically creates qualified accounts, contacts, and notification tasks.',
+        'Captures high-intent domain traffic in real time and automatically creates qualified accounts, contacts, and notification tasks.',
     },
     {
       slug: 'hubspot-lead-routing',
@@ -32,10 +32,10 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
     },
     {
       slug: 'crm-dedupe-write-back',
-      tools: '• n8n • PostgreSQL • HubSpot',
+      tools: '• n8n • Clay • HubSpot',
       title: 'CRM dedupe & write-back',
       description:
-        'Guarantees CRM hygiene with real-time phone/email hash checks, preventing duplicate records and preserving lifecycle attribution.',
+        'Guarantees CRM hygiene with real-time domain and email hash checks, preventing duplicate records and preserving lifecycle attribution.',
     },
   ];
 
@@ -66,7 +66,7 @@ export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items 
             My Library
           </h2>
           <p className="text-[13px] font-mono text-slate-400 mt-0.5">
-            Tested and validated across 40+ production instances
+            Tested and validated in production
           </p>
         </div>
 

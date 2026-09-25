@@ -25,7 +25,7 @@ Timeline:
 3. Sonic (sonic.ooo) (Jan 2024 – Sep 2024) · Remote · Founder-led GTM Automation
    Multi-channel inbound intent routing for investor briefings and developer support triage.
 4. Paddleboat AI (May 2022 – Dec 2023) · Bengaluru, Hybrid · GTM Engineer — Outbound & Sales Enablement
-   AI sales roleplay platform. Flagged SDR team hiring spikes and contributed to #1 Product Hunt launch.
+   AI sales roleplay platform. Flagged SDR team hiring spikes and built signal-driven outbound pipelines.
 
 ===================================================================
 SECTION 2: CASE STUDIES

@@ -30,14 +30,14 @@ export const HeroPipeline: React.FC = () => {
       detail: 'Pricing Page · 3 mins · Agency IP',
       score: 'Fit: 94 / 100',
       action: 'HubSpot Partner SQL',
-      destination: 'AE Assigned · SLA 15m',
+      destination: 'AE Assigned · Speed to Lead',
       badge: 'Intent Signal',
       color: '#D4AF37',
     },
     {
       id: 'hiring',
       type: 'Hiring Spike',
-      detail: '5 SDR Roles Opened · Series A',
+      detail: 'SDR Roles Opened · Series A',
       score: 'Fit: 91 / 100',
       action: 'Sales Coach Outbound',
       destination: 'Tier 1 Multi-Touch Sequence',
@@ -47,7 +47,7 @@ export const HeroPipeline: React.FC = () => {
     {
       id: 'funding',
       type: 'Funding Round',
-      detail: '$12M Seed/Series A Announced',
+      detail: 'Series A Funding Announced',
       score: 'Fit: 88 / 100',
       action: 'Enrichment Waterfall',
       destination: 'Clay -> Apollo -> CRM Writeback',
@@ -116,7 +116,7 @@ export const HeroPipeline: React.FC = () => {
                 </span>
               </div>
               <h4 className="text-base font-semibold text-white mb-1">{current.score}</h4>
-              <p className="text-xs text-gray-400 font-mono">Waterfall: Apollo → Prospeo → MX Check</p>
+              <p className="text-xs text-gray-400 font-mono">Waterfall: Apollo → Clay → MX Check</p>
             </div>
             <div className="mt-4 pt-3 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between text-[11px] text-gray-400">
               <span>ICP Gate: Pass</span>

@@ -1,6 +1,6 @@
 ---
 title: "Paddleboat AI: Scaling SDR Team Intent Signals"
-description: "How I built a multi-signal outbound architecture targeting sales leaders scaling their SDR teams, driving a #1 Product Hunt launch."
+description: "How I built a multi-signal outbound architecture targeting sales leaders scaling their SDR teams."
 metaTitle: "Paddleboat AI Case Study — SDR Scaling Signals | Tibin"
 slug: "paddleboat-sdr-scaling-signals"
 status: "live"
@@ -20,44 +20,39 @@ publishedDate: 2023-12-15
 updatedDate: 2026-09-18
 faq:
   - q: "What buying signals flagged companies ready for AI sales coaching?"
-    a: "Signals included active SDR job postings, recent Series A/B funding rounds, and executive sales leadership transitions."
+    a: "Signals included active SDR job postings, funding rounds, and executive sales leadership transitions."
 ---
 
-## Executive Summary
+> **Short answer:** At Paddleboat AI, I engineered a signal-based outbound pipeline that monitored active SDR hiring posts and funding announcements, enriched decision-makers via waterfall lookups, and triggered personalized outreach playbooks.
 
-Paddleboat AI provides an interactive AI sales coaching and roleplay platform. To maximize outbound ROI, we needed to identify B2B SaaS companies at the exact moment they were aggressively hiring and scaling new sales development representatives (SDRs).
+## Context
 
-## The Core Bottleneck
+Paddleboat AI provides an interactive AI sales coaching and roleplay platform. To maximize outbound efficiency, we needed to identify B2B SaaS companies at the exact moment they were aggressively hiring and scaling new SDR cohorts. Broad outbound campaigns suffered from low urgency when sent to companies not actively hiring.
 
-Broad outbound campaigns targeting all SaaS VP Sales contacts suffered from low urgency. Companies without active onboarding cohorts saw AI coaching as a future consideration rather than an urgent requirement.
+## The system
 
-## Architecture Schematic
-
-```text
-[Signal Watcher: Job Postings + Funding] ──> [Apollo Org Scrape]
-                                                    │
-                   ┌────────────────────────────────┘
-                   ▼
-      [SDR Team Size > 5 & Roles Open]
-       ├── FALSE ──> Low-touch Newsletter Nurture
-       └── TRUE  ──> [Clay Waterfall Enrichment (Work Email + Phone)]
-                       └──> [Personalized Sales Coaching Playbook]
-                              └──> Push to SDR Sequence
+```mermaid
+graph TD
+    A[Job Posting & Funding Signal Watcher] --> B[Apollo Account Filter]
+    B -->|SDR Roles Open| C[Clay Waterfall Enrichment]
+    B -->|No Open Roles| D[Low-Touch Nurture Track]
+    C --> E[Personalized Sales Coaching Sequence]
+    E --> F[SDR Outreach & Demo Booking]
 ```
 
-## How I Built It
+## How I built it
 
-1. **Multi-Signal Intent Engine**: Combined website intent data with external job board postings (LinkedIn Talent Solutions, job board APIs) and Crunchbase funding alerts.
+1. **Multi-Signal Intent Engine**: Combined website intent data with external job board postings and funding alerts.
 2. **ICP Difficulty Matrix**: Collaborated directly with founders and senior SDRs to structure rep personas based on buyer objection hardness, tech vertical, and deal complexity.
 3. **LLM Scorecards & Missed Opportunity Alerts**: Configured automated scorecard summaries highlighting objection handling gaps during reps' practice calls.
-4. **Launch Orchestration**: Aligned the signal-driven pipeline with our public release, contributing directly to achieving a #1 Product of the Day launch on Product Hunt.
+4. **Pipeline Orchestration**: Aligned signal-driven data ingestion with sales outreach cadences to ensure SDRs contacted prospects while hiring context was fresh.
 
-## Verified Results
+## Results
 
 - Engineered an automated GTM system targeting VP and Head of Sales at 50–500 person SaaS organizations.
 - Turned real sales representative feedback into modular product designs and objection templates.
-- Contributed to achieving the #1 Product Hunt launch position through coordinated customer engagement and automated outbound outreach.
+- Built a signal-driven outbound engine that connected active hiring surges directly to sales meeting bookings.
 
-## What I Would Do Differently
+[See the underlying workflow: Waterfall Enrichment](/workflows/waterfall-enrichment)
 
-TODO(tibin): Add details on automated SDR rep ramp time tracking and direct CRM scorecard synchronization.
+[Hire me for this motion](/hire)

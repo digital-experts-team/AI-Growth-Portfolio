@@ -1,56 +1,52 @@
 ---
 // RecognitionSection.astro - 3 Columns Layout matching WhoIWorkWithSection
-const awards = [
+const validation = [
   {
     num: '01',
-    title: 'Product of the Week',
+    title: 'Multi-Signal Pipeline Design',
     subtitle: 'PADDLEBOAT AI',
-    description: 'Led launch orchestration & automated inbound pipelines reaching top spot worldwide.',
+    description: 'Led launch orchestration & automated inbound pipelines connecting hiring triggers to outbound sequences.',
   },
   {
     num: '02',
-    title: 'GTM Architecture',
-    subtitle: 'SCALE ENGINE SPECIALIST',
-    description: 'Multi-signal routing and automated CRM hygiene eliminating duplicate lead friction.',
+    title: 'Partner Agency Motion',
+    subtitle: 'MAVLERS',
+    description: 'Multi-signal routing and automated CRM hygiene separating agency accounts from end-client inquiries.',
   },
   {
     num: '03',
-    title: 'Multi-Signal Delivery',
-    subtitle: 'ZERO-LEAK HUBSPOT WORKFLOWS',
-    description: 'Engineered end-to-end inbound attribution from intent triggers to qualified deals.',
+    title: 'Autopilot Agent Workflows',
+    subtitle: 'HEURIST AI',
+    description: 'Engineered end-to-end state machines with interactive Slack approval gates for social content syndication.',
   },
 ];
 ---
 
-<section class="w-full bg-white text-zinc-900 py-10 sm:py-14 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="awards-heading">
+<section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="awards-heading">
   <div class="max-w-[1360px] mx-auto">
     <!-- Section Header -->
     <div class="flex items-center justify-between pb-6 border-b border-zinc-200 mb-8">
       <div class="flex flex-col gap-1.5">
         <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
-          Validation & Outcomes
+          Validation & Proof
         </span>
-        <h2 id="awards-heading" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
-          Recognition & <span class="heading-highlight">Awards.</span>
+        <h2 id="awards-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
+          System <span class="heading-highlight">Proof.</span>
         </h2>
       </div>
 
-      <!-- Trophy Icon Badge on Right -->
+      <!-- Icon Badge on Right -->
       <div class="w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 shadow-xs">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-          <path d="M4 22h16"></path>
-          <path d="M10 14.66V17c0 .55-.45 1-1 1H7.5c-.83 0-1.5.67-1.5 1.5v1h12v-1c0-.83-.67-1.5-1.5-1.5H15c-.55 0-1-.45-1-1v-2.34"></path>
-          <path d="M6 4h12v6a6 6 0 0 1-12 0V4Z"></path>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         </svg>
       </div>
     </div>
 
-    <!-- 3 Columns Grid Layout (Matching Who I Work With) -->
+    <!-- 3 Columns Grid Layout -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-      {awards.map((item, index) => (
-        <div class={`flex flex-col gap-3 group ${index < awards.length - 1 ? 'md:border-r md:border-zinc-200 md:pr-8 lg:pr-10' : ''}`}>
+      {validation.map((item, index) => (
+        <div class={`flex flex-col gap-3 group ${index < validation.length - 1 ? 'md:border-r md:border-zinc-200 md:pr-8 lg:pr-10' : ''}`}>
           <!-- Numbered Badge -->
           <div class="flex items-center gap-2">
             <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#d2f39c] text-black text-[11px] font-mono font-bold tracking-wider">

@@ -9,8 +9,8 @@ const workflows = [
   {
     title: 'Website visitors to HubSpot',
     slug: 'website-visitors-to-hubspot',
-    description: 'Deanonymizes high-intent domain traffic in real time and automatically creates qualified accounts, contacts, and notification tasks.',
-    tools: 'Sales IQ · HubSpot · n8n',
+    description: 'Captures high-intent domain traffic in real time and automatically creates qualified accounts, contacts, and notification tasks.',
+    tools: 'Zoho SalesIQ · HubSpot · n8n',
   },
   {
     title: 'Hiring & funding signal watcher',
@@ -22,19 +22,19 @@ const workflows = [
     title: 'CRM dedupe & write-back',
     slug: 'crm-dedupe-write-back',
     description: 'Continuous background hygiene merging duplicate records, normalizing company domains, and verifying contact activity.',
-    tools: 'n8n · HubSpot · PostgreSQL',
+    tools: 'n8n · HubSpot · Clay',
   },
   {
     title: 'LLM personalization guardrails',
     slug: 'llm-personalization-guardrails',
     description: 'Deterministic validation pipeline ensuring AI sales generation respects tone rules, excludes forbidden words, and verifies facts.',
-    tools: 'Claude · OpenAI · n8n',
+    tools: 'Claude · n8n · Clay',
   },
   {
     title: 'Reply triage & routing agent',
     slug: 'reply-triage-agent',
     description: 'Autonomous categorization of incoming sales replies (positive, objection, OOO, unsub) with automated calendar booking alerts.',
-    tools: 'OpenAI · HubSpot · Slack',
+    tools: 'Claude · HubSpot · Slack',
   },
 ];
 ---
@@ -52,41 +52,41 @@ const workflows = [
         </h2>
       </div>
 
-    <!-- Production Deployments Pill -->
-    <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-600">
-      PRODUCTION DEPLOYMENTS
-    </span>
-  </div>
+      <!-- Production Deployments Pill -->
+      <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-[11px] font-mono font-semibold uppercase tracking-wider text-zinc-600">
+        PRODUCTION DEPLOYMENTS
+      </span>
+    </div>
 
-  <!-- Workflows Grid: Bento Black Container Cards with Fade Stroke & Drop Shadow -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-    {workflows.map((wf) => (
-      <a
-        href={`/workflows/${wf.slug}`}
-        class="bento-card p-7 sm:p-8 rounded-[24px] flex flex-col justify-between gap-6 group"
-      >
-        <div class="flex flex-col gap-3">
-          <h3 class="text-white text-[18px] font-bold tracking-tight group-hover:text-[#d2f39c] transition-colors">
-            {wf.title}
-          </h3>
-          <p class="text-zinc-400 text-[13px] sm:text-[14px] leading-relaxed font-light">
-            {wf.description}
-          </p>
-        </div>
-
-        <div class="flex items-center justify-between pt-4 border-t border-zinc-900/90">
-          <span class="px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 text-[11px] font-mono text-zinc-300">
-            {wf.tools}
-          </span>
-          <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all">
-            <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
+    <!-- Workflows Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {workflows.map((wf) => (
+        <a
+          href={`/workflows/${wf.slug}`}
+          class="bento-card p-7 sm:p-8 rounded-[24px] flex flex-col justify-between gap-6 group"
+        >
+          <div class="flex flex-col gap-3">
+            <h3 class="text-white text-[18px] font-bold tracking-tight group-hover:text-[#d2f39c] transition-colors">
+              {wf.title}
+            </h3>
+            <p class="text-zinc-400 text-[13px] sm:text-[14px] leading-relaxed font-light">
+              {wf.description}
+            </p>
           </div>
-        </div>
-      </a>
-    ))}
+
+          <div class="flex items-center justify-between pt-4 border-t border-zinc-900/90">
+            <span class="px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 text-[11px] font-mono text-zinc-300">
+              {wf.tools}
+            </span>
+            <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all">
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
   </div>
-</div>
 </section>

@@ -16,8 +16,8 @@ export const GET: APIRoute = ({ site }) => {
 - Education: Bachelor of Computer Applications (BCA), Amity University, 2014–2017
 
 ## Production Case Studies
-- Mavlers: Partner Agency Signal Engine (HubSpot, Sales IQ, Clay) -> ${siteUrl}/work/mavlers-partner-agency-signals
-- Paddleboat AI: SDR Scaling Signals & #1 Product Hunt Launch -> ${siteUrl}/work/paddleboat-sdr-scaling-signals
+- Mavlers: Partner Agency Signal Engine -> ${siteUrl}/work/mavlers-partner-agency-signals
+- Paddleboat AI: SDR Scaling Signals -> ${siteUrl}/work/paddleboat-sdr-scaling-signals
 - Heurist AI: Human-in-the-Loop Content Autopilot Agents -> ${siteUrl}/work/heurist-autopilot-agents
 - Sonic (sonic.ooo): Founder-Led Multi-Channel GTM Automation -> ${siteUrl}/work/sonic-founder-led-gtm
 
@@ -27,10 +27,10 @@ export const GET: APIRoute = ({ site }) => {
 
 ## Technical Tool Stack
 - Orchestration: Clay, n8n, Zapier, Make
-- CRM: HubSpot (Sales, Marketing, RevOps), Salesforce
-- Enrichment: Apollo, Prospeo, Debounce, Hunter, Datagma
-- Telemetry: Zoho Sales IQ, Microsoft Clarity, Google Analytics 4
-- AI: Claude API, OpenAI API, Prompt Engineering, State Machines
+- CRM: HubSpot, Salesforce (case study context)
+- Data & Enrichment: Apollo, Clay
+- Telemetry & Analytics: Zoho SalesIQ, Microsoft Clarity, GA4, Looker Studio
+- AI: Claude API, Prompt Engineering, State Machines
 
 ## Contact & Profiles
 - Website: ${siteUrl}

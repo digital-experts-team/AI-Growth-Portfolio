@@ -1,5 +1,5 @@
 ---
-// Questions & Answers Accordion Section - Pure Solid Super Black (No Gradients)
+// Questions & Answers Accordion Section
 const faqs = [
   {
     q: 'What does a GTM engineer do?',
@@ -18,12 +18,12 @@ const faqs = [
   },
   {
     q: 'How do you measure marketing to SQLs?',
-    a: 'Through closed-loop webhook attribution linking ad conversions, website deanonymization, and outbound touches directly to accepted pipeline opportunities inside HubSpot and Salesforce.',
+    a: 'Through conversion webhooks linking ad clicks, site signals, and outbound touches directly to accepted SQL opportunities inside HubSpot.',
     isOpen: false,
   },
   {
     q: 'Do you work full-time or on projects?',
-    a: 'I take on selective full-time GTM engineering leadership roles as well as targeted quarterly automation sprints for venture-backed B2B companies.',
+    a: 'I take on full-time GTM engineering leadership roles as well as targeted automation projects for B2B tech companies.',
     isOpen: false,
   },
 ];
@@ -31,7 +31,7 @@ const faqs = [
 
 <section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="questions-heading">
   <div class="max-w-[1360px] mx-auto flex flex-col gap-8">
-    <!-- Section Header (Outside cards - clean & inverted for readability) -->
+    <!-- Section Header -->
     <div class="flex items-center justify-between pb-6 border-b border-zinc-200 mb-2">
       <div class="flex flex-col gap-1.5">
         <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
@@ -42,38 +42,38 @@ const faqs = [
         </h2>
       </div>
 
-    <!-- Question Mark Icon Circle -->
-    <div class="w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-600">
-      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-      </svg>
+      <!-- Question Mark Icon Circle -->
+      <div class="w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-600">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Accordion List -->
+    <div class="flex flex-col gap-4">
+      {faqs.map((item) => (
+        <details
+          class="bento-card group rounded-2xl overflow-hidden"
+          open={item.isOpen}
+        >
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none select-none">
+            <span class="text-white text-[16px] sm:text-[17px] font-bold group-hover:text-[#d2f39c] transition-colors">
+              {item.q}
+            </span>
+            <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all duration-300 group-open:rotate-180 shrink-0">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </summary>
+          <div class="px-6 pb-6 pt-2 text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed border-t border-zinc-900/90 font-light">
+            <p>{item.a}</p>
+          </div>
+        </details>
+      ))}
     </div>
   </div>
-
-  <!-- Accordion List: Bento Black Container Cards with Fade Stroke & Drop Shadow -->
-  <div class="flex flex-col gap-4">
-    {faqs.map((item, idx) => (
-      <details
-        class="bento-card group rounded-2xl overflow-hidden"
-        open={item.isOpen}
-      >
-        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none select-none">
-          <span class="text-white text-[16px] sm:text-[17px] font-bold group-hover:text-[#d2f39c] transition-colors">
-            {item.q}
-          </span>
-          <div class="w-8 h-8 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] flex items-center justify-center text-zinc-400 group-hover:text-black transition-all duration-300 group-open:rotate-180 shrink-0">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </div>
-        </summary>
-        <div class="px-6 pb-6 pt-2 text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed border-t border-zinc-900/90 font-light">
-          <p>{item.a}</p>
-        </div>
-      </details>
-    ))}
-  </div>
-</div>
 </section>

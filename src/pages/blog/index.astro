@@ -44,7 +44,7 @@ const description = "Technical articles and guides on GTM engineering, MQL vs SQ
               )}
             </div>
             <span class="text-xs font-mono text-slate-400">
-              {post.data.status === 'draft' ? 'Under Review / Draft' : 'Published'}
+              Published
             </span>
           </div>
 
@@ -60,7 +60,7 @@ const description = "Technical articles and guides on GTM engineering, MQL vs SQ
 
           <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
             <span class="text-xs font-mono text-slate-400">
-              Target: {post.data.targetKeyword || 'GTM Architecture'}
+              Target: {post.data.targetKeyword || 'GTM Engineering'}
             </span>
             <a
               href={`/blog/${post.data.slug || post.id}`}

@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "RevOps Consultant for B2B Teams | Tibin Jacob";
+const description = "RevOps consulting for B2B tech companies: lead routing, waterfall enrichment, CRM data hygiene, and automated sales pipeline systems.";
+const canonicalUrl = "https://tibinjacob.com/revops-consultant";
+
+const faqList = [
+  {
+    q: "What does a RevOps consultant do for B2B teams?",
+    a: "A RevOps consultant designs, connects, and optimizes the revenue technology stack across marketing, sales, and customer success. Focus areas include lead routing rules, CRM write-backs, automated enrichment, and pipeline conversion tracking."
+  },
+  {
+    q: "Which CRMs and automation platforms do you specialize in?",
+    a: "HubSpot CRM, Clay, n8n, Make, Zapier, Apollo, and custom API webhook integrations."
+  },
+  {
+    q: "How do you handle data deduplication during CRM enrichment?",
+    a: "By enforcing pre-write deduplication checks on domain roots, corporate emails, and record IDs before updating CRM fields."
+  }
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  schemaType="WebPage"
+  faq={faqList}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'RevOps Consultant', url: '/revops-consultant' },
+  ]}
+>
+  <div class="py-6 max-w-4xl mx-auto">
+    <!-- 1. Breadcrumb -->
+    <nav class="text-xs font-mono text-slate-400 mb-6 flex items-center gap-2" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-600">RevOps Consultant</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-8 pb-6 border-b border-slate-200">
+      <!-- 2. Service category label (small pill) -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-200 bg-cyan-50 text-cyan-700 text-xs font-mono font-semibold mb-4">
+        <span>Revenue Operations & Engineering</span>
+      </div>
+
+      <!-- 3. H1 — keyword-first -->
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
+        RevOps Consultant for B2B Teams
+      </h1>
+
+      <!-- 4. Short answer block (lime left border) -->
+      <div class="p-5 rounded-xl border-l-4 border-[#d2f39c] bg-slate-50 my-6">
+        <div class="text-[11px] font-mono text-slate-500 font-bold uppercase tracking-wider mb-1">
+          Service Overview
+        </div>
+        <p class="text-base sm:text-lg text-slate-900 leading-relaxed font-medium">
+          I provide RevOps engineering and consulting for B2B software and service companies. I build deterministic lead routing, waterfall data enrichment, HubSpot CRM write-backs, and automated speed-to-lead systems that eliminate manual triage friction and scale pipeline velocity.
+        </p>
+      </div>
+    </header>
+
+    <!-- 5. Body sections with H2 headings (min 500 words) -->
+    <div class="prose max-w-none space-y-8 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Eliminating Revenue Operations Bottlenecks</h2>
+        <p>
+          As B2B companies scale, revenue teams often face data leaks, slow lead assignment, and fragmented tool stacks. Sales reps spend valuable hours searching for contact information, manually logging meeting notes, or waiting for leads sitting in unassigned queues.
+        </p>
+        <p>
+          RevOps engineering solves these friction points by building automated, code-level connections between your lead capture forms, enrichment databases, intent watchers, and primary CRM.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Core Focus Area 1: Deterministic Lead Routing</h2>
+        <p>
+          We engineer territory-based, round-robin, and account-matched routing workflows in HubSpot CRM. When an inbound inquiry or intent signal arrives, the system validates rep availability, assigns account ownership, and dispatches instant Slack notifications to enforce speed-to-lead SLAs.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Core Focus Area 2: Waterfall Data Enrichment</h2>
+        <p>
+          Rather than relying on a single data vendor with regional coverage gaps, we construct cascading waterfall lookup engines inside Clay and n8n. Incoming accounts query primary providers first and fall back to secondary databases only when records are unverified, maximizing match rates while controlling API costs.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Core Focus Area 3: CRM Data Hygiene & Safe Write-Backs</h2>
+        <p>
+          Clean CRM data is essential for accurate pipeline reporting. Our write-back engines perform deduplication checks before stashing enriched fields, preserving existing rep notes and keeping contact records organized across lifecycle stages (MQL, SAL, SQL).
+        </p>
+      </section>
+
+      <!-- 6. Proof section -->
+      <section class="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+        <h2 class="text-lg font-bold text-slate-900 mb-2">See RevOps Architecture in Production</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+          Review live workflow blueprints and case studies detailing automated RevOps architectures.
+        </p>
+        <div class="flex flex-wrap gap-4 text-xs font-mono">
+          <a href="/workflows/website-visitors-to-hubspot" class="text-[#1d6ff2] hover:underline font-semibold">
+            Website Visitors to HubSpot →
+          </a>
+          <a href="/workflows/waterfall-enrichment" class="text-[#1d6ff2] hover:underline font-semibold">
+            Waterfall Enrichment Engine →
+          </a>
+          <a href="/work/mavlers-partner-agency-signals" class="text-[#1d6ff2] hover:underline font-semibold">
+            Mavlers RevOps Case Study →
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- 7. FAQ section (<details><summary>) -->
+    <section class="mt-12 pt-8 border-t border-slate-200">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        {faqList.map((item) => (
+          <details class="group rounded-xl border border-slate-200 bg-white p-4 [&_summary::-webkit-details-marker]:none">
+            <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-slate-900 font-semibold text-sm sm:text-base">
+              <span>{item.q}</span>
+              <span class="shrink-0 rounded-full bg-slate-100 p-1.5 text-slate-900 sm:p-2 transition group-open:-rotate-180">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-4 leading-relaxed text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+              {item.a}
+            </p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- 8. "Hire me for this" CTA button -->
+    <div class="mt-12 p-8 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-xl font-bold mb-2">Need a RevOps system built for your sales stack?</h3>
+        <p class="text-xs sm:text-sm text-slate-300">Let’s audit your current pipeline workflows and eliminate manual routing bottlenecks.</p>
+      </div>
+      <a href="/hire" class="cta-button text-xs px-6 py-3 rounded-full font-bold uppercase tracking-wider shrink-0">
+        Hire me for this
+      </a>
+    </div>
+  </div>
+</BaseLayout>
