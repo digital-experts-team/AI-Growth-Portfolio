@@ -159,7 +159,7 @@ for (const [type, db] of Object.entries(DBS)) {
     if (hash === prop(p, 'Content Hash') && existsSync(file)) { console.log(`= ${title}: unchanged`); continue; }
     mkdirSync(dirname(file), { recursive: true }); writeFileSync(file, content);
     await notion(`/pages/${page.id}`, 'PATCH', { properties: {
-      Status: { select: { name: 'Publishing' } }, 'Content Hash': { rich_text: [{ text: { content: hash } }] },
+      Status: { select: { name: 'LinkedIn Ready' } }, 'Content Hash': { rich_text: [{ text: { content: hash } }] },
       'Last Synced': { date: { start: today } }, 'Publish Error': { rich_text: [] },
     } });
     console.log(`✓ ${title} → ${file}`); changed++;
