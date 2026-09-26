@@ -11,7 +11,6 @@ sourceRole: "Heurist AI"
 proofLink: "/work/heurist-autopilot-agents"
 publishedDate: "2026-09-25"
 updatedDate: "2026-09-25"
-# republish: vercel-rebuild
 type: "spoke"
 faq:
   - q: "What is a human-in-the-loop AI agent?"

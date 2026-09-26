@@ -65,8 +65,10 @@ const { preloadImage, transparentHeader = false } = Astro.props;
     )}
     <main
       id="main-content"
-      class={`flex-1 w-full mx-auto px-6 sm:px-10 lg:px-12 py-6 sm:py-10 ${
-        transparentHeader ? 'max-w-[1360px]' : 'max-w-[1160px]'
+      class={`flex-1 w-full ${
+        transparentHeader
+          ? ''
+          : 'max-w-[1160px] mx-auto px-6 sm:px-10 lg:px-12 py-6 sm:py-10'
       }`}
     >
       <slot />
