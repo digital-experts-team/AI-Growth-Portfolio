@@ -13,6 +13,7 @@ proofLink: "/work/paddleboat-sdr-scaling-signals"
 publishedDate: 2026-08-20
 updatedDate: 2026-09-25
 tools: ["Clay", "Apollo", "n8n", "HubSpot"]
+trigger: "Contact or Company Created/Updated in HubSpot"
 faq:
   - q: "What is waterfall enrichment?"
     a: "Query providers in order until a field is filled with a verified value, instead of betting on one vendor."
