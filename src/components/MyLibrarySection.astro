@@ -54,25 +54,36 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
   </div>
 
   <!-- Inner Black Container wrapping only the sub-sections inside -->
-  <div class="w-full bg-zinc-950 text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-12">
-    <div class="max-w-[1360px] mx-auto flex flex-col gap-14 sm:gap-16">
+  <div class="w-full bg-zinc-950 text-white pt-14 sm:pt-20 pb-24 sm:pb-36 px-4 sm:px-6 lg:px-12">
+    <div class="max-w-[1360px] mx-auto flex flex-col gap-16 sm:gap-24">
       
       <!-- SUB-SECTION 1: OUTBOUND SYSTEMS -->
-      <div class="flex flex-col gap-6">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-4 border-b border-zinc-800">
-          <div>
-            <h3 class="text-2xl sm:text-3xl lg:text-[32px] font-black text-white tracking-tight font-display">
-              Outbound GTM Systems
-            </h3>
-            <p class="text-sm font-semibold text-zinc-400 mt-1 font-sans">
-              Signal enrichment, prospecting & response routing engines
-            </p>
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-5 border-b border-zinc-800">
+          <div class="flex items-start gap-4">
+            <!-- Icon Badge for Outbound -->
+            <div class="p-3 rounded-2xl bg-zinc-900 border border-zinc-800 text-[#d2f39c] shrink-0 mt-1">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#d2f39c]">GTM & Prospecting</span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl lg:text-[36px] font-black text-white tracking-tight font-display">
+                Outbound GTM Systems
+              </h3>
+              <p class="text-sm sm:text-base font-semibold text-zinc-400 mt-1 font-sans">
+                Signal enrichment, prospecting & response routing engines
+              </p>
+            </div>
           </div>
-          <span class="text-xs font-mono text-zinc-400 font-medium">3 featured engines</span>
+          <span class="text-xs font-mono text-zinc-400 font-medium shrink-0">3 featured engines</span>
         </div>
 
         <!-- Outbound Cards Grid (3 green cards + 1 visible blurred preview card) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {outboundWorkflows.map((wf) => {
             const slug = wf.data.slug || wf.id;
             const isConstrained = slug.includes('enrichment') || slug.includes('watcher');
@@ -87,11 +98,16 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
             return (
               <a
                 href={`/workflows/${slug}`}
-                class="bg-[#d2f39c] hover:bg-[#c8ea8d] border border-black/15 p-6 rounded-[22px] flex flex-col justify-between gap-6 group shadow-sm hover:shadow-md transition-all duration-300"
+                class="bg-[#d2f39c] hover:bg-[#c8ea8d] border border-black/15 p-7 sm:p-8 rounded-[24px] flex flex-col justify-between gap-6 group shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div>
-                  <div class="flex items-center justify-between text-xs font-mono mb-3">
-                    <span class="text-zinc-950 font-black uppercase tracking-wider">Outbound</span>
+                  <div class="flex items-center justify-between text-xs font-mono mb-4">
+                    <span class="flex items-center gap-1.5 text-zinc-950 font-black uppercase tracking-wider text-[11px]">
+                      <svg class="w-3.5 h-3.5 text-zinc-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                      </svg>
+                      Outbound
+                    </span>
                     <span class={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                       statusLabel === 'Build note'
                         ? 'bg-zinc-800 text-zinc-200 border border-zinc-700'
@@ -103,31 +119,31 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
                     </span>
                   </div>
                   
-                  <h4 class="text-lg sm:text-xl font-extrabold text-zinc-950 group-hover:text-black transition-colors mb-3 leading-snug font-display">
+                  <h4 class="text-xl sm:text-2xl font-black text-zinc-950 group-hover:text-black transition-colors mb-3 leading-snug font-display">
                     {wf.data.title}
                   </h4>
 
                   <!-- Tool Pills placed BETWEEN Title and Description -->
-                  <div class="flex flex-wrap gap-1 mb-3">
+                  <div class="flex flex-wrap gap-1.5 mb-4">
                     {wf.data.tools.slice(0, 3).map((tool) => (
-                      <span class="px-2 py-0.5 rounded-md bg-black/10 text-zinc-950 font-mono text-[11px] font-bold border border-black/10">
+                      <span class="px-2.5 py-1 rounded-md bg-black/10 text-zinc-950 font-mono text-[11px] font-bold border border-black/15">
                         {tool}
                       </span>
                     ))}
                     {wf.data.tools.length > 3 && (
-                      <span class="px-1.5 py-0.5 rounded-md bg-black/10 text-zinc-800 font-mono text-[11px] font-bold">
+                      <span class="px-2 py-1 rounded-md bg-black/10 text-zinc-800 font-mono text-[11px] font-bold">
                         +{wf.data.tools.length - 3}
                       </span>
                     )}
                   </div>
 
-                  <p class="text-xs sm:text-sm text-zinc-900 font-medium leading-relaxed line-clamp-3 opacity-90">
+                  <p class="text-xs sm:text-sm text-zinc-900 font-medium leading-relaxed line-clamp-3 opacity-95">
                     {wf.data.description}
                   </p>
                 </div>
 
-                <div class="pt-3 border-t border-black/15 flex items-center justify-between">
-                  <span class="text-zinc-950 font-black text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                <div class="pt-4 border-t border-black/15 flex items-center justify-between">
+                  <span class="text-zinc-950 font-black text-xs font-mono uppercase tracking-wider group-hover:translate-x-1.5 transition-transform flex items-center gap-1.5">
                     View system →
                   </span>
                 </div>
@@ -136,29 +152,32 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
           })}
 
           <!-- 4th Card: Visible Blurred Rail Feel + See More Button -->
-          <div class="relative rounded-[22px] overflow-hidden border border-black/20 bg-[#d2f39c] p-6 flex flex-col justify-between group min-h-[260px]">
+          <div class="relative rounded-[24px] overflow-hidden border border-black/20 bg-[#d2f39c] p-7 sm:p-8 flex flex-col justify-between group min-h-[280px]">
             <!-- Background Card Mock - Highly Visible with Minimal Blur -->
             <div class="filter blur-[2.5px] opacity-75 select-none pointer-events-none flex flex-col justify-between h-full gap-4">
               <div>
-                <div class="flex justify-between text-xs font-mono mb-2">
-                  <span class="font-extrabold uppercase text-zinc-950">Outbound</span>
+                <div class="flex justify-between text-xs font-mono mb-3">
+                  <span class="flex items-center gap-1 font-extrabold uppercase text-zinc-950 text-[11px]">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    Outbound
+                  </span>
                   <span class="bg-black text-[#d2f39c] px-2.5 py-0.5 rounded-full text-[10px] font-bold">Live</span>
                 </div>
-                <h4 class="text-lg font-bold text-zinc-950 font-display">Waterfall Enrichment Engine</h4>
-                <div class="flex gap-1 my-2">
-                  <span class="bg-black/10 px-2 py-0.5 rounded text-[11px] font-bold text-zinc-950 font-mono">Clay</span>
-                  <span class="bg-black/10 px-2 py-0.5 rounded text-[11px] font-bold text-zinc-950 font-mono">Apollo</span>
+                <h4 class="text-xl font-black text-zinc-950 font-display">Waterfall Enrichment Engine</h4>
+                <div class="flex gap-1.5 my-3">
+                  <span class="bg-black/10 px-2.5 py-1 rounded text-[11px] font-bold text-zinc-950 font-mono">Clay</span>
+                  <span class="bg-black/10 px-2.5 py-1 rounded text-[11px] font-bold text-zinc-950 font-mono">Apollo</span>
                 </div>
                 <p class="text-xs text-zinc-900 font-medium line-clamp-3">Cascading API providers for 90%+ email match rate & automated HubSpot lead routing.</p>
               </div>
             </div>
 
             <!-- Clean Translucent Overlay with CTA -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#c5e98c]/90 via-[#d2f39c]/65 to-transparent backdrop-blur-[2px] p-6 flex flex-col items-center justify-end text-center gap-2 pb-6">
-              <span class="text-xs text-zinc-950 font-extrabold font-mono uppercase tracking-wide">Explore full GTM library</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#c5e98c]/95 via-[#d2f39c]/70 to-transparent backdrop-blur-[2px] p-7 flex flex-col items-center justify-end text-center gap-3 pb-7">
+              <span class="text-xs text-zinc-950 font-black font-mono uppercase tracking-wider">Explore full GTM library</span>
               <a
                 href="/workflows"
-                class="px-5 py-2 rounded-full bg-zinc-950 hover:bg-zinc-800 text-[#d2f39c] text-xs font-extrabold font-mono tracking-wider transition-all shadow-md hover:shadow-lg"
+                class="px-6 py-2.5 rounded-full bg-zinc-950 hover:bg-zinc-800 text-[#d2f39c] text-xs font-black font-mono tracking-wider transition-all shadow-md hover:shadow-lg hover:scale-105"
               >
                 See more →
               </a>
@@ -167,22 +186,35 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
         </div>
       </div>
 
-      <!-- SUB-SECTION 2: AEO (AI SEARCH) SYSTEMS -->
-      <div class="flex flex-col gap-6 pt-4">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-4 border-b border-zinc-800">
-          <div>
-            <h3 class="text-2xl sm:text-3xl lg:text-[32px] font-black text-white tracking-tight font-display">
-              AEO & AI Search Systems
-            </h3>
-            <p class="text-sm font-semibold text-zinc-400 mt-1 font-sans">
-              Citation indexing, LLM schema & multi-surface publishing
-            </p>
+      <!-- SUB-SECTION 2: AEO (AI SEARCH) SYSTEMS - Extra Top Margin & 2x Bottom Margin -->
+      <div class="flex flex-col gap-8 pt-12 sm:pt-16 mt-6 sm:mt-10 border-t border-zinc-800/80 mb-6 sm:mb-12">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-5 border-b border-zinc-800">
+          <div class="flex items-start gap-4">
+            <!-- Icon Badge for AEO / AI Search -->
+            <div class="p-3 rounded-2xl bg-zinc-900 border border-zinc-800 text-[#d2f39c] shrink-0 mt-1">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <path d="M11 8v6M8 11h6"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#d2f39c]">AI Visibility & Citations</span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl lg:text-[36px] font-black text-white tracking-tight font-display">
+                AEO & AI Search Systems
+              </h3>
+              <p class="text-sm sm:text-base font-semibold text-zinc-400 mt-1 font-sans">
+                Citation indexing, LLM schema & multi-surface publishing
+              </p>
+            </div>
           </div>
-          <span class="text-xs font-mono text-zinc-400 font-medium">3 featured engines</span>
+          <span class="text-xs font-mono text-zinc-400 font-medium shrink-0">3 featured engines</span>
         </div>
 
         <!-- AEO Cards Grid (3 green cards + 1 visible blurred preview card) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {aeoWorkflows.map((wf) => {
             const slug = wf.data.slug || wf.id;
             
@@ -194,11 +226,17 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
             return (
               <a
                 href={`/workflows/${slug}`}
-                class="bg-[#d2f39c] hover:bg-[#c8ea8d] border border-black/15 p-6 rounded-[22px] flex flex-col justify-between gap-6 group shadow-sm hover:shadow-md transition-all duration-300"
+                class="bg-[#d2f39c] hover:bg-[#c8ea8d] border border-black/15 p-7 sm:p-8 rounded-[24px] flex flex-col justify-between gap-6 group shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div>
-                  <div class="flex items-center justify-between text-xs font-mono mb-3">
-                    <span class="text-zinc-950 font-black uppercase tracking-wider">AEO (AI Search)</span>
+                  <div class="flex items-center justify-between text-xs font-mono mb-4">
+                    <span class="flex items-center gap-1.5 text-zinc-950 font-black uppercase tracking-wider text-[11px]">
+                      <svg class="w-3.5 h-3.5 text-zinc-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                      AEO (AI Search)
+                    </span>
                     <span class={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                       statusLabel === 'Build note'
                         ? 'bg-zinc-800 text-zinc-200 border border-zinc-700'
@@ -208,31 +246,31 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
                     </span>
                   </div>
 
-                  <h4 class="text-lg sm:text-xl font-extrabold text-zinc-950 group-hover:text-black transition-colors mb-3 leading-snug font-display">
+                  <h4 class="text-xl sm:text-2xl font-black text-zinc-950 group-hover:text-black transition-colors mb-3 leading-snug font-display">
                     {wf.data.title}
                   </h4>
 
                   <!-- Tool Pills placed BETWEEN Title and Description -->
-                  <div class="flex flex-wrap gap-1 mb-3">
+                  <div class="flex flex-wrap gap-1.5 mb-4">
                     {wf.data.tools.slice(0, 3).map((tool) => (
-                      <span class="px-2 py-0.5 rounded-md bg-black/10 text-zinc-950 font-mono text-[11px] font-bold border border-black/10">
+                      <span class="px-2.5 py-1 rounded-md bg-black/10 text-zinc-950 font-mono text-[11px] font-bold border border-black/15">
                         {tool}
                       </span>
                     ))}
                     {wf.data.tools.length > 3 && (
-                      <span class="px-1.5 py-0.5 rounded-md bg-black/10 text-zinc-800 font-mono text-[11px] font-bold">
+                      <span class="px-2 py-1 rounded-md bg-black/10 text-zinc-800 font-mono text-[11px] font-bold">
                         +{wf.data.tools.length - 3}
                       </span>
                     )}
                   </div>
 
-                  <p class="text-xs sm:text-sm text-zinc-900 font-medium leading-relaxed line-clamp-3 opacity-90">
+                  <p class="text-xs sm:text-sm text-zinc-900 font-medium leading-relaxed line-clamp-3 opacity-95">
                     {wf.data.description}
                   </p>
                 </div>
 
-                <div class="pt-3 border-t border-black/15 flex items-center justify-between">
-                  <span class="text-zinc-950 font-black text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                <div class="pt-4 border-t border-black/15 flex items-center justify-between">
+                  <span class="text-zinc-950 font-black text-xs font-mono uppercase tracking-wider group-hover:translate-x-1.5 transition-transform flex items-center gap-1.5">
                     View system →
                   </span>
                 </div>
@@ -241,29 +279,32 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
           })}
 
           <!-- 4th Card: Visible Blurred Rail Feel + See More Button -->
-          <div class="relative rounded-[22px] overflow-hidden border border-black/20 bg-[#d2f39c] p-6 flex flex-col justify-between group min-h-[260px]">
+          <div class="relative rounded-[24px] overflow-hidden border border-black/20 bg-[#d2f39c] p-7 sm:p-8 flex flex-col justify-between group min-h-[280px]">
             <!-- Background Card Mock - Highly Visible with Minimal Blur -->
             <div class="filter blur-[2.5px] opacity-75 select-none pointer-events-none flex flex-col justify-between h-full gap-4">
               <div>
-                <div class="flex justify-between text-xs font-mono mb-2">
-                  <span class="font-extrabold uppercase text-zinc-950">AEO (AI Search)</span>
+                <div class="flex justify-between text-xs font-mono mb-3">
+                  <span class="flex items-center gap-1 font-extrabold uppercase text-zinc-950 text-[11px]">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    AEO (AI Search)
+                  </span>
                   <span class="bg-black text-[#d2f39c] px-2.5 py-0.5 rounded-full text-[10px] font-bold">Live</span>
                 </div>
-                <h4 class="text-lg font-bold text-zinc-950 font-display">LLM Entity Knowledge Graph</h4>
-                <div class="flex gap-1 my-2">
-                  <span class="bg-black/10 px-2 py-0.5 rounded text-[11px] font-bold text-zinc-950 font-mono">Claude</span>
-                  <span class="bg-black/10 px-2 py-0.5 rounded text-[11px] font-bold text-zinc-950 font-mono">Semrush</span>
+                <h4 class="text-xl font-black text-zinc-950 font-display">LLM Entity Knowledge Graph</h4>
+                <div class="flex gap-1.5 my-3">
+                  <span class="bg-black/10 px-2.5 py-1 rounded text-[11px] font-bold text-zinc-950 font-mono">Claude</span>
+                  <span class="bg-black/10 px-2.5 py-1 rounded text-[11px] font-bold text-zinc-950 font-mono">Semrush</span>
                 </div>
                 <p class="text-xs text-zinc-900 font-medium line-clamp-3">Automated JSON-LD schema injection & LLM citation share-of-voice tracker.</p>
               </div>
             </div>
 
             <!-- Clean Translucent Overlay with CTA -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#c5e98c]/90 via-[#d2f39c]/65 to-transparent backdrop-blur-[2px] p-6 flex flex-col items-center justify-end text-center gap-2 pb-6">
-              <span class="text-xs text-zinc-950 font-extrabold font-mono uppercase tracking-wide">Explore full SEO library</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#c5e98c]/95 via-[#d2f39c]/70 to-transparent backdrop-blur-[2px] p-7 flex flex-col items-center justify-end text-center gap-3 pb-7">
+              <span class="text-xs text-zinc-950 font-black font-mono uppercase tracking-wider">Explore full SEO library</span>
               <a
                 href="/workflows"
-                class="px-5 py-2 rounded-full bg-zinc-950 hover:bg-zinc-800 text-[#d2f39c] text-xs font-extrabold font-mono tracking-wider transition-all shadow-md hover:shadow-lg"
+                class="px-6 py-2.5 rounded-full bg-zinc-950 hover:bg-zinc-800 text-[#d2f39c] text-xs font-black font-mono tracking-wider transition-all shadow-md hover:shadow-lg hover:scale-105"
               >
                 See more →
               </a>
