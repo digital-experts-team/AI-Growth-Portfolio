@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkflowDiagram from '../../components/WorkflowDiagram.astro';
+import Steps from '../../components/Steps.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -29,6 +31,9 @@ const formattedDate = entry.data.updatedDate
   ? entry.data.publishedDate.toISOString().split('T')[0]
   : '2026-09-25';
 const toolsListText = entry.data.tools.join(' · ');
+const outputLabel = entry.data.steps && entry.data.steps.length > 0
+  ? entry.data.steps[entry.data.steps.length - 1].title
+  : 'Workflow Output';
 ---
 
 <BaseLayout
@@ -84,6 +89,21 @@ const toolsListText = entry.data.tools.join(' · ');
         </p>
       </div>
     </header>
+
+    <!-- Visual Architecture Diagram (rendered from trigger/tools/steps frontmatter) -->
+    {entry.data.steps && entry.data.steps.length > 0 && (
+      <WorkflowDiagram
+        trigger={entry.data.trigger}
+        tools={entry.data.tools}
+        steps={entry.data.steps}
+        output={outputLabel}
+      />
+    )}
+
+    <!-- Step-by-step visual breakdown -->
+    {entry.data.steps && entry.data.steps.length > 0 && (
+      <Steps steps={entry.data.steps} title="How It Works, Step by Step" />
+    )}
 
     <!-- Main Article Body -->
     <div class="prose max-w-none space-y-6 text-zinc-800 leading-relaxed font-normal">
