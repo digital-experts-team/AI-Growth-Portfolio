@@ -40,37 +40,35 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
 }).slice(0, 3); // Display top 3 AEO systems
 ---
 
-<section class="w-full bg-white text-zinc-900 border-b border-zinc-200" aria-labelledby="library-heading">
-  <!-- Section Main Header on White Background -->
-  <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-12 sm:pt-16 pb-8">
-    <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200">
-      <div class="flex flex-col gap-1.5">
-        <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
-          B2B workflows, outbound automation, and SEO systems
-        </span>
-        <h2 id="library-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight font-display">
-          Growth systems <span class="heading-highlight">I ship.</span>
-        </h2>
+<section class="w-full bg-zinc-950 text-white border-b border-zinc-200" aria-labelledby="library-heading">
+  <!-- Inner Container: main heading now lives inside the same dark section as the cards -->
+  <div class="w-full pt-14 sm:pt-20 pb-24 sm:pb-36 px-4 sm:px-6 lg:px-12">
+    <div class="max-w-[1360px] mx-auto flex flex-col gap-16 sm:gap-24">
+
+      <!-- Section Main Header (integrated, not a separate block) -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 border-b border-zinc-800">
+        <div class="flex flex-col gap-1.5">
+          <span class="text-xs font-bold text-zinc-400 tracking-widest uppercase font-mono">
+            B2B workflows, outbound automation, and SEO systems
+          </span>
+          <h2 id="library-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-white tracking-tight leading-tight font-display">
+            Growth systems <span class="heading-highlight">I ship.</span>
+          </h2>
+        </div>
+
+        <!-- View All Workflows CTA -->
+        <a
+          href="/workflows"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#d2f39c] hover:bg-[#c2e887] text-zinc-950 text-xs font-bold tracking-wider transition-all font-display whitespace-nowrap shrink-0 shadow-sm"
+        >
+          <span>View all workflows</span>
+          <svg class="w-3.5 h-3.5 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
       </div>
 
-      <!-- View All Workflows CTA -->
-      <a
-        href="/workflows"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-950 hover:bg-zinc-800 text-[#d2f39c] text-xs font-bold tracking-wider transition-all font-display whitespace-nowrap shrink-0 shadow-sm"
-      >
-        <span>View all workflows</span>
-        <svg class="w-3.5 h-3.5 text-[#d2f39c]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
-      </a>
-    </div>
-  </div>
-
-  <!-- Inner Black Container wrapping only the sub-sections inside -->
-  <div class="w-full bg-zinc-950 text-white pt-14 sm:pt-20 pb-24 sm:pb-36 px-4 sm:px-6 lg:px-12">
-    <div class="max-w-[1360px] mx-auto flex flex-col gap-16 sm:gap-24">
-      
       <!-- SUB-SECTION 1: OUTBOUND SYSTEMS -->
       <div class="flex flex-col gap-8">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-5 border-b border-zinc-800">
@@ -329,4 +327,3 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
     </div>
   </div>
 </section>
-
