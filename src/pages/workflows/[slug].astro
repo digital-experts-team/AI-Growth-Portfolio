@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WorkflowStepList from '../../components/WorkflowStepList.astro';
-import WorkflowFlowChart from '../../components/WorkflowFlowChart.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -40,7 +39,7 @@ const hasFaq = Boolean(d.faq && d.faq.length > 0);
 const toc = [
   { id: 'summary', label: 'Short answer' },
   ...(hasWhy ? [{ id: 'why', label: 'Why it exists' }] : []),
-  ...(hasSteps ? [{ id: 'how-it-works', label: 'How it works' }, { id: 'architecture', label: 'Architecture' }] : []),
+  ...(hasSteps ? [{ id: 'how-it-works', label: 'How it works' }] : []),
   { id: 'deep-dive', label: 'Deep dive' },
   ...(hasFaq ? [{ id: 'faq', label: 'FAQ' }] : []),
 ];
@@ -138,10 +137,7 @@ const toc = [
     <!-- 3. Step by step -->
     {hasSteps && <WorkflowStepList steps={steps} />}
 
-    <!-- 4. Architecture flow chart -->
-    {hasSteps && <WorkflowFlowChart trigger={d.trigger} steps={steps} tools={d.tools} output={d.output} />}
-
-    <!-- 5. Deep dive -->
+    <!-- 4. Deep dive -->
     <section id="deep-dive" class="scroll-mt-24 mt-14 pt-10 border-t border-zinc-200" aria-label="Deep dive">
       <div class="text-xs font-bold uppercase tracking-wider text-[#15803d] mb-1">Deep dive</div>
       <div class="prose workflow-deep-dive">
@@ -149,7 +145,7 @@ const toc = [
       </div>
     </section>
 
-    <!-- 6. FAQ -->
+    <!-- 5. FAQ -->
     {hasFaq && (
       <section id="faq" class="scroll-mt-24 mt-16 pt-10 border-t border-zinc-200" aria-labelledby="faq-heading">
         <h2 id="faq-heading" class="text-2xl font-bold text-zinc-950 mb-6 tracking-tight">Frequently asked questions</h2>
@@ -171,7 +167,7 @@ const toc = [
       </section>
     )}
 
-    <!-- 7. CTA -->
+    <!-- 6. CTA -->
     <footer class="mt-16 pt-10 border-t border-zinc-200 flex flex-wrap justify-between items-center gap-6">
       <a href="/workflows" class="text-xs font-bold text-zinc-600 hover:text-green-700 flex items-center gap-1.5">
         ← Back to all workflows
