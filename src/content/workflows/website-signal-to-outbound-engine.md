@@ -76,7 +76,7 @@ I walk through this exact system end to end in the video below — the signal ca
 
 <div style="position: relative; padding-bottom: 53.75%; height: 0;"><iframe src="https://www.loom.com/embed/fc6b7f9cd75b415ca85cdac2949a6d45" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-On this page: [Short answer](#summary) · [How it works](#how-it-works) · [Architecture](#architecture) · [Deep dive](#deep-dive) · [FAQ](#faq)
+On this page: [Short answer](#summary) · [How it works](#how-it-works) · [Deep dive](#deep-dive) · [FAQ](#faq)
 
 ## The short answer
 
@@ -85,26 +85,6 @@ Most of your B2B site traffic is buyers doing research anonymously, and almost n
 ## Why this exists
 
 You're already paying for the traffic. The pages are being read, the pricing calculator is being used, people are coming back for a second look — and by the time any of that shows up as a form-fill, if it ever does, the prospect has often already shortlisted someone else. The lost revenue here is invisible: it never appears as a bounced email or a missed call, it just shows up as a pipeline number that's smaller than the traffic numbers say it should be. This workflow exists to stop that leak.
-
-## Architecture at a glance
-
-```mermaid
-graph TD
-    A[High-intent site visit: pricing / service page, or repeat visit] --> B[Qualifying filter: dwell time + page match]
-    B -->|Passes| C[Dual score: ICP fit + intent]
-    B -->|Fails| X[No record created]
-    C -->|Both clear threshold| D[Waterfall enrichment: contact + firmographics]
-    C -->|Fails either| X
-    D --> E[CRM sync: update existing or create new]
-    E --> F[Message score: visit depth + stakeholder count]
-    F --> G[LLM drafts outbound from signal data]
-    G --> H[Human approval gate]
-    H -->|Approved| I[Dispatch: email + LinkedIn]
-    I --> J[Acceptance triggers follow-up]
-    J --> K[Full history logged to CRM]
-```
-
----
 
 ## Deep dive
 
