@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import WorkflowDiagram from '../../components/WorkflowDiagram.astro';
-import Steps from '../../components/Steps.astro';
+import WorkflowStepList from '../../components/WorkflowStepList.astro';
+import WorkflowFlowChart from '../../components/WorkflowFlowChart.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -18,134 +18,167 @@ export interface Props {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const d = entry.data;
 
-const slug = entry.data.slug || entry.id;
-const title = entry.data.metaTitle && entry.data.metaTitle.length <= 60
-  ? entry.data.metaTitle
-  : `${entry.data.title} Workflow`.slice(0, 50) + ' | Tibin';
-const description = entry.data.description;
+const slug = d.slug || entry.id;
+const title = d.metaTitle && d.metaTitle.length <= 60
+  ? d.metaTitle
+  : `${d.title} Workflow`.slice(0, 50) + ' | Tibin';
 const canonicalUrl = `https://tibinjacob.com/workflows/${slug}`;
-const formattedDate = entry.data.updatedDate
-  ? entry.data.updatedDate.toISOString().split('T')[0]
-  : entry.data.publishedDate
-  ? entry.data.publishedDate.toISOString().split('T')[0]
+const formattedDate = d.updatedDate
+  ? d.updatedDate.toISOString().split('T')[0]
+  : d.publishedDate
+  ? d.publishedDate.toISOString().split('T')[0]
   : '2026-09-25';
-const toolsListText = entry.data.tools.join(' · ');
-const outputLabel = entry.data.steps && entry.data.steps.length > 0
-  ? entry.data.steps[entry.data.steps.length - 1].title
-  : 'Workflow Output';
+
+const steps = d.steps ?? [];
+const hasSteps = steps.length > 0;
+const outcomes = d.outcomes ?? [];
+const hasWhy = Boolean(d.context) || outcomes.length > 0;
+const hasFaq = Boolean(d.faq && d.faq.length > 0);
+
+const toc = [
+  { id: 'summary', label: 'Short answer' },
+  ...(hasWhy ? [{ id: 'why', label: 'Why it exists' }] : []),
+  ...(hasSteps ? [{ id: 'how-it-works', label: 'How it works' }, { id: 'architecture', label: 'Architecture' }] : []),
+  { id: 'deep-dive', label: 'Deep dive' },
+  ...(hasFaq ? [{ id: 'faq', label: 'FAQ' }] : []),
+];
 ---
 
 <BaseLayout
   title={title}
-  description={description}
+  description={d.description}
   canonicalUrl={canonicalUrl}
   schemaType="HowTo"
-  publishedDate={entry.data.publishedDate}
-  updatedDate={entry.data.updatedDate}
-  faq={entry.data.faq}
-  howToSteps={entry.data.steps}
+  publishedDate={d.publishedDate}
+  updatedDate={d.updatedDate}
+  faq={d.faq}
+  howToSteps={steps.map((s) => ({ title: s.title, body: s.body }))}
   breadcrumbs={[
     { name: 'Home', url: '/' },
     { name: 'Workflows', url: '/workflows' },
-    { name: entry.data.title, url: `/workflows/${slug}` },
+    { name: d.title, url: `/workflows/${slug}` },
   ]}
 >
   <article class="py-8 max-w-4xl mx-auto">
-    <!-- 1. Breadcrumb -->
-    <nav class="text-xs font-mono text-zinc-500 mb-8 flex items-center gap-2" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-green-600 transition-colors font-medium">Home</a>
-      <span>/</span>
-      <a href="/workflows" class="hover:text-green-600 transition-colors font-medium">Workflows</a>
-      <span>/</span>
-      <span class="text-zinc-800 font-semibold truncate max-w-xs">{entry.data.title}</span>
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-zinc-500 mb-8 flex items-center gap-2" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-green-700 font-medium">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/workflows" class="hover:text-green-700 font-medium">Workflows</a>
+      <span aria-hidden="true">/</span>
+      <span class="text-zinc-800 font-semibold truncate max-w-xs">{d.title}</span>
     </nav>
 
     <!-- Header -->
-    <header class="mb-10 pb-8 border-b border-zinc-200">
-      <div class="flex flex-wrap items-center gap-3 mb-4 text-xs font-mono">
-        <span class="text-green-600 font-bold uppercase tracking-wider">
-          {entry.data.cluster}
-        </span>
-        <span class="text-zinc-300">|</span>
-        <span class="text-zinc-500">Stack: <strong class="text-zinc-800 font-bold">{toolsListText}</strong></span>
+    <header class="mb-8 pb-8 border-b border-zinc-200">
+      <div class="flex flex-wrap items-center gap-2 mb-5 text-xs">
+        <span class="px-2.5 py-1 rounded-full bg-zinc-950 text-[#d2f39c] font-bold uppercase tracking-wider">{d.cluster}</span>
+        {d.category && <span class="px-2.5 py-1 rounded-full border border-zinc-300 text-zinc-700 font-semibold">{d.category}</span>}
+        {d.buildTime && <span class="px-2.5 py-1 rounded-full border border-zinc-300 text-zinc-700 font-semibold">{d.buildTime}</span>}
       </div>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-950 mb-6 leading-tight font-display">
-        {entry.data.title}
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-950 mb-5 leading-tight">
+        {d.title}
       </h1>
 
-      <div class="text-xs font-mono text-zinc-500 mb-6">
-        Last updated: {formattedDate}
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="text-xs font-semibold text-zinc-500 mr-1">Stack:</span>
+        {d.tools.map((t) => (
+          <span class="text-xs px-2 py-0.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-800 font-semibold">{t}</span>
+        ))}
       </div>
 
-      <!-- Short answer block -->
-      <div class="p-6 rounded-r-2xl border-l-4 border-[#d2f39c] bg-[#f8fafc] border-y border-r border-zinc-200 my-6 shadow-sm">
-        <div class="text-xs font-mono text-zinc-500 font-bold uppercase tracking-wider mb-2">
-          Architecture Summary
-        </div>
-        <p class="text-base sm:text-lg text-zinc-800 leading-relaxed font-normal">
-          {entry.data.description}
-        </p>
-      </div>
+      <div class="text-xs text-zinc-500">Last updated: <time datetime={formattedDate}>{formattedDate}</time></div>
     </header>
 
-    <!-- Visual Architecture Diagram (rendered from trigger/tools/steps frontmatter) -->
-    {entry.data.steps && entry.data.steps.length > 0 && (
-      <WorkflowDiagram
-        trigger={entry.data.trigger}
-        tools={entry.data.tools}
-        steps={entry.data.steps}
-        output={outputLabel}
-      />
+    <!-- On this page -->
+    <nav aria-label="On this page" class="mb-10 flex flex-wrap items-center gap-2 text-sm">
+      <span class="text-zinc-500 font-semibold mr-1">On this page:</span>
+      {toc.map((item) => (
+        <a href={`#${item.id}`} class="px-3 py-1 rounded-full border border-zinc-200 text-zinc-700 hover:border-zinc-400 hover:text-zinc-950">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- 1. Short answer -->
+    <section id="summary" class="scroll-mt-24 mb-12" aria-labelledby="summary-heading">
+      <div class="p-6 sm:p-7 rounded-2xl border border-zinc-200 border-l-4 border-l-[#16a34a] bg-[#f8fafc]">
+        <h2 id="summary-heading" class="text-xs font-bold uppercase tracking-wider text-[#15803d] mb-2">The short answer</h2>
+        <p class="text-lg sm:text-xl text-zinc-900 leading-relaxed font-medium m-0">{d.description}</p>
+      </div>
+    </section>
+
+    <!-- 2. Why it exists -->
+    {hasWhy && (
+      <section id="why" class="scroll-mt-24 mb-12" aria-labelledby="why-heading">
+        <h2 id="why-heading" class="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight mb-4">Why this workflow exists</h2>
+        {d.context && <p class="text-base sm:text-lg text-zinc-700 leading-relaxed mb-6">{d.context}</p>}
+        {outcomes.length > 0 && (
+          <div class="rounded-2xl border border-zinc-200 bg-white p-5 sm:p-6 shadow-sm">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-600 mb-4">What it gives you</h3>
+            <ul class="grid sm:grid-cols-2 gap-3 list-none p-0 m-0">
+              {outcomes.map((o) => (
+                <li class="flex gap-3 text-sm sm:text-base text-zinc-800 leading-snug">
+                  <svg class="flex-none w-5 h-5 mt-0.5" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <circle cx="10" cy="10" r="10" fill="#d2f39c" />
+                    <path d="M6 10.5l2.5 2.5L14 7.5" stroke="#0f1115" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>{o}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </section>
     )}
 
-    <!-- Step-by-step visual breakdown -->
-    {entry.data.steps && entry.data.steps.length > 0 && (
-      <Steps steps={entry.data.steps} title="How It Works, Step by Step" />
-    )}
+    <!-- 3. Step by step -->
+    {hasSteps && <WorkflowStepList steps={steps} />}
 
-    <!-- Main Article Body -->
-    <div class="prose max-w-none space-y-6 text-zinc-800 leading-relaxed font-normal">
-      <Content />
-    </div>
+    <!-- 4. Architecture flow chart -->
+    {hasSteps && <WorkflowFlowChart trigger={d.trigger} steps={steps} tools={d.tools} output={d.output} />}
 
-    <!-- FAQ section -->
-    {entry.data.faq && entry.data.faq.length > 0 && (
-      <section class="mt-16 pt-10 border-t border-zinc-200">
-        <h2 class="text-2xl font-bold text-zinc-950 mb-6 tracking-tight font-display">Frequently Asked Questions</h2>
+    <!-- 5. Deep dive -->
+    <section id="deep-dive" class="scroll-mt-24 mt-14 pt-10 border-t border-zinc-200" aria-label="Deep dive">
+      <div class="text-xs font-bold uppercase tracking-wider text-[#15803d] mb-1">Deep dive</div>
+      <div class="prose workflow-deep-dive">
+        <Content />
+      </div>
+    </section>
+
+    <!-- 6. FAQ -->
+    {hasFaq && (
+      <section id="faq" class="scroll-mt-24 mt-16 pt-10 border-t border-zinc-200" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" class="text-2xl font-bold text-zinc-950 mb-6 tracking-tight">Frequently asked questions</h2>
         <div class="space-y-4">
-          {entry.data.faq.map((item: { q: string; a: string }) => (
-            <details class="group rounded-2xl border border-zinc-200 bg-white p-5 [&_summary::-webkit-details-marker]:none transition-all hover:border-zinc-300">
+          {d.faq!.map((item) => (
+            <details class="group rounded-2xl border border-zinc-200 bg-white p-5 hover:border-zinc-300">
               <summary class="flex cursor-pointer items-center justify-between gap-2 text-zinc-900 font-bold text-base sm:text-lg">
                 <span>{item.q}</span>
-                <span class="shrink-0 rounded-full bg-zinc-100 p-1.5 text-zinc-600 transition group-open:-rotate-180 group-open:bg-green-600 group-open:text-white">
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <span class="shrink-0 rounded-full bg-zinc-100 p-1.5 text-zinc-700 group-open:-rotate-180 group-open:bg-green-700 group-open:text-white">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
               </summary>
-              <p class="mt-4 leading-relaxed text-sm sm:text-base text-zinc-600 font-normal border-t border-zinc-100 pt-4">
-                {item.a}
-              </p>
+              <p class="mt-4 leading-relaxed text-sm sm:text-base text-zinc-700 border-t border-zinc-100 pt-4">{item.a}</p>
             </details>
           ))}
         </div>
       </section>
     )}
 
-    <!-- Navigation Footer -->
+    <!-- 7. CTA -->
     <footer class="mt-16 pt-10 border-t border-zinc-200 flex flex-wrap justify-between items-center gap-6">
-      <a href="/workflows" class="text-xs font-mono font-bold text-zinc-500 hover:text-green-600 transition-colors flex items-center gap-1.5">
-        ← Back to All Workflows
+      <a href="/workflows" class="text-xs font-bold text-zinc-600 hover:text-green-700 flex items-center gap-1.5">
+        ← Back to all workflows
       </a>
-
-      <a
-        href="/hire"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-black bg-[#d2f39c] hover:bg-[#c2e887] transition-all"
-      >
+      <a href="/hire" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-black bg-[#d2f39c] hover:bg-[#c2e887]">
         <span>Deploy this in your stack</span>
-        <svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7"></line>
           <polyline points="7 7 17 7 17 17"></polyline>
         </svg>
@@ -153,3 +186,29 @@ const outputLabel = entry.data.steps && entry.data.steps.length > 0
     </footer>
   </article>
 </BaseLayout>
+
+<style is:global>
+  .workflow-deep-dive > h2:first-child { margin-top: 0.5em; }
+  .workflow-deep-dive table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .workflow-deep-dive th,
+  .workflow-deep-dive td {
+    border: 1px solid #e2e8f0;
+    padding: 0.65rem 0.85rem;
+    text-align: left;
+    vertical-align: top;
+    color: #334155;
+    line-height: 1.5;
+  }
+  .workflow-deep-dive th {
+    background: #f8fafc;
+    color: #0f1115;
+    font-weight: 700;
+  }
+</style>

@@ -47,9 +47,19 @@ const workflows = defineCollection({
     loomUrl: z.string().optional(),
     templateUrl: z.string().optional(),
     githubUrl: z.string().optional(),
+    // Short founder backstory shown under "Why this workflow exists"
+    context: z.string().optional(),
+    // "What it gives you" checklist
+    outcomes: z.array(z.string()).optional(),
+    // Final node label in the architecture flow chart
+    output: z.string().optional(),
     steps: z.array(z.object({
       title: z.string(),
       body: z.string(),
+      // Tool that runs this stage (shown as a chip)
+      tool: z.string().optional(),
+      // 2-3 word label for the flow chart node
+      node: z.string().optional(),
     })).default([]),
   }),
 });

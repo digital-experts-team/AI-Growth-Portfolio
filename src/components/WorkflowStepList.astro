@@ -1,0 +1,39 @@
+---
+export interface Props {
+  steps: { title: string; body: string; tool?: string; node?: string }[];
+  title?: string;
+}
+
+const { steps, title = 'How it works, step by step' } = Astro.props;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section id="how-it-works" class="scroll-mt-24 my-14" aria-labelledby="how-it-works-heading">
+  <h2 id="how-it-works-heading" class="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight mb-2">{title}</h2>
+  <p class="text-sm sm:text-base text-zinc-600 mb-8">{steps.length} stages, from the trigger to the outcome.</p>
+  <ol class="space-y-4 list-none p-0 m-0">
+    {steps.map((step, idx) => (
+      <li id={`step-${idx + 1}`} class="scroll-mt-24 flex gap-4 sm:gap-5 rounded-2xl border border-zinc-200 bg-white p-5 sm:p-6 shadow-sm">
+        <span
+          class="flex-none flex items-center justify-center w-10 h-10 rounded-full bg-zinc-950 text-[#d2f39c] text-sm font-bold"
+          aria-hidden="true"
+        >
+          {pad(idx + 1)}
+        </span>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1.5">
+            <h3 class="text-base sm:text-lg font-bold text-zinc-950 leading-snug m-0">
+              <span class="sr-only">Step {idx + 1}: </span>{step.title}
+            </h3>
+            {step.tool && (
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#f1fbe2] text-zinc-800 border border-[#c9ec91]">
+                {step.tool}
+              </span>
+            )}
+          </div>
+          <p class="text-sm sm:text-base text-zinc-700 leading-relaxed m-0">{step.body}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
