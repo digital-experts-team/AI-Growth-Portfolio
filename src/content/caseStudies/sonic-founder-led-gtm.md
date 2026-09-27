@@ -11,11 +11,11 @@ sourceRole: "Sonic"
 company: "Sonic (sonic.ooo)"
 role: "Founder-led GTM Automation"
 dates: "Jan 2024 – Sep 2024"
-image: "/images/case-studies/sonic.jpg"
+image: "https://images.unsplash.com/photo-1758873269317-51888e824b28?auto=format&fit=crop&w=1200&h=800&q=80"
 tag: "#FounderGTM"
 author: "Tibin Jacob"
 authorAvatar: "/images/tibin-avatar.jpg"
-proofLink: "/workflows/website-visitors-to-hubspot"
+proofLink: "/workflows/website-signal-to-outbound-engine"
 publishedDate: 2024-09-25
 updatedDate: 2026-09-10
 faq:
@@ -53,6 +53,6 @@ graph TD
 - Delivered real-time investor and partner briefings across channels and outbound email.
 - Utilized analytics and session telemetry to resolve conversion friction prior to human engagement.
 
-[See the underlying workflow: Website Visitors to HubSpot](/workflows/website-visitors-to-hubspot)
+[See the underlying workflow: Website Signal-to-Outbound Engine](/workflows/website-signal-to-outbound-engine)
 
 [Hire me for this motion](/hire)
