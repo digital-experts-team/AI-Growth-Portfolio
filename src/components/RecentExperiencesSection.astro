@@ -46,12 +46,12 @@ const caseStudies = allCaseStudies.sort((a, b) => {
       const avatarUrl = cs.data.authorAvatar || "/images/tibin-avatar.jpg";
 
       return (
-        <article class="bento-card p-4 sm:p-6 rounded-[24px] sm:rounded-[28px] transition-all group">
+        <article class="bg-[#d2f39c] hover:bg-[#c8ea8d] border border-black/15 p-4 sm:p-6 rounded-[24px] sm:rounded-[28px] transition-all duration-300 group shadow-md hover:shadow-xl">
           <a href={`/work/${slug}`} class="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center">
             
             <!-- Left Side: Image with Tag Overlay -->
-            <div class="md:col-span-5 relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-900">
-              <span class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/85 backdrop-blur-md text-xs font-mono font-bold text-white tracking-wide border border-white/10">
+            <div class="md:col-span-5 relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-black/40 border border-black/10">
+              <span class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/90 backdrop-blur-md text-xs font-mono font-bold text-[#d2f39c] tracking-wide border border-black/20">
                 {tag}
               </span>
               <img
@@ -68,40 +68,40 @@ const caseStudies = allCaseStudies.sort((a, b) => {
             <div class="md:col-span-7 flex flex-col justify-between h-full py-1 gap-4">
               <div class="flex flex-col gap-2.5">
                 <div class="flex items-center justify-between text-xs font-mono">
-                  <span class="text-[#d2f39c] font-bold uppercase">{cs.data.company}</span>
-                  <span class="text-zinc-400 font-medium">{cs.data.dates}</span>
+                  <span class="text-zinc-950 font-black uppercase tracking-wider">{cs.data.company}</span>
+                  <span class="text-zinc-700 font-bold">{cs.data.dates}</span>
                 </div>
 
-                <h3 class="text-white text-xl sm:text-2xl font-bold tracking-tight leading-snug group-hover:text-[#d2f39c] transition-colors font-display">
+                <h3 class="text-zinc-950 text-xl sm:text-2xl font-black tracking-tight leading-snug group-hover:text-black transition-colors font-display">
                   {cs.data.title}
                 </h3>
 
-                <p class="text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-normal line-clamp-3">
+                <p class="text-zinc-900 text-sm sm:text-[15px] leading-relaxed font-medium line-clamp-3">
                   {cs.data.description}
                 </p>
               </div>
 
               <!-- Author & Action Footer Row -->
-              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between gap-4 mt-2">
+              <div class="pt-4 border-t border-black/15 flex items-center justify-between gap-4 mt-2">
                 <div class="flex items-center gap-3">
                   <img
                     src={avatarUrl}
                     alt={cs.data.author || "Tibin Jacob"}
-                    class="w-8 h-8 rounded-full object-cover border border-zinc-700 shrink-0"
+                    class="w-8 h-8 rounded-full object-cover border border-black/20 shrink-0"
                     referrerpolicy="no-referrer"
                   />
                   <div class="flex flex-col">
-                    <span class="text-xs font-bold text-white">
+                    <span class="text-xs font-bold text-zinc-950">
                       by {cs.data.author || "Tibin Jacob"}
                     </span>
-                    <span class="text-xs text-zinc-400 font-mono font-medium">
+                    <span class="text-xs text-zinc-800 font-mono font-semibold">
                       {cs.data.role}
                     </span>
                   </div>
                 </div>
 
                 <div class="flex items-center gap-2 shrink-0">
-                  <div class="w-9 h-9 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] group-hover:text-black text-zinc-400 flex items-center justify-center transition-all duration-300 border border-zinc-800 group-hover:border-transparent">
+                  <div class="w-9 h-9 rounded-full bg-black text-[#d2f39c] group-hover:bg-zinc-900 group-hover:scale-105 flex items-center justify-center transition-all duration-300 border border-black/20 shadow-sm">
                     <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                       <line x1="7" y1="17" x2="17" y2="7"></line>
                       <polyline points="7 7 17 7 17 17"></polyline>
