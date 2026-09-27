@@ -36,7 +36,7 @@ Mavlers · Role: **GTM Automation Lead & AI Search/SEO Lead (AEO/GEO)** · Apr 2
 
 # Mavlers: Partner Agency Signal-to-Revenue Engine
 
-> **Short answer:** Mavlers was getting real buyer intent on their site and losing almost all of it. I built a signal-based system that turned anonymous visits into enriched, scored, personally-written outbound — sent automatically, approved by a human — while also building the automation layer behind the agency's SEO/AEO delivery, so inbound visibility and outbound pipeline ran as one connected system instead of two disconnected functions. Result: 3–4x more qualified leads from traffic that was already there, and double the open rate.
+> **Short answer:** Mavlers was getting real buyer intent on their site and losing almost all of it. Sales IQ can spot the company behind a visit, but it can't hand you an email — so I built a chat nudge to capture one directly, paired it immediately with the full behavioral picture (pages viewed, time spent, repeat visits), and fired personally-written outbound within minutes of the visitor dropping off — approved by a human every time. I also built the automation layer behind the agency's SEO/AEO delivery, so inbound visibility and outbound pipeline ran as one connected system instead of two disconnected functions. Result: 3–4x more qualified leads from traffic that was already there, and double the open rate.
 
 ## Context
 
@@ -50,30 +50,33 @@ Every day a real buying signal sat unused was pipeline Mavlers was quietly leavi
 
 ```mermaid
 graph TD
-    A[Zoho Sales IQ: site activity] --> B[Qualifying filter: dwell time, page match]
-    B --> C[ICP + Intent Score]
-    C -->|Passes| D[Apollo Enrichment: email, LinkedIn, firmographics]
-    C -->|Fails| E[No record created]
-    D --> F[HubSpot: update existing or create new]
-    F --> G[Message Scoring: visit count + stakeholder count]
+    A[Zoho Sales IQ: site activity] --> B[Chat nudge: ask for email directly]
+    B --> C[Qualifying filter: dwell time, page match]
+    C --> D[ICP + Intent Score]
+    D -->|Fails| X[No record created]
+    D -->|Passes, email captured| E[HubSpot: update existing or create new]
+    D -->|Passes, no email| F[Apollo Enrichment: fills contact + firmographics]
+    F --> E
+    E --> G[Message Scoring: visit count + stakeholder count]
     G --> H[Claude via MCP drafts email from signal data]
     H --> I[Slack approval gate: draft + signals shown together]
-    I -->|Approved| J[Instantly email dispatch / LinkedIn connection request]
+    I -->|Approved| J[Dispatch within minutes of drop-off: email / LinkedIn]
     J --> K[Connection accepted -> auto follow-up message]
     K --> L[Full interaction logged back to HubSpot]
 ```
 
 ## How I built it
 
-1. **Multi-signal capture.** Deployed Zoho Sales IQ across every white-label service page and the pricing calculator, tracking time on page, pages viewed, and whether a visitor came back.
-2. **Deterministic filtering before spend.** Built a qualifying gate — minimum dwell time, at least one service-page view — so enrichment credits were never wasted on low-intent traffic. This is the step that keeps the whole system cheap enough to run continuously.
-3. **Dual scoring, not one.** A fit score (agency, 10–200 employees, matches ICP) and an intent score (what they looked at, how long, how often) both had to clear threshold — high intent from the wrong company, or right-fit companies just browsing, never made it through alone.
-4. **Waterfall enrichment via Apollo.** Qualified accounts were resolved to real contacts — email, LinkedIn, firmographics — connected directly to Apollo, built to be swappable for any enrichment stack a client already runs.
-5. **HubSpot as the system of record.** Every qualified account was checked against HubSpot first: existing leads got updated with the new signal data, new ones got created — nothing was double-touched or dropped.
-6. **A second scoring pass, purely for the message.** Separate from qualification, this pass decided *how* the email should read: a single-visit prospect got different copy than a repeat, multi-page visitor, and multi-stakeholder accounts were bumped to priority.
-7. **Claude drafted the actual email via MCP**, using the exact signals — pages viewed, time spent, visit count — as the input, then posted the draft alongside those signals to Slack for a human approval gate before anything went out.
-8. **Dispatch and closed-loop logging.** Approved messages went to Instantly for email or into LinkedIn as a connection request; an accepted LinkedIn connection auto-fired a follow-up and the entire interaction history logged back to HubSpot.
-9. **ICP workshop → new offer.** Ran an internal ICP workshop with leadership that became the blueprint for a new, automated delivery add-on service, and packaged a GTM audit standard — covering top-of-funnel acquisition through MQL→SQL conversion — used to diagnose and sell that offer using the same funnel language sales already trusted.
+1. **Multi-signal capture.** Deployed Zoho Sales IQ across every white-label service page and the pricing calculator, tracking time on page, pages viewed, and whether a visitor came back. Sales IQ resolves the company behind a visit from network/IP data — it doesn't identify the individual or hand over an email on its own.
+2. **A direct nudge for the email.** Set the chat widget to ask visitors for an email early in a qualifying session rather than waiting on a form. A meaningful share type one in within seconds and then leave without another word — which is fine: the goal was a resolvable contact, not a conversation. A bare email alone isn't the win here; it only becomes valuable once it's paired with everything else the visitor did.
+3. **Deterministic filtering before spend.** Built a qualifying gate — minimum dwell time, at least one service-page view — so enrichment credits were never wasted on low-intent traffic. This is the step that keeps the whole system cheap enough to run continuously.
+4. **Dual scoring, not one.** A fit score (agency, 10–200 employees, matches ICP) and an intent score (what they looked at, how long, how often) both had to clear threshold — high intent from the wrong company, or right-fit companies just browsing, never made it through alone.
+5. **Apollo enrichment as the fallback.** For accounts that didn't hand over an email on-site, waterfall enrichment resolved a contact from the company domain instead — built to be swappable for any enrichment stack a client already runs. This ran only when the direct nudge came up empty, not as the default path.
+6. **HubSpot as the system of record.** Every qualified account was checked against HubSpot first: existing leads got updated with the new signal data, new ones got created — nothing was double-touched or dropped.
+7. **A second scoring pass, purely for the message.** Separate from qualification, this pass decided *how* the email should read: a single-visit prospect got different copy than a repeat, multi-page visitor, and multi-stakeholder accounts were bumped to priority.
+8. **Claude drafted the actual email via MCP**, using the exact signals — pages viewed, time spent, visit count — as the input, then posted the draft alongside those signals to Slack for a human approval gate before anything went out.
+9. **Dispatch within minutes of drop-off.** This was the actual lever, not the email or the data alone: approved messages went out to Instantly for email or into LinkedIn as a connection request while the visitor was still likely thinking about Mavlers, not two days later when the moment had passed. An accepted LinkedIn connection auto-fired a follow-up and the entire interaction history logged back to HubSpot.
+10. **ICP workshop → new offer.** Ran an internal ICP workshop with leadership that became the blueprint for a new, automated delivery add-on service, and packaged a GTM audit standard — covering top-of-funnel acquisition through MQL→SQL conversion — used to diagnose and sell that offer using the same funnel language sales already trusted.
 
 *The full technical build — filter thresholds, the dual-scoring logic, the exact Claude/MCP prompt structure, and where this kind of system tends to break in production — is documented as a standalone, agency-agnostic workflow: [Website Signal-to-Outbound Engine →](/workflows/website-signal-to-outbound-engine)*
 
