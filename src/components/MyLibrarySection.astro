@@ -15,10 +15,24 @@ const isAEO = (slug: string) => {
   );
 };
 
-const outboundWorkflows = allWorkflows.filter((wf) => {
-  const slug = wf.data.slug || wf.id;
-  return !isAEO(slug);
-}).slice(0, 3); // Display top 3 Outbound systems
+const outboundPriority = ['website-signal-to-outbound-engine', 'clay-waterfall-enrichment'];
+
+const outboundWorkflows = allWorkflows
+  .filter((wf) => {
+    const slug = wf.data.slug || wf.id;
+    return !isAEO(slug);
+  })
+  .sort((a, b) => {
+    const aSlug = a.data.slug || a.id;
+    const bSlug = b.data.slug || b.id;
+    const aIdx = outboundPriority.indexOf(aSlug);
+    const bIdx = outboundPriority.indexOf(bSlug);
+    if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx;
+    if (aIdx !== -1) return -1;
+    if (bIdx !== -1) return 1;
+    return 0;
+  })
+  .slice(0, 3); // Display top 3 Outbound systems, pinned order first
 
 const aeoWorkflows = allWorkflows.filter((wf) => {
   const slug = wf.data.slug || wf.id;
@@ -315,5 +329,4 @@ const aeoWorkflows = allWorkflows.filter((wf) => {
     </div>
   </div>
 </section>
-
 

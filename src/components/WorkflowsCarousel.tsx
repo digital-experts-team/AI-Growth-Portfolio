@@ -10,18 +10,18 @@ interface WorkflowItem {
 export const WorkflowsCarousel: React.FC<{ items?: WorkflowItem[] }> = ({ items }) => {
   const defaultItems: WorkflowItem[] = [
     {
-      slug: 'waterfall-enrichment',
-      tools: '• Clay • Apollo • n8n',
-      title: 'Waterfall enrichment agent',
-      description:
-        'Multi-vendor cascading data waterfalls that deduplicate, verify work emails, and enrich firmographics before CRM ingestion.',
-    },
-    {
       slug: 'website-signal-to-outbound-engine',
       tools: '• Sales IQ • Apollo • HubSpot • Claude',
       title: 'Website signal-to-outbound engine',
       description:
         'Nudges site visitors for an email, pairs it with full behavioral context, and dispatches personalized outbound within minutes of drop-off.',
+    },
+    {
+      slug: 'clay-waterfall-enrichment',
+      tools: '• Clay • Apollo • Hunter • n8n',
+      title: 'Clay Waterfall Enrichment: 30% to 90%+ match rates',
+      description:
+        'Chains three enrichment providers plus validation so a prospect list stops coming back with half its emails missing or bouncing.',
     },
     {
       slug: 'hubspot-lead-routing',
