@@ -15,6 +15,11 @@ const partners = [
     title: "CEOs and RevOps Leaders",
     description: 'Paid, SEO and AI search programs tracked to marketing-sourced pipeline, not just lead volume.',
   },
+  {
+    num: '04',
+    title: 'Recruitment and Staffing Agencies',
+    description: 'GTM systems for recruitment and staffing agencies: signal-based business development, ICP-scored client and candidate pipeline, and ATS/CRM routing that frees up recruiter time.',
+  },
 ];
 ---
 
@@ -41,10 +46,10 @@ const partners = [
     </div>
   </div>
 
-  <!-- Open 3 Columns Grid: Compact Within Hero Container (No Card Boxes) -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 pt-1">
+  <!-- Open 4 Columns Grid: Compact Within Hero Container (No Card Boxes) -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-1">
     {partners.map((item, index) => (
-      <div class={`flex flex-col gap-2.5 group ${index < partners.length - 1 ? 'md:border-r md:border-zinc-800/80 md:pr-6 lg:pr-8' : ''}`}>
+      <div class={`flex flex-col gap-2.5 group ${index < partners.length - 1 ? 'lg:border-r lg:border-zinc-800/80 lg:pr-6' : ''}`}>
         <!-- Numbered Badge in Hire Me Light Green -->
         <span class="inline-flex w-fit px-2.5 py-0.5 rounded-full bg-[#182310] border border-[#d2f39c]/40 text-[#d2f39c] text-[10px] font-mono font-bold tracking-wider">
           {item.num}
