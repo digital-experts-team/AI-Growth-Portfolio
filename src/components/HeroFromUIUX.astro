@@ -30,9 +30,10 @@ const {
             loading="eager"
             fetchpriority="high"
           />
+          <!-- Dominant speech-bubble accent, scoped to the photo so it never crosses into the headline -->
           <SpeechBubble
-            size={140}
-            class="absolute -top-2 right-2 sm:top-2 sm:right-0 lg:-right-6 w-24 sm:w-32 lg:w-36 h-auto drop-shadow-2xl"
+            size={180}
+            class="absolute z-20 top-0 right-0 sm:right-2 lg:right-4 w-28 sm:w-36 lg:w-40 h-auto drop-shadow-2xl pointer-events-none"
           />
         </div>
 
@@ -48,8 +49,7 @@ const {
           <!-- Main H1 Headline -->
           <h1
             id="hero-title"
-            class="text-white text-4xl sm:text-6xl lg:text-[64px] tracking-tight leading-[1.02] uppercase"
-            style="font-family: var(--font-display-impact);"
+            class="text-white text-4xl sm:text-6xl lg:text-[64px] font-black tracking-tight leading-[1.02] uppercase"
           >
             AI Growth Expert for<br />
             <span class="text-[#6fa8ff] underline decoration-[#1e5eff] underline-offset-4 sm:underline-offset-8">B2B Companies.</span>
@@ -62,17 +62,19 @@ const {
 
           <!-- CTA Buttons Row -->
           <div class="flex flex-wrap items-center gap-4 pt-1">
-            <!-- Primary Pill Button: See how I work ↗ -->
+            <!-- Primary Two-Tone Button: icon chip + text pill, matching the reference contact-button pattern -->
             <a
               href="#explore-work"
-              class="group inline-flex items-center gap-3 bg-[#1e5eff] hover:bg-[#1748d1] text-white font-bold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full shadow-2xl transition-all active:scale-95"
+              class="group inline-flex items-center rounded-full overflow-hidden shadow-2xl transition-all active:scale-95"
             >
-              <span>See how I work</span>
-              <span class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#1e5eff] transition-transform duration-300 group-hover:rotate-45">
+              <span class="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center bg-[#6fa8ff] text-[#0a1428] shrink-0 transition-transform duration-300 group-hover:rotate-45">
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7"></line>
                   <polyline points="7 7 17 7 17 17"></polyline>
                 </svg>
+              </span>
+              <span class="pl-4 pr-6 sm:pr-7 h-11 sm:h-12 flex items-center bg-[#0a1428] group-hover:bg-[#10213f] text-white font-bold text-[14px] sm:text-[15px] transition-colors">
+                See how I work
               </span>
             </a>
           </div>

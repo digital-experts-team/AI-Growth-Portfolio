@@ -90,21 +90,25 @@ const currentPath = Astro.url.pathname;
       <!-- Hire Me Button (desktop only; hamburger covers mobile) -->
       <a
         href="/hire"
-        class="hidden lg:inline-flex items-center gap-1.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[12px] sm:text-[13px] font-extrabold text-white bg-[#1e5eff] hover:bg-[#1748d1] shadow-sm transition-all active:scale-95"
+        class="hidden lg:inline-flex items-center rounded-full overflow-hidden shadow-sm transition-all active:scale-95 group"
       >
-        <span>Hire me</span>
-        <svg
-          class="w-3.5 h-3.5 text-black"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
+        <span class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 bg-[#6fa8ff] text-[#0a1428] shrink-0">
+          <svg
+            class="w-3.5 h-3.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </span>
+        <span class="pl-3 pr-5 sm:pr-6 text-[12px] sm:text-[13px] font-extrabold text-white bg-[#0a1428] group-hover:bg-[#10213f] h-8 sm:h-9 flex items-center transition-colors">
+          Hire me
+        </span>
       </a>
 
       <!-- Mobile Menu Toggle Button -->
