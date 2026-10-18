@@ -52,7 +52,7 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
     <!-- Header -->
     <header class="mb-10 pb-8 border-b border-zinc-200">
       <div class="flex flex-wrap items-center gap-3 mb-4 text-xs font-mono">
-        <span class="text-green-600 font-bold uppercase tracking-wider">
+        <span class="text-[#1e5eff] font-bold uppercase tracking-wider">
           {entry.data.cluster}
         </span>
         <span class="text-zinc-300">|</span>
@@ -64,7 +64,7 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
       </h1>
 
       <!-- Definition Block -->
-      <div class="p-6 rounded-r-2xl border-l-4 border-[#d2f39c] bg-[#f8fafc] border-y border-r border-zinc-200 my-6 shadow-sm">
+      <div class="p-6 rounded-r-2xl border-l-4 border-[#1e5eff] bg-[#f8fafc] border-y border-r border-zinc-200 my-6 shadow-sm">
         <div class="text-xs font-mono text-zinc-500 font-bold uppercase tracking-wider mb-2">
           Definition / Direct Answer
         </div>
@@ -99,7 +99,7 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
             <details class="group rounded-2xl border border-zinc-200 bg-white p-5 [&_summary::-webkit-details-marker]:none transition-all hover:border-zinc-300">
               <summary class="flex cursor-pointer items-center justify-between gap-2 text-zinc-900 font-bold text-base sm:text-lg">
                 <span>{item.q}</span>
-                <span class="shrink-0 rounded-full bg-zinc-100 p-1.5 text-zinc-600 transition group-open:-rotate-180 group-open:bg-green-600 group-open:text-white">
+                <span class="shrink-0 rounded-full bg-zinc-100 p-1.5 text-zinc-600 transition group-open:-rotate-180 group-open:bg-[#1e5eff] group-open:text-white">
                   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -116,13 +116,13 @@ const canonicalUrl = `https://tibinjacob.com/glossary/${slug}`;
 
     <!-- Footer Links -->
     <footer class="mt-16 pt-10 border-t border-zinc-200 flex flex-wrap justify-between items-center gap-6">
-      <a href="/glossary" class="text-xs font-mono font-bold text-zinc-500 hover:text-green-600 transition-colors flex items-center gap-1.5">
+      <a href="/glossary" class="text-xs font-mono font-bold text-zinc-500 hover:text-[#1e5eff] transition-colors flex items-center gap-1.5">
         ← Back to Glossary Index
       </a>
 
       <a
         href="/hire"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-black bg-[#d2f39c] hover:bg-[#c2e887] transition-all"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-white bg-[#1e5eff] hover:bg-[#1748d1] transition-all"
       >
         <span>Hire me for this motion</span>
         <svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">

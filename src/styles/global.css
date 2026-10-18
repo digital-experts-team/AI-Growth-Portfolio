@@ -195,7 +195,7 @@ details.bento-card[open] {
 }
 
 .prose a {
-  color: #16a34a;
+  color: #1e5eff;
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -203,7 +203,7 @@ details.bento-card[open] {
 }
 
 .prose a:hover {
-  color: #15803d;
+  color: #1748d1;
 }
 
 .prose ul {
@@ -229,7 +229,7 @@ details.bento-card[open] {
 }
 
 .prose blockquote {
-  border-left: 4px solid #d2f39c;
+  border-left: 4px solid #1e5eff;
   padding: 1rem 1.25rem;
   background-color: #f8fafc;
   border-radius: 0 0.5rem 0.5rem 0;

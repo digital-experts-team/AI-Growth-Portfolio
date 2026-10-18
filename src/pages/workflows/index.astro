@@ -81,7 +81,7 @@ const description = "Systems that turn signals into revenue";
 
     <!-- Symmetrical Filter Bar: All · GTM (Outbound) · AEO (AI Search) -->
     <div class="mb-12 flex flex-wrap items-center gap-2 bg-zinc-50 border border-zinc-200/80 p-1.5 rounded-xl w-fit">
-      <button data-filter="all" class="filter-btn px-5 py-2 text-xs font-bold rounded-lg bg-[#d2f39c] text-[#0f1115] shadow-xs transition-all whitespace-nowrap cursor-pointer">
+      <button data-filter="all" class="filter-btn px-5 py-2 text-xs font-bold rounded-lg bg-[#1e5eff] text-white shadow-xs transition-all whitespace-nowrap cursor-pointer">
         All
       </button>
       <button data-filter="gtm" class="filter-btn px-5 py-2 text-xs font-bold rounded-lg text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 transition-all whitespace-nowrap cursor-pointer">
@@ -99,7 +99,7 @@ const description = "Systems that turn signals into revenue";
       <section id="section-gtm" class="flex flex-col gap-8">
         <div class="pb-4 border-b border-zinc-200">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-zinc-500 uppercase tracking-widest mb-1">
-            <span class="w-2 h-2 rounded-full bg-[#d2f39c]"></span>
+            <span class="w-2 h-2 rounded-full bg-[#1e5eff]"></span>
             <span>01 — OUTBOUND MOTION</span>
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight font-display">
@@ -140,22 +140,22 @@ const description = "Systems that turn signals into revenue";
                     return (
                       <a
                         href={`/workflows/${slug}`}
-                        class="bento-card p-6 sm:p-7 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-[#d2f39c]/40 transition-all duration-300"
+                        class="bento-card p-6 sm:p-7 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-[#6fa8ff]/40 transition-all duration-300"
                       >
                         <div>
                           <div class="flex items-center justify-between text-xs font-mono mb-3">
-                            <span class="text-[#d2f39c] font-bold uppercase tracking-wider">Outbound</span>
+                            <span class="text-[#6fa8ff] font-bold uppercase tracking-wider">Outbound</span>
                             <span class={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                               statusLabel === 'Build note'
                                 ? 'bg-zinc-900 text-zinc-400 border border-zinc-800'
                                 : statusLabel === 'Constrained'
                                 ? 'bg-amber-950/80 text-amber-400 border border-amber-800/60'
-                                : 'bg-green-950/80 text-green-400 border border-green-800/60'
+                                : 'bg-[#0a1428] text-[#6fa8ff] border border-[#1b3261]'
                             }`}>
                               {statusLabel}
                             </span>
                           </div>
-                          <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-[#d2f39c] transition-colors mb-2 leading-snug">
+                          <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-[#6fa8ff] transition-colors mb-2 leading-snug">
                             {wf.data.title}
                           </h4>
                           <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mb-3 line-clamp-3">
@@ -171,7 +171,7 @@ const description = "Systems that turn signals into revenue";
                               </span>
                             ))}
                           </div>
-                          <span class="text-[#d2f39c] font-bold text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
+                          <span class="text-[#6fa8ff] font-bold text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
                             View system →
                           </span>
                         </div>
@@ -189,7 +189,7 @@ const description = "Systems that turn signals into revenue";
       <section id="section-aeo" class="flex flex-col gap-8">
         <div class="pb-4 border-b border-zinc-200">
           <div class="flex items-center gap-2 text-xs font-mono font-bold text-zinc-500 uppercase tracking-widest mb-1">
-            <span class="w-2 h-2 rounded-full bg-[#d2f39c]"></span>
+            <span class="w-2 h-2 rounded-full bg-[#1e5eff]"></span>
             <span>02 — INBOUND & AI CITATIONS</span>
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight font-display">
@@ -223,20 +223,20 @@ const description = "Systems that turn signals into revenue";
                     return (
                       <a
                         href={`/workflows/${slug}`}
-                        class="bento-card p-6 sm:p-7 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-[#d2f39c]/40 transition-all duration-300"
+                        class="bento-card p-6 sm:p-7 rounded-[20px] flex flex-col justify-between gap-6 group hover:border-[#6fa8ff]/40 transition-all duration-300"
                       >
                         <div>
                           <div class="flex items-center justify-between text-xs font-mono mb-3">
-                            <span class="text-[#d2f39c] font-bold uppercase tracking-wider">Inbound</span>
+                            <span class="text-[#6fa8ff] font-bold uppercase tracking-wider">Inbound</span>
                             <span class={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                               statusLabel === 'Build note'
                                 ? 'bg-zinc-900 text-zinc-400 border border-zinc-800'
-                                : 'bg-green-950/80 text-green-400 border border-green-800/60'
+                                : 'bg-[#0a1428] text-[#6fa8ff] border border-[#1b3261]'
                             }`}>
                               {statusLabel}
                             </span>
                           </div>
-                          <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-[#d2f39c] transition-colors mb-2 leading-snug">
+                          <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-[#6fa8ff] transition-colors mb-2 leading-snug">
                             {wf.data.title}
                           </h4>
                           <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal mb-3 line-clamp-3">
@@ -252,7 +252,7 @@ const description = "Systems that turn signals into revenue";
                               </span>
                             ))}
                           </div>
-                          <span class="text-[#d2f39c] font-bold text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
+                          <span class="text-[#6fa8ff] font-bold text-xs font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
                             View system →
                           </span>
                         </div>
@@ -280,10 +280,10 @@ const description = "Systems that turn signals into revenue";
 
         // Update active filter button styling
         buttons.forEach(b => {
-          b.classList.remove('bg-[#d2f39c]', 'text-[#0f1115]', 'shadow-xs');
+          b.classList.remove('bg-[#1e5eff]', 'text-white', 'shadow-xs');
           b.classList.add('text-zinc-600', 'hover:text-zinc-950', 'hover:bg-zinc-100');
         });
-        btn.classList.add('bg-[#d2f39c]', 'text-[#0f1115]', 'shadow-xs');
+        btn.classList.add('bg-[#1e5eff]', 'text-white', 'shadow-xs');
         btn.classList.remove('text-zinc-600', 'hover:text-zinc-950', 'hover:bg-zinc-100');
 
         // Filter main symmetrical sections

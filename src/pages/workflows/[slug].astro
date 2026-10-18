@@ -63,9 +63,9 @@ const toc = [
   <article class="py-8 max-w-4xl mx-auto">
     <!-- Breadcrumb -->
     <nav class="text-xs text-zinc-500 mb-8 flex items-center gap-2" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-green-700 font-medium">Home</a>
+      <a href="/" class="hover:text-[#1e5eff] font-medium">Home</a>
       <span aria-hidden="true">/</span>
-      <a href="/workflows" class="hover:text-green-700 font-medium">Workflows</a>
+      <a href="/workflows" class="hover:text-[#1e5eff] font-medium">Workflows</a>
       <span aria-hidden="true">/</span>
       <span class="text-zinc-800 font-semibold truncate max-w-xs">{d.title}</span>
     </nav>
@@ -73,7 +73,7 @@ const toc = [
     <!-- Header -->
     <header class="mb-8 pb-8 border-b border-zinc-200">
       <div class="flex flex-wrap items-center gap-2 mb-5 text-xs">
-        <span class="px-2.5 py-1 rounded-full bg-zinc-950 text-[#d2f39c] font-bold uppercase tracking-wider">{d.cluster}</span>
+        <span class="px-2.5 py-1 rounded-full bg-[#0a1428] text-[#6fa8ff] font-bold uppercase tracking-wider">{d.cluster}</span>
         {d.category && <span class="px-2.5 py-1 rounded-full border border-zinc-300 text-zinc-700 font-semibold">{d.category}</span>}
         {d.buildTime && <span class="px-2.5 py-1 rounded-full border border-zinc-300 text-zinc-700 font-semibold">{d.buildTime}</span>}
       </div>
@@ -104,8 +104,8 @@ const toc = [
 
     <!-- 1. Short answer -->
     <section id="summary" class="scroll-mt-24 mb-12" aria-labelledby="summary-heading">
-      <div class="p-6 sm:p-7 rounded-2xl border border-zinc-200 border-l-4 border-l-[#16a34a] bg-[#f8fafc]">
-        <h2 id="summary-heading" class="text-xs font-bold uppercase tracking-wider text-[#15803d] mb-2">The short answer</h2>
+      <div class="p-6 sm:p-7 rounded-2xl border border-zinc-200 border-l-4 border-l-[#1e5eff] bg-[#f8fafc]">
+        <h2 id="summary-heading" class="text-xs font-bold uppercase tracking-wider text-[#1748d1] mb-2">The short answer</h2>
         <p class="text-lg sm:text-xl text-zinc-900 leading-relaxed font-medium m-0">{d.description}</p>
       </div>
     </section>
@@ -122,8 +122,8 @@ const toc = [
               {outcomes.map((o) => (
                 <li class="flex gap-3 text-sm sm:text-base text-zinc-800 leading-snug">
                   <svg class="flex-none w-5 h-5 mt-0.5" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                    <circle cx="10" cy="10" r="10" fill="#d2f39c" />
-                    <path d="M6 10.5l2.5 2.5L14 7.5" stroke="#0f1115" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="10" cy="10" r="10" fill="#1e5eff" />
+                    <path d="M6 10.5l2.5 2.5L14 7.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                   <span>{o}</span>
                 </li>
@@ -139,7 +139,7 @@ const toc = [
 
     <!-- 4. Deep dive -->
     <section id="deep-dive" class="scroll-mt-24 mt-14 pt-10 border-t border-zinc-200" aria-label="Deep dive">
-      <div class="text-xs font-bold uppercase tracking-wider text-[#15803d] mb-1">Deep dive</div>
+      <div class="text-xs font-bold uppercase tracking-wider text-[#1748d1] mb-1">Deep dive</div>
       <div class="prose workflow-deep-dive">
         <Content />
       </div>
@@ -154,7 +154,7 @@ const toc = [
             <details class="group rounded-2xl border border-zinc-200 bg-white p-5 hover:border-zinc-300">
               <summary class="flex cursor-pointer items-center justify-between gap-2 text-zinc-900 font-bold text-base sm:text-lg">
                 <span>{item.q}</span>
-                <span class="shrink-0 rounded-full bg-zinc-100 p-1.5 text-zinc-700 group-open:-rotate-180 group-open:bg-green-700 group-open:text-white">
+                <span class="shrink-0 rounded-full bg-zinc-100 p-1.5 text-zinc-700 group-open:-rotate-180 group-open:bg-[#1e5eff] group-open:text-white">
                   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -169,10 +169,10 @@ const toc = [
 
     <!-- 6. CTA -->
     <footer class="mt-16 pt-10 border-t border-zinc-200 flex flex-wrap justify-between items-center gap-6">
-      <a href="/workflows" class="text-xs font-bold text-zinc-600 hover:text-green-700 flex items-center gap-1.5">
+      <a href="/workflows" class="text-xs font-bold text-zinc-600 hover:text-[#1e5eff] flex items-center gap-1.5">
         ← Back to all workflows
       </a>
-      <a href="/hire" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-black bg-[#d2f39c] hover:bg-[#c2e887]">
+      <a href="/hire" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-white bg-[#1e5eff] hover:bg-[#1748d1]">
         <span>Deploy this in your stack</span>
         <svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7"></line>

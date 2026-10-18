@@ -36,7 +36,7 @@ const fieldNotes: FieldNote[] = [];
   <div class="py-6 max-w-6xl mx-auto">
     <!-- Header -->
     <div class="mb-12 pb-8 border-b border-zinc-200">
-      <div class="text-[11px] font-mono uppercase tracking-wider text-green-600 font-semibold mb-2">
+      <div class="text-[11px] font-mono uppercase tracking-wider text-[#1e5eff] font-semibold mb-2">
         Publications & Insights
       </div>
       <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-950 mb-4 font-display">
@@ -53,7 +53,7 @@ const fieldNotes: FieldNote[] = [];
       <!-- 1) Our articles (Pillar / Evergreen) -->
       <section class="lg:col-span-8 flex flex-col gap-6" aria-labelledby="our-articles-heading">
         <div class="flex items-center gap-3 pb-3 border-b border-zinc-100 mb-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-green-600"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#1e5eff]"></span>
           <h2 id="our-articles-heading" class="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight font-display">
             Our articles
           </h2>
@@ -69,11 +69,11 @@ const fieldNotes: FieldNote[] = [];
               <article class="p-6 rounded-2xl border border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-xs transition-all flex flex-col justify-between group">
                 <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
                   <div class="flex items-center gap-2">
-                    <span class="text-xs font-mono text-green-700 bg-green-50 border border-green-200 px-2 py-0.5 rounded">
+                    <span class="text-xs font-mono text-[#1748d1] bg-[#e8f1ff] border border-[#c7ddff] px-2 py-0.5 rounded">
                       {post.data.cluster}
                     </span>
                     {post.data.type === 'pillar' && (
-                      <span class="text-xs font-mono text-green-700 bg-green-100 border border-green-300 px-2 py-0.5 rounded">
+                      <span class="text-xs font-mono text-[#1748d1] bg-[#d6e6ff] border border-[#a8c8ff] px-2 py-0.5 rounded">
                         Pillar Guide
                       </span>
                     )}
@@ -83,7 +83,7 @@ const fieldNotes: FieldNote[] = [];
                   </span>
                 </div>
 
-                <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 group-hover:text-green-600 transition-colors mb-2 leading-snug font-display">
+                <h3 class="text-xl sm:text-2xl font-bold text-zinc-900 group-hover:text-[#1e5eff] transition-colors mb-2 leading-snug font-display">
                   <a href={`/blog/${post.data.slug || post.id}`}>
                     {post.data.title}
                   </a>
@@ -99,7 +99,7 @@ const fieldNotes: FieldNote[] = [];
                   </span>
                   <a
                     href={`/blog/${post.data.slug || post.id}`}
-                    class="text-xs font-bold text-green-600 hover:text-green-700 hover:underline"
+                    class="text-xs font-bold text-[#1e5eff] hover:text-[#1748d1] hover:underline"
                   >
                     Read article →
                   </a>
@@ -131,7 +131,7 @@ const fieldNotes: FieldNote[] = [];
               return (
                 <div class="p-5 rounded-xl border border-zinc-200 bg-white shadow-xs flex flex-col justify-between gap-4">
                   <div class="flex items-center justify-between text-[10px] font-mono text-zinc-400">
-                    <span class="text-green-700 bg-green-50 border border-green-100 px-2 py-0.5 rounded">{note.pillarChip}</span>
+                    <span class="text-[#1748d1] bg-[#e8f1ff] border border-[#c7ddff] px-2 py-0.5 rounded">{note.pillarChip}</span>
                     <span>{note.dateLogged}</span>
                   </div>
                   <div>
@@ -139,12 +139,12 @@ const fieldNotes: FieldNote[] = [];
                     <p class="text-xs text-zinc-600 leading-relaxed font-medium mb-3">{note.ourTake}</p>
                     
                     <div class="text-[11px] text-zinc-400 font-mono">
-                      Source: <a href={note.source.url} target="_blank" rel={relVal} class="text-green-600 hover:underline">{note.source.publication} — {note.source.title}</a>
+                      Source: <a href={note.source.url} target="_blank" rel={relVal} class="text-[#1e5eff] hover:underline">{note.source.publication} — {note.source.title}</a>
                     </div>
                   </div>
                   
                   <div class="pt-3 border-t border-zinc-100">
-                    <a href={note.savedHereUrl} class="inline-flex items-center gap-1.5 text-xs font-bold text-green-600 hover:text-green-700 hover:underline">
+                    <a href={note.savedHereUrl} class="inline-flex items-center gap-1.5 text-xs font-bold text-[#1e5eff] hover:text-[#1748d1] hover:underline">
                       <span>Our take</span>
                       <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <line x1="7" y1="17" x2="17" y2="7"></line>
