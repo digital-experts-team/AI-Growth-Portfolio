@@ -1,89 +1,85 @@
 ---
-// HeroFromUIUX.astro - Full-width edge-to-edge hero image with text floating directly over it with balanced padding
+// HeroFromUIUX.astro - Navy card block with cutout portrait, blob + speech-bubble accents
 import BlobShape from './BlobShape.astro';
+import SpeechBubble from './SpeechBubble.astro';
 
 export interface Props {
   photoUrl?: string;
 }
 
 const {
-  photoUrl = "/images/hero-bg.webp",
+  photoUrl = "/images/hero-cutout.webp",
 } = Astro.props;
 ---
 
-<section
-  class="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center text-white overflow-hidden"
-  aria-labelledby="hero-title"
->
-  <!-- FULL WIDTH EXTENDED HERO IMAGE ACROSS THE ENTIRE SCREEN -->
-  <img
-    src={photoUrl}
-    alt="Tibin Jacob, GTM Engineer & AI Search Specialist"
-    class="absolute inset-0 w-full h-full object-cover object-[20%_top] sm:object-center select-none pointer-events-none z-0"
-    loading="eager"
-    fetchpriority="high"
-    width="1920"
-    height="1080"
-    referrerpolicy="no-referrer"
-    onerror="this.onerror=null; this.src='https://i.ibb.co/5gNLHSnP/Hero.webp';"
-  />
+<section class="w-full bg-white py-6 sm:py-10 px-4 sm:px-6 lg:px-10" aria-labelledby="hero-title">
+  <div class="max-w-[1360px] mx-auto">
+    <div class="relative w-full rounded-[32px] sm:rounded-[40px] overflow-hidden bg-[#0a1428] border border-[#1b3261] shadow-2xl">
+      <!-- Decorative blue blob glow -->
+      <BlobShape class="absolute -right-10 -top-10 w-[480px] h-[480px] sm:w-[620px] sm:h-[620px] blur-3xl opacity-45 pointer-events-none" />
+      <BlobShape class="hidden lg:block absolute left-0 bottom-0 w-[360px] h-[360px] blur-3xl opacity-25 pointer-events-none" />
 
-  <!-- Subtle gradient scrim strictly behind text for legibility -->
-  <div class="absolute inset-0 bg-gradient-to-t via-[#0a1428]/30 from-[#0a1428]/85 lg:from-[#0a1428]/65 to-transparent pointer-events-none z-0"></div>
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end px-6 sm:px-10 lg:px-14">
 
-  <!-- Decorative blue blob glow behind the headline column -->
-  <BlobShape class="hidden lg:block absolute -right-16 top-0 w-[620px] h-[620px] blur-3xl opacity-50 z-[1]" />
-
-  <!-- FLOATING HERO CONTENT WITH BALANCED EQUAL TOP AND BOTTOM PADDING -->
-  <div class="relative z-10 w-full max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12 pt-32 sm:pt-28 pb-20 sm:pb-24 flex flex-col justify-center">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
-
-      <!-- Left spacer column allowing the portrait subject to show cleanly -->
-      <div class="hidden lg:block lg:col-span-5 pointer-events-none"></div>
-
-      <!-- Hero Text Column on Right (Brought higher up with equal vertical padding) -->
-      <div class="lg:col-span-7 flex flex-col items-start gap-5 sm:gap-6 max-w-2xl">
-
-        <!-- Top Badge Overline: hidden visually on mobile to declutter the hero photo, kept in the DOM (not display:none) so search and AI-answer crawlers still read it -->
-        <div class="sr-only sm:not-sr-only sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a1428]/70 backdrop-blur-md border border-[#6fa8ff]/30 text-[#6fa8ff] text-[12px] font-mono font-bold tracking-wide uppercase shadow-lg">
-          <span class="w-2 h-2 rounded-xs bg-[#1e5eff]"></span>
-          <span>GTM Engineer and AI Search Specialist for B2B Companies</span>
+        <!-- Cutout Portrait Column -->
+        <div class="lg:col-span-5 relative flex items-end justify-center pt-10 sm:pt-12 lg:pt-14 order-1 lg:order-none">
+          <img
+            src={photoUrl}
+            alt="Tibin Jacob, GTM Engineer and AI growth expert for B2B"
+            class="relative z-10 w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] h-auto object-contain select-none"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <SpeechBubble
+            size={140}
+            class="absolute -top-2 right-2 sm:top-2 sm:right-0 lg:-right-6 w-24 sm:w-32 lg:w-36 h-auto drop-shadow-2xl"
+          />
         </div>
 
-        <!-- Main H1 Headline -->
-        <h1
-          id="hero-title"
-          class="text-white text-4xl sm:text-6xl lg:text-[64px] tracking-tight leading-[1.02] uppercase [text-shadow:_0_2px_14px_rgba(0,0,0,0.85)]"
-          style="font-family: var(--font-display-impact);"
-        >
-          AI Growth Expert for<br />
-          <span class="text-[#6fa8ff] underline decoration-[#1e5eff] underline-offset-4 sm:underline-offset-8">B2B Companies.</span>
-        </h1>
+        <!-- Text Column -->
+        <div class="lg:col-span-7 flex flex-col items-start gap-5 sm:gap-6 pt-6 pb-10 sm:pb-14 lg:pb-16 max-w-2xl order-2 lg:order-none">
 
-        <!-- Subtitle Prose -->
-        <p class="text-zinc-100 text-[15px] sm:text-[17px] lg:text-[18px] leading-relaxed font-normal max-w-xl [text-shadow:_0_1px_8px_rgba(0,0,0,0.8)]">
-          I build the right systems that will drive your entire GTM outbound motion and also drive organic traffic on AI search to scale your business in 2026
-        </p>
+          <!-- Top Badge Overline: hidden visually on mobile to declutter, kept in the DOM for search/AI-answer crawlers -->
+          <div class="sr-only sm:not-sr-only sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-[#6fa8ff]/30 text-[#6fa8ff] text-[12px] font-mono font-bold tracking-wide uppercase shadow-lg">
+            <span class="w-2 h-2 rounded-xs bg-[#1e5eff]"></span>
+            <span>GTM Engineer and AI Search Specialist for B2B Companies</span>
+          </div>
 
-        <!-- CTA Buttons Row -->
-        <div class="flex flex-wrap items-center gap-4 pt-1">
-          <!-- Primary Pill Button: See how I work ↗ -->
-          <a
-            href="#explore-work"
-            class="group inline-flex items-center gap-3 bg-[#1e5eff] hover:bg-[#1748d1] text-white font-bold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full shadow-2xl transition-all active:scale-95"
+          <!-- Main H1 Headline -->
+          <h1
+            id="hero-title"
+            class="text-white text-4xl sm:text-6xl lg:text-[64px] tracking-tight leading-[1.02] uppercase"
+            style="font-family: var(--font-display-impact);"
           >
-            <span>See how I work</span>
-            <span class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#1e5eff] transition-transform duration-300 group-hover:rotate-45">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </span>
-          </a>
+            AI Growth Expert for<br />
+            <span class="text-[#6fa8ff] underline decoration-[#1e5eff] underline-offset-4 sm:underline-offset-8">B2B Companies.</span>
+          </h1>
+
+          <!-- Subtitle Prose -->
+          <p class="text-zinc-200 text-[15px] sm:text-[17px] lg:text-[18px] leading-relaxed font-normal max-w-xl">
+            I build the right systems that will drive your entire GTM outbound motion and also drive organic traffic on AI search to scale your business in 2026
+          </p>
+
+          <!-- CTA Buttons Row -->
+          <div class="flex flex-wrap items-center gap-4 pt-1">
+            <!-- Primary Pill Button: See how I work ↗ -->
+            <a
+              href="#explore-work"
+              class="group inline-flex items-center gap-3 bg-[#1e5eff] hover:bg-[#1748d1] text-white font-bold text-[14px] sm:text-[15px] pl-6 pr-2.5 py-2.5 rounded-full shadow-2xl transition-all active:scale-95"
+            >
+              <span>See how I work</span>
+              <span class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#1e5eff] transition-transform duration-300 group-hover:rotate-45">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+
         </div>
 
       </div>
-
     </div>
   </div>
 </section>
