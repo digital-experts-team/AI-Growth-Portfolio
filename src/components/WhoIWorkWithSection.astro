@@ -53,11 +53,11 @@ const partners = [
       {partners.map((item, index) => (
         <div class={`flex flex-col gap-3 group ${index < partners.length - 1 ? 'lg:border-r lg:border-zinc-200 lg:pr-8' : ''}`}>
           <!-- Numbered Badge -->
-          <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#d2f39c] text-black text-xs font-mono font-bold tracking-wider">
+          <span class="inline-flex w-fit px-3 py-1 rounded-full bg-[#1e5eff] text-white text-xs font-mono font-bold tracking-wider">
             {item.num}
           </span>
 
-          <h3 class="text-zinc-950 text-lg sm:text-xl font-bold tracking-tight group-hover:text-green-600 transition-colors leading-snug font-display">
+          <h3 class="text-zinc-950 text-lg sm:text-xl font-bold tracking-tight group-hover:text-[#1e5eff] transition-colors leading-snug font-display">
             {item.title}
           </h3>
 

@@ -1,0 +1,51 @@
+---
+// IconTile.astro - Glossy rounded-square "3D" icon chip.
+// Renders a CSS/SVG glossy placeholder by default. Pass `imageSrc` once real
+// 3D icon assets are available to swap it in without touching layout/sizing.
+export interface Props {
+  glyph?: 'check' | 'calendar' | 'search' | 'chart' | 'users' | 'rocket' | 'clock' | 'mail' | 'linkedin' | 'whatsapp' | 'question';
+  imageSrc?: string;
+  tone?: 'primary' | 'light';
+  size?: number;
+  class?: string;
+}
+
+const { glyph = 'check', imageSrc, tone = 'primary', size = 44, class: className = '' } = Astro.props;
+
+const glyphPaths: Record<string, string> = {
+  check: 'M5 13l4 4L19 7',
+  calendar: 'M7 3v3M17 3v3M4 8h16M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z',
+  search: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3',
+  chart: 'M4 20h16M7 20v-6M12 20V8M17 20v-10',
+  users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75',
+  rocket: 'M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2zM9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5',
+  clock: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2',
+  mail: 'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM22 7l-9.97 6.23a2 2 0 0 1-2.06 0L2 7',
+  linkedin: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z',
+  whatsapp: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z',
+  question: 'M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17.01l.01-.011',
+};
+
+const sizeClass = `width:${size}px;height:${size}px`;
+const tileClass = `icon-tile${tone === 'light' ? ' icon-tile-light' : ''} ${className}`.trim();
+---
+
+{imageSrc ? (
+  <div class={tileClass} style={sizeClass}>
+    <img src={imageSrc} alt="" class="w-full h-full object-cover rounded-[22%]" />
+  </div>
+) : (
+  <div class={tileClass} style={sizeClass}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.25"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      style={`width:${Math.round(size * 0.52)}px;height:${Math.round(size * 0.52)}px`}
+    >
+      <path d={glyphPaths[glyph]}></path>
+    </svg>
+  </div>
+)}
