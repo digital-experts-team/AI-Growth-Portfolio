@@ -59,7 +59,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
         <div className={`p-6 rounded-2xl border text-center flex flex-col items-center gap-3 ${
           dark ? 'bg-[#000000] border-zinc-800 text-white' : 'bg-white border-slate-200 text-slate-900'
         }`}>
-          <div className="w-12 h-12 rounded-full bg-[#1e5eff]/20 border border-[#1e5eff]/40 flex items-center justify-center text-[#6fa8ff]">
+          <div className="w-12 h-12 rounded-full bg-[#d2f39c]/20 border border-[#d2f39c]/40 flex items-center justify-center text-[#d2f39c]">
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
@@ -73,7 +73,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
               setStatus('idle');
               setFormData({ name: '', email: '', company: '', message: '', bot_field: '' });
             }}
-            className="mt-2 text-xs font-mono text-[#6fa8ff] hover:underline"
+            className="mt-2 text-xs font-mono text-[#d2f39c] hover:underline"
           >
             Send another message
           </button>
@@ -100,8 +100,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
             <input
               className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#1e5eff]'
-                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-[#1e5eff]'
+                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
+                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-name"
               placeholder="Your name"
@@ -120,8 +120,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
             <input
               className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#1e5eff]'
-                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-[#1e5eff]'
+                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
+                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-email"
               placeholder="name@company.com"
@@ -140,8 +140,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
             <input
               className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none ${
                 dark
-                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#1e5eff]'
-                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-[#1e5eff]'
+                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
+                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-company"
               placeholder="Company name"
@@ -160,8 +160,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
             <textarea
               className={`w-full rounded-xl px-4 py-3 text-[14px] font-medium transition-colors focus:outline-none resize-none ${
                 dark
-                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#1e5eff]'
-                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-[#1e5eff]'
+                  ? 'bg-[#1a1b1e] border border-zinc-700/80 text-white placeholder:text-zinc-500 focus:border-[#d2f39c]'
+                  : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-msg"
               placeholder="What parts of GTM automation, AI search or paid need fixing?"
@@ -180,7 +180,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
 
           <div className="pt-2 flex flex-col gap-2">
             <button
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1e5eff] hover:bg-[#1748d1] text-white font-bold text-[14px] rounded-full shadow-lg transition-all active:scale-95 disabled:opacity-60 cursor-pointer w-fit"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#d2f39c] hover:bg-[#c2e887] text-black font-bold text-[14px] rounded-full shadow-lg transition-all active:scale-95 disabled:opacity-60 cursor-pointer w-fit"
               type="submit"
               disabled={status === 'loading'}
             >

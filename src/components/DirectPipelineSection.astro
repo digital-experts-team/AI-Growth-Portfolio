@@ -1,6 +1,5 @@
 ---
 import { ContactForm } from './ContactForm';
-import IconTile from './IconTile.astro';
 ---
 
 <section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" id="contact" aria-labelledby="contact-heading">
@@ -27,14 +26,19 @@ import IconTile from './IconTile.astro';
         <h3 class="text-white text-xl font-bold tracking-tight">
           Book a meeting here
         </h3>
-        <IconTile glyph="clock" size={36} />
+        <div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400">
+          <svg class="w-4 h-4 text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
       </div>
 
       <!-- 3 Steps -->
       <div class="flex flex-col gap-6">
         <!-- Step 1 -->
         <div class="flex items-start gap-4">
-          <span class="w-7 h-7 rounded-full bg-[#1e5eff] text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+          <span class="w-7 h-7 rounded-full bg-[#d2f39c] text-black font-bold text-xs flex items-center justify-center shrink-0 shadow-sm mt-0.5">
             1
           </span>
           <p class="text-zinc-300 text-[14px] leading-relaxed">
@@ -44,7 +48,7 @@ import IconTile from './IconTile.astro';
 
         <!-- Step 2 -->
         <div class="flex items-start gap-4">
-          <span class="w-7 h-7 rounded-full bg-[#1e5eff] text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+          <span class="w-7 h-7 rounded-full bg-[#d2f39c] text-black font-bold text-xs flex items-center justify-center shrink-0 shadow-sm mt-0.5">
             2
           </span>
           <p class="text-zinc-300 text-[14px] leading-relaxed">
@@ -54,7 +58,7 @@ import IconTile from './IconTile.astro';
 
         <!-- Step 3 -->
         <div class="flex items-start gap-4">
-          <span class="w-7 h-7 rounded-full bg-[#1e5eff] text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+          <span class="w-7 h-7 rounded-full bg-[#d2f39c] text-black font-bold text-xs flex items-center justify-center shrink-0 shadow-sm mt-0.5">
             3
           </span>
           <p class="text-zinc-300 text-[14px] leading-relaxed">
@@ -68,7 +72,7 @@ import IconTile from './IconTile.astro';
         <span class="text-zinc-500 text-xs font-mono">Prefer direct email?</span>
         <a
           href="mailto:tibin.jacob.uiux@gmail.com"
-          class="text-[#6fa8ff] hover:underline font-mono text-sm tracking-wide transition-all"
+          class="text-[#d2f39c] hover:underline font-mono text-sm tracking-wide transition-all"
         >
           tibin.jacob.uiux@gmail.com
         </a>

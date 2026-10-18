@@ -29,11 +29,11 @@ const currentPath = Astro.url.pathname;
       href="/"
       class={`font-bold tracking-tight text-[18px] sm:text-[20px] lg:text-[22px] transition-colors shrink-0 ${
         transparent
-          ? 'text-white hover:text-[#6fa8ff]'
-          : 'text-zinc-900 hover:text-[#1e5eff]'
+          ? 'text-white hover:text-[#d2f39c]'
+          : 'text-zinc-900 hover:text-green-600'
       }`}
     >
-      Tibin Jacob<span class={transparent ? 'text-[#6fa8ff]' : 'text-[#1e5eff]'}>.</span>
+      Tibin Jacob<span class={transparent ? 'text-[#d2f39c]' : 'text-green-600'}>.</span>
     </a>
 
     <!-- Desktop Navigation Links -->
@@ -46,8 +46,8 @@ const currentPath = Astro.url.pathname;
             class={`text-[11px] xl:text-[12px] font-bold tracking-[0.12em] xl:tracking-[0.16em] uppercase transition-colors whitespace-nowrap shrink-0 ${
               isActive
                 ? transparent
-                  ? 'text-[#6fa8ff] underline decoration-[#6fa8ff] underline-offset-6 decoration-2'
-                  : 'text-[#1e5eff] underline decoration-[#1e5eff] underline-offset-6 decoration-2'
+                  ? 'text-[#d2f39c] underline decoration-[#d2f39c] underline-offset-6 decoration-2'
+                  : 'text-green-600 underline decoration-green-600 underline-offset-6 decoration-2'
                 : transparent
                 ? 'text-zinc-300 hover:text-white'
                 : 'text-zinc-600 hover:text-zinc-950'
@@ -90,25 +90,21 @@ const currentPath = Astro.url.pathname;
       <!-- Hire Me Button (desktop only; hamburger covers mobile) -->
       <a
         href="/hire"
-        class="hidden lg:inline-flex items-center rounded-full overflow-hidden shadow-sm transition-all active:scale-95 group"
+        class="hidden lg:inline-flex items-center gap-1.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[12px] sm:text-[13px] font-extrabold text-black bg-[#d2f39c] hover:bg-[#c2e887] shadow-sm transition-all active:scale-95"
       >
-        <span class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 bg-[#6fa8ff] text-[#0a1428] shrink-0">
-          <svg
-            class="w-3.5 h-3.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="7" y1="17" x2="17" y2="7"></line>
-            <polyline points="7 7 17 7 17 17"></polyline>
-          </svg>
-        </span>
-        <span class="pl-3 pr-5 sm:pr-6 text-[12px] sm:text-[13px] font-extrabold text-white bg-[#0a1428] group-hover:bg-[#10213f] h-8 sm:h-9 flex items-center transition-colors">
-          Hire me
-        </span>
+        <span>Hire me</span>
+        <svg
+          class="w-3.5 h-3.5 text-black"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
       </a>
 
       <!-- Mobile Menu Toggle Button -->
@@ -116,8 +112,8 @@ const currentPath = Astro.url.pathname;
         id="mobile-nav-toggle"
         class={`lg:hidden p-2 rounded-xl border transition-all ${
           transparent
-            ? 'border-zinc-800 bg-[#1a1b1e] text-white hover:text-[#6fa8ff]'
-            : 'border-zinc-200 bg-white text-zinc-900 hover:text-[#1e5eff]'
+            ? 'border-zinc-800 bg-[#1a1b1e] text-white hover:text-[#d2f39c]'
+            : 'border-zinc-200 bg-white text-zinc-900 hover:text-green-600'
         }`}
         aria-label="Toggle Navigation Menu"
         aria-expanded="false"
@@ -143,7 +139,7 @@ const currentPath = Astro.url.pathname;
         href={link.href}
         class={`block px-3 py-2 rounded-lg text-sm font-bold tracking-wider uppercase ${
           transparent
-            ? 'text-zinc-200 hover:text-[#6fa8ff] hover:bg-zinc-900'
+            ? 'text-zinc-200 hover:text-[#d2f39c] hover:bg-zinc-900'
             : 'text-zinc-700 hover:text-black hover:bg-zinc-100'
         }`}
       >
@@ -157,9 +153,9 @@ const currentPath = Astro.url.pathname;
           : 'border-zinc-200 text-zinc-500'
       }`}
     >
-      <a href="/glossary" class={transparent ? 'hover:text-[#6fa8ff]' : 'hover:text-[#1e5eff]'}>Glossary</a>
-      <a href="/demand" class={transparent ? 'hover:text-[#6fa8ff]' : 'hover:text-[#1e5eff]'}>Demand</a>
-      <a href="/hire" class={transparent ? 'hover:text-[#6fa8ff]' : 'hover:text-[#1e5eff]'}>Hire Me</a>
+      <a href="/glossary" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-green-600'}>Glossary</a>
+      <a href="/demand" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-green-600'}>Demand</a>
+      <a href="/hire" class={transparent ? 'hover:text-[#d2f39c]' : 'hover:text-green-600'}>Hire Me</a>
     </div>
   </div>
 </header>

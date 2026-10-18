@@ -12,24 +12,23 @@
   --text: #0f1115;
   --text-muted: #334155;
   --text-subtle: #64748b;
-  --text-on-accent: #ffffff;
+  --text-on-accent: #0f1115;
 
-  /* Dark Surfaces - Navy scale (replaces pure black) */
-  --navy-950: #0a1428;
-  --navy-900: #10213f;
-  --navy-800: #1b3261;
-  --navy-700: #27437d;
+  /* Accent & Signal Palette - Vibrant Action Accents */
+  --accent: #d2f39c;
+  --accent-hover: #c2e887;
+  --signal-cyan: #16a34a;
+  --signal-emerald: #10b981;
+  --signal-dark: #0f1115;
 
-  /* Accent Palette - Vivid Royal Blue */
-  --accent: #1e5eff;
-  --accent-hover: #1748d1;
-  --accent-tint: #6fa8ff;
-  --accent-surface: #e8f1ff;
+  /* Solid Theme - Zero Gradients */
+  --gradient-signal: #16a34a;
+  --gradient-cta: #16a34a;
+  --gradient-card-dark: #ffffff;
 
   /* Typography Stacks - Robust, premium human-designed families */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Poppins', sans-serif;
-  --font-display-impact: 'Poppins', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Geometry */
