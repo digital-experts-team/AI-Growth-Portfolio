@@ -9,7 +9,7 @@ const baseSchema = z.object({
   shortAnswer: z.string().optional(),
   status: z.enum(['draft', 'live']).default('live'),
   targetKeyword: z.string().optional(),
-  cluster: z.enum(['RevOps', 'GTM Engineering', 'Signals & Enrichment', 'AI Agents', 'Demand / Agency', 'Core', 'AI Search']),
+  cluster: z.enum(['RevOps', 'GTM Engineering', 'Signals & Enrichment', 'AI Agents', 'Demand / Agency', 'Core']),
   category: z.string().optional(),
   audience: z.array(z.string()).default([]),
   sourceRole: z.enum(['Mavlers', 'Heurist AI', 'Sonic', 'Paddleboat AI', 'General']).optional(),
@@ -35,6 +35,7 @@ const caseStudies = defineCollection({
     problem: z.string().optional(),
     architecture: z.string().optional(),
     results: z.array(z.string()).optional(),
+    resultSummary: z.string().optional(),
   }),
 });
 

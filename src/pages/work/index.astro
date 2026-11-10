@@ -3,15 +3,48 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const allCaseStudies = await getCollection('caseStudies');
-const order = ['mavlers-partner-agency-signals', 'paddleboat-sdr-scaling-signals', 'heurist-autopilot-agents', 'sonic-founder-led-gtm'];
-const caseStudies = allCaseStudies.sort((a, b) => {
-  const indexA = order.indexOf(a.data.slug || a.id);
-  const indexB = order.indexOf(b.data.slug || b.id);
-  return (indexA === -1 ? 99 : indexA) - (indexB === -1 ? 99 : indexB);
-});
+const order = ['mavlers-partner-agency-signals', 'staff-connect-hiring-signals', 'heurist-autopilot-agents', 'paddleboat-sdr-scaling-signals'];
+const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (entry.data.slug || entry.id) === slug));
 
 const title = "GTM Engineering Case Studies | Tibin Jacob";
 const description = "Production GTM engineering case studies: signal-based outbound, waterfall enrichment, and AI agent architectures across B2B SaaS and agencies.";
+const timeline = [
+  [
+    "Mavlers",
+    "GTM Automation Lead",
+    "May 2026 – Sep 2026"
+  ],
+  [
+    "Heurist AI",
+    "GTM Automations and Marketing Ops",
+    "Jun 2024 – Oct 2025"
+  ],
+  [
+    "Sonic",
+    "Product Growth - GTM",
+    "Sep 2023 – Jul 2024"
+  ],
+  [
+    "PaddleBoat",
+    "GTM Engineer",
+    "Oct 2022 – May 2023"
+  ],
+  [
+    "Foolproof",
+    "Technical Consultant",
+    "Oct 2020 – Jan 2021"
+  ],
+  [
+    "Crosspay",
+    "Product Marketing Growth",
+    "Jun 2019 – Oct 2020"
+  ],
+  [
+    "Zoople Technologies",
+    "UX/UI Developer",
+    "Dec 2018 – Aug 2019"
+  ]
+];
 ---
 
 <BaseLayout
@@ -31,14 +64,14 @@ const description = "Production GTM engineering case studies: signal-based outbo
         Selected <span class="heading-highlight">work.</span>
       </h1>
       <p class="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl">
-        Real revenue systems engineered in production. Every study documents the core bottleneck, system architecture, failure handling, and verified outcomes.
+        See the business problem, what I built, and how the team used it.
       </p>
     </div>
 
     <div class="space-y-6">
       {caseStudies.map((cs) => {
         const slug = cs.data.slug || cs.id;
-        const imageUrl = cs.data.image || `/images/case-studies/${slug.split('-')[0]}.jpg`;
+        const imageUrl = cs.data.image || (slug === 'staff-connect-hiring-signals' ? '/images/hero-bg.webp' : undefined) || `/images/case-studies/${slug.split('-')[0]}.jpg`;
         const tag = cs.data.tag || `#${cs.data.cluster.replace(/\s+/g, '')}`;
         const avatarUrl = cs.data.authorAvatar || "/images/tibin-avatar.jpg";
 
@@ -73,9 +106,15 @@ const description = "Production GTM engineering case studies: signal-based outbo
                     {cs.data.title}
                   </h2>
 
-                  <p class="text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-normal line-clamp-3">
+                  <p class="text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-normal">
                     {cs.data.description}
                   </p>
+                  {cs.data.resultSummary && (
+                    <p class="mt-2 text-sm">
+                      <strong>{cs.data.resultSummary}</strong>
+                      <span class="block text-xs">Combined result of inbound and signal-based outreach.</span>
+                    </p>
+                  )}
                 </div>
 
                 <!-- Author & Action Footer Row -->
@@ -113,5 +152,17 @@ const description = "Production GTM engineering case studies: signal-based outbo
         );
       })}
     </div>
+    <section class="mt-14 border-t border-zinc-200 pt-8" aria-labelledby="career-heading">
+      <h2 id="career-heading" class="text-2xl font-bold text-zinc-950 font-display">Career timeline</h2>
+      <ul class="mt-4 divide-y divide-zinc-200">
+        {timeline.map(([company, role, dates]) => (
+          <li class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
+            <strong class="text-zinc-950">{company}</strong>
+            <span class="text-zinc-700">{role}</span>
+            <span class="text-sm text-zinc-600">{dates}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
   </div>
 </BaseLayout>

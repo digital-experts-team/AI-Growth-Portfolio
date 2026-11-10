@@ -164,7 +164,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ dark = false }) => {
                   : 'bg-[#f8fafc] border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-green-600'
               }`}
               id="contact-msg"
-              placeholder="What parts of GTM automation, AI search or paid need fixing?"
+              placeholder="What GTM or RevOps workflow is your team trying to improve?"
               rows={4}
               required
               value={formData.message}

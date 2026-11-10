@@ -4,7 +4,7 @@
  * Notifies search engines (Bing, Yandex, Naver) of updated and published URLs on deploy.
  */
 
-const SITE_URL = process.env.SITE_URL || 'https://tibinjacob.com';
+const SITE_URL = process.env.SITE_URL || 'https://gtm-expert-tibin.vercel.app';
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY || 'd8a8b139b4f6479698fbfd8ef9c7db3a';
 
 const urls = [
@@ -15,7 +15,7 @@ const urls = [
   `${SITE_URL}/work/mavlers-partner-agency-signals`,
   `${SITE_URL}/work/paddleboat-sdr-scaling-signals`,
   `${SITE_URL}/work/heurist-autopilot-agents`,
-  `${SITE_URL}/work/sonic-founder-led-gtm`,
+  `${SITE_URL}/work/staff-connect-hiring-signals`,
   `${SITE_URL}/workflows`,
   `${SITE_URL}/workflows/waterfall-enrichment`,
   `${SITE_URL}/workflows/website-visitors-to-hubspot`,

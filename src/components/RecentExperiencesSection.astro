@@ -3,13 +3,8 @@
 import { getCollection } from 'astro:content';
 
 const allCaseStudies = await getCollection('caseStudies');
-// Sort or re-order if needed (Mavlers, Paddleboat, Heurist, Sonic)
-const order = ['mavlers-partner-agency-signals', 'paddleboat-sdr-scaling-signals', 'heurist-autopilot-agents', 'sonic-founder-led-gtm'];
-const caseStudies = allCaseStudies.sort((a, b) => {
-  const indexA = order.indexOf(a.data.slug || a.id);
-  const indexB = order.indexOf(b.data.slug || b.id);
-  return (indexA === -1 ? 99 : indexA) - (indexB === -1 ? 99 : indexB);
-});
+const order = ['mavlers-partner-agency-signals', 'staff-connect-hiring-signals', 'heurist-autopilot-agents', 'paddleboat-sdr-scaling-signals'];
+const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (entry.data.slug || entry.id) === slug));
 ---
 
 <section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="experience-heading">
@@ -18,10 +13,10 @@ const caseStudies = allCaseStudies.sort((a, b) => {
     <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200 mb-2">
       <div class="flex flex-col gap-1.5">
         <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
-          GTM engineering case studies and AEO GEO site rebuilds
+          GTM engineering case studies
         </span>
         <h2 id="experience-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight font-display">
-          Recent <span class="heading-highlight">Experience.</span>
+          Selected <span class="heading-highlight">work.</span>
         </h2>
       </div>
 
@@ -41,7 +36,7 @@ const caseStudies = allCaseStudies.sort((a, b) => {
   <div class="flex flex-col gap-6">
     {caseStudies.map((cs) => {
       const slug = cs.data.slug || cs.id;
-      const imageUrl = cs.data.image || `/images/case-studies/${slug.split('-')[0]}.jpg`;
+      const imageUrl = cs.data.image || (slug === 'staff-connect-hiring-signals' ? '/images/hero-bg.webp' : undefined) || `/images/case-studies/${slug.split('-')[0]}.jpg`;
       const tag = cs.data.tag || `#${cs.data.cluster.replace(/\s+/g, '')}`;
       const avatarUrl = cs.data.authorAvatar || "/images/tibin-avatar.jpg";
 
@@ -76,9 +71,15 @@ const caseStudies = allCaseStudies.sort((a, b) => {
                   {cs.data.title}
                 </h3>
 
-                <p class="text-zinc-900 text-sm sm:text-[15px] leading-relaxed font-medium line-clamp-3">
+                <p class="text-zinc-900 text-sm sm:text-[15px] leading-relaxed font-medium">
                   {cs.data.description}
                 </p>
+                  {cs.data.resultSummary && (
+                    <p class="mt-2 text-sm">
+                      <strong>{cs.data.resultSummary}</strong>
+                      <span class="block text-xs">Combined result of inbound and signal-based outreach.</span>
+                    </p>
+                  )}
               </div>
 
               <!-- Author & Action Footer Row -->

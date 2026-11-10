@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async ({ site }) => {
-  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://tibinjacob.com';
+  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://gtm-expert-tibin.vercel.app';
   const caseStudies = await getCollection('caseStudies');
   const workflows = await getCollection('workflows', ({ data }) => data.status === 'live');
   const glossary = await getCollection('glossary');
@@ -18,14 +18,13 @@ Tibin Jacob is a GTM Engineer with 4+ years of hands-on experience designing and
 Education: Bachelor of Computer Applications (BCA), Amity University, 2014–2017.
 
 Timeline:
-1. Mavlers (Apr 2026 – Sep 2026) · Remote, India · GTM Automation Lead
-   White-label PPC/SEO/AEO agency. Built multi-signal intent routing to identify peer agency partners in HubSpot.
-2. Heurist AI (Oct 2024 – Nov 2025) · Remote, US · GTM Automation — Autopilot Agents
-   Decentralized AI cloud. Engineered autopilot content agents with state machines and Slack human approval gates.
-3. Sonic (sonic.ooo) (Jan 2024 – Sep 2024) · Remote · Founder-led GTM Automation
-   Multi-channel inbound intent routing for investor briefings and developer support triage.
-4. Paddleboat AI (May 2022 – Dec 2023) · Bengaluru, Hybrid · GTM Engineer — Outbound & Sales Enablement
-   AI sales roleplay platform. Flagged SDR team hiring spikes and built signal-driven outbound pipelines.
+- Mavlers (May 2026 – Sep 2026) · GTM Automation Lead
+- Heurist AI (Jun 2024 – Oct 2025) · GTM Automations and Marketing Ops
+- Sonic (Sep 2023 – Jul 2024) · Product Growth - GTM
+- PaddleBoat (Oct 2022 – May 2023) · GTM Engineer
+- Foolproof (Oct 2020 – Jan 2021) · Technical Consultant
+- Crosspay (Jun 2019 – Oct 2020) · Product Marketing Growth
+- Zoople Technologies (Dec 2018 – Aug 2019) · UX/UI Developer
 
 ===================================================================
 SECTION 2: CASE STUDIES

@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = ({ site }) => {
-  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://tibinjacob.com';
+  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://gtm-expert-tibin.vercel.app';
 
   const body = `# Tibin Jacob — GTM Engineer
 
@@ -16,14 +16,14 @@ export const GET: APIRoute = ({ site }) => {
 - Education: Bachelor of Computer Applications (BCA), Amity University, 2014–2017
 
 ## Production Case Studies
-- Mavlers: Partner Agency Signal Engine -> ${siteUrl}/work/mavlers-partner-agency-signals
-- Paddleboat AI: SDR Scaling Signals -> ${siteUrl}/work/paddleboat-sdr-scaling-signals
-- Heurist AI: Human-in-the-Loop Content Autopilot Agents -> ${siteUrl}/work/heurist-autopilot-agents
-- Sonic (sonic.ooo): Founder-Led Multi-Channel GTM Automation -> ${siteUrl}/work/sonic-founder-led-gtm
+- Mavlers: From website intent to sales follow-up -> ${siteUrl}/work/mavlers-partner-agency-signals
+- Staff Connect: Hiring signals that led to sales conversations -> ${siteUrl}/work/staff-connect-hiring-signals
+- Heurist AI: Marketing agents with retries and human review -> ${siteUrl}/work/heurist-autopilot-agents
+- PaddleBoat: Account prioritization and AI sales coaching -> ${siteUrl}/work/paddleboat-sdr-scaling-signals
 
 ## Core Workflow Schematics
 - Waterfall Enrichment Engine: ${siteUrl}/workflows/waterfall-enrichment
-- Website Visitors to HubSpot SQLs: ${siteUrl}/workflows/website-visitors-to-hubspot
+- Website Visitors to HubSpot SQLs: ${siteUrl}/workflows/website-signal-to-outbound-engine
 
 ## Technical Tool Stack
 - Orchestration: Clay, n8n, Zapier, Make
@@ -35,7 +35,7 @@ export const GET: APIRoute = ({ site }) => {
 ## Contact & Profiles
 - Website: ${siteUrl}
 - Email: tibin.jacob.uiux@gmail.com
-- LinkedIn: https://www.linkedin.com/in/tibinjacob
+- LinkedIn: https://www.linkedin.com/in/tibinjacob/
 - GitHub: https://github.com/digital-experts-team
 - Full Content Dump: ${siteUrl}/llms-full.txt
 `;

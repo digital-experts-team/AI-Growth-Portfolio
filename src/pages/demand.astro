@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const title = "Demand Generation & Upstream Signal Feed | Tibin Jacob";
-const description = "How upstream demand channels—PPC, technical SEO, AEO, and content distribution—feed into automated B2B GTM engineering pipelines.";
+const description = "How upstream demand channels—PPC, technical SEO and content distribution—feed into automated B2B GTM engineering pipelines.";
 
 const caseStudies = await getCollection('caseStudies');
 const mavlersCaseStudy = caseStudies.find(c => (c.data.slug || c.id) === 'mavlers-partner-agency-signals');
@@ -27,7 +27,7 @@ const mavlersCaseStudy = caseStudies.find(c => (c.data.slug || c.id) === 'mavler
         Demand Generation Meets GTM Engineering
       </h1>
       <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-        Outbound automations and waterfall engines only work when high-intent buying signals feed them. Here is how paid media, technical SEO, AEO, and content function as the upstream input into revenue pipelines.
+        Outbound automations and waterfall engines only work when high-intent buying signals feed them. Here is how paid media, technical SEO and content function as the upstream input into revenue pipelines.
       </p>
     </div>
 
@@ -47,9 +47,9 @@ const mavlersCaseStudy = caseStudies.find(c => (c.data.slug || c.id) === 'mavler
       <div class="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm flex flex-col justify-between">
         <div>
           <div class="text-xs font-mono text-green-600 font-semibold mb-2">FEED 02</div>
-          <h2 class="text-xl font-bold text-slate-900 mb-2">Technical SEO & Answer Engine Optimization (AEO)</h2>
+          <h2 class="text-xl font-bold text-slate-900 mb-2">Technical SEO</h2>
           <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-            Static-first architectures engineered for AI citations (Perplexity, ChatGPT, Gemini) and Google featured snippets. Captures procurement teams researching architectural specifications.
+            Search-friendly documentation helps buyers find product specifications. Documentation visits can provide context for qualification.
           </p>
         </div>
         <span class="text-xs font-mono text-slate-400">Signal: Documentation depth & term searches</span>

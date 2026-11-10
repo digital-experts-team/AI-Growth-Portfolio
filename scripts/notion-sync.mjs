@@ -9,7 +9,7 @@ import { dirname, extname } from 'node:path';
 
 const TOKEN = process.env.NOTION_TOKEN;
 if (!TOKEN) { console.log('NOTION_TOKEN not set — skipping sync.'); process.exit(0); }
-const SITE = (process.env.SITE_URL || 'https://tibinjacob.com').replace(/\/$/, '');
+const SITE = (process.env.SITE_URL || 'https://gtm-expert-tibin.vercel.app').replace(/\/$/, '');
 const DBS = {
   blog: '3e47f6baaf95815d8842daff3023852c',
   work: '3e47f6baaf95817ca4a2df293f942bf1',
@@ -18,7 +18,7 @@ const DBS = {
   pages: '3e47f6baaf9581568c14fdc5664aa546',
 };
 const FOLDER = { blog: 'src/content/posts', work: 'src/content/caseStudies', workflows: 'src/content/workflows', glossary: 'src/content/glossary', pages: 'src/page-content' };
-const CLUSTERS = ['RevOps', 'GTM Engineering', 'Signals & Enrichment', 'AI Agents', 'Demand / Agency', 'AI Search', 'Performance Marketing', 'Core'];
+const CLUSTERS = ['RevOps', 'GTM Engineering', 'Signals & Enrichment', 'AI Agents', 'Demand / Agency', 'Performance Marketing', 'Core'];
 const today = new Date().toISOString().slice(0, 10);
 
 async function notion(path, method = 'GET', body) {
@@ -141,6 +141,7 @@ for (const [type, db] of Object.entries(DBS)) {
       await notion(`/pages/${page.id}`, 'PATCH', { properties: { Status: { select: { name: 'In Review' } }, 'Publish Error': { rich_text: [{ text: { content: errors.join(' ') } }] } } });
       console.log(`✗ ${title}: ${errors.join(' ')}`); continue;
     }
+    if (prop(p, 'Cluster') === 'AI Search') continue;
     const cluster = CLUSTERS.includes(prop(p, 'Cluster')) ? prop(p, 'Cluster') : 'Core';
     const fmBase = {
       title, description, metaTitle: prop(p, 'Meta Title'), slug, status: 'live',

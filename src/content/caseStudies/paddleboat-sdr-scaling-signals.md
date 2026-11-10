@@ -1,58 +1,27 @@
 ---
-title: "Paddleboat AI: Scaling SDR Team Intent Signals"
-description: "How I built a multi-signal outbound architecture targeting sales leaders scaling their SDR teams."
-metaTitle: "Paddleboat AI Case Study — SDR Scaling Signals | Tibin"
+title: "Account prioritization and AI sales coaching"
+description: "I combined buyer signals to help reps prioritize SaaS accounts and designed AI buyer personas and scorecards for sales practice."
 slug: "paddleboat-sdr-scaling-signals"
-status: "live"
 cluster: "GTM Engineering"
-targetKeyword: "sdr scaling signals gtm"
-audience: ["VP Sales", "Head of GTM", "SDR Manager"]
-sourceRole: "Paddleboat AI"
-company: "Paddleboat AI"
-role: "GTM Engineer — Outbound & Sales Enablement"
-dates: "May 2022 – Dec 2023"
+company: "PaddleBoat"
+role: "GTM Engineer"
+dates: "Oct 2022 – May 2023"
+tag: "Buyer signals · Sales enablement"
 image: "https://images.unsplash.com/photo-1758518730083-4c12527b6742?auto=format&fit=crop&w=1200&h=800&q=80"
-tag: "#Signals"
-author: "Tibin Jacob"
 authorAvatar: "/images/tibin-avatar.jpg"
-proofLink: "/workflows/waterfall-enrichment"
 publishedDate: 2023-12-15
-updatedDate: 2026-09-18
-faq:
-  - q: "What buying signals flagged companies ready for AI sales coaching?"
-    a: "Signals included active SDR job postings, funding rounds, and executive sales leadership transitions."
 ---
 
-> **Short answer:** At Paddleboat AI, I engineered a signal-based outbound pipeline that monitored active SDR hiring posts and funding announcements, enriched decision-makers via waterfall lookups, and triggered personalized outreach playbooks.
+## Account prioritization
 
-## Context
+Sales needed a way to identify which SaaS accounts fit and which were worth approaching first. I built a workflow for B2B SaaS companies with 50–500 employees. It combined website activity and company data with funding, hiring, and SDR team growth. Reps could see which signals supported the account's fit and use them to prioritize outreach.
 
-Paddleboat AI provides an interactive AI sales coaching and roleplay platform. To maximize outbound efficiency, we needed to identify B2B SaaS companies at the exact moment they were aggressively hiring and scaling new SDR cohorts. Broad outbound campaigns suffered from low urgency when sent to companies not actively hiring.
+## AI sales coaching
 
-## The system
+I designed configurable AI buyer personas so reps could practice with different buyers and scenarios. I also designed LLM scorecards that gave reps specific feedback on discovery, objection handling, clarity, and closing.
 
-```mermaid
-graph TD
-    A[Job Posting & Funding Signal Watcher] --> B[Apollo Account Filter]
-    B -->|SDR Roles Open| C[Clay Waterfall Enrichment]
-    B -->|No Open Roles| D[Low-Touch Nurture Track]
-    C --> E[Personalized Sales Coaching Sequence]
-    E --> F[SDR Outreach & Demo Booking]
-```
+## Product milestone
 
-## How I built it
+PaddleBoat later ranked **#1 Product of the Day** and **#1 Product of the Week** on Product Hunt in **April 2024**.
 
-1. **Multi-Signal Intent Engine**: Combined website intent data with external job board postings and funding alerts.
-2. **ICP Difficulty Matrix**: Collaborated directly with founders and senior SDRs to structure rep personas based on buyer objection hardness, tech vertical, and deal complexity.
-3. **LLM Scorecards & Missed Opportunity Alerts**: Configured automated scorecard summaries highlighting objection handling gaps during reps' practice calls.
-4. **Pipeline Orchestration**: Aligned signal-driven data ingestion with sales outreach cadences to ensure SDRs contacted prospects while hiring context was fresh.
-
-## Results
-
-- Engineered an automated GTM system targeting VP and Head of Sales at 50–500 person SaaS organizations.
-- Turned real sales representative feedback into modular product designs and objection templates.
-- Built a signal-driven outbound engine that connected active hiring surges directly to sales meeting bookings.
-
-[See the underlying workflow: Waterfall Enrichment](/workflows/waterfall-enrichment)
-
-[Hire me for this motion](/hire)
+[View the Product Hunt awards](https://www.producthunt.com/products/paddleboat/awards)

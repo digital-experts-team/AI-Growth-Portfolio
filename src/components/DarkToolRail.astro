@@ -1,22 +1,12 @@
 ---
 // DarkToolRail.astro - Tool Stack in exact same style as WhoIWorkWithSection
-const toolGroups = [
-  {
-    num: '01',
-    label: 'Outbound',
-    pills: ['Clay', 'Apollo', 'HubSpot', 'Instantly', 'Lemlist', 'n8n'],
-  },
-  {
-    num: '02',
-    label: 'Inbound',
-    pills: ['Semrush', 'Ahrefs', 'LLMs API', 'Zoho SalesIQ', 'Claude', 'Grok'],
-  },
-  {
-    num: '03',
-    label: 'Measure',
-    pills: ['Power BI', 'GA4', 'Microsoft Clarity', 'Meta & Google Ads', 'Looker Studio'],
-  },
+const capabilities = [
+  { num: '01', label: 'Lead qualification and routing', description: 'I connect inbound signals to lead scoring, CRM lifecycle stages, and ownership rules so qualified accounts reach the right rep with a clear next step.' },
+  { num: '02', label: 'Signal-based outbound', description: 'I combine account fit with hiring, funding, or website activity so reps can see why an account is worth contacting now.' },
+  { num: '03', label: 'Reliable AI workflows', description: 'I build in retries, clear failure states, and human review so teams can see where a run stopped and decide what happens next.' },
+  { num: '04', label: 'Acquisition and activation', description: 'I trace how users move from first interest to signup and activation, then identify where they get stuck and what the team should investigate.' },
 ];
+const stack = ['HubSpot', 'Clay', 'n8n', 'Apollo', 'SalesIQ', 'REST APIs', 'Webhooks'];
 ---
 
 <section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="tool-stack-heading">
@@ -26,10 +16,10 @@ const toolGroups = [
     <div class="flex items-center justify-between pb-6 border-b border-zinc-200">
       <div class="flex flex-col gap-1.5">
         <span class="text-[12px] font-bold text-zinc-500 tracking-widest uppercase font-mono">
-          Outbound GTM tools and inbound AI search SEO stack
+          GTM engineering and Revenue Operations
         </span>
         <h2 id="tool-stack-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight">
-          My Tool <span class="heading-highlight">Stack.</span>
+          What I <span class="heading-highlight">build.</span>
         </h2>
       </div>
 
@@ -44,9 +34,9 @@ const toolGroups = [
     </div>
 
     <!-- 3 Columns Grid (Matching WhoIWorkWithSection Layout) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-      {toolGroups.map((group, index) => (
-        <div class={`flex flex-col gap-4 group ${index < toolGroups.length - 1 ? 'md:border-r md:border-zinc-200 md:pr-8 lg:pr-10' : ''}`}>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+      {capabilities.map((group, index) => (
+        <div class={`flex flex-col gap-4 group ${index < capabilities.length - 1 ? 'md:border-r md:border-zinc-200 md:pr-8 lg:pr-10' : ''}`}>
           
           <!-- Numbered Badge & Group Label Header -->
           <div class="flex items-center gap-2.5">
@@ -58,17 +48,17 @@ const toolGroups = [
             </h3>
           </div>
 
-          <!-- Horizontal Pill Row -->
-          <div class="flex flex-wrap items-center gap-2 pt-1">
-            {group.pills.map((pill) => (
-              <span class="px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-800 text-xs font-mono font-semibold hover:bg-zinc-200 hover:border-zinc-300 transition-colors cursor-default shadow-2xs">
-                {pill}
-              </span>
-            ))}
-          </div>
+          <p class="text-sm leading-relaxed text-zinc-600">{group.description}</p>
 
         </div>
       ))}
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <h3 class="text-sm font-bold text-zinc-950">Core stack</h3>
+      <ul class="flex flex-wrap gap-2">
+        {stack.map((tool) => <li class="rounded-full border border-zinc-200 bg-zinc-100 px-3.5 py-1.5 text-xs font-mono font-semibold text-zinc-800">{tool}</li>)}
+      </ul>
     </div>
 
     <!-- Lime Link: See the workflows → -->

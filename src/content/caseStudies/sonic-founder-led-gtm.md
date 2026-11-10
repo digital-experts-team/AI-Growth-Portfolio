@@ -9,8 +9,8 @@ targetKeyword: "founder led gtm automation"
 audience: ["Founders", "Head of Growth", "GTM Engineer"]
 sourceRole: "Sonic"
 company: "Sonic (sonic.ooo)"
-role: "Founder-led GTM Automation"
-dates: "Jan 2024 – Sep 2024"
+role: "Product Growth - GTM"
+dates: "Sep 2023 – Jul 2024"
 image: "https://images.unsplash.com/photo-1758873269317-51888e824b28?auto=format&fit=crop&w=1200&h=800&q=80"
 tag: "#FounderGTM"
 author: "Tibin Jacob"
@@ -51,7 +51,7 @@ graph TD
 
 - Captured on-site signals with Sales IQ and routed them directly into priority conversion paths.
 - Delivered real-time investor and partner briefings across channels and outbound email.
-- Utilized analytics and session telemetry to resolve conversion friction prior to human engagement.
+- Used analytics and session telemetry to identify onboarding friction.
 
 [See the underlying workflow: Website Signal-to-Outbound Engine](/workflows/website-signal-to-outbound-engine)
 

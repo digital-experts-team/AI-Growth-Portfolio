@@ -22,7 +22,7 @@ const title = entry.data.metaTitle && entry.data.metaTitle.length <= 60
   ? entry.data.metaTitle
   : `${entry.data.title}`.slice(0, 50) + ' | Tibin';
 const description = entry.data.description;
-const canonicalUrl = `https://tibinjacob.com/work/${slug}`;
+const canonicalUrl = `https://gtm-expert-tibin.vercel.app/work/${slug}`;
 ---
 
 <BaseLayout
@@ -56,14 +56,20 @@ const canonicalUrl = `https://tibinjacob.com/work/${slug}`;
         <span class="text-slate-900 font-bold">{entry.data.company}</span>
         <span>·</span>
         <span>Role: <strong class="text-slate-800">{entry.data.role}</strong></span>
-        <span>·</span>
-        <span>{entry.data.dates}</span>
+        {entry.data.dates && <span>· {entry.data.dates}</span>}
       </div>
 
       <!-- 3. H1 — case study title -->
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
         {entry.data.title}
       </h1>
+
+      {entry.data.resultSummary && (
+        <div class="mb-6 rounded-xl border border-zinc-200 bg-[#d2f39c] p-4 text-zinc-950">
+          <p class="font-bold">{entry.data.resultSummary}</p>
+          <p class="mt-1 text-sm">Combined result of inbound and signal-based outreach.</p>
+        </div>
+      )}
 
       {entry.data.image && (
         <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden bg-zinc-900 my-6 border border-zinc-200 shadow-md">
@@ -94,8 +100,8 @@ const canonicalUrl = `https://tibinjacob.com/work/${slug}`;
         </a>
       )}
 
-      <a href="/hire" class="cta-button text-xs px-4 py-2 rounded-lg font-bold">
-        Hire me for this
+      <a href="https://www.linkedin.com/in/tibinjacob/" class="cta-button text-xs px-4 py-2 rounded-lg font-bold">
+        Message me on LinkedIn
       </a>
     </footer>
   </article>

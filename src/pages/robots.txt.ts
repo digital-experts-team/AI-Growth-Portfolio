@@ -1,12 +1,12 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = ({ site }) => {
-  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://tibinjacob.com';
+  const siteUrl = site ? site.href.replace(/\/$/, '') : 'https://gtm-expert-tibin.vercel.app';
 
   const robots = `User-agent: *
 Allow: /
 
-# GEO Machine Documentation
+# Portfolio documentation
 Allow: /llms.txt
 Allow: /llms-full.txt
 
