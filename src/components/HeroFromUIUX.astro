@@ -112,6 +112,22 @@ const {
     );
   }
 
+  @media (width < 1024px) {
+    .hero-fade {
+      height: clamp(104px, 15vw, 132px);
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgb(247 248 246 / 5%) 18%,
+        rgb(247 248 246 / 19%) 36%,
+        rgb(247 248 246 / 46%) 55%,
+        rgb(247 248 246 / 75%) 74%,
+        rgb(247 248 246 / 94%) 90%,
+        var(--bg) 100%
+      );
+    }
+  }
+
   @media (min-width: 1024px) {
     .hero-portrait {
       height: 100%;
