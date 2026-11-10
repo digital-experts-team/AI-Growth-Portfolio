@@ -7,7 +7,7 @@ const order = ['mavlers-partner-agency-signals', 'staff-connect-hiring-signals',
 const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (entry.data.slug || entry.id) === slug));
 ---
 
-<section class="w-full bg-white text-zinc-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="experience-heading">
+<section class="w-full bg-[var(--bg)] text-zinc-900 pt-8 pb-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-b border-zinc-200" aria-labelledby="experience-heading">
   <div class="max-w-[1360px] mx-auto flex flex-col gap-8">
     <!-- Section Header -->
     <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200 mb-2">
@@ -15,7 +15,7 @@ const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (en
         <span class="text-xs font-bold text-zinc-500 tracking-widest uppercase font-mono">
           GTM engineering case studies
         </span>
-        <h2 id="experience-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight leading-tight font-display">
+        <h2 id="experience-heading" class="text-2xl sm:text-3xl lg:text-[44px] font-medium text-zinc-950 tracking-tight leading-tight font-display">
           Selected <span class="heading-highlight">work.</span>
         </h2>
       </div>
@@ -33,7 +33,15 @@ const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (en
     </a>
   </div>
 
-  <div class="flex flex-col gap-6">
+  <nav class="grid grid-cols-2 gap-2 sm:grid-cols-4" aria-label="Jump to a case study">
+    {caseStudies.map((cs) => (
+      <a href={`#case-${cs.data.slug || cs.id}`} class="rounded-xl border border-zinc-200 bg-white px-4 py-3 text-center text-sm font-medium text-zinc-800 transition-colors hover:border-[#91aeff] hover:text-[#315bd6]">
+        {cs.data.company}
+      </a>
+    ))}
+  </nav>
+
+  <div class="flex flex-col gap-5">
     {caseStudies.map((cs) => {
       const slug = cs.data.slug || cs.id;
       const imageUrl = cs.data.image || (slug === 'staff-connect-hiring-signals' ? '/images/hero-bg.webp' : undefined) || `/images/case-studies/${slug.split('-')[0]}.jpg`;
@@ -41,12 +49,12 @@ const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (en
       const avatarUrl = cs.data.authorAvatar || "/images/tibin-avatar.jpg";
 
       return (
-        <article class="bg-[#d2f39c] hover:bg-[#c8ea8d] border border-black/15 p-4 sm:p-6 rounded-[24px] sm:rounded-[28px] transition-all duration-300 group shadow-md hover:shadow-xl">
+        <article id={`case-${slug}`} class="scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-4 transition-colors hover:border-[#91aeff] sm:p-6 group">
           <a href={`/work/${slug}`} class="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center">
             
             <!-- Left Side: Image with Tag Overlay -->
             <div class="md:col-span-4 relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-black/40 border border-black/10">
-              <span class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/90 backdrop-blur-md text-xs font-mono font-bold text-[#d2f39c] tracking-wide border border-black/20">
+              <span class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-[#eef3ff] text-xs font-medium text-[#284cba] border border-white/70">
                 {tag}
               </span>
               <img
@@ -67,7 +75,7 @@ const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (en
                   <span class="text-zinc-700 font-bold">{cs.data.dates}</span>
                 </div>
 
-                <h3 class="text-zinc-950 text-[23px] sm:text-[27px] font-black tracking-tight leading-snug group-hover:text-black transition-colors font-display">
+                <h3 class="text-zinc-950 text-[23px] sm:text-[27px] font-semibold tracking-tight leading-snug group-hover:text-black transition-colors font-display">
                   {cs.data.title}
                 </h3>
 
@@ -83,7 +91,7 @@ const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (en
               </div>
 
               <!-- Author & Action Footer Row -->
-              <div class="pt-4 border-t border-black/15 flex items-center justify-between gap-4 mt-2">
+              <div class="pt-4 border-t border-zinc-200 flex items-center justify-between gap-4 mt-2">
                 <div class="flex items-center gap-3">
                   <img
                     src={avatarUrl}
@@ -102,7 +110,7 @@ const caseStudies = order.flatMap((slug) => allCaseStudies.filter((entry) => (en
                 </div>
 
                 <div class="flex items-center gap-2 shrink-0">
-                  <div class="w-9 h-9 rounded-full bg-black text-[#d2f39c] group-hover:bg-zinc-900 group-hover:scale-105 flex items-center justify-center transition-all duration-300 border border-black/20 shadow-sm">
+                  <div class="w-9 h-9 rounded-full bg-[#eef3ff] text-[#315bd6] group-hover:bg-[#dce7ff] group-hover:scale-105 flex items-center justify-center transition-all duration-300 border border-[#dce7ff]">
                     <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                       <line x1="7" y1="17" x2="17" y2="7"></line>
                       <polyline points="7 7 17 7 17 17"></polyline>

@@ -76,7 +76,7 @@ const timeline = [
         const avatarUrl = cs.data.authorAvatar || "/images/tibin-avatar.jpg";
 
         return (
-          <article class="bento-card p-4 sm:p-6 rounded-[24px] sm:rounded-[28px] transition-all group">
+          <article class="border border-zinc-200 bg-white hover:border-[#91aeff] p-4 sm:p-6 rounded-[24px] sm:rounded-[28px] transition-all group">
             <a href={`/work/${slug}`} class="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center">
               
               <!-- Left Side: Image with Tag Overlay -->
@@ -98,15 +98,15 @@ const timeline = [
               <div class="md:col-span-8 flex flex-col justify-between h-full py-1 gap-4">
                 <div class="flex flex-col gap-2.5">
                   <div class="flex items-center justify-between text-xs font-mono">
-                    <span class="text-[#d2f39c] font-bold uppercase">{cs.data.company}</span>
-                    <span class="text-zinc-400 font-medium">{cs.data.dates}</span>
+                    <span class="text-[#315bd6] font-bold uppercase">{cs.data.company}</span>
+                    <span class="text-zinc-600 font-medium">{cs.data.dates}</span>
                   </div>
 
-                  <h2 class="text-white text-[23px] sm:text-[27px] font-bold tracking-tight leading-snug group-hover:text-[#d2f39c] transition-colors">
+                  <h2 class="text-zinc-950 text-[23px] sm:text-[27px] font-bold tracking-tight leading-snug group-hover:text-[#315bd6] transition-colors">
                     {cs.data.title}
                   </h2>
 
-                  <p class="text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-normal">
+                  <p class="text-zinc-600 text-sm sm:text-[15px] leading-relaxed font-normal">
                     {cs.data.description}
                   </p>
                   {cs.data.resultSummary && (
@@ -127,17 +127,17 @@ const timeline = [
                       referrerpolicy="no-referrer"
                     />
                     <div class="flex flex-col">
-                      <span class="text-xs font-bold text-white">
+                      <span class="text-xs font-bold text-zinc-950">
                         by {cs.data.author || "Tibin Jacob"}
                       </span>
-                      <span class="text-[11px] text-zinc-400 font-mono">
+                      <span class="text-[11px] text-zinc-600 font-mono">
                         {cs.data.role}
                       </span>
                     </div>
                   </div>
 
                   <div class="flex items-center gap-2 shrink-0">
-                    <div class="w-9 h-9 rounded-full bg-zinc-900 group-hover:bg-[#d2f39c] group-hover:text-black text-zinc-400 flex items-center justify-center transition-all duration-300 border border-zinc-800 group-hover:border-transparent">
+                    <div class="w-9 h-9 rounded-full bg-[#eef3ff] group-hover:bg-[#dce7ff] text-[#315bd6] flex items-center justify-center transition-all duration-300 border border-[#dce7ff]">
                       <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="7" y1="17" x2="17" y2="7"></line>
                         <polyline points="7 7 17 7 17 17"></polyline>

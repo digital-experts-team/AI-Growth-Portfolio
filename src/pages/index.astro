@@ -25,18 +25,12 @@ const description = "Tibin Jacob builds GTM and RevOps workflows for B2B SaaS te
     photoUrl="/images/hero-bg.webp"
   />
 
-  <!-- 2. WHO I WORK WITH SECTION (DIRECTLY BELOW HERO) -->
-  <WhoIWorkWithSection />
-
-  <div class="flex flex-col bg-white text-zinc-900">
+  <div class="flex flex-col bg-[var(--bg)] text-zinc-900">
+    <RecentExperiencesSection />
+    <DarkToolRail />
+    <WhoIWorkWithSection />
     <!-- 3. MY LIBRARY / WORKFLOW LIBRARY -->
     <MyLibrarySection />
-
-    <!-- 4. MY TOOL STACK -->
-    <DarkToolRail />
-
-    <!-- 5. RECENT EXPERIENCE / CASE STUDIES -->
-    <RecentExperiencesSection />
 
     <!-- 6. WALKTHROUGH REELS / VIDEOS (Hidden on homepage) -->
     <!-- <WalkthroughVideosSection /> -->
@@ -45,23 +39,25 @@ const description = "Tibin Jacob builds GTM and RevOps workflows for B2B SaaS te
     <QuestionsSection />
 
     <!-- 8. CALLOUT BANNER -->
-    <div class="py-16 sm:py-20 lg:py-24 flex flex-col items-center text-center gap-5 border-b border-zinc-200 bg-white px-4">
+    <div class="py-16 sm:py-20 lg:py-24 flex flex-col items-center text-center gap-5 border-b border-zinc-200 bg-[var(--bg)] px-4">
       <span class="px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 text-xs font-mono font-bold tracking-widest uppercase">
         AVAILABLE FOR NEW PROJECTS & ROLES
       </span>
-      <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-zinc-950 tracking-tight max-w-4xl leading-tight font-display">
+      <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-medium text-zinc-950 tracking-tight max-w-4xl leading-tight font-display">
         Hiring for <span class="heading-highlight">GTM Engineering or Revenue Operations?</span>
       </h2>
       <p class="text-zinc-600 text-[15px] sm:text-[17px] max-w-xl leading-relaxed font-normal">
         I’m open to remote roles with teams that need someone to build and maintain the workflows behind lead qualification, account prioritization, and sales follow-up. Message me on LinkedIn and tell me what your team is trying to improve.
       </p>
-      <a class="inline-flex rounded-full bg-[#d2f39c] px-6 py-3 font-bold text-zinc-950 hover:bg-[#c2e887]" href="https://www.linkedin.com/in/tibinjacob/">Message me on LinkedIn</a>
+      <a class="inline-flex rounded-full bg-[#eef3ff] px-6 py-3 font-semibold text-[#284cba] hover:bg-[#dce7ff]" href="https://www.linkedin.com/in/tibinjacob/">Message me on LinkedIn</a>
     </div>
 
     <!-- 9. DIRECT PIPELINE -->
     <DirectPipelineSection />
 
     <!-- 10. QUICK CONTACT ROW -->
-    <QuickContactRow />
+    <div class="mx-auto w-full max-w-[1360px] px-4 pb-12 sm:px-6 lg:px-12">
+      <QuickContactRow />
+    </div>
   </div>
 </BaseLayout>
