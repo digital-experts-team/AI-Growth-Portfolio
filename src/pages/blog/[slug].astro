@@ -22,7 +22,7 @@ const title = entry.data.metaTitle && entry.data.metaTitle.length <= 60
   ? entry.data.metaTitle
   : `${entry.data.title} | Tibin Jacob`.slice(0, 60);
 const description = entry.data.description;
-const canonicalUrl = `https://gtm-expert-tibin.vercel.app/blog/${slug}`;
+const canonicalUrl = `https://tibinjacob.com/blog/${slug}`;
 const formattedDate = entry.data.updatedDate
   ? entry.data.updatedDate.toISOString().split('T')[0]
   : entry.data.publishedDate

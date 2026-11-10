@@ -9,7 +9,7 @@ import { dirname, extname } from 'node:path';
 
 const TOKEN = process.env.NOTION_TOKEN;
 if (!TOKEN) { console.log('NOTION_TOKEN not set — skipping sync.'); process.exit(0); }
-const SITE = (process.env.SITE_URL || 'https://gtm-expert-tibin.vercel.app').replace(/\/$/, '');
+const SITE = (process.env.SITE_URL || 'https://tibinjacob.com').replace(/\/$/, '');
 const DBS = {
   blog: '3e47f6baaf95815d8842daff3023852c',
   work: '3e47f6baaf95817ca4a2df293f942bf1',

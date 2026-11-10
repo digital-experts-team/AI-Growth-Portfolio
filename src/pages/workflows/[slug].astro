@@ -23,7 +23,7 @@ const slug = d.slug || entry.id;
 const title = d.metaTitle && d.metaTitle.length <= 60
   ? d.metaTitle
   : `${d.title} Workflow`.slice(0, 50) + ' | Tibin';
-const canonicalUrl = `https://gtm-expert-tibin.vercel.app/workflows/${slug}`;
+const canonicalUrl = `https://tibinjacob.com/workflows/${slug}`;
 const formattedDate = d.updatedDate
   ? d.updatedDate.toISOString().split('T')[0]
   : d.publishedDate

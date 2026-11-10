@@ -34,9 +34,9 @@ function getRawBody(entry: any, dir: string): string {
 
 function cleanHtml(html: string): string {
   return html
-    .replace(/src="\/images\//g, 'src="https://gtm-expert-tibin.vercel.app/images/')
-    .replace(/src='\/images\//g, "src='https://gtm-expert-tibin.vercel.app/images/")
-    .replace(/href="\/([a-zA-Z0-9_\-\/]+)"/g, 'href="https://gtm-expert-tibin.vercel.app/$1"');
+    .replace(/src="\/images\//g, 'src="https://tibinjacob.com/images/')
+    .replace(/src='\/images\//g, "src='https://tibinjacob.com/images/")
+    .replace(/href="\/([a-zA-Z0-9_\-\/]+)"/g, 'href="https://tibinjacob.com/$1"');
 }
 
 function renderPostContent(post: any): string {
@@ -55,7 +55,7 @@ function renderPostContent(post: any): string {
   }
 
   if (post.data.proofLink) {
-    md += `\n\n---\n*Production architecture reference: [View Case Study or Workflow](https://gtm-expert-tibin.vercel.app${post.data.proofLink})*\n`;
+    md += `\n\n---\n*Production architecture reference: [View Case Study or Workflow](https://tibinjacob.com${post.data.proofLink})*\n`;
   }
 
   return cleanHtml(marked.parse(md) as string);
@@ -125,7 +125,7 @@ export const GET: APIRoute = async (context) => {
   const workflows = await getCollection('workflows', ({ data }) => data.status === 'live');
   const caseStudies = await getCollection('caseStudies', ({ data }) => data.status === 'live');
 
-  const site = 'https://gtm-expert-tibin.vercel.app';
+  const site = 'https://tibinjacob.com';
 
   const postItems = posts.map((post) => {
     const slug = post.data.slug || post.id;

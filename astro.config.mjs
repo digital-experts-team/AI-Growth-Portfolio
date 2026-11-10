@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://gtm-expert-tibin.vercel.app',
+  site: process.env.SITE_URL || 'https://tibinjacob.com',
   output: 'static',
   adapter: vercel(),
   server: {
